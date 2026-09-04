@@ -200,8 +200,18 @@ have fired into call-007's greeting. Guarded by
 | **call-008 (post-fix)** | 7.40-~15.5s | **17.50s** | **none** |
 
 LIVE CONFIRMATION (call-008, insurance): the gate works. Our patient waited out PGai's entire
-three-part opening (greeting + two profile prompts) and spoke ~2s after it finished. Zero overlap
-anywhere in the first 25s. Watch item 2 is closed.
+three-part opening and answered ~1.2s after its final segment ended (~16.4s), i.e. server VAD
+replying to a real turn end. Zero overlap anywhere in the first 25s. Watch item 2 is closed.
+
+Version attribution — call-008 exercised PR #14 (`b34af44`), NOT the current head:
+- #13 `a680831` merged 05:00:17Z, #14 `b34af44` merged 05:05:11Z, call-008 started 05:09:35Z
+  (4.4 min after #14). #15 `7b3e8ae` merged 07:55:44Z, 166 min AFTER the call.
+- The 17.50s onset is impossible under pre-fix code, which locks onset to
+  `notice_end + 1.2s + latency` (7.80/7.85/8.35/8.25s in calls 4-7) independently of when the
+  greeting occurs. That signature, not the timestamps alone, is what proves the process was
+  running the new bridge.
+- Therefore call-008 validates the event-driven release only. The `opening_hold_seconds`
+  2.0 -> 3.0 change and the call-004-pattern hold from #15 remain UNCONFIRMED live.
 
 ## Quality Call #3 — call-008 (insurance, 3:16)
 
