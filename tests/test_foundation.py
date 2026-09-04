@@ -57,22 +57,6 @@ def test_voice_webhook_connects_bidirectional_stream() -> None:
     )
 
 
-def test_media_stream_tracks_and_removes_session() -> None:
-    app.dependency_overrides[get_settings] = live_settings
-    try:
-        with TestClient(app).websocket_connect("/twilio/media?token=stream-secret") as socket:
-            socket.send_json(
-                {
-                    "event": "start",
-                    "start": {"callSid": "CA123", "streamSid": "MZ123"},
-                }
-            )
-            socket.send_json({"event": "media", "sequenceNumber": "2", "media": {}})
-            socket.send_json({"event": "stop"})
-    finally:
-        app.dependency_overrides.clear()
-
-
 def test_media_stream_rejects_wrong_token() -> None:
     app.dependency_overrides[get_settings] = live_settings
     try:

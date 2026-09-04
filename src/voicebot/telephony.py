@@ -1,6 +1,7 @@
 import asyncio
 from dataclasses import dataclass
 from typing import Protocol, cast
+from urllib.parse import urlencode
 
 from twilio.rest import Client
 
@@ -52,7 +53,9 @@ class TwilioGateway:
             ).calls,
         )
 
-    async def create_authorized_call(self) -> CreatedCall:
+    async def create_authorized_call(
+        self, scenario_id: str = "appointment-scheduling"
+    ) -> CreatedCall:
         """Call only the compile-time authorized destination."""
         self._settings.require_live_twilio()
         assert self._settings.public_base_url is not None
@@ -62,7 +65,7 @@ class TwilioGateway:
             self._calls_resource().create,
             to=AUTHORIZED_DESTINATION,
             from_=self._settings.twilio_from_number,
-            url=f"{base}/twilio/voice",
+            url=f"{base}/twilio/voice?{urlencode({'scenario': scenario_id})}",
             method="POST",
             status_callback=f"{base}/twilio/status",
             status_callback_event=["initiated", "ringing", "answered", "completed"],

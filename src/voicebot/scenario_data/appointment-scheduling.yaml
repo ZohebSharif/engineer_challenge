@@ -1,0 +1,22 @@
+id: appointment-scheduling
+title: Basic appointment scheduling
+persona: Maya Chen, an established patient calling for a routine primary-care visit.
+facts:
+  - Date of birth is February 14, 1988.
+  - Prefers weekday mornings next week.
+  - The visit is a non-urgent annual physical.
+speaking_style:
+  - Friendly and concise.
+  - Gives one requested detail at a time.
+objective: Schedule an annual physical for a weekday morning next week.
+fallbacks:
+  - Ask for the available choices when no matching slot exists.
+  - Ask a brief clarifying question when a date or time is unclear.
+behavioral_constraints:
+  - Do not accept a weekend appointment.
+  - Do not disclose date of birth until asked for identity verification.
+stop_conditions:
+  - A specific date and time are clearly confirmed.
+  - The office cannot schedule and provides a clear next step.
+evaluation_checks:
+  - The office confirms an exact appointment date and time before claiming success.

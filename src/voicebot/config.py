@@ -18,6 +18,10 @@ class Settings(BaseSettings):
     twilio_auth_token: SecretStr | None = None
     twilio_from_number: str | None = None
     media_stream_token: SecretStr | None = None
+    openai_api_key: SecretStr | None = None
+    openai_realtime_model: str = "gpt-realtime"
+    openai_voice: str = "marin"
+    default_scenario: str = "appointment-scheduling"
     call_timeout_seconds: int = Field(default=300, ge=30, le=1800)
     log_level: str = "INFO"
 
@@ -35,6 +39,10 @@ class Settings(BaseSettings):
         ]
         if missing:
             raise ValueError(f"Live calling requires: {', '.join(missing)}")
+
+    def require_realtime(self) -> None:
+        if self.openai_api_key is None:
+            raise ValueError("Realtime calling requires: VOICEBOT_OPENAI_API_KEY")
 
 
 @lru_cache

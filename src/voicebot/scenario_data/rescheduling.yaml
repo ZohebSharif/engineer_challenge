@@ -1,0 +1,22 @@
+id: rescheduling
+title: Appointment rescheduling
+persona: Daniel Ortiz, a patient who can no longer attend an existing appointment.
+facts:
+  - Existing appointment is Tuesday October 13 at 2:00 PM.
+  - Prefers Thursday or Friday after 3:00 PM.
+  - Date of birth is June 9, 1975.
+speaking_style:
+  - Polite but mildly rushed.
+  - Uses short conversational answers.
+objective: Move the existing appointment to an acceptable later-week slot.
+fallbacks:
+  - Keep the original appointment if no acceptable replacement exists.
+  - Correct the office if it references the wrong original appointment.
+behavioral_constraints:
+  - Never cancel the original until a replacement is available.
+  - Confirm both the old and new appointment details.
+stop_conditions:
+  - The replacement is confirmed and the original is released.
+  - No replacement exists and the original remains intact.
+evaluation_checks:
+  - The original appointment is not lost before replacement confirmation.

@@ -1,19 +1,19 @@
-import asyncio
-import json
-from typing import Annotated, Any
+from typing import Annotated, cast
 
 import structlog
-from fastapi import Depends, FastAPI, Form, Response, WebSocket, WebSocketDisconnect, status
-from twilio.twiml.voice_response import Connect, VoiceResponse
+from fastapi import Depends, FastAPI, Form, Query, Response, WebSocket
+from twilio.twiml.voice_response import Connect, Stream, VoiceResponse
 
+from voicebot.bridge import run_media_bridge
 from voicebot.config import Settings, get_settings
 from voicebot.logging import configure_logging
+from voicebot.scenarios import ScenarioRepository
 from voicebot.sessions import SessionStore
 
 settings = get_settings()
 configure_logging(settings.log_level)
 logger = structlog.get_logger()
-app = FastAPI(title="Voicebot", version="0.1.0")
+app = FastAPI(title="Voicebot", version="0.2.0")
 app.state.sessions = SessionStore()
 
 
@@ -23,9 +23,16 @@ async def healthz() -> dict[str, str]:
 
 
 @app.post("/twilio/voice")
-async def voice_webhook(config: Annotated[Settings, Depends(get_settings)]) -> Response:
+async def voice_webhook(
+    config: Annotated[Settings, Depends(get_settings)],
+    scenario: Annotated[str, Query()] = "appointment-scheduling",
+) -> Response:
     if config.public_base_url is None or config.media_stream_token is None:
         return Response("Live stream configuration is incomplete", status_code=503)
+    try:
+        selected = ScenarioRepository().load(scenario)
+    except ValueError as exc:
+        return Response(str(exc), status_code=400)
     base = (
         str(config.public_base_url)
         .rstrip("/")
@@ -34,7 +41,13 @@ async def voice_webhook(config: Annotated[Settings, Depends(get_settings)]) -> R
     )
     response = VoiceResponse()
     connect = Connect()
-    connect.stream(url=f"{base}/twilio/media?token={config.media_stream_token.get_secret_value()}")
+    stream = cast(
+        Stream,
+        connect.stream(
+            url=f"{base}/twilio/media?token={config.media_stream_token.get_secret_value()}"
+        ),
+    )
+    stream.parameter(name="scenario", value=selected.id)
     response.append(connect)
     return Response(content=str(response), media_type="application/xml")
 
@@ -52,49 +65,4 @@ async def call_status(
 async def media_stream(
     websocket: WebSocket, config: Annotated[Settings, Depends(get_settings)]
 ) -> None:
-    expected = config.media_stream_token.get_secret_value() if config.media_stream_token else None
-    if expected is None or websocket.query_params.get("token") != expected:
-        await websocket.close(code=status.WS_1008_POLICY_VIOLATION)
-        return
-    await websocket.accept()
-    call_sid: str | None = None
-    try:
-        while True:
-            raw = await asyncio.wait_for(
-                websocket.receive_text(), timeout=config.call_timeout_seconds
-            )
-            event: dict[str, Any] = json.loads(raw)
-            event_type = str(event.get("event", "unknown"))
-            if event_type == "start":
-                start = event.get("start", {})
-                call_sid = str(start.get("callSid", ""))
-                stream_sid = str(start.get("streamSid", ""))
-                if not call_sid:
-                    await websocket.close(code=status.WS_1008_POLICY_VIOLATION)
-                    return
-                await app.state.sessions.create(call_sid, stream_sid)
-                await logger.ainfo(
-                    "twilio_stream_started", call_sid=call_sid, stream_sid=stream_sid
-                )
-            elif event_type == "media" and call_sid:
-                session = await app.state.sessions.get(call_sid)
-                if session:
-                    session.media_messages += 1
-                await logger.adebug(
-                    "twilio_media_received",
-                    call_sid=call_sid,
-                    sequence_number=event.get("sequenceNumber"),
-                )
-            elif event_type == "stop":
-                await logger.ainfo("twilio_stream_stopped", call_sid=call_sid)
-                break
-            else:
-                await logger.ainfo("twilio_control_event", event=event_type, call_sid=call_sid)
-    except TimeoutError:
-        await logger.awarning("twilio_stream_timeout", call_sid=call_sid)
-        await websocket.close(code=status.WS_1000_NORMAL_CLOSURE)
-    except WebSocketDisconnect:
-        await logger.ainfo("twilio_stream_disconnected", call_sid=call_sid)
-    finally:
-        if call_sid:
-            await app.state.sessions.remove(call_sid)
+    await run_media_bridge(websocket, config, app.state.sessions)
