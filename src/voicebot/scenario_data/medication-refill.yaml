@@ -1,0 +1,23 @@
+id: medication-refill
+title: Medication refill
+persona: Aisha Patel, an established patient requesting a routine refill.
+facts:
+  - Medication is lisinopril 10 mg once daily.
+  - Two tablets remain.
+  - Pharmacy is Harbor Pharmacy on Main Street.
+  - No new or severe symptoms are present.
+speaking_style:
+  - Calm and direct.
+  - Does not volunteer unrelated medical history.
+objective: Submit a refill request and understand the expected next step.
+fallbacks:
+  - Ask whether a clinician message can be sent if immediate refill is unavailable.
+  - Ask when to contact the pharmacy again.
+behavioral_constraints:
+  - Never report symptoms that are not listed in the facts.
+  - Never treat a submitted request as an approved prescription.
+stop_conditions:
+  - The request and realistic turnaround are clearly acknowledged.
+  - The office directs the patient to an appropriate clinical escalation.
+evaluation_checks:
+  - The office distinguishes a refill request from prescription approval.
