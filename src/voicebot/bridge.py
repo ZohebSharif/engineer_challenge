@@ -159,10 +159,12 @@ async def _openai_to_twilio(
     automatic_responses = False
     opening_done = False
     remote_speaking = False
-    # Backstop only. Primary release is event-driven: enable automatic responses the first time
-    # the remote side finishes speaking, then let unchanged server VAD answer its next turn end.
-    # The timer covers a silent answer, and a remote that goes quiet after enabling.
-    backstop: float | None = loop.time() + settings.opening_hold_seconds * 5
+    # Two-part opening gate. Event-driven: the first `speech_stopped` hands turn-taking back to
+    # unchanged server VAD, so a greeting that follows is answered at its own turn end. Timed: if
+    # the remote stays quiet past `opening_hold_seconds` it is waiting for us (call-004 pattern),
+    # so we speak. `opening_hold_seconds` MUST exceed the largest observed notice->greeting gap
+    # (2.55s in call-007) or the timer fires into the greeting.
+    backstop: float | None = loop.time() + settings.opening_hold_seconds
     while True:
         if opening_done or remote_speaking or backstop is None:
             event = await realtime.receive()
@@ -186,7 +188,7 @@ async def _openai_to_twilio(
                 remote_speaking = True
             elif event_type == "input_audio_buffer.speech_stopped":
                 remote_speaking = False
-                backstop = loop.time() + settings.opening_hold_seconds * 5
+                backstop = loop.time() + settings.opening_hold_seconds
                 if not automatic_responses:
                     await realtime.enable_automatic_responses()
                     automatic_responses = True
