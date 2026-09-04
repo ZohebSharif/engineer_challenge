@@ -1,0 +1,54 @@
+{
+  "issues": [
+    {
+      "category": "workflow_failure",
+      "confidence": 0.95,
+      "description": "Neither intent (rescheduling the specified Thursday 10:00 AM appointment nor providing the medical-records fax number) was completed before the call ended.",
+      "evidence": "Caller repeatedly: \"I need to reschedule my Thursday ten am appointment... and get the medical records.\" (22.0s, 43.0s). Agent promised: \"I can provide the clinic's fax number after we finish with your appointment.\" (160.6s\u2013165.3s). At the end the caller is still asking: \"I'm still here to reschedule my Thursday 10 a m appointment to Monday afternoon, and get the medical record\" (263.2s), indicating neither task was completed.",
+      "recommendation": "Agent should complete the reschedule or confirm transfer to live staff and immediately provide the fax number. If unable to complete on the call, schedule a callback or transfer with an explicit confirmation of both actions and a reference number."
+    },
+    {
+      "category": "state_management_error",
+      "confidence": 0.93,
+      "description": "Agent created a new 'demo' patient profile for an established patient, then relied on that profile which did not contain the caller's Thursday appointment, causing inability to locate the correct appointment.",
+      "evidence": "Caller: \"I'm already a patient.\" (18.8s) and \"I'm already an established patient.\" (38.8s). Agent: repeatedly requests to create a demo profile and then: \"Your patient profile is set up and your date of birth is July 4, 2000 for demo purposes.\" (62.8s\u201374.5s). Agent later: \"The only upcoming appointment I see on file is for Tuesday... There are no Thursday appointments on file.\" (91.7s\u201398.5s, 190.1s\u2013193.2s).",
+      "recommendation": "Do not create duplicate/demo profiles for callers who state they are established patients. Instead, authenticate with identifying details (DOB, phone, last 4 of SSN) and search the master schedule across locations/providers before concluding no appointment exists."
+    },
+    {
+      "category": "clarification_failure",
+      "confidence": 0.92,
+      "description": "Agent failed to elicit or confirm key details about the Thursday appointment (exact date, provider, clinic location) despite the caller repeatedly insisting the appointment exists on Thursday at 10 AM, and repeatedly offered to reschedule the Tuesday appointment instead.",
+      "evidence": "Caller: \"my appointment is actually on Thursday at 10 a.m. I need to reschedule that one...\" (107.2s\u2013108.0s). Agent: \"The only upcoming appointment I see on file is for Tuesday, September 8th at 10 a.m.... Would you like to reschedule this appointment? If you have another appointment, please let me know any other details...\" (116.4s\u2013127.1s). Caller again: \"The appointment I need to reschedule is on Thursday at 10 a.m. Let's reschedule that.\" (133.6s\u2013138.6s). Agent never asks for the Thursday appointment's date/provider/location details to reconcile the mismatch.",
+      "recommendation": "Ask for concrete identifying appointment details (exact Thursday date, provider name, clinic location, confirmation number) and search all schedules/locations. If still not found, escalate to live scheduling staff or offer a callback after a manual records search."
+    },
+    {
+      "category": "false_confirmation",
+      "confidence": 0.88,
+      "description": "Agent made and relied on a system-generated claim about the patient's appointments (only a Tuesday appointment exists) without adequately reconciling the patient's repeated assertions to the contrary, creating a false confirmation that the Thursday appointment did not exist.",
+      "evidence": "Agent repeatedly: \"I only see an appointment for Tuesday... There are no Thursday appointments on file.\" (116.4s\u2013123.4s, 179.7s\u2013185.8s). Caller insists otherwise: \"I need to reschedule my Thursday 10 a.m. appointment... Please check again.\" (171.7s\u2013175.8s).",
+      "recommendation": "When system results conflict with patient assertions, explicitly acknowledge the mismatch, perform expanded searches (other locations/providers/time windows), and, if necessary, escalate to a human scheduler rather than insisting system view is definitive."
+    },
+    {
+      "category": "conversation_quality",
+      "confidence": 0.9,
+      "description": "Agent promised to provide the fax number later in the call but did not provide it and did not confirm next steps before the call was disconnected/poorly transferred.",
+      "evidence": "Agent: \"For medical records, I can provide the clinic's fax number after we finish with your appointment.\" (160.6s\u2013165.3s). Caller: \"And I still need the fax.\" (244.0s). End of transcript shows a transfer/misconnect and caller still asking: \"and get the medical record\" (263.2s).",
+      "recommendation": "Provide critical single-piece information (clinic fax) immediately once the caller requests it if it does not depend on completing another step, or provide a clear transfer/hold/next-step confirmation before leaving the call."
+    },
+    {
+      "category": "other_meaningful_issue",
+      "confidence": 0.87,
+      "description": "Call was terminated/poorly transferred to an incorrect/automated test line, preventing resolution.",
+      "evidence": "\"Trace ringing out. Thank you.\" (250.8s) then an automated/test line: \"you've reached the pretty good AI test line.\" (253.6s\u2013254.3s). Caller: \"I think we got disconnected.\" (261.5s).",
+      "recommendation": "Review transfer procedures and systems to ensure live-support transfers go to appropriate endpoints and that callers can be reconnected promptly. Offer an immediate callback or queue position if a transfer fails."
+    }
+  ],
+  "scenario_checks": [
+    {
+      "check": "The office tracks and addresses both intents.",
+      "evidence": "Caller: \"I need to reschedule my Thursday ten am appointment... and get the medical records.\" (22.0s, 43.0s). Agent: \"For medical records, I can provide the clinic's fax number after we finish with your appointment.\" (160.6s, 161.6s). Final state: caller still asking to reschedule and get the medical record when the call appears disconnected (263.2s: \"I'm still here to reschedule my Thursday 10 a m appointment to Monday afternoon, and get the medical record\").",
+      "passed": false
+    }
+  ],
+  "summary": "Agent failed to resolve either intent. The caller repeatedly asked to reschedule a Thursday 10:00 AM appointment to Monday afternoon and to obtain the clinic fax number for medical records. The agent created a demo profile for an established patient, could not locate the requested Thursday appointment (only a Tuesday appointment appeared), did not complete a reschedule, promised the fax number 'after we finish' but never provided it, and the call was disconnected/transfer failed before either request was satisfied."
+}

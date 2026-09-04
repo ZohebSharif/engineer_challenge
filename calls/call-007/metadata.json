@@ -1,0 +1,12 @@
+{
+  "call_id": "call-007",
+  "call_sid": "CA977137d4640c47f53439b0eda3841029",
+  "errors": [],
+  "evaluation_status": "complete",
+  "recording_sid": "REa298b9b60680b3d0e4eb0d40569d9930",
+  "recording_status": "saved",
+  "scenario_id": "rescheduling",
+  "started_at": "2026-09-04T04:45:16.319197Z",
+  "transcription_status": "complete",
+  "updated_at": "2026-09-04T04:50:50.217843Z"
+}

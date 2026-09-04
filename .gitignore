@@ -6,7 +6,10 @@ __pycache__/
 .ruff_cache/
 .pyright/
 .DS_Store
-calls/
-reports/BUGS.md
+# Call artifacts ARE committed: recordings, transcripts, evaluations, and metadata are the
+# assessment evidence. Only the read-only duplicate copies under calls/.preserved/ are excluded,
+# since they are byte-identical backups of calls already committed here and pinned by MD5 in
+# docs/evidence/README.md.
+calls/.preserved/
 .coverage
 htmlcov/

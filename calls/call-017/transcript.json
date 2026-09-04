@@ -1,0 +1,149 @@
+{
+  "segments": [
+    {
+      "end": 3.05,
+      "speaker": "A",
+      "start": 0.0,
+      "text": " This call may be recorded for quality and training purposes."
+    },
+    {
+      "end": 5.8,
+      "speaker": "A",
+      "start": 3.8499999999999996,
+      "text": " Para espanol oprima el dos."
+    },
+    {
+      "end": 9.5,
+      "speaker": "B",
+      "start": 7.249999999999999,
+      "text": " Thank you for calling Pivot Point Orthopedics."
+    },
+    {
+      "end": 12.0,
+      "speaker": "B",
+      "start": 9.95,
+      "text": " Would you like to create a demo patient profile?"
+    },
+    {
+      "end": 14.7,
+      "speaker": "B",
+      "start": 12.6,
+      "text": " I just need your first and last name to get started."
+    },
+    {
+      "end": 17.95,
+      "speaker": "C",
+      "start": 17.5,
+      "text": " Actually,"
+    },
+    {
+      "end": 19.799999999999997,
+      "speaker": "C",
+      "start": 18.4,
+      "text": " I need a dermatology appointment,"
+    },
+    {
+      "end": 21.2,
+      "speaker": "C",
+      "start": 20.349999999999998,
+      "text": " not orthopedics."
+    },
+    {
+      "end": 23.752,
+      "speaker": "B",
+      "start": 23.252,
+      "text": " I understand."
+    },
+    {
+      "end": 30.951999999999998,
+      "speaker": "B",
+      "start": 23.901999999999997,
+      "text": " This line is for Pivot Point Orthopedics. If you need dermatology, you may want to contact a dermatology clinic directly."
+    },
+    {
+      "end": 33.352000000000004,
+      "speaker": "B",
+      "start": 31.502000000000002,
+      "text": " Is there anything else I can help you with today?"
+    },
+    {
+      "end": 38.602000000000004,
+      "speaker": "C",
+      "start": 36.602000000000004,
+      "text": " I only need a dermatology appointment."
+    },
+    {
+      "end": 40.702,
+      "speaker": "C",
+      "start": 39.202,
+      "text": " Could you transfer me to the right department?"
+    },
+    {
+      "end": 49.769999999999996,
+      "speaker": "B",
+      "start": 43.22,
+      "text": " I'm also fully able to assist with pivot point orthopedics. I don't have access to dermatology scheduling or transfers."
+    },
+    {
+      "end": 53.72,
+      "speaker": "B",
+      "start": 50.12,
+      "text": " You'll need to reach out to a dermatology clinic directly for an appointment."
+    },
+    {
+      "end": 55.67,
+      "speaker": "B",
+      "start": 53.97,
+      "text": " If you have any orthopedic needs,"
+    },
+    {
+      "end": 56.67,
+      "speaker": "B",
+      "start": 55.769999999999996,
+      "text": " I can help with those."
+    },
+    {
+      "end": 60.269999999999996,
+      "speaker": "C",
+      "start": 59.47,
+      "text": " Understood."
+    },
+    {
+      "end": 62.269999999999996,
+      "speaker": "C",
+      "start": 60.47,
+      "text": " I'll reach out to dermatology directly."
+    },
+    {
+      "end": 63.22,
+      "speaker": "C",
+      "start": 62.57,
+      "text": " Thank you."
+    },
+    {
+      "end": 63.87,
+      "speaker": "C",
+      "start": 63.37,
+      "text": " Goodbye."
+    },
+    {
+      "end": 66.37,
+      "speaker": "B",
+      "start": 65.67,
+      "text": " You're welcome."
+    },
+    {
+      "end": 67.62,
+      "speaker": "B",
+      "start": 66.72,
+      "text": " Have a great day."
+    },
+    {
+      "end": 68.27,
+      "speaker": "C",
+      "start": 67.97,
+      "text": " Goodbye."
+    }
+  ],
+  "text": "This call may be recorded for quality and training purposes. Para espanol oprima el dos. Thank you for calling Pivot Point Orthopedics. Would you like to create a demo patient profile? I just need your first and last name to get started. Actually, I need a dermatology appointment, not orthopedics.\nI understand. This line is for Pivot Point Orthopedics. If you need dermatology, you may want to contact a dermatology clinic directly. Is there anything else I can help you with today? I only need a dermatology appointment. Could you transfer me to the right department?\nI'm also fully able to assist with pivot point orthopedics. I don't have access to dermatology scheduling or transfers. You'll need to reach out to a dermatology clinic directly for an appointment. If you have any orthopedic needs, I can help with those. Understood. I'll reach out to dermatology directly. Thank you. Goodbye. You're welcome. Have a great day. Goodbye."
+}

@@ -1,0 +1,24 @@
+[0.0s] A: This call may be recorded for quality and training purposes.
+[3.8s] A: Para espanol oprima el dos.
+[7.2s] B: Thank you for calling Pivot Point Orthopedics.
+[9.9s] B: Would you like to create a demo patient profile?
+[12.6s] B: I just need your first and last name to get started.
+[17.5s] C: Actually,
+[18.4s] C: I need a dermatology appointment,
+[20.3s] C: not orthopedics.
+[23.3s] B: I understand.
+[23.9s] B: This line is for Pivot Point Orthopedics. If you need dermatology, you may want to contact a dermatology clinic directly.
+[31.5s] B: Is there anything else I can help you with today?
+[36.6s] C: I only need a dermatology appointment.
+[39.2s] C: Could you transfer me to the right department?
+[43.2s] B: I'm also fully able to assist with pivot point orthopedics. I don't have access to dermatology scheduling or transfers.
+[50.1s] B: You'll need to reach out to a dermatology clinic directly for an appointment.
+[54.0s] B: If you have any orthopedic needs,
+[55.8s] B: I can help with those.
+[59.5s] C: Understood.
+[60.5s] C: I'll reach out to dermatology directly.
+[62.6s] C: Thank you.
+[63.4s] C: Goodbye.
+[65.7s] B: You're welcome.
+[66.7s] B: Have a great day.
+[68.0s] C: Goodbye.

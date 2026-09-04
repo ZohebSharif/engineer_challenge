@@ -1,0 +1,14 @@
+{
+  "call_id": "call-008",
+  "call_sid": "CA487ad55f374496b7e887560315ffcab7",
+  "errors": [
+    "transcription: ReadError: "
+  ],
+  "evaluation_status": "complete",
+  "recording_sid": "REf2983204d903399a4c364fdf6f9073ef",
+  "recording_status": "saved",
+  "scenario_id": "insurance",
+  "started_at": "2026-09-04T05:09:35.996710Z",
+  "transcription_status": "complete",
+  "updated_at": "2026-09-04T07:53:23.821929Z"
+}

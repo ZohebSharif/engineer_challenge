@@ -1,0 +1,12 @@
+{
+  "call_id": "call-006",
+  "call_sid": "CA8157745d7e7c219e50ced0b7bf4a368d",
+  "errors": [],
+  "evaluation_status": "complete",
+  "recording_sid": "REa267c550fcbe11d72f1fe128b5315f73",
+  "recording_status": "saved",
+  "scenario_id": "medication-refill",
+  "started_at": "2026-09-04T04:26:05.728370Z",
+  "transcription_status": "complete",
+  "updated_at": "2026-09-04T04:29:18.978254Z"
+}

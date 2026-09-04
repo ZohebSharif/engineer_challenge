@@ -1,0 +1,12 @@
+{
+  "call_id": "call-014",
+  "call_sid": "CAd4cf144d633e003ad9e51f9f9bc9a306",
+  "errors": [],
+  "evaluation_status": "complete",
+  "recording_sid": "REaef21ad51260ae892859d200360bec06",
+  "recording_status": "saved",
+  "scenario_id": "cancellation",
+  "started_at": "2026-09-04T17:21:25.336430Z",
+  "transcription_status": "complete",
+  "updated_at": "2026-09-04T17:23:36.634611Z"
+}

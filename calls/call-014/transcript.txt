@@ -1,0 +1,20 @@
+[0.0s] A: This call may be recorded for quality and training purposes.
+[3.5s] A: Para espanol oprima el dos.
+[7.4s] B: Thank you for calling Pivot Point Orthopedics.
+[10.0s] B: Would you like to create a Devo patient profile?
+[12.8s] B: I just need your first and last name to get started.
+[17.2s] C: Actually I'm an existing patient,
+[19.4s] C: I'm just calling to cancel a specific appointment.
+[23.7s] B: I can help with that.
+[25.2s] B: To access your records, you'll need a Devo patient profile.
+[29.1s] B: Would you like to create one now with your first and last name?
+[33.8s] C: I'm not creating a profile.
+[35.8s] C: I'm Robert Kim and I'm canceling my appointment with Dr.
+[38.5s] C: Singh on Monday,
+[39.5s] C: November 2nd at 1130 a.m.
+[44.6s] B: You can scan the QR code at the booth later to create a profile if you change your mind.
+[50.2s] B: Since I can't access your records without a profile,
+[53.1s] B: I won't be able to cancel your appointment right now.
+[55.6s] B: Have a great day.
+[58.5s] C: I need this exact appointment canceled.
+[60.8s] C: Can you get someone to

@@ -1,0 +1,33 @@
+{
+  "issues": [
+    {
+      "category": "workflow_failure",
+      "confidence": 0.9,
+      "description": "Agent initiated/treated the call as a demo/new-patient flow before confirming the caller was an established patient, which could lead to incorrect record handling.",
+      "evidence": "Agent: \"Would you like to create a demo patient profile?\" (10.0)  Agent later: \"Your patient profile is set up and your date of birth is July 4th, 2000 for demo purposes.\" (46.3)  Caller: \"I'm actually an established patient and I'm calling to correct the reason for my upcoming appointment.\" (19.8-26.7)",
+      "recommendation": "Ask or verify patient status (new vs. established) before initiating demo/new-patient flows; when a caller states they are established, switch immediately to record lookup/update workflow and confirm the existing appointment details."
+    },
+    {
+      "category": "state_management_error",
+      "confidence": 0.9,
+      "description": "Agent used an incorrect clinician name ('Almond') after the patient clearly requested Dr. Ahmed, introducing inconsistent clinician identifiers that could confuse scheduling or downstream staff.",
+      "evidence": "Caller: \"And also I need it to be with Dr. Ahmed, not Kelly Noble.\" (84.7-87.0)  Agent (correct at times): \"To switch your appointment to Dr. Ahmed...\" (91.2-93.0)  Later agent: \"I still only see openings with Kelly Noble, M.D., not Dr. Almond,\" (154.6-158.4)  Agent again: \"Would you like help from the clinic team to find a slot with Dr. Almond?\" (160.0-167.6)",
+      "recommendation": "Confirm and read back clinician names exactly as the patient states them; if unclear, spell the clinician name and verify system entries to avoid introducing a different name."
+    },
+    {
+      "category": "clarification_failure",
+      "confidence": 0.85,
+      "description": "Agent never explicitly confirmed that the appointment reason on the patient's existing scheduled appointment was updated in the system; the agent only stated they had notified the clinic team to find a slot with Dr. Ahmed and noted the required reason to that team, leaving ambiguity about whether the existing appointment's reason was changed.",
+      "evidence": "After patient agrees to update reason: \"Would you like me to update the reason for this appointment to a follow-up for blood pressure management?\" Patient: \"Yes, please.\" (76.6-84.7)  No explicit 'updated' confirmation appears; final statement: \"I've let the clinic team know you need a follow-up appointment with Dr. Ahmed for blood pressure management. They'll reach out as soon as they find an opening that works for you.\" (185.7-194.5)",
+      "recommendation": "When a caller requests a reason change, explicitly confirm the system update (e.g., 'I've updated the appointment reason in your record to \"Follow-up: blood pressure management\" for the existing appointment') or state clearly when only a notification to clinic staff was made and what follow-up the patient should expect."
+    }
+  ],
+  "scenario_checks": [
+    {
+      "check": "The corrected appointment reason persists through confirmation.",
+      "evidence": "Caller: \"I need a follow-up for blood pressure management, not an annual physical.\" (58.7-61.0)  Agent (confirming update): \"Would you like me to update the reason for this appointment to a follow-up for blood pressure management?\" (76.6-83.4)  Final confirmation to patient: \"I've let the clinic team know you need a follow-up appointment with Dr. Ahmed for blood pressure management.\" (185.7-191.3)",
+      "passed": true
+    }
+  ],
+  "summary": "The agent correctly acknowledged and restated the corrected reason (follow-up for blood pressure management) and the preferred clinician (Dr. Ahmed) and communicated both to the clinic team. The required check (that the corrected reason persists through confirmation) is satisfied. Notable defects: the agent briefly ran a demo/new-patient flow even though caller was established, the agent introduced an incorrect clinician name ('Almond') multiple times which risks confusion, and the agent never explicitly confirmed that the existing appointment record itself had been updated (only that the clinic team was notified)."
+}

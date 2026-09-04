@@ -1,8 +1,10 @@
 # Evidence index
 
-Text artifacts for every call in the campaign. Audio recordings are intentionally NOT committed:
-they contain a third party's voice and are large. Each row pins the Twilio call SID, recording
-SID, and the recording MD5 so any recording can be re-fetched and byte-verified.
+Classification index for every call in the campaign. Text artifacts are mirrored here; the
+authoritative per-call directory, **including the dual-channel `recording.mp3`**, is
+`calls/call-NNN/` at the repository root. Each row pins the Twilio call SID, recording SID, and
+recording MD5 so any recording can be re-fetched from Twilio and byte-verified against the
+committed file.
 
 | Call | Scenario | Class | Length | Call SID | Recording SID | Recording MD5 |
 |---|---|---|---|---|---|---|

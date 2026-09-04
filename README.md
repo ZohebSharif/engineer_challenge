@@ -17,9 +17,21 @@ report.
 | Subsystem boundaries and tradeoffs | [`architecture.md`](architecture.md) |
 
 22 calls placed across 12 scenarios: 12 final-quality, 4 valid-evidence, 6 void (all void for
-*our* caller-side or infrastructure reasons, each reason recorded). Audio is deliberately not
-committed — it contains a third party's voice — but every recording is pinned by Twilio SID and
-MD5 in the evidence index so it can be re-fetched and byte-verified.
+*our* caller-side or infrastructure reasons, each reason recorded).
+
+**All call artifacts are committed**, including the audio: `calls/call-NNN/` holds
+`recording.mp3` (dual-channel), `transcript.txt`, `transcript.json`, `evaluation.json`, and
+`metadata.json` for every call. Each recording is also pinned by Twilio call SID, recording SID,
+and MD5 in [`docs/evidence/README.md`](docs/evidence/README.md) so it can be re-fetched and
+byte-verified against Twilio.
+
+Two report files, deliberately different:
+
+- [`docs/findings.md`](docs/findings.md) — the curated submission. Human-reviewed, attributed,
+  cross-scenario, with rejected candidates and our own harness defects called out.
+- `reports/BUGS.md` — raw machine output from `voicebot report`: every evaluator issue at or above
+  the confidence threshold, across all calls **including void ones**. It is unfiltered and
+  includes issues caused by our own caller. Read `docs/findings.md` for conclusions.
 
 Lead finding: the agent fabricates a patient date of birth (`July 4, 2000`) on profile creation in
 11 calls across 7 scenarios and, when corrected, keeps its own value.

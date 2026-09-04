@@ -1,0 +1,395 @@
+{
+  "segments": [
+    {
+      "end": 3.0,
+      "speaker": "A",
+      "start": 0.0,
+      "text": " This call may be recorded for quality and training purposes."
+    },
+    {
+      "end": 4.55,
+      "speaker": "A",
+      "start": 3.75,
+      "text": " Para espa\u00f1ol,"
+    },
+    {
+      "end": 5.6499999999999995,
+      "speaker": "A",
+      "start": 4.85,
+      "text": " oprima el dos."
+    },
+    {
+      "end": 8.200000000000001,
+      "speaker": "B",
+      "start": 7.95,
+      "text": " Thank"
+    },
+    {
+      "end": 8.4,
+      "speaker": "A",
+      "start": 8.200000000000001,
+      "text": " Oh,"
+    },
+    {
+      "end": 8.55,
+      "speaker": "B",
+      "start": 8.4,
+      "text": " you for"
+    },
+    {
+      "end": 8.600000000000001,
+      "speaker": "A",
+      "start": 8.55,
+      "text": " English"
+    },
+    {
+      "end": 8.850000000000001,
+      "speaker": "B",
+      "start": 8.600000000000001,
+      "text": " calling."
+    },
+    {
+      "end": 9.500000000000002,
+      "speaker": "A",
+      "start": 8.850000000000001,
+      "text": " for..."
+    },
+    {
+      "end": 11.600000000000001,
+      "speaker": "A",
+      "start": 11.200000000000001,
+      "text": " Hi,"
+    },
+    {
+      "end": 11.950000000000001,
+      "speaker": "B",
+      "start": 11.600000000000001,
+      "text": " No problem."
+    },
+    {
+      "end": 14.700000000000001,
+      "speaker": "A",
+      "start": 11.950000000000001,
+      "text": " Tuesday, October... I need"
+    },
+    {
+      "end": 14.95,
+      "speaker": "B",
+      "start": 14.700000000000001,
+      "text": " Would you like"
+    },
+    {
+      "end": 16.45,
+      "speaker": "A",
+      "start": 14.95,
+      "text": " the after... Please."
+    },
+    {
+      "end": 19.7,
+      "speaker": "B",
+      "start": 17.65,
+      "text": " just to confirm before"
+    },
+    {
+      "end": 21.9,
+      "speaker": "B",
+      "start": 21.0,
+      "text": " I can help with scheduling?"
+    },
+    {
+      "end": 23.95,
+      "speaker": "A",
+      "start": 21.9,
+      "text": " Sure. My original appointment is Tuesday,"
+    },
+    {
+      "end": 25.799999999999997,
+      "speaker": "A",
+      "start": 24.15,
+      "text": " October 13th at 2 p.m."
+    },
+    {
+      "end": 27.854,
+      "speaker": "C",
+      "start": 27.604,
+      "text": " My"
+    },
+    {
+      "end": 27.904,
+      "speaker": "B",
+      "start": 27.854,
+      "text": " Great."
+    },
+    {
+      "end": 29.304,
+      "speaker": "C",
+      "start": 27.904,
+      "text": " date of birth is June 9,"
+    },
+    {
+      "end": 30.104,
+      "speaker": "C",
+      "start": 29.604,
+      "text": " 1975."
+    },
+    {
+      "end": 35.204,
+      "speaker": "C",
+      "start": 31.404,
+      "text": " Could you let me know what slots you've got on Thursday or Friday after 3 p.m.?"
+    },
+    {
+      "end": 40.304,
+      "speaker": "B",
+      "start": 37.054,
+      "text": " I'll check the schedule for Thursday and Friday after 3 p.m."
+    },
+    {
+      "end": 44.304,
+      "speaker": "B",
+      "start": 40.454,
+      "text": " First, I'll need your first and last name to create your demo patient profile."
+    },
+    {
+      "end": 46.054,
+      "speaker": "B",
+      "start": 44.804,
+      "text": " Could you please provide them?"
+    },
+    {
+      "end": 51.104,
+      "speaker": "C",
+      "start": 49.304,
+      "text": " My name is Daniel Ortiz."
+    },
+    {
+      "end": 71.434,
+      "speaker": "B",
+      "start": 65.684,
+      "text": " Your patient profile is set up and your date of birth is July 4th, 2000 for demo purposes."
+    },
+    {
+      "end": 73.03399999999999,
+      "speaker": "B",
+      "start": 71.934,
+      "text": " How can I help you today?"
+    },
+    {
+      "end": 77.78399999999999,
+      "speaker": "C",
+      "start": 76.28399999999999,
+      "text": " No, that's not correct."
+    },
+    {
+      "end": 80.28399999999999,
+      "speaker": "C",
+      "start": 78.084,
+      "text": " My date of birth is June 9th, 1975."
+    },
+    {
+      "end": 86.084,
+      "speaker": "B",
+      "start": 83.134,
+      "text": " I have your date of birth as July 4th, 2000."
+    },
+    {
+      "end": 89.584,
+      "speaker": "B",
+      "start": 86.384,
+      "text": " I'll make a note that you stated June 9th, 1975."
+    },
+    {
+      "end": 92.73,
+      "speaker": "B",
+      "start": 90.58,
+      "text": " And let the clinic team know if needed."
+    },
+    {
+      "end": 98.08,
+      "speaker": "B",
+      "start": 93.03,
+      "text": " Would you like to continue with rescheduling your appointment for Thursday or Friday after 3 p.m.?"
+    },
+    {
+      "end": 104.63,
+      "speaker": "C",
+      "start": 101.53,
+      "text": " Yes. Let's go ahead and check those available times, please."
+    },
+    {
+      "end": 110.55,
+      "speaker": "B",
+      "start": 108.5,
+      "text": " You have an appointment scheduled for Tuesday,"
+    },
+    {
+      "end": 113.1,
+      "speaker": "B",
+      "start": 110.75,
+      "text": " September 8th at 10 a.m. with Kelly Noble,"
+    },
+    {
+      "end": 116.35,
+      "speaker": "B",
+      "start": 113.4,
+      "text": " MD at Nashville 220 Athens Way."
+    },
+    {
+      "end": 118.7,
+      "speaker": "B",
+      "start": 116.65,
+      "text": " Is this the appointment you want to reschedule?"
+    },
+    {
+      "end": 124.0,
+      "speaker": "C",
+      "start": 122.3,
+      "text": " No, that's not my appointment."
+    },
+    {
+      "end": 125.5,
+      "speaker": "C",
+      "start": 124.45,
+      "text": " My appointment is Tuesday,"
+    },
+    {
+      "end": 127.35,
+      "speaker": "C",
+      "start": 126.0,
+      "text": " October 13th at 2 p.m."
+    },
+    {
+      "end": 131.992,
+      "speaker": "B",
+      "start": 129.492,
+      "text": " The only appointment I see on file is for Tuesday,"
+    },
+    {
+      "end": 135.892,
+      "speaker": "B",
+      "start": 132.59199999999998,
+      "text": " September 8th at 10 a.m. with Kelly Noble,"
+    },
+    {
+      "end": 138.992,
+      "speaker": "B",
+      "start": 136.142,
+      "text": " MD at Nashville 220 Athens Way."
+    },
+    {
+      "end": 142.992,
+      "speaker": "B",
+      "start": 139.292,
+      "text": " There isn't an appointment listed for October 13th at 2 p.m."
+    },
+    {
+      "end": 148.892,
+      "speaker": "B",
+      "start": 143.19199999999998,
+      "text": " Would you like to reschedule the September 8th appointment or do you want to check with the clinic about your October appointment?"
+    },
+    {
+      "end": 154.602,
+      "speaker": "C",
+      "start": 152.852,
+      "text": " I'm sure my appointment is Tuesday,"
+    },
+    {
+      "end": 158.052,
+      "speaker": "C",
+      "start": 154.752,
+      "text": " October 13th at 2 p.m. Could you double check the schedule for that?"
+    },
+    {
+      "end": 162.352,
+      "speaker": "B",
+      "start": 160.502,
+      "text": " I only see an appointment for Tuesday,"
+    },
+    {
+      "end": 165.502,
+      "speaker": "B",
+      "start": 162.452,
+      "text": " September 8th at 10 a.m. in your records."
+    },
+    {
+      "end": 169.052,
+      "speaker": "B",
+      "start": 166.102,
+      "text": " There's nothing listed for October 13th at 2 p.m."
+    },
+    {
+      "end": 173.152,
+      "speaker": "B",
+      "start": 169.452,
+      "text": " Would you like me to connect you to the clinic team so they can look into your October appointment?"
+    },
+    {
+      "end": 183.202,
+      "speaker": "C",
+      "start": 177.652,
+      "text": " I'm certain my appointment is on October 13th at 2 p.m. Could you please check again for that date and time?"
+    },
+    {
+      "end": 188.60199999999998,
+      "speaker": "B",
+      "start": 185.702,
+      "text": " I understand you're certain about your October 13th appointment,"
+    },
+    {
+      "end": 191.702,
+      "speaker": "B",
+      "start": 188.652,
+      "text": " but I only see a September 8th appointment in your records."
+    },
+    {
+      "end": 197.35199999999998,
+      "speaker": "B",
+      "start": 192.35199999999998,
+      "text": " Would you like me to transfer you to the clinic team now so they can help confirm or locate your October appointment?"
+    },
+    {
+      "end": 202.906,
+      "speaker": "C",
+      "start": 201.556,
+      "text": " Yes, that would help."
+    },
+    {
+      "end": 206.60600000000002,
+      "speaker": "C",
+      "start": 203.20600000000002,
+      "text": " Please go ahead and connect me so we can confirm that October 13th appointment."
+    },
+    {
+      "end": 211.156,
+      "speaker": "B",
+      "start": 209.806,
+      "text": " Transferring you now. Thank you."
+    },
+    {
+      "end": 215.35600000000002,
+      "speaker": "C",
+      "start": 212.95600000000002,
+      "text": " Hello, you've reached the pretty good AI test line."
+    },
+    {
+      "end": 216.656,
+      "speaker": "C",
+      "start": 215.556,
+      "text": " Thank you. Goodbye. I'll hold."
+    },
+    {
+      "end": 221.056,
+      "speaker": "C",
+      "start": 220.50600000000003,
+      "text": " Goodbye."
+    },
+    {
+      "end": 221.70600000000002,
+      "speaker": "C",
+      "start": 221.35600000000002,
+      "text": " Take care."
+    }
+  ],
+  "text": "This call may be recorded for quality and training purposes. Para espa\u00f1ol, oprima el dos. Thank Oh, you for English calling. for... Hi, No problem. Tuesday, October... I need Would you like the after... Please. just to confirm before I can help with scheduling? Sure. My original appointment is Tuesday, October 13th at 2 p.m.\nMy Great. date of birth is June 9, 1975. Could you let me know what slots you've got on Thursday or Friday after 3 p.m.? I'll check the schedule for Thursday and Friday after 3 p.m. First, I'll need your first and last name to create your demo patient profile. Could you please provide them? My name is Daniel Ortiz.\nYour patient profile is set up and your date of birth is July 4th, 2000 for demo purposes. How can I help you today? No, that's not correct. My date of birth is June 9th, 1975. I have your date of birth as July 4th, 2000. I'll make a note that you stated June 9th, 1975.\nAnd let the clinic team know if needed. Would you like to continue with rescheduling your appointment for Thursday or Friday after 3 p .m.? Yes. Let's go ahead and check those available times, please.\nYou have an appointment scheduled for Tuesday, September 8th at 10 a.m. with Kelly Noble, MD at Nashville 220 Athens Way. Is this the appointment you want to reschedule? No, that's not my appointment. My appointment is Tuesday, October 13th at 2 p.m.\nThe only appointment I see on file is for Tuesday, September 8th at 10 a.m. with Kelly Noble, MD at Nashville 220 Athens Way. There isn't an appointment listed for October 13th at 2 p.m. Would you like to reschedule the September 8th appointment or do you want to check with the clinic about your October appointment?\nI'm sure my appointment is Tuesday, October 13th at 2 p.m. Could you double check the schedule for that? I only see an appointment for Tuesday, September 8th at 10 a.m. in your records. There's nothing listed for October 13th at 2 p.m. Would you like me to connect you to the clinic team so they can look into your October appointment?\nI'm certain my appointment is on October 13th at 2 p.m. Could you please check again for that date and time? I understand you're certain about your October 13th appointment, but I only see a September 8th appointment in your records. Would you like me to transfer you to the clinic team now so they can help confirm or locate your October appointment?\nYes, that would help. Please go ahead and connect me so we can confirm that October 13th appointment. Transferring you now. Thank you. Hello, you've reached the pretty good AI test line. Thank you. Goodbye. I'll hold. Goodbye. Take care."
+}

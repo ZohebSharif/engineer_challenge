@@ -1,0 +1,179 @@
+{
+  "segments": [
+    {
+      "end": 3.05,
+      "speaker": "A",
+      "start": 0.0,
+      "text": " This call may be recorded for quality and training purposes."
+    },
+    {
+      "end": 4.5,
+      "speaker": "A",
+      "start": 3.8499999999999996,
+      "text": " Para espa\u00f1ol,"
+    },
+    {
+      "end": 4.9,
+      "speaker": "B",
+      "start": 4.5,
+      "text": " Hi,"
+    },
+    {
+      "end": 5.1000000000000005,
+      "speaker": "A",
+      "start": 4.9,
+      "text": " oprima"
+    },
+    {
+      "end": 5.300000000000001,
+      "speaker": "B",
+      "start": 5.1000000000000005,
+      "text": " sure."
+    },
+    {
+      "end": 5.700000000000001,
+      "speaker": "A",
+      "start": 5.300000000000001,
+      "text": " el 2."
+    },
+    {
+      "end": 9.200000000000003,
+      "speaker": "B",
+      "start": 5.700000000000001,
+      "text": " I'd like to schedule my annual physical for a weekday morning next week."
+    },
+    {
+      "end": 11.250000000000004,
+      "speaker": "B",
+      "start": 9.600000000000003,
+      "text": " Could you let me know what times you have available?"
+    },
+    {
+      "end": 11.950000000000005,
+      "speaker": "B",
+      "start": 11.550000000000004,
+      "text": " De acuerdo."
+    },
+    {
+      "end": 14.250000000000005,
+      "speaker": "B",
+      "start": 12.450000000000005,
+      "text": " Prefiero seguir en ingl\u00e9s por ahora."
+    },
+    {
+      "end": 18.400000000000006,
+      "speaker": "B",
+      "start": 14.800000000000004,
+      "text": " \u00bfPodr\u00edamos revisar las opciones de horario disponibles para la pr\u00f3xima semana?"
+    },
+    {
+      "end": 22.150000000000006,
+      "speaker": "B",
+      "start": 21.300000000000004,
+      "text": " I can help with that."
+    },
+    {
+      "end": 23.500000000000007,
+      "speaker": "C",
+      "start": 22.150000000000006,
+      "text": " Before I check the schedule,"
+    },
+    {
+      "end": 25.750000000000007,
+      "speaker": "C",
+      "start": 23.85000000000001,
+      "text": " would you like to create a demo patient profile?"
+    },
+    {
+      "end": 27.584000000000003,
+      "speaker": "C",
+      "start": 26.484,
+      "text": " I just need your first and last name"
+    },
+    {
+      "end": 27.684,
+      "speaker": "B",
+      "start": 27.584000000000003,
+      "text": " I'm"
+    },
+    {
+      "end": 27.984,
+      "speaker": "C",
+      "start": 27.684,
+      "text": " to get started."
+    },
+    {
+      "end": 28.984,
+      "speaker": "B",
+      "start": 27.984,
+      "text": " an established patient."
+    },
+    {
+      "end": 31.284,
+      "speaker": "B",
+      "start": 29.484,
+      "text": " You can look me up by my date of birth,"
+    },
+    {
+      "end": 33.534,
+      "speaker": "B",
+      "start": 31.684,
+      "text": " February 14th, 1988."
+    },
+    {
+      "end": 34.784000000000006,
+      "speaker": "B",
+      "start": 34.234,
+      "text": " First name,"
+    },
+    {
+      "end": 35.334,
+      "speaker": "B",
+      "start": 35.034000000000006,
+      "text": " Maya."
+    },
+    {
+      "end": 36.534000000000006,
+      "speaker": "B",
+      "start": 35.884,
+      "text": " Last name,"
+    },
+    {
+      "end": 36.98400000000001,
+      "speaker": "B",
+      "start": 36.834,
+      "text": " Chen."
+    },
+    {
+      "end": 53.73400000000001,
+      "speaker": "C",
+      "start": 51.684000000000005,
+      "text": " Your patient profile is set up."
+    },
+    {
+      "end": 56.25,
+      "speaker": "C",
+      "start": 54.1,
+      "text": " And your date of birth is July 4,"
+    },
+    {
+      "end": 58.1,
+      "speaker": "C",
+      "start": 56.65,
+      "text": " 2000 for demo purposes."
+    },
+    {
+      "end": 60.2,
+      "speaker": "C",
+      "start": 59.2,
+      "text": " How could it not be today?"
+    },
+    {
+      "end": 63.650000000000006,
+      "speaker": "B",
+      "start": 60.2,
+      "text": " Actually, my date of birth is February 14th, 1980."
+    }
+  ],
+  "text": "This call may be recorded for quality and training purposes. Para espa\u00f1ol, Hi, oprima sure. el 2. I'd like to schedule my annual physical for a weekday morning next week. Could you let me know what times you have available? De acuerdo. Prefiero seguir en ingl\u00e9s por ahora. \u00bfPodr\u00edamos revisar las opciones de horario disponibles para la pr\u00f3xima semana? I can help with that. Before I check the schedule, would you like to create a demo patient profile?\nI just need your first and last name I'm to get started. an established patient. You can look me up by my date of birth, February 14th, 1988. First name, Maya. Last name, Chen. Your patient profile is set up.\nAnd your date of birth is July 4, 2000 for demo purposes. How could it not be today? Actually, my date of birth is February 14th, 1980."
+}

@@ -1,0 +1,437 @@
+{
+  "segments": [
+    {
+      "end": 3.0,
+      "speaker": "A",
+      "start": 0.0,
+      "text": " This call may be recorded for quality and training purposes."
+    },
+    {
+      "end": 5.6,
+      "speaker": "A",
+      "start": 3.8499999999999996,
+      "text": " Para espanol oprima el dos."
+    },
+    {
+      "end": 9.500000000000002,
+      "speaker": "B",
+      "start": 7.3500000000000005,
+      "text": " Thank you for calling Pivot Point Orthopedics."
+    },
+    {
+      "end": 11.900000000000002,
+      "speaker": "B",
+      "start": 10.000000000000002,
+      "text": " Would you like to create a demo patient profile?"
+    },
+    {
+      "end": 14.3,
+      "speaker": "B",
+      "start": 12.600000000000001,
+      "text": " I just need your first and last name to get started."
+    },
+    {
+      "end": 17.1,
+      "speaker": "C",
+      "start": 16.85,
+      "text": " Oh,"
+    },
+    {
+      "end": 17.900000000000002,
+      "speaker": "C",
+      "start": 17.400000000000002,
+      "text": " I'm sorry,"
+    },
+    {
+      "end": 19.25,
+      "speaker": "C",
+      "start": 18.1,
+      "text": " I think there's some confusion."
+    },
+    {
+      "end": 24.05,
+      "speaker": "C",
+      "start": 19.75,
+      "text": " I'm actually an established patient and I'm calling to correct the reason for my upcoming appointment."
+    },
+    {
+      "end": 27.226,
+      "speaker": "B",
+      "start": 26.676,
+      "text": " No problem."
+    },
+    {
+      "end": 30.375999999999998,
+      "speaker": "B",
+      "start": 27.625999999999998,
+      "text": " I can help update the reason for your upcoming appointment."
+    },
+    {
+      "end": 33.326,
+      "speaker": "B",
+      "start": 31.076,
+      "text": " May I have your first and last name to look up your record?"
+    },
+    {
+      "end": 37.476,
+      "speaker": "C",
+      "start": 35.876000000000005,
+      "text": " Sure, it's Grace Lee."
+    },
+    {
+      "end": 41.176,
+      "speaker": "B",
+      "start": 40.476,
+      "text": " Thanks, Grace."
+    },
+    {
+      "end": 44.576,
+      "speaker": "B",
+      "start": 41.626000000000005,
+      "text": " Let me check your record so I could update your appointment reason."
+    },
+    {
+      "end": 51.126000000000005,
+      "speaker": "B",
+      "start": 46.326,
+      "text": " Your patient profile is set up and your date of birth is July 4th, 2000 for demo purposes."
+    },
+    {
+      "end": 53.646,
+      "speaker": "B",
+      "start": 51.796,
+      "text": " What would you like to update about your appointment?"
+    },
+    {
+      "end": 58.346,
+      "speaker": "C",
+      "start": 56.446,
+      "text": " Actually, that's not correct."
+    },
+    {
+      "end": 60.745999999999995,
+      "speaker": "C",
+      "start": 58.696,
+      "text": " I need a follow-up for blood pressure management,"
+    },
+    {
+      "end": 62.096000000000004,
+      "speaker": "C",
+      "start": 61.046,
+      "text": " not an annual physical."
+    },
+    {
+      "end": 67.706,
+      "speaker": "B",
+      "start": 67.156,
+      "text": " Grace,"
+    },
+    {
+      "end": 70.006,
+      "speaker": "B",
+      "start": 67.756,
+      "text": " I see you have an appointment scheduled for Tuesday,"
+    },
+    {
+      "end": 72.60600000000001,
+      "speaker": "B",
+      "start": 70.206,
+      "text": " September 8th at 10 a.m. with Kelly Noble,"
+    },
+    {
+      "end": 76.10600000000001,
+      "speaker": "B",
+      "start": 73.156,
+      "text": " MD at Nashville 220 Athens Way."
+    },
+    {
+      "end": 80.55600000000001,
+      "speaker": "B",
+      "start": 76.60600000000001,
+      "text": " Would you like me to update the reason for this appointment to a follow-up for blood pressure management?"
+    },
+    {
+      "end": 84.256,
+      "speaker": "C",
+      "start": 83.35600000000001,
+      "text": " Yes, please."
+    },
+    {
+      "end": 86.256,
+      "speaker": "C",
+      "start": 84.706,
+      "text": " And also I need it to be with Dr."
+    },
+    {
+      "end": 86.55600000000001,
+      "speaker": "C",
+      "start": 86.35600000000001,
+      "text": " Ahmed,"
+    },
+    {
+      "end": 87.656,
+      "speaker": "C",
+      "start": 87.006,
+      "text": " not Kelly Noble."
+    },
+    {
+      "end": 90.656,
+      "speaker": "B",
+      "start": 89.506,
+      "text": " I can help with that."
+    },
+    {
+      "end": 92.506,
+      "speaker": "B",
+      "start": 91.156,
+      "text": " To switch your appointment to Dr."
+    },
+    {
+      "end": 92.80600000000001,
+      "speaker": "B",
+      "start": 92.55600000000001,
+      "text": " Ahmed,"
+    },
+    {
+      "end": 93.956,
+      "speaker": "B",
+      "start": 93.006,
+      "text": " we'll need to reschedule."
+    },
+    {
+      "end": 96.756,
+      "speaker": "B",
+      "start": 94.506,
+      "text": " Would you like to keep the same date and time,"
+    },
+    {
+      "end": 98.55600000000001,
+      "speaker": "B",
+      "start": 97.006,
+      "text": " or are you open to other options?"
+    },
+    {
+      "end": 104.706,
+      "speaker": "C",
+      "start": 101.656,
+      "text": " I'd prefer to keep the same date and time, if possible,"
+    },
+    {
+      "end": 105.35600000000001,
+      "speaker": "C",
+      "start": 105.05600000000001,
+      "text": " with Dr."
+    },
+    {
+      "end": 105.60600000000001,
+      "speaker": "C",
+      "start": 105.406,
+      "text": " Ahmed."
+    },
+    {
+      "end": 112.406,
+      "speaker": "B",
+      "start": 110.706,
+      "text": " There are openings on Tuesday,"
+    },
+    {
+      "end": 115.406,
+      "speaker": "B",
+      "start": 112.656,
+      "text": " September 8th, but only with Kelly Noble,"
+    },
+    {
+      "end": 117.456,
+      "speaker": "B",
+      "start": 115.656,
+      "text": " M.D., not with Dr."
+    },
+    {
+      "end": 117.706,
+      "speaker": "B",
+      "start": 117.506,
+      "text": " Ahmed."
+    },
+    {
+      "end": 120.928,
+      "speaker": "B",
+      "start": 118.228,
+      "text": " Would you like to look for other dates or times with Dr."
+    },
+    {
+      "end": 123.57799999999999,
+      "speaker": "B",
+      "start": 121.02799999999999,
+      "text": " Ahmed or keep your current appointment with Kelly Noble?"
+    },
+    {
+      "end": 128.128,
+      "speaker": "C",
+      "start": 126.77799999999999,
+      "text": " I need it with Dr."
+    },
+    {
+      "end": 128.378,
+      "speaker": "C",
+      "start": 128.178,
+      "text": " Ahmed."
+    },
+    {
+      "end": 131.228,
+      "speaker": "C",
+      "start": 128.678,
+      "text": " Could we check other dates or times for that follow-up?"
+    },
+    {
+      "end": 135.128,
+      "speaker": "B",
+      "start": 134.428,
+      "text": " I checked."
+    },
+    {
+      "end": 138.928,
+      "speaker": "B",
+      "start": 135.328,
+      "text": " But the only available openings are still with Kelly Noble,"
+    },
+    {
+      "end": 139.428,
+      "speaker": "B",
+      "start": 139.128,
+      "text": " MD."
+    },
+    {
+      "end": 143.678,
+      "speaker": "B",
+      "start": 139.978,
+      "text": " Would you like to try searching for a different week or a specific day or time with Dr."
+    },
+    {
+      "end": 143.928,
+      "speaker": "B",
+      "start": 143.728,
+      "text": " Ahmed?"
+    },
+    {
+      "end": 149.95600000000002,
+      "speaker": "C",
+      "start": 147.156,
+      "text": " Yes, let's look for a different week with Dr."
+    },
+    {
+      "end": 150.20600000000002,
+      "speaker": "C",
+      "start": 150.056,
+      "text": " Ahmed."
+    },
+    {
+      "end": 157.106,
+      "speaker": "B",
+      "start": 154.556,
+      "text": " I still only see openings with Kelly Noble,"
+    },
+    {
+      "end": 158.106,
+      "speaker": "B",
+      "start": 157.306,
+      "text": " M.D., not Dr."
+    },
+    {
+      "end": 158.356,
+      "speaker": "B",
+      "start": 158.156,
+      "text": " Almond,"
+    },
+    {
+      "end": 159.406,
+      "speaker": "B",
+      "start": 158.406,
+      "text": " for the next several weeks."
+    },
+    {
+      "end": 167.45600000000002,
+      "speaker": "B",
+      "start": 159.95600000000002,
+      "text": " Would you like to try a different day of the week, a different time of day, or would you like help from the clinic team to find a slot with Dr."
+    },
+    {
+      "end": 167.856,
+      "speaker": "B",
+      "start": 167.606,
+      "text": " Almond?"
+    },
+    {
+      "end": 174.572,
+      "speaker": "C",
+      "start": 171.572,
+      "text": " I'd appreciate help from the clinic team to find a slot with Dr."
+    },
+    {
+      "end": 174.872,
+      "speaker": "C",
+      "start": 174.722,
+      "text": " Ahmed."
+    },
+    {
+      "end": 188.972,
+      "speaker": "B",
+      "start": 185.672,
+      "text": " I've let the clinic team know you need a follow-up appointment with Dr."
+    },
+    {
+      "end": 190.772,
+      "speaker": "B",
+      "start": 189.072,
+      "text": " Ahmed for blood pressure management."
+    },
+    {
+      "end": 194.172,
+      "speaker": "B",
+      "start": 191.322,
+      "text": " They'll reach out as soon as they find an opening that works for you."
+    },
+    {
+      "end": 196.172,
+      "speaker": "B",
+      "start": 194.52200000000002,
+      "text": " Is there anything else I can help with today?"
+    },
+    {
+      "end": 200.82600000000002,
+      "speaker": "C",
+      "start": 200.276,
+      "text": " Thanks,"
+    },
+    {
+      "end": 201.976,
+      "speaker": "C",
+      "start": 201.07600000000002,
+      "text": " that covers it for now."
+    },
+    {
+      "end": 202.626,
+      "speaker": "C",
+      "start": 202.42600000000002,
+      "text": " Goodbye."
+    },
+    {
+      "end": 205.17600000000002,
+      "speaker": "B",
+      "start": 204.526,
+      "text": " Take care,"
+    },
+    {
+      "end": 205.57600000000002,
+      "speaker": "B",
+      "start": 205.276,
+      "text": " Grace."
+    },
+    {
+      "end": 206.226,
+      "speaker": "B",
+      "start": 206.026,
+      "text": " Goodbye."
+    }
+  ],
+  "text": "This call may be recorded for quality and training purposes. Para espanol oprima el dos. Thank you for calling Pivot Point Orthopedics. Would you like to create a demo patient profile? I just need your first and last name to get started. Oh, I'm sorry, I think there's some confusion. I'm actually an established patient and I'm calling to correct the reason for my upcoming appointment.\nNo problem. I can help update the reason for your upcoming appointment. May I have your first and last name to look up your record? Sure, it's Grace Lee. Thanks, Grace. Let me check your record so I could update your appointment reason. Your patient profile is set up and your date of birth is July 4th, 2000 for demo purposes.\nWhat would you like to update about your appointment? Actually, that's not correct. I need a follow-up for blood pressure management, not an annual physical.\nGrace, I see you have an appointment scheduled for Tuesday, September 8th at 10 a.m. with Kelly Noble, MD at Nashville 220 Athens Way. Would you like me to update the reason for this appointment to a follow-up for blood pressure management? Yes, please. And also I need it to be with Dr. Ahmed, not Kelly Noble. I can help with that.\nTo switch your appointment to Dr. Ahmed, we'll need to reschedule. Would you like to keep the same date and time, or are you open to other options? I'd prefer to keep the same date and time, if possible, with Dr. Ahmed. There are openings on Tuesday, September 8th, but only with Kelly Noble, M.D., not with Dr. Ahmed.\nWould you like to look for other dates or times with Dr. Ahmed or keep your current appointment with Kelly Noble? I need it with Dr. Ahmed. Could we check other dates or times for that follow -up? I checked. But the only available openings are still with Kelly Noble, MD. Would you like to try searching for a different week or a specific day or time with Dr. Ahmed?\nYes, let's look for a different week with Dr. Ahmed. I still only see openings with Kelly Noble, M.D., not Dr. Almond, for the next several weeks. Would you like to try a different day of the week, a different time of day, or would you like help from the clinic team to find a slot with Dr. Almond?\nI'd appreciate help from the clinic team to find a slot with Dr. Ahmed. I've let the clinic team know you need a follow-up appointment with Dr. Ahmed for blood pressure management. They'll reach out as soon as they find an opening that works for you. Is there anything else I can help with today?\nThanks, that covers it for now. Goodbye. Take care, Grace. Goodbye."
+}

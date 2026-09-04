@@ -1,0 +1,41 @@
+[0.0s] A: This call may be recorded for quality and training purposes.
+[3.8s] A: Para español,
+[4.9s] A: oprima el 2.
+[7.0s] B: Thank you for
+[7.7s] C: I'm
+[7.8s] B: calling.
+[8.0s] C: actually only able to speak English for this call.
+[10.5s] C: Could you help me in English,
+[11.9s] C: please?
+[13.0s] C: Hello, I'm Taylor Morgan.
+[14.7s] C: I'd like to schedule a routine appointment.
+[18.4s] B: Hi Taylor,
+[19.0s] B: would you like to create a demo patient profile first?
+[22.1s] B: I just need your first and last name to get started.
+[27.3s] C: I already have a profile.
+[29.1s] C: My name is Taylor Morgan.
+[32.4s] B: I do not see a profile for you yet.
+[34.7s] B: Would you like me to create a demo patient profile now so we can schedule your appointment?
+[42.3s] C: No, my profile should already be there.
+[44.8s] C: My date of birth is January 5th, 1990.
+[49.7s] B: I still do not see a profile for you in the system.
+[52.6s] B: If you would like to schedule an appointment,
+[54.9s] B: I need to create a demo patient profile first.
+[58.3s] B: Would you like to do that now?
+[60.1s] B: I just need your first and last name.
+[64.0s] C: I need to be sure you've checked properly.
+[66.5s] C: Can you confirm the postal code 93101 on file?
+[72.0s] B: I do not have access to any patient profile for you yet, so I cannot confirm any postal code on file.
+[78.9s] B: If you would like to continue,
+[80.5s] B: I can create a demo patient profile for you now.
+[83.3s] B: Would you like to proceed?
+[87.2s] C: I can't proceed that way.
+[89.0s] C: Could you check again or have a trained staff member help confirm my identity?
+[95.5s] B: I understand you want a staff member to help confirm your identity.
+[99.0s] B: I'll connect you to our clinic support team.
+[101.3s] B: Please stay on the line.
+[103.0s] B: Transferring you now. Thank you.
+[105.8s] C: Hello.
+[106.4s] C: You've reached the Pretty Good AI test line.
+[108.7s] C: Goodbye.
+[112.3s] C: Goodbye.

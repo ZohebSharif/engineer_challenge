@@ -1,0 +1,43 @@
+[0.0s] A: This call may be recorded for quality and training purposes.
+[3.9s] A: Para espanol oprima el dos.
+[8.1s] B: Thank you for calling Pivot Point Orthopedics.
+[10.7s] B: Would you like to create a demo patient profile?
+[13.7s] B: I just need your first and last name.
+[17.4s] C: Oh,
+[18.0s] C: actually,
+[18.6s] C: I'm already an established patient.
+[20.4s] C: I'm calling to reschedule my Thursday ten a m appointment and get the fax number for medical records.
+[27.3s] B: I can help with both.
+[28.7s] B: To access your records and reschedule, I'll need to create a demo patient profile for you here.
+[33.9s] B: May I have your first and last name?
+[38.6s] C: I'm sorry,
+[39.2s] C: but I already have a profile as an established patient.
+[42.1s] C: Could you check your system for my existing record?
+[49.5s] B: I don't see an existing profile for you in the system yet.
+[52.7s] B: To help with your request,
+[54.0s] B: I'll need to create a demo patient profile.
+[56.2s] B: Could you please provide your first and last name?
+[60.8s] C: I do have an established profile.
+[63.3s] C: Could you try searching again,
+[64.9s] C: or maybe verify another way?
+[68.8s] B: Right now, I can only assist if we create a demo patient profile here.
+[73.1s] B: Once that's set up, I can help with rescheduling and provide the fax number.
+[77.0s] B: May I have your first and last name to get started?
+[81.8s] C: I understand,
+[83.1s] C: but I'm already an established patient.
+[85.7s] C: Could you please check another way without creating a new profile?
+[93.1s] B: I'm only able to assist by creating a demo patient profile in this system.
+[97.9s] B: Once that's done,
+[98.8s] B: I can help with your appointment and fax number.
+[101.6s] B: Would you like to continue by providing your first and last name?
+[107.3s] C: I'm sorry,
+[108.5s] C: but I need to resolve my two requests as an established patient.
+[112.3s] C: Could you help find my record or transfer me?
+[117.0s] B: Transferring you now.
+[119.7s] C: Hello,
+[120.4s] C: you've reached the pretty good AI text
+[122.2s] B: Thank you.
+[122.4s] C: line.
+[122.9s] C: Goodbye.
+[123.1s] B: Goodbye.
+[126.8s] C: Goodbye.

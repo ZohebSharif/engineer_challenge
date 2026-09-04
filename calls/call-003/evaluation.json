@@ -1,0 +1,57 @@
+{
+  "issues": [
+    {
+      "category": "state_management_error",
+      "confidence": 0.94,
+      "description": "The agent recorded an incorrect date of birth for the patient and did not update or reconcile the record after the patient provided DOB information.",
+      "evidence": "Patient: 'February 14th, 1988.' [31.7s]; Agent: 'And your date of birth is July 4, 2000 for demo purposes.' [54.1s]-[56.6s]; Patient later: 'Actually, my date of birth is February 14th, 1980.' [60.2s].",
+      "recommendation": "Ask the patient to confirm their correct DOB (explicitly reconcile the conflicting values), correct the record, and verbally confirm the updated DOB back to the patient before proceeding."
+    },
+    {
+      "category": "false_confirmation",
+      "confidence": 0.95,
+      "description": "The agent falsely confirmed the patient's DOB as 'July 4, 2000' despite the patient having given a different DOB.",
+      "evidence": "Agent: 'And your date of birth is July 4, 2000 for demo purposes.' [54.1s]-[56.6s] while the patient had stated 'February 14th, 1988.' [31.7s].",
+      "recommendation": "Apologize for the error, correct the DOB in the system, and explicitly confirm the corrected DOB out loud with the patient."
+    },
+    {
+      "category": "workflow_failure",
+      "confidence": 0.93,
+      "description": "The agent created a demo patient profile instead of looking up the existing patient record as the patient requested, risking duplicate records and unnecessary steps.",
+      "evidence": "Patient: 'I'm an established patient. You can look me up by my date of birth, February 14th, 1988.' [28.0s]-[31.7s]; Agent: 'Your patient profile is set up.' [51.7s].",
+      "recommendation": "When a caller states they are an established patient, attempt a lookup first. If lookup fails, ask clarifying identifiers (full name, DOB, phone number) before creating a new/demo profile and explain why a new profile is necessary."
+    },
+    {
+      "category": "workflow_failure",
+      "confidence": 0.96,
+      "description": "The agent did not present available weekday-morning appointment options nor confirm any specific appointment date/time, so the scheduling objective was not achieved.",
+      "evidence": "Patient requested appointment and asked for available times: 'I'd like to schedule my annual physical for a weekday morning next week.' [5.7s]; 'Could you let me know what times you have available?' [9.6s]. No times or booking confirmation appear later in the transcript.",
+      "recommendation": "Offer concrete available appointment slots that match the patient's preference (weekday mornings next week), get the patient's selection, and confirm the full appointment details (date, start time, provider/location)."
+    },
+    {
+      "category": "clarification_failure",
+      "confidence": 0.91,
+      "description": "The agent failed to resolve conflicting DOB information provided by the patient (patient first gave 1988, later said 1980) and did not ask which was correct.",
+      "evidence": "Patient first: 'February 14th, 1988.' [31.7s]. Later patient: 'Actually, my date of birth is February 14th, 1980.' [60.2s]. The agent did not ask for clarification and instead asserted an unrelated DOB [54.1s]-[56.6s].",
+      "recommendation": "When a patient supplies inconsistent identity information, explicitly point out the inconsistency and ask them which value is correct before proceeding with record changes or scheduling."
+    }
+  ],
+  "scenario_checks": [
+    {
+      "check": "Office confirms an exact appointment date and time before claiming success",
+      "evidence": "No appointment date or time is proposed or confirmed anywhere in the transcript. The user asked for available times at [9.6s] but no options or booking follow.",
+      "passed": false
+    },
+    {
+      "check": "Recorded/used correct date of birth provided by patient (Feb 14, 1988 per known facts / patient statement)",
+      "evidence": "Patient gave DOB at [31.7s]: 'February 14th, 1988' and later corrected at [60.2s] to 'February 14th, 1980', but the agent stated at [54.1s]-[56.6s]: 'And your date of birth is July 4, 2000 for demo purposes.'",
+      "passed": false
+    },
+    {
+      "check": "Acknowledged and acted on patient's preference for a weekday morning next week",
+      "evidence": "Patient requested 'weekday morning next week' at [5.7s] and asked for available times at [9.6s], but the agent never offered times or proposed an appointment.",
+      "passed": false
+    }
+  ],
+  "summary": "The agent failed to schedule the requested appointment and made multiple record-management and confirmation errors: it recorded an incorrect DOB, falsely confirmed that incorrect DOB, created a demo profile despite the patient saying they were established, and did not present or confirm any appointment date/time. The agent also failed to resolve conflicting DOB information provided by the patient."
+}

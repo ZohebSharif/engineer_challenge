@@ -1,0 +1,12 @@
+{
+  "call_id": "call-002",
+  "call_sid": "CAd3ad0aa99ba582953e2beedbf999f72f",
+  "errors": [],
+  "evaluation_status": null,
+  "recording_sid": null,
+  "recording_status": null,
+  "scenario_id": "appointment-scheduling",
+  "started_at": "2026-09-04T03:40:03.147194Z",
+  "transcription_status": null,
+  "updated_at": "2026-09-04T03:40:03.147194Z"
+}

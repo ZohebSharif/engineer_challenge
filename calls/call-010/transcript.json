@@ -1,0 +1,197 @@
+{
+  "segments": [
+    {
+      "end": 3.0,
+      "speaker": "A",
+      "start": 0.0,
+      "text": " This call may be recorded for quality and training purposes."
+    },
+    {
+      "end": 10.1,
+      "speaker": "B",
+      "start": 7.599999999999999,
+      "text": " Thank you for calling Pivot Point Orthopedics."
+    },
+    {
+      "end": 12.4,
+      "speaker": "B",
+      "start": 10.5,
+      "text": " Would you like to create a demo patient profile?"
+    },
+    {
+      "end": 15.05,
+      "speaker": "B",
+      "start": 12.8,
+      "text": " I just need your first and last name to get started."
+    },
+    {
+      "end": 20.5,
+      "speaker": "C",
+      "start": 17.7,
+      "text": " I'm just trying to confirm if my plan is in network."
+    },
+    {
+      "end": 23.2,
+      "speaker": "C",
+      "start": 21.0,
+      "text": " Could you help me figure out how to confirm that?"
+    },
+    {
+      "end": 27.732,
+      "speaker": "B",
+      "start": 26.932,
+      "text": " I can help with that."
+    },
+    {
+      "end": 29.932,
+      "speaker": "B",
+      "start": 27.932,
+      "text": " To check if your plan is in network,"
+    },
+    {
+      "end": 33.082,
+      "speaker": "B",
+      "start": 30.131999999999998,
+      "text": " I'll need to create a demo patient profile for you first."
+    },
+    {
+      "end": 35.082,
+      "speaker": "B",
+      "start": 33.332,
+      "text": " May I have your first and last name?"
+    },
+    {
+      "end": 39.482,
+      "speaker": "C",
+      "start": 37.382000000000005,
+      "text": " I'm not ready to give my name yet."
+    },
+    {
+      "end": 42.632,
+      "speaker": "C",
+      "start": 39.732,
+      "text": " Is there another way to verify the exact plan network?"
+    },
+    {
+      "end": 49.919999999999995,
+      "speaker": "B",
+      "start": 45.62,
+      "text": " You can scan the QR code at the booth to create a profile later if you prefer."
+    },
+    {
+      "end": 51.669999999999995,
+      "speaker": "B",
+      "start": 50.169999999999995,
+      "text": " For now, without a profile,"
+    },
+    {
+      "end": 54.07,
+      "speaker": "B",
+      "start": 51.82,
+      "text": " I'm unable to check plan details directly."
+    },
+    {
+      "end": 61.42,
+      "speaker": "B",
+      "start": 54.47,
+      "text": " If you'd like, I can share general information about insurance or guide you on how to contact your insurance provider for network confirmation."
+    },
+    {
+      "end": 63.019999999999996,
+      "speaker": "B",
+      "start": 61.769999999999996,
+      "text": " Would you like that information?"
+    },
+    {
+      "end": 69.97,
+      "speaker": "C",
+      "start": 66.07,
+      "text": " I'm looking for a specific verification step for my exact plan."
+    },
+    {
+      "end": 72.67,
+      "speaker": "C",
+      "start": 70.62,
+      "text": " Blue Shield PPO Silver 70."
+    },
+    {
+      "end": 74.568,
+      "speaker": "C",
+      "start": 73.268,
+      "text": " How do I confirm that take?"
+    },
+    {
+      "end": 81.468,
+      "speaker": "B",
+      "start": 77.268,
+      "text": " To confirm if your Blue Shield PPO Silver 70 plan is in network,"
+    },
+    {
+      "end": 88.118,
+      "speaker": "B",
+      "start": 81.668,
+      "text": " the most accurate way is to contact your insurance provider directly or check their online provider directory."
+    },
+    {
+      "end": 93.168,
+      "speaker": "B",
+      "start": 88.468,
+      "text": " You can also call the clinic's front desk with your plan details for a direct check."
+    },
+    {
+      "end": 96.068,
+      "speaker": "B",
+      "start": 93.418,
+      "text": " If you decide to create a profile later,"
+    },
+    {
+      "end": 102.068,
+      "speaker": "B",
+      "start": 96.21799999999999,
+      "text": " I can help verify your plan here as well. Would you like instructions for checking with your insurance provider?"
+    },
+    {
+      "end": 106.132,
+      "speaker": "C",
+      "start": 105.33200000000001,
+      "text": " That helps."
+    },
+    {
+      "end": 109.03200000000001,
+      "speaker": "C",
+      "start": 106.482,
+      "text": " I'll go ahead and contact my insurance provider directly."
+    },
+    {
+      "end": 110.632,
+      "speaker": "C",
+      "start": 109.53200000000001,
+      "text": " Thanks. Goodbye."
+    },
+    {
+      "end": 113.28200000000001,
+      "speaker": "B",
+      "start": 112.632,
+      "text": " You're welcome."
+    },
+    {
+      "end": 114.432,
+      "speaker": "B",
+      "start": 113.632,
+      "text": " Have a great day."
+    },
+    {
+      "end": 118.132,
+      "speaker": "C",
+      "start": 117.28200000000001,
+      "text": " You too."
+    },
+    {
+      "end": 118.83200000000001,
+      "speaker": "C",
+      "start": 118.382,
+      "text": " Goodbye."
+    }
+  ],
+  "text": "This call may be recorded for quality and training purposes. Thank you for calling Pivot Point Orthopedics. Would you like to create a demo patient profile? I just need your first and last name to get started. I'm just trying to confirm if my plan is in network. Could you help me figure out how to confirm that?\nI can help with that. To check if your plan is in network, I'll need to create a demo patient profile for you first. May I have your first and last name? I'm not ready to give my name yet. Is there another way to verify the exact plan network?\nYou can scan the QR code at the booth to create a profile later if you prefer. For now, without a profile, I'm unable to check plan details directly. If you'd like, I can share general information about insurance or guide you on how to contact your insurance provider for network confirmation. Would you like that information? I'm looking for a specific verification step for my exact plan. Blue Shield PPO Silver 70.\nHow do I confirm that take?\nTo confirm if your Blue Shield PPO Silver 70 plan is in network, the most accurate way is to contact your insurance provider directly or check their online provider directory. You can also call the clinic's front desk with your plan details for a direct check. If you decide to create a profile later, I can help verify your plan here as well. Would you like instructions for checking with your insurance provider?\nThat helps. I'll go ahead and contact my insurance provider directly. Thanks. Goodbye. You're welcome. Have a great day. You too. Goodbye."
+}

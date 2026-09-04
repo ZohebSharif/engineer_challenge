@@ -1,0 +1,46 @@
+[0.1s] A: This call may be recorded for quality and training purposes.
+[3.8s] A: Para español oprima el dos.
+[7.2s] B: Thank you for calling Pivot Point Orthopedics.
+[10.2s] B: Would you like to create a demo patient profile?
+[12.9s] B: I just need your first and last name to get started.
+[17.7s] C: I'm actually already an established patient.
+[20.3s] C: My name's Priya Shaw.
+[23.8s] B: Thanks for letting me know, Priya.
+[25.4s] B: I don't see a patient profile for you yet.
+[27.8s] B: Would you like to create a demo patient profile now?
+[30.8s] B: I just need your first and last name.
+[35.1s] C: I understand,
+[36.1s] C: but I'm definitely an established patient.
+[38.6s] C: My name is Priya Shah,
+[40.4s] C: spelled P-R-I-Y-A-S-H-A-H.
+[47.8s] B: Your patient profile has been created and your date of birth is listed as July 4th 2000 for demo purposes.
+[55.8s] B: How may I help you today?
+[59.7s] C: My date of birth is actually August 22,
+[62.7s] C: 1991.
+[63.7s] C: I need a weekend appointment for a follow-up.
+[69.8s] B: Just to confirm,
+[71.0s] B: you'd like to book a follow-up appointment.
+[73.5s] B: Is this for a recent visit or a specific concern you want to check back on?
+[80.3s] C: It's a routine follow-up. No urgent concern.
+[83.6s] C: I can do Saturdays or Sundays only.
+[88.0s] B: You already have a follow-up appointment scheduled for Friday,
+[91.1s] B: September 18th at 2 p.m.
+[93.2s] B: The clinic is only open Monday through Friday, so we don't have weekend appointments available.
+[97.6s] B: Would you like to keep your current appointment or look for another weekday option?
+[104.0s] C: I really can't do weekdays.
+[106.2s] C: Do you have a waitlist or maybe an affiliated weekend clinic I could try?
+[112.1s] B: We don't have a weekend waitlist or an affiliated clinic for weekend appointments.
+[117.0s] B: All visits are scheduled Monday through Friday.
+[119.7s] B: Would you like to look for the next available weekday slot or keep your current appointment?
+[127.1s] C: I can't do weekdays at all.
+[129.2s] C: So if there's no weekend option,
+[131.0s] C: I'll have to figure something else out.
+[132.9s] C: Thanks.
+[133.6s] C: Goodbye.
+[136.4s] B: Understood.
+[137.5s] B: If your schedule changes or you need help in the future,
+[140.0s] B: feel free to call us.
+[141.1s] B: Take care.
+[145.7s] C: Thanks.
+[146.2s] C: Will do.
+[146.9s] C: Goodbye.

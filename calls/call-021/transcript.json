@@ -1,0 +1,89 @@
+{
+  "segments": [
+    {
+      "end": 3.05,
+      "speaker": "A",
+      "start": 0.0,
+      "text": " This call may be recorded for quality and training purposes."
+    },
+    {
+      "end": 5.75,
+      "speaker": "A",
+      "start": 3.8,
+      "text": " Para espanol oprima el dos."
+    },
+    {
+      "end": 9.500000000000002,
+      "speaker": "B",
+      "start": 7.2,
+      "text": " Thank you for calling Pivot Point Orthopedics."
+    },
+    {
+      "end": 12.05,
+      "speaker": "B",
+      "start": 10.000000000000002,
+      "text": " Would you like to create a demo patient profile?"
+    },
+    {
+      "end": 14.450000000000001,
+      "speaker": "B",
+      "start": 12.65,
+      "text": " I just need your first and last name to get started."
+    },
+    {
+      "end": 17.2,
+      "speaker": "C",
+      "start": 16.849999999999998,
+      "text": " No,"
+    },
+    {
+      "end": 18.0,
+      "speaker": "C",
+      "start": 17.5,
+      "text": " thank you,"
+    },
+    {
+      "end": 19.55,
+      "speaker": "C",
+      "start": 18.35,
+      "text": " I already have a profile."
+    },
+    {
+      "end": 21.400000000000002,
+      "speaker": "C",
+      "start": 20.1,
+      "text": " My name is Taylor Morgan."
+    },
+    {
+      "end": 24.3,
+      "speaker": "B",
+      "start": 23.55,
+      "text": " No problem."
+    },
+    {
+      "end": 26.338,
+      "speaker": "B",
+      "start": 24.788,
+      "text": " If you ever need to create a profile,"
+    },
+    {
+      "end": 28.688,
+      "speaker": "B",
+      "start": 26.488,
+      "text": " you can scan the QR code at the booth later."
+    },
+    {
+      "end": 29.838,
+      "speaker": "B",
+      "start": 28.988,
+      "text": " Have a great day."
+    },
+    {
+      "end": 34.338,
+      "speaker": "C",
+      "start": 32.338,
+      "text": " I'm actually calling to book an appointment."
+    }
+  ],
+  "text": "This call may be recorded for quality and training purposes. Para espanol oprima el dos. Thank you for calling Pivot Point Orthopedics. Would you like to create a demo patient profile? I just need your first and last name to get started. No, thank you, I already have a profile. My name is Taylor Morgan. No problem.\nIf you ever need to create a profile, you can scan the QR code at the booth later. Have a great day. I'm actually calling to book an appointment."
+}

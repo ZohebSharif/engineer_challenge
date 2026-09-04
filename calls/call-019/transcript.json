@@ -1,0 +1,413 @@
+{
+  "segments": [
+    {
+      "end": 3.0999999999999996,
+      "speaker": "A",
+      "start": 0.0,
+      "text": " This call may be recorded for quality and training purposes."
+    },
+    {
+      "end": 4.8,
+      "speaker": "A",
+      "start": 3.8999999999999995,
+      "text": " Para espanol,"
+    },
+    {
+      "end": 5.85,
+      "speaker": "A",
+      "start": 5.0,
+      "text": " oprima el dos."
+    },
+    {
+      "end": 9.600000000000001,
+      "speaker": "B",
+      "start": 7.45,
+      "text": " Thank you for calling Pivot Point Orthopedics."
+    },
+    {
+      "end": 12.150000000000002,
+      "speaker": "B",
+      "start": 10.150000000000002,
+      "text": " Would you like to create a demo patient profile?"
+    },
+    {
+      "end": 14.8,
+      "speaker": "B",
+      "start": 12.850000000000001,
+      "text": " I just need your first and last name to get started."
+    },
+    {
+      "end": 20.200000000000003,
+      "speaker": "C",
+      "start": 17.150000000000002,
+      "text": " I'm actually calling about rescheduling my existing appointment."
+    },
+    {
+      "end": 21.800000000000004,
+      "speaker": "C",
+      "start": 20.700000000000003,
+      "text": " Could you help me with that first?"
+    },
+    {
+      "end": 28.02,
+      "speaker": "B",
+      "start": 24.02,
+      "text": " I can help with rescheduling, but I'll need to create a demo patient profile for you first."
+    },
+    {
+      "end": 30.02,
+      "speaker": "B",
+      "start": 28.42,
+      "text": " Can I get your first and last name?"
+    },
+    {
+      "end": 34.47,
+      "speaker": "C",
+      "start": 32.370000000000005,
+      "text": " I already have an appointment set."
+    },
+    {
+      "end": 36.32,
+      "speaker": "C",
+      "start": 34.82,
+      "text": " It's under Daniel Ortiz."
+    },
+    {
+      "end": 39.72,
+      "speaker": "B",
+      "start": 38.620000000000005,
+      "text": " Thanks for letting me know."
+    },
+    {
+      "end": 43.07,
+      "speaker": "B",
+      "start": 39.870000000000005,
+      "text": " To access your appointment and help with rescheduling,"
+    },
+    {
+      "end": 46.769999999999996,
+      "speaker": "B",
+      "start": 43.82,
+      "text": " I still need to create a demo patient profile for you."
+    },
+    {
+      "end": 49.22,
+      "speaker": "B",
+      "start": 47.120000000000005,
+      "text": " Can you please provide your first and last name?"
+    },
+    {
+      "end": 52.644,
+      "speaker": "C",
+      "start": 52.244,
+      "text": " Sure."
+    },
+    {
+      "end": 53.944,
+      "speaker": "C",
+      "start": 52.794,
+      "text": " It's Daniel Ortiz."
+    },
+    {
+      "end": 60.594,
+      "speaker": "B",
+      "start": 57.494,
+      "text": " Your patient profile is set up and your date of birth is July 4,"
+    },
+    {
+      "end": 62.244,
+      "speaker": "B",
+      "start": 60.794,
+      "text": " 2000, for demo purposes."
+    },
+    {
+      "end": 63.894,
+      "speaker": "B",
+      "start": 62.843999999999994,
+      "text": " How may I help you today?"
+    },
+    {
+      "end": 67.294,
+      "speaker": "C",
+      "start": 66.644,
+      "text": " Actually,"
+    },
+    {
+      "end": 68.994,
+      "speaker": "C",
+      "start": 67.344,
+      "text": " my date of birth is June 9,"
+    },
+    {
+      "end": 69.69399999999999,
+      "speaker": "C",
+      "start": 69.19399999999999,
+      "text": " 1975."
+    },
+    {
+      "end": 71.94399999999999,
+      "speaker": "C",
+      "start": 70.344,
+      "text": " I need to reschedule my appointment."
+    },
+    {
+      "end": 82.384,
+      "speaker": "B",
+      "start": 80.884,
+      "text": " You have two upcoming appointments."
+    },
+    {
+      "end": 84.934,
+      "speaker": "B",
+      "start": 82.934,
+      "text": " One is on Tuesday,"
+    },
+    {
+      "end": 88.784,
+      "speaker": "B",
+      "start": 85.284,
+      "text": " September 8th at 10 a.m. with Kelly Noble,"
+    },
+    {
+      "end": 89.184,
+      "speaker": "B",
+      "start": 88.984,
+      "text": " MD."
+    },
+    {
+      "end": 93.934,
+      "speaker": "B",
+      "start": 89.234,
+      "text": " The other is on Friday, September 18th at 2 p.m. with Duty Hauser."
+    },
+    {
+      "end": 96.384,
+      "speaker": "B",
+      "start": 94.384,
+      "text": " Which appointment would you like to reschedule?"
+    },
+    {
+      "end": 100.584,
+      "speaker": "C",
+      "start": 99.884,
+      "text": " I'm sorry,"
+    },
+    {
+      "end": 101.684,
+      "speaker": "C",
+      "start": 100.634,
+      "text": " that's not correct."
+    },
+    {
+      "end": 103.78399999999999,
+      "speaker": "C",
+      "start": 101.984,
+      "text": " My existing appointment is Tuesday,"
+    },
+    {
+      "end": 105.684,
+      "speaker": "C",
+      "start": 103.984,
+      "text": " October 13th at 2 p.m."
+    },
+    {
+      "end": 110.762,
+      "speaker": "B",
+      "start": 108.212,
+      "text": " I see two appointments on file Tuesday,"
+    },
+    {
+      "end": 113.212,
+      "speaker": "B",
+      "start": 110.962,
+      "text": " September 8th at 10 a.m. with Kelly Noble,"
+    },
+    {
+      "end": 114.662,
+      "speaker": "B",
+      "start": 113.562,
+      "text": " M.D., and Friday,"
+    },
+    {
+      "end": 117.412,
+      "speaker": "B",
+      "start": 114.712,
+      "text": " September 18th at 2 p.m. with Judy Hauser."
+    },
+    {
+      "end": 125.012,
+      "speaker": "B",
+      "start": 117.712,
+      "text": " There isn't an appointment listed for October 13th. Would you like to reschedule the September 8th or the September 18th appointment?"
+    },
+    {
+      "end": 130.662,
+      "speaker": "C",
+      "start": 128.262,
+      "text": " My appointment is definitely Tuesday,"
+    },
+    {
+      "end": 134.462,
+      "speaker": "C",
+      "start": 130.912,
+      "text": " October 13th at 2 p.m. That's the one I need to reschedule."
+    },
+    {
+      "end": 141.15,
+      "speaker": "B",
+      "start": 136.5,
+      "text": " I understand that I only see appointments for September 8th and September 18th in your record."
+    },
+    {
+      "end": 148.85,
+      "speaker": "B",
+      "start": 141.65,
+      "text": " There is one listed for October 13th. Would you like to reschedule either the September 8th or September 18th appointment,"
+    },
+    {
+      "end": 151.6,
+      "speaker": "B",
+      "start": 148.9,
+      "text": " or do you want to keep those as they are?"
+    },
+    {
+      "end": 159.65,
+      "speaker": "C",
+      "start": 154.75,
+      "text": " I need to reschedule the October 13th appointment at 2 p.m. That's the one I have."
+    },
+    {
+      "end": 165.85799999999998,
+      "speaker": "B",
+      "start": 161.908,
+      "text": " I don't see an appointment for October 13th at 2 p.m. in your record."
+    },
+    {
+      "end": 169.208,
+      "speaker": "B",
+      "start": 166.208,
+      "text": " Only September 8th and September 18th are listed."
+    },
+    {
+      "end": 175.00799999999998,
+      "speaker": "B",
+      "start": 169.60799999999998,
+      "text": " Would you like to reschedule one of those or do you want to speak with someone from the clinic to help sort this out?"
+    },
+    {
+      "end": 179.75799999999998,
+      "speaker": "C",
+      "start": 178.208,
+      "text": " I'm sure about my appointment."
+    },
+    {
+      "end": 183.908,
+      "speaker": "C",
+      "start": 180.408,
+      "text": " Tuesday, October 13th at 2 p.m. Can you double check that?"
+    },
+    {
+      "end": 188.218,
+      "speaker": "B",
+      "start": 186.868,
+      "text": " I've double-checked your record,"
+    },
+    {
+      "end": 190.868,
+      "speaker": "B",
+      "start": 188.668,
+      "text": " and I still only see appointments for Tuesday,"
+    },
+    {
+      "end": 193.168,
+      "speaker": "B",
+      "start": 191.06799999999998,
+      "text": " September 8th at 10 a.m. and Friday,"
+    },
+    {
+      "end": 201.218,
+      "speaker": "B",
+      "start": 193.218,
+      "text": " September 18th at 2 p.m. There is nothing listed for October 13th. Would you like to speak with someone from the clinic to help resolve this?"
+    },
+    {
+      "end": 202.668,
+      "speaker": "B",
+      "start": 201.618,
+      "text": " I can transfer you now."
+    },
+    {
+      "end": 209.368,
+      "speaker": "C",
+      "start": 206.268,
+      "text": " Yes, please transfer me to someone who can sort this out."
+    },
+    {
+      "end": 210.06799999999998,
+      "speaker": "C",
+      "start": 209.668,
+      "text": " Thanks."
+    },
+    {
+      "end": 216.934,
+      "speaker": "B",
+      "start": 216.084,
+      "text": " Just ringing now,"
+    },
+    {
+      "end": 217.734,
+      "speaker": "B",
+      "start": 217.684,
+      "text": " beep"
+    },
+    {
+      "end": 219.184,
+      "speaker": "C",
+      "start": 218.834,
+      "text": " Hello,"
+    },
+    {
+      "end": 221.084,
+      "speaker": "C",
+      "start": 219.63400000000001,
+      "text": " you've reached the pretty good A_I_"
+    },
+    {
+      "end": 221.234,
+      "speaker": "A",
+      "start": 221.084,
+      "text": " Thank"
+    },
+    {
+      "end": 221.334,
+      "speaker": "C",
+      "start": 221.234,
+      "text": " tech"
+    },
+    {
+      "end": 221.434,
+      "speaker": "A",
+      "start": 221.334,
+      "text": " you."
+    },
+    {
+      "end": 221.734,
+      "speaker": "C",
+      "start": 221.434,
+      "text": " line."
+    },
+    {
+      "end": 222.13400000000001,
+      "speaker": "A",
+      "start": 221.734,
+      "text": " Goodbye."
+    },
+    {
+      "end": 222.684,
+      "speaker": "C",
+      "start": 222.13400000000001,
+      "text": " Goodbye."
+    }
+  ],
+  "text": "This call may be recorded for quality and training purposes. Para espanol, oprima el dos. Thank you for calling Pivot Point Orthopedics. Would you like to create a demo patient profile? I just need your first and last name to get started. I'm actually calling about rescheduling my existing appointment. Could you help me with that first?\nI can help with rescheduling, but I'll need to create a demo patient profile for you first. Can I get your first and last name? I already have an appointment set. It's under Daniel Ortiz. Thanks for letting me know. To access your appointment and help with rescheduling, I still need to create a demo patient profile for you. Can you please provide your first and last name?\nSure. It's Daniel Ortiz. Your patient profile is set up and your date of birth is July 4, 2000, for demo purposes. How may I help you today? Actually, my date of birth is June 9, 1975. I need to reschedule my appointment.\nYou have two upcoming appointments. One is on Tuesday, September 8th at 10 a.m. with Kelly Noble, MD. The other is on Friday, September 18th at 2 p.m. with Duty Hauser. Which appointment would you like to reschedule? I'm sorry, that's not correct. My existing appointment is Tuesday, October 13th at 2 p.m.\nI see two appointments on file Tuesday, September 8th at 10 a.m. with Kelly Noble, M.D., and Friday, September 18th at 2 p.m. with Judy Hauser. There isn't an appointment listed for October 13th. Would you like to reschedule the September 8th or the September 18th appointment? My appointment is definitely Tuesday, October 13th at 2 p.m. That's the one I need to reschedule.\nI understand that I only see appointments for September 8th and September 18th in your record. There is one listed for October 13th. Would you like to reschedule either the September 8th or September 18th appointment, or do you want to keep those as they are? I need to reschedule the October 13th appointment at 2 p.m. That's the one I have.\nI don't see an appointment for October 13th at 2 p.m. in your record. Only September 8th and September 18th are listed. Would you like to reschedule one of those or do you want to speak with someone from the clinic to help sort this out? I'm sure about my appointment. Tuesday, October 13th at 2 p.m. Can you double check that?\nI've double-checked your record, and I still only see appointments for Tuesday, September 8th at 10 a.m. and Friday, September 18th at 2 p.m. There is nothing listed for October 13th. Would you like to speak with someone from the clinic to help resolve this? I can transfer you now. Yes, please transfer me to someone who can sort this out. Thanks.\nJust ringing now, beep Hello, you've reached the pretty good A_I_ Thank tech you. line. Goodbye. Goodbye."
+}
