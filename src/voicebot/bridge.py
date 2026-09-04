@@ -19,6 +19,30 @@ class RealtimeClient(Protocol):
     async def open(self, scenario: Scenario) -> RealtimeSession: ...
 
 
+async def _receive_start_event(websocket: WebSocket, settings: Settings) -> dict[str, Any] | None:
+    """Consume Twilio's single `connected` handshake frame and return the `start` frame.
+
+    Twilio always sends `connected` before `start`. Anything else, a second `connected`,
+    or a frame that arrives before `start` closes the socket with a policy violation.
+    """
+    connected_seen = False
+    while True:
+        raw = await asyncio.wait_for(
+            websocket.receive_text(), timeout=settings.call_timeout_seconds
+        )
+        event = _parse_event(raw)
+        event_type = event.get("event")
+        if event_type == "start":
+            return event
+        if event_type == "connected" and not connected_seen:
+            connected_seen = True
+            logger.info("twilio_stream_connected", protocol=event.get("protocol"))
+            continue
+        logger.warning("twilio_stream_unexpected_handshake_frame", twilio_event=event_type)
+        await websocket.close(code=status.WS_1008_POLICY_VIOLATION)
+        return None
+
+
 async def run_media_bridge(
     websocket: WebSocket,
     settings: Settings,
@@ -31,12 +55,8 @@ async def run_media_bridge(
     call_sid: str | None = None
     realtime: RealtimeSession | None = None
     try:
-        raw = await asyncio.wait_for(
-            websocket.receive_text(), timeout=settings.call_timeout_seconds
-        )
-        first = _parse_event(raw)
-        if first.get("event") != "start":
-            await websocket.close(code=status.WS_1008_POLICY_VIOLATION)
+        first = await _receive_start_event(websocket, settings)
+        if first is None:
             return
         start = _mapping(first.get("start"))
         call_sid = str(start.get("callSid", ""))
@@ -124,7 +144,7 @@ async def _twilio_to_openai(
             logger.info("twilio_stream_stopped", call_sid=call_sid)
             return
         else:
-            logger.info("twilio_control_event", event=event_type, call_sid=call_sid)
+            logger.info("twilio_control_event", twilio_event=event_type, call_sid=call_sid)
 
 
 async def _openai_to_twilio(
@@ -159,7 +179,7 @@ async def _openai_to_twilio(
             logger.error("openai_realtime_error", call_sid=call_sid, error=error)
             raise RuntimeError("OpenAI Realtime returned an error")
         else:
-            logger.debug("openai_realtime_event", call_sid=call_sid, event=event_type)
+            logger.debug("openai_realtime_event", call_sid=call_sid, openai_event=event_type)
 
 
 def _parse_event(raw: str) -> dict[str, Any]:
