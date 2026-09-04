@@ -58,7 +58,7 @@ async def run_media_bridge(
 
         scenario = (scenarios or ScenarioRepository()).load(scenario_id)
         await sessions.create(call_sid, stream_sid)
-        await logger.ainfo(
+        logger.info(
             "twilio_stream_started",
             call_sid=call_sid,
             stream_sid=stream_sid,
@@ -81,17 +81,17 @@ async def run_media_bridge(
         for task in done:
             task.result()
     except TimeoutError:
-        await logger.awarning("twilio_stream_timeout", call_sid=call_sid)
+        logger.warning("twilio_stream_timeout", call_sid=call_sid)
         with contextlib.suppress(RuntimeError):
             await websocket.close(code=status.WS_1000_NORMAL_CLOSURE)
     except WebSocketDisconnect:
-        await logger.ainfo("twilio_stream_disconnected", call_sid=call_sid)
+        logger.info("twilio_stream_disconnected", call_sid=call_sid)
     finally:
         if realtime is not None:
             await realtime.close()
         if call_sid:
             await sessions.remove(call_sid)
-        await logger.ainfo("media_bridge_closed", call_sid=call_sid)
+        logger.info("media_bridge_closed", call_sid=call_sid)
 
 
 async def _twilio_to_openai(
@@ -115,16 +115,16 @@ async def _twilio_to_openai(
                 session = await sessions.get(call_sid)
                 if session:
                     session.media_messages += 1
-            await logger.adebug(
+            logger.debug(
                 "twilio_media_received",
                 call_sid=call_sid,
                 sequence_number=event.get("sequenceNumber"),
             )
         elif event_type == "stop":
-            await logger.ainfo("twilio_stream_stopped", call_sid=call_sid)
+            logger.info("twilio_stream_stopped", call_sid=call_sid)
             return
         else:
-            await logger.ainfo("twilio_control_event", event=event_type, call_sid=call_sid)
+            logger.info("twilio_control_event", event=event_type, call_sid=call_sid)
 
 
 async def _openai_to_twilio(
@@ -148,7 +148,7 @@ async def _openai_to_twilio(
             await realtime.cancel_response()
             await websocket.send_json({"event": "clear", "streamSid": stream_sid})
             turns.output_finished()
-            await logger.ainfo("patient_speech_interrupted", call_sid=call_sid)
+            logger.info("patient_speech_interrupted", call_sid=call_sid)
         elif event_type in {"response.done", "response.output_audio.done"}:
             turns.output_finished()
         elif event_type == "error":
@@ -156,10 +156,10 @@ async def _openai_to_twilio(
             if error.get("code") == "response_cancel_not_active":
                 logger.debug("openai_cancel_already_complete", call_sid=call_sid)
                 continue
-            await logger.aerror("openai_realtime_error", call_sid=call_sid, error=error)
+            logger.error("openai_realtime_error", call_sid=call_sid, error=error)
             raise RuntimeError("OpenAI Realtime returned an error")
         else:
-            await logger.adebug("openai_realtime_event", call_sid=call_sid, event=event_type)
+            logger.debug("openai_realtime_event", call_sid=call_sid, event=event_type)
 
 
 def _parse_event(raw: str) -> dict[str, Any]:

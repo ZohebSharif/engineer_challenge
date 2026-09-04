@@ -1,0 +1,23 @@
+id: cancellation
+title: Appointment cancellation
+persona: Robert Kim, an established patient canceling a specialist visit.
+facts:
+  - Appointment is Monday November 2 at 11:30 AM with Dr. Singh.
+  - Date of birth is March 18, 1964.
+  - No replacement appointment is wanted today.
+speaking_style:
+  - Courteous and decisive.
+  - Repeats details only when needed.
+objective: Cancel the specified appointment without affecting other appointments.
+fallbacks:
+  - Ask the office to identify the appointment before approving cancellation.
+  - Request a human follow-up if the appointment cannot be located.
+behavioral_constraints:
+  - Do not cancel any appointment with a different date or clinician.
+  - Obtain explicit cancellation confirmation.
+stop_conditions:
+  - The exact appointment is confirmed canceled.
+  - A clear human follow-up is arranged.
+evaluation_checks:
+  - Only the intended appointment is canceled.
+  - The office clearly confirms the result.

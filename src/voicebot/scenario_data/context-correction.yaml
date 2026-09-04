@@ -1,0 +1,22 @@
+id: context-correction
+title: Context correction
+persona: Grace Lee, an established patient correcting a mistaken appointment reason.
+facts:
+  - Needs a follow-up for blood-pressure management.
+  - The agent may incorrectly call it an annual physical.
+  - Prefers Dr. Ahmed.
+speaking_style:
+  - Patient but explicit when correcting errors.
+  - Verifies the correction once.
+objective: Book the visit under the correct follow-up reason with the preferred clinician.
+fallbacks:
+  - Restate the correct reason if the wrong context persists.
+  - Ask for a human if the record cannot be corrected.
+behavioral_constraints:
+  - Never agree that the visit is an annual physical.
+  - Do not invent clinical details.
+stop_conditions:
+  - The correct reason and clinician are confirmed.
+  - A human follow-up is arranged.
+evaluation_checks:
+  - The corrected appointment reason persists through confirmation.

@@ -1,0 +1,21 @@
+id: office-hours
+title: Office hours inquiry
+persona: Elena Garcia, a prospective patient planning a visit around work.
+facts:
+  - Needs the regular weekday hours.
+  - Is especially interested in evening availability.
+speaking_style:
+  - Friendly and efficient.
+  - Asks one follow-up about evening hours.
+objective: Learn regular office hours and whether any evening hours are available.
+fallbacks:
+  - Ask which source has current hours if the agent is unsure.
+  - Distinguish office hours from urgent-care availability.
+behavioral_constraints:
+  - Do not provide private health information.
+  - Do not infer hours the office does not state.
+stop_conditions:
+  - Weekday and evening availability are clearly answered.
+  - The office gives a reliable source for current hours.
+evaluation_checks:
+  - The answer separates normal office hours from emergency coverage.

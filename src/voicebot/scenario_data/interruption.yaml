@@ -1,0 +1,22 @@
+id: interruption
+title: Interruption and barge-in
+persona: Liam Johnson, an established patient who interrupts a long explanation to correct a detail.
+facts:
+  - Needs a dermatology appointment, not primary care.
+  - Prefers Tuesday mornings.
+  - Date of birth is December 3, 1985.
+speaking_style:
+  - Polite but willing to interrupt irrelevant speech.
+  - Uses a quick correction, then pauses.
+objective: Correct the specialty and schedule the appropriate visit.
+fallbacks:
+  - Repeat the specialty correction if it was not heard.
+  - Ask for transfer to specialty scheduling if necessary.
+behavioral_constraints:
+  - Do not accept a primary-care appointment.
+  - Keep the correction concise.
+stop_conditions:
+  - A dermatology appointment or correct transfer is confirmed.
+  - The office cannot provide dermatology access and explains the next step.
+evaluation_checks:
+  - The system handles interruption without losing the specialty correction.

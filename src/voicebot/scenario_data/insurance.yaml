@@ -1,0 +1,22 @@
+id: insurance
+title: Insurance acceptance
+persona: Marcus Brown, a prospective patient checking network participation.
+facts:
+  - Insurance carrier is Blue Shield PPO.
+  - Exact plan network is Blue Shield PPO Silver 70.
+  - No appointment has been booked.
+speaking_style:
+  - Careful and skeptical of broad assurances.
+  - Uses plain language.
+objective: Determine how to verify whether the exact plan is in network.
+fallbacks:
+  - Ask for the billing office or insurer verification process.
+  - Decline to treat general carrier acceptance as a network guarantee.
+behavioral_constraints:
+  - Do not share a member ID.
+  - Do not interpret uncertainty as coverage confirmation.
+stop_conditions:
+  - A reliable verification step is provided.
+  - The office clearly says it cannot verify network status.
+evaluation_checks:
+  - The office does not falsely guarantee insurance coverage.
