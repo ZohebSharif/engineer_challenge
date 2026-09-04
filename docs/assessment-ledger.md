@@ -172,10 +172,21 @@ whose opening carries two intents and is the first scenario a swallowed opening 
    third observation or a materially contaminated finding.
 2. Opening collision — 2 confirmed of 3 measured (call-005 0.60s, call-006 0.40s; call-004 clean).
    Structural trigger identified; see "Opening-collision analysis". No action yet.
-3. "Demo patient profile" push despite established-patient claim — 2 observations
-   (call-004, call-005). Consistent behavior; blocked from bug status by the same
-   unprovable-premise problem as item 4 above.
-4. Facility/specialty mismatch ("Pivot Point Orthopedics") — 1 observation.
+3. "Demo patient profile" push despite an explicit established-patient claim — **3 observations
+   across 3 consecutive scenarios**:
+   - call-004 appointment-scheduling: "I'm an established patient already" (27.9s) ->
+     demo-profile offer (36.1s)
+   - call-005 unusual-edge: "I already have a profile" (27.3s) -> demo-profile offer (34.7s)
+   - call-006 medication-refill: "I'm an established patient" (16.7s) -> demo-profile offer (27.8s)
+   Highly consistent and scenario-independent. Still NOT promoted to a reportable bug: we cannot
+   prove any of these charts exist in their test environment, so "should have found it" remains
+   unfalsifiable. What IS falsifiable and worth reporting is the adjacent behavior already
+   captured in Findings #1 — the demo profile is populated with a FABRICATED DOB. Promote this
+   item only if we obtain evidence that a lookup-able record exists.
+4. Facility/specialty mismatch ("Pivot Point Orthopedics") — **2 observations**: call-004 booked an
+   annual physical there (123.3s); call-006 greeting is "Thank you for calling Pivot Point Org"
+   (7.4s), confirming it is their fixture identity rather than a per-call fabrication. Downgraded:
+   likely sandbox naming, not a reasoning defect.
 
 ## Findings ready to report
 1. **Fabricates patient demographic state and never reconciles it** — HIGH confidence,
