@@ -156,40 +156,44 @@ async def _openai_to_twilio(
     settings: Settings,
 ) -> None:
     loop = asyncio.get_running_loop()
-    opening_released = False
-    opening_deadline: float | None = None
+    automatic_responses = False
+    opening_done = False
     remote_speaking = False
-    # Absolute fallback: a silent answer never emits speech_stopped, so arm a cap at entry.
-    opening_limit: float | None = loop.time() + settings.opening_hold_seconds * 5
+    # Backstop only. Primary release is event-driven: enable automatic responses the first time
+    # the remote side finishes speaking, then let unchanged server VAD answer its next turn end.
+    # The timer covers a silent answer, and a remote that goes quiet after enabling.
+    backstop: float | None = loop.time() + settings.opening_hold_seconds * 5
     while True:
-        if opening_released:
-            timeout = None
-        elif opening_deadline is not None:
-            timeout = max(0.0, opening_deadline - loop.time())
-        elif remote_speaking or opening_limit is None:
-            timeout = None
-        else:
-            timeout = max(0.0, opening_limit - loop.time())
-        if timeout is None:
+        if opening_done or remote_speaking or backstop is None:
             event = await realtime.receive()
         else:
             try:
-                event = await asyncio.wait_for(realtime.receive(), timeout=timeout)
+                event = await asyncio.wait_for(
+                    realtime.receive(), timeout=max(0.0, backstop - loop.time())
+                )
             except TimeoutError:
-                await realtime.release_opening_turn()
-                opening_released = True
-                opening_deadline = None
-                opening_limit = None
-                logger.info("opening_turn_released", call_sid=call_sid)
+                if not automatic_responses:
+                    await realtime.enable_automatic_responses()
+                    automatic_responses = True
+                await realtime.create_response()
+                opening_done = True
+                backstop = None
+                logger.info("opening_turn_forced", call_sid=call_sid)
                 continue
         event_type = str(event.get("type", "unknown"))
-        if not opening_released:
+        if not opening_done:
             if event_type == "input_audio_buffer.speech_started":
-                opening_deadline = None
                 remote_speaking = True
             elif event_type == "input_audio_buffer.speech_stopped":
                 remote_speaking = False
-                opening_deadline = loop.time() + settings.opening_hold_seconds
+                backstop = loop.time() + settings.opening_hold_seconds * 5
+                if not automatic_responses:
+                    await realtime.enable_automatic_responses()
+                    automatic_responses = True
+                    logger.info("opening_turn_released", call_sid=call_sid)
+            elif event_type == "response.output_audio.delta":
+                opening_done = True
+                backstop = None
         if event_type == "response.output_audio.delta":
             delta = event.get("delta")
             if isinstance(delta, str):

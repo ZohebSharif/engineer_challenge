@@ -36,7 +36,11 @@ Consequences:
 | call-006 | CA8157745d7e7c219e50ced0b7bf4a368d | medication-refill | **Quality Call #2** | Preserved, submission candidate / **quality pending** (rough opening) |
 | call-007 | CA977137d4640c47f53439b0eda3841029 | rescheduling | evidence only | **VOID for final quality** — materially rough opening (0.85s collision + 5 more through 22s) |
 
-Void calls are harness-debug artifacts and MUST NOT be used as evidence about PGai.
+Calls 1-3 are harness-debug artifacts and MUST NOT be used as evidence about PGai at all.
+call-007 is different: it is void for **submission quality only** (our opening collision makes it
+unpresentable), but its PGai findings ARE valid evidence — every one occurs after 50s, far from
+the contaminated opening. "Void" in the table means quality, not evidentiary, unless the row says
+harness debug.
 
 ## Quality Call #0 — call-004 (appointment-scheduling, 2:33)
 
@@ -171,13 +175,18 @@ as the caller's turn and auto-generate our opening. Raising `silence_duration_ms
 it shifts a fixed offset into a race we do not control (PGai greeting start varied 5.75-8.25s)
 while taxing every good mid-call turn.
 
-Fix shipped: explicit opening gate. `configure()` now opens with `create_response: false`, so the
-remote side owns the first turn. `bridge._openai_to_twilio` arms a release deadline on
-`speech_stopped`, disarms it on `speech_started`, and on expiry sends one `response.create` plus a
-`session.update` restoring `create_response: true`. Mid-call VAD (threshold 0.55,
-silence_duration_ms 1200, interrupt_response false) is byte-identical after release. An absolute
-cap (`opening_hold_seconds * 5`) guarantees release when a silent answer never emits
-`speech_stopped`.
+Fix shipped: explicit, event-driven opening gate. `configure()` opens with
+`create_response: false`, so the remote side owns the first turn. `bridge._openai_to_twilio`
+enables automatic responses the first time it sees `input_audio_buffer.speech_stopped` — the
+notice ending — by sending a bare `session.update` and NO `response.create`. The greeting is then
+answered by unchanged server VAD at its own turn end. Mid-call VAD (threshold 0.55,
+silence_duration_ms 1200, interrupt_response false) is byte-identical after release.
+
+A timer is only a backstop, never the primary path: it is disarmed while the remote side is
+speaking and covers just two cases — a silent answer that never emits `speech_stopped`, and a
+remote that goes quiet after the release. A timer-first design was rejected on this evidence: the
+notice->greeting gap was 2.55s in call-007, longer than a 2.0s hold, so it would have fired into
+the greeting and collided again.
 
 | Call | PGai channel speech | Our onset | Overlap |
 |---|---|---|---|
