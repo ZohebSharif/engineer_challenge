@@ -1,7 +1,7 @@
-import json
 from dataclasses import dataclass
 from pathlib import Path
 
+from voicebot.artifacts import CallMetadata
 from voicebot.evaluation import Evaluation, EvaluationIssue
 
 
@@ -17,9 +17,10 @@ def collect_issues(calls_directory: Path, minimum_confidence: float) -> list[Rep
     for evaluation_path in sorted(calls_directory.glob("call-*/evaluation.json")):
         try:
             evaluation = Evaluation.model_validate_json(evaluation_path.read_text(encoding="utf-8"))
-            metadata_path = evaluation_path.with_name("metadata.json")
-            metadata = json.loads(metadata_path.read_text(encoding="utf-8"))
-            scenario_id = str(metadata.get("scenario_id", "unknown"))
+            metadata = CallMetadata.model_validate_json(
+                evaluation_path.with_name("metadata.json").read_text(encoding="utf-8")
+            )
+            scenario_id = metadata.scenario_id
         except (OSError, ValueError):
             continue
         issues.extend(

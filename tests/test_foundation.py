@@ -6,7 +6,6 @@ import pytest
 from click.utils import strip_ansi
 from fastapi.testclient import TestClient
 from pydantic import SecretStr
-
 from twilio.request_validator import RequestValidator
 from typer.testing import CliRunner
 

@@ -1,12 +1,14 @@
-import json
+from datetime import UTC, datetime
 from pathlib import Path
 from types import SimpleNamespace
 from unittest.mock import Mock
 
 import pytest
+from click.utils import strip_ansi
 from pydantic import SecretStr
 from typer.testing import CliRunner
 
+from voicebot.artifacts import CallMetadata
 from voicebot.cli import app
 from voicebot.config import Settings
 from voicebot.evaluation import Evaluation, EvaluationIssue, IssueCategory
@@ -48,16 +50,24 @@ def test_cli_help_exposes_clear_workflows_and_no_destination() -> None:
 def test_suite_refuses_to_run_without_live_flag() -> None:
     result = CliRunner().invoke(app, ["suite"])
     assert result.exit_code == 2
-    assert "explicit --live flag" in result.output
+    output = strip_ansi(result.output)
+    assert "Real calls require" in output
+    assert "--live" in output
 
 
 def test_report_includes_only_high_confidence_issues(tmp_path: Path) -> None:
     calls = tmp_path / "calls"
     call = calls / "call-001"
     call.mkdir(parents=True)
-    (call / "metadata.json").write_text(
-        json.dumps({"scenario_id": "ambiguous-date"}), encoding="utf-8"
+    now = datetime.now(UTC)
+    metadata = CallMetadata(
+        call_id="call-001",
+        call_sid="CA123",
+        scenario_id="ambiguous-date",
+        started_at=now,
+        updated_at=now,
     )
+    (call / "metadata.json").write_text(metadata.model_dump_json(), encoding="utf-8")
     evaluation = Evaluation(
         summary="Two findings",
         scenario_checks=[],
@@ -86,6 +96,19 @@ def test_report_includes_only_high_confidence_issues(tmp_path: Path) -> None:
     assert "Booked an ambiguous date" in report
     assert "Minor pacing concern" not in report
     assert "ambiguous-date" in report
+
+
+def test_report_skips_malformed_metadata(tmp_path: Path) -> None:
+    call = tmp_path / "calls/call-001"
+    call.mkdir(parents=True)
+    (call / "metadata.json").write_text('{"scenario_id": 42}', encoding="utf-8")
+    (call / "evaluation.json").write_text(
+        Evaluation(summary="ignored", scenario_checks=[], issues=[]).model_dump_json(),
+        encoding="utf-8",
+    )
+    output = tmp_path / "BUGS.md"
+    assert generate_report(tmp_path / "calls", output) == 0
+    assert "No issues met" in output.read_text(encoding="utf-8")
 
 
 @pytest.mark.asyncio

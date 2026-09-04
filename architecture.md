@@ -27,8 +27,8 @@ Twilio boundary. CI invokes only static checks and tests.
 
 Twilio signs HTTP callbacks with the account auth token. `security.verified_twilio_settings`
 validates those signatures against the configured public URL. The WebSocket cannot use the normal
-HTTP signature dependency, so TwiML includes a per-installation secret query token and the endpoint
-rejects mismatches before accepting the socket.
+HTTP signature dependency, so TwiML sends the per-installation secret as a custom `<Parameter>`;
+the endpoint validates it from Twilio's start event before opening provider sessions.
 
 ### Realtime conversation
 
