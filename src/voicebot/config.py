@@ -1,4 +1,5 @@
 from functools import lru_cache
+from pathlib import Path
 
 from pydantic import Field, HttpUrl, SecretStr
 from pydantic_settings import BaseSettings, SettingsConfigDict
@@ -23,6 +24,11 @@ class Settings(BaseSettings):
     openai_realtime_model: str = "gpt-realtime"
     openai_voice: str = "marin"
     default_scenario: str = "appointment-scheduling"
+    openai_transcription_model: str = "gpt-4o-transcribe-diarize"
+    openai_evaluation_model: str = "gpt-5-mini"
+    calls_directory: Path = Path("calls")
+    recording_download_attempts: int = Field(default=4, ge=1, le=8)
+    recording_retry_seconds: float = Field(default=2.0, ge=0.1, le=30)
     call_timeout_seconds: int = Field(default=300, ge=30, le=1800)
     log_level: str = "INFO"
 

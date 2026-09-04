@@ -1,14 +1,16 @@
 from typing import Annotated, cast
 
 import structlog
-from fastapi import Depends, FastAPI, Form, Query, Response, WebSocket
+from fastapi import BackgroundTasks, Depends, FastAPI, Form, Query, Response, WebSocket
 from twilio.twiml.voice_response import Connect, Stream, VoiceResponse
 
+from voicebot.artifacts import ArtifactManager
 from voicebot.bridge import run_media_bridge
 from voicebot.config import Settings, get_settings
 from voicebot.logging import configure_logging
 from voicebot.scenarios import ScenarioRepository
 from voicebot.security import verified_twilio_settings
+from voicebot.services import build_analysis_pipeline
 from voicebot.sessions import SessionStore
 
 settings = get_settings()
@@ -61,6 +63,28 @@ async def call_status(
     call_status: Annotated[str, Form(alias="CallStatus")],
 ) -> dict[str, bool]:
     await logger.ainfo("twilio_call_status", call_sid=call_sid, call_status=call_status)
+    return {"accepted": True}
+
+
+@app.post("/twilio/recording")
+async def recording_complete(
+    background_tasks: BackgroundTasks,
+    config: Annotated[Settings, Depends(get_settings)],
+    call_sid: Annotated[str, Form(alias="CallSid")],
+    recording_sid: Annotated[str, Form(alias="RecordingSid")],
+    recording_status: Annotated[str, Form(alias="RecordingStatus")],
+) -> dict[str, bool]:
+    await logger.ainfo(
+        "twilio_recording_status",
+        call_sid=call_sid,
+        recording_sid=recording_sid,
+        recording_status=recording_status,
+    )
+    await ArtifactManager(config.calls_directory).record_recording_status(
+        call_sid, recording_sid, recording_status
+    )
+    if recording_status == "completed":
+        background_tasks.add_task(build_analysis_pipeline(config).process, call_sid, recording_sid)
     return {"accepted": True}
 
 
