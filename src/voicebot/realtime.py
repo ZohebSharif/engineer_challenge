@@ -34,7 +34,7 @@ class RealtimeSession:
                                 "type": "server_vad",
                                 "threshold": 0.55,
                                 "prefix_padding_ms": 300,
-                                "silence_duration_ms": 550,
+                                "silence_duration_ms": 1200,
                                 "create_response": True,
                                 "interrupt_response": False,
                             },

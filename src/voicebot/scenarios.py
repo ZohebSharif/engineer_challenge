@@ -11,6 +11,7 @@ class Scenario(BaseModel):
 
     id: str = Field(pattern=r"^[a-z0-9][a-z0-9-]*$")
     title: str
+    language: str = "English"
     persona: str
     facts: list[str] = Field(min_length=1)
     speaking_style: list[str] = Field(min_length=1)
