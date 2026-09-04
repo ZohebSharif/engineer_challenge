@@ -74,6 +74,38 @@ def test_scenarios_are_valid_and_prompt_constrains_behavior() -> None:
     assert "Never invent" in prompt
 
 
+def test_every_scenario_prompt_pins_facts_identity_language_and_role() -> None:
+    """Call 3 drifted: DOB 1988 became 1980, speech switched to Spanish, patient offered help."""
+    for scenario in SCENARIOS.list():
+        prompt = build_patient_prompt(scenario)
+        for fact in scenario.facts:
+            assert fact in prompt
+        assert "Immutable facts" in prompt
+        assert "Repeat any fact identically" in prompt
+        assert "never accept a corrected version of your own" in prompt
+        assert f"Speak only {scenario.language} for the whole call" in prompt
+        assert "never the receptionist" in prompt
+        assert '"I can help with' in prompt
+        assert "Let the other party finish speaking" in prompt
+        assert "improvise wording" in prompt
+
+
+def test_prompt_language_follows_the_scenario_not_a_hard_coded_default() -> None:
+    english = SCENARIOS.load("appointment-scheduling")
+    assert english.language == "English"
+    assert "Speak only English for the whole call" in build_patient_prompt(english)
+    spanish = english.model_copy(update={"language": "Spanish"})
+    spanish_prompt = build_patient_prompt(spanish)
+    assert "Speak only Spanish for the whole call" in spanish_prompt
+    assert "Speak only English" not in spanish_prompt
+
+
+def test_immutable_dob_fact_is_rendered_verbatim() -> None:
+    prompt = build_patient_prompt(SCENARIOS.load("appointment-scheduling"))
+    assert "Date of birth is February 14, 1988." in prompt
+    assert "1980" not in prompt
+
+
 @pytest.mark.asyncio
 async def test_realtime_session_configures_direct_pcmu_audio() -> None:
     socket = FakeSocket()
@@ -85,6 +117,11 @@ async def test_realtime_session_configures_direct_pcmu_audio() -> None:
     assert audio["input"]["format"] == {"type": "audio/pcmu"}
     assert audio["output"]["format"] == {"type": "audio/pcmu"}
     assert audio["input"]["turn_detection"]["interrupt_response"] is False
+    turn_detection = audio["input"]["turn_detection"]
+    assert turn_detection["silence_duration_ms"] >= 1000, "patient must let the office finish"
+    assert update["session"]["instructions"] == build_patient_prompt(
+        SCENARIOS.load("appointment-scheduling")
+    )
 
 
 @pytest.mark.asyncio
