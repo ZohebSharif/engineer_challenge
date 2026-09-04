@@ -361,11 +361,29 @@ it is downstream of the missing terminal state.
 
 Question: did `max_output_tokens: 180` truncate caller speech in the quality set?
 
-Method: our channel (ch1) only, per-utterance spans at 50ms RMS with a 0.45s silence boundary,
-then an abruptness metric — mean RMS over the final 100ms before each utterance end. Calibrated
-against call-009's known truncations (2065 / 2498 / 2819) versus known natural endings
-(222 / 393). Threshold 1200. Every flagged end was re-transcribed from our channel alone over a
-window extending 11s past the cut. Diarization was not used for any classification.
+Method (primary): our channel (ch1) only, per-utterance spans at 50ms RMS with a 0.45s silence
+boundary; then for every candidate, re-transcribe our channel alone over a window extending ~21s
+past the utterance end and check whether speech continues. Continuation, not energy, decides.
+Diarization was not used for any classification.
+
+The tail-energy ratio (`tail300/body_median`) was DISCARDED: it does not separate the calibration
+set (call-009 known truncations scored 0.27-1.45, known-complete endings 0.18-182). The absolute
+`last100_mean` variant separates better (truncations 2065-2819 vs natural endings 222-393) but
+false-positives on mid-utterance pauses — it flagged call-004 @9.15s at 2453 where speech simply
+resumes at 10.8s. It is therefore used ONLY to shortlist candidates, never to classify.
+
+Continuation results (~21s past each candidate):
+- call-006 @14.85-21.25s (6.40s): nothing follows for 13.75s. Two independent transcriptions of
+  our channel end on a complete noun phrase ("Lisinopril 10 milligram" / "10mg"), matching the
+  diarized "routine refill of my lisinopril ten mg." NOT truncated. Residual uncertainty
+  acknowledged: we cannot prove the model did not intend to add "once daily", only that the
+  utterance ends on a grammatically complete phrase.
+- call-008 @142.6-148.25s (5.65s): nothing follows for 32.8s. Both transcriptions end on
+  "...verify a specific plan's network" — a complete question, and 1.0s under the shortest
+  confirmed cut. NOT truncated.
+- call-008 @19.6-24.15s (merged span 6.65s): "...Could we focus on the insur|" in BOTH the narrow
+  and wide windows, then silence to 37.6s. CONFIRMED truncated. This remains the only truncation
+  found in the quality set.
 
 | Call | Longest caller utterance | Utterances >=6.0s | Ending quality | Verdict |
 |---|---|---|---|---|
