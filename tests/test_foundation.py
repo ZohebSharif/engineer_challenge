@@ -46,6 +46,9 @@ async def test_gateway_uses_only_authorized_destination() -> None:
     created = await TwilioGateway(live_settings(), calls).create_authorized_call()
     assert created.sid == "CA123"
     assert calls.create.call_args.kwargs["to"] == AUTHORIZED_DESTINATION
+    assert calls.create.call_args.kwargs["record"] is True
+    assert calls.create.call_args.kwargs["recording_channels"] == "dual"
+    assert calls.create.call_args.kwargs["recording_status_callback"].endswith("/twilio/recording")
 
 
 def test_voice_webhook_connects_bidirectional_stream() -> None:

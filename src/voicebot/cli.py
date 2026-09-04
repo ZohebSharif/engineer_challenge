@@ -3,6 +3,7 @@ from typing import Annotated
 
 import typer
 
+from voicebot.artifacts import ArtifactManager
 from voicebot.config import AUTHORIZED_DESTINATION, get_settings
 from voicebot.logging import configure_logging
 from voicebot.scenarios import ScenarioRepository
@@ -39,6 +40,7 @@ def call(
         created = asyncio.run(TwilioGateway(settings).create_authorized_call(scenario))
     except ValueError as exc:
         raise typer.BadParameter(str(exc)) from exc
+    asyncio.run(ArtifactManager(settings.calls_directory).ensure(created.sid, scenario))
     typer.echo(f"Started {created.sid} to {AUTHORIZED_DESTINATION} ({created.status})")
 
 

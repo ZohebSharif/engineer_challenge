@@ -17,3 +17,10 @@ uv run voicebot --scenario appointment-scheduling --live
 Bundled scenarios are validated from `src/voicebot/scenario_data`. Twilio and OpenAI both use
 PCMU, so base64 audio payloads cross the bridge without lossy transcoding. Server VAD drives turns;
 new caller speech cancels the current model response and clears Twilio's buffered patient audio.
+
+## Post-call analysis
+
+Twilio records both call channels and posts completion to `/twilio/recording`. The pipeline retries
+the canonical Twilio MP3 URL with a bounded policy, stores the recording first, requests a diarized
+transcript, then produces schema-validated scenario and quality evaluation. Each stage writes
+atomically; a transcription or evaluation failure leaves all earlier artifacts intact.

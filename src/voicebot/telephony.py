@@ -29,6 +29,10 @@ class CallsResource(Protocol):
         method: str,
         status_callback: str,
         status_callback_event: list[str],
+        record: bool,
+        recording_channels: str,
+        recording_status_callback: str,
+        recording_status_callback_method: str,
     ) -> CallResult: ...
 
 
@@ -69,5 +73,9 @@ class TwilioGateway:
             method="POST",
             status_callback=f"{base}/twilio/status",
             status_callback_event=["initiated", "ringing", "answered", "completed"],
+            record=True,
+            recording_channels="dual",
+            recording_status_callback=f"{base}/twilio/recording",
+            recording_status_callback_method="POST",
         )
         return CreatedCall(sid=str(call.sid), status=str(call.status))
