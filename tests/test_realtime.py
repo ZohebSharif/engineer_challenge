@@ -11,6 +11,7 @@ from starlette.websockets import WebSocketDisconnect
 
 from voicebot.bridge import _openai_to_twilio, _twilio_to_openai
 from voicebot.config import Settings, get_settings
+from voicebot.logging import configure_logging
 from voicebot.prompts import build_patient_prompt
 from voicebot.realtime import RealtimeSession
 from voicebot.scenarios import Scenario, ScenarioRepository
@@ -148,6 +149,7 @@ def test_media_endpoint_validates_start_token_and_cleans_up_session() -> None:
     app.dependency_overrides[get_settings] = settings
     try:
         with TestClient(app).websocket_connect("/twilio/media") as websocket:
+            websocket.send_json({"event": "connected", "protocol": "Call", "version": "1.0.0"})
             websocket.send_json(
                 {
                     "event": "start",
@@ -189,6 +191,7 @@ def test_media_endpoint_rejects_invalid_start_token() -> None:
             pytest.raises(WebSocketDisconnect) as disconnect,
             TestClient(app).websocket_connect("/twilio/media") as websocket,
         ):
+            websocket.send_json({"event": "connected", "protocol": "Call", "version": "1.0.0"})
             websocket.send_json(
                 {
                     "event": "start",
@@ -206,3 +209,157 @@ def test_media_endpoint_rejects_invalid_start_token() -> None:
     finally:
         app.dependency_overrides.clear()
     assert disconnect.value.code == 1008
+
+
+def _token_settings() -> Settings:
+    return Settings(media_stream_token=SecretStr("stream-secret"), call_timeout_seconds=30)
+
+
+def test_media_endpoint_survives_twilio_connected_then_start_then_media() -> None:
+    """Twilio's real frame order must reach OpenAI; a 1008 here hangs up the call."""
+    realtime_socket = FakeSocket()
+    client = FakeRealtimeClient(RealtimeSession(realtime_socket))
+    previous_client = app.state.realtime_client
+    app.state.realtime_client = client
+    app.dependency_overrides[get_settings] = _token_settings
+    try:
+        with TestClient(app).websocket_connect("/twilio/media") as websocket:
+            websocket.send_json({"event": "connected", "protocol": "Call", "version": "1.0.0"})
+            websocket.send_json(
+                {
+                    "event": "start",
+                    "start": {
+                        "callSid": "CA7c21e393",
+                        "streamSid": "MZ7c21e393",
+                        "customParameters": {
+                            "scenario": "appointment-scheduling",
+                            "token": "stream-secret",
+                        },
+                    },
+                }
+            )
+            websocket.send_json(
+                {"event": "media", "sequenceNumber": "3", "media": {"payload": "cGNtdQ=="}}
+            )
+            websocket.send_json({"event": "stop"})
+    finally:
+        app.dependency_overrides.clear()
+        app.state.realtime_client = previous_client
+    assert client.opened
+    assert {"type": "input_audio_buffer.append", "audio": "cGNtdQ=="} in realtime_socket.sent
+
+
+def test_media_endpoint_rejects_media_before_start() -> None:
+    app.dependency_overrides[get_settings] = _token_settings
+    try:
+        with (
+            pytest.raises(WebSocketDisconnect) as disconnect,
+            TestClient(app).websocket_connect("/twilio/media") as websocket,
+        ):
+            websocket.send_json({"event": "connected", "protocol": "Call", "version": "1.0.0"})
+            websocket.send_json(
+                {"event": "media", "sequenceNumber": "1", "media": {"payload": "cGNtdQ=="}}
+            )
+            websocket.receive_json()
+    finally:
+        app.dependency_overrides.clear()
+    assert disconnect.value.code == 1008
+
+
+def test_media_endpoint_rejects_repeated_connected_frames() -> None:
+    app.dependency_overrides[get_settings] = _token_settings
+    try:
+        with (
+            pytest.raises(WebSocketDisconnect) as disconnect,
+            TestClient(app).websocket_connect("/twilio/media") as websocket,
+        ):
+            websocket.send_json({"event": "connected", "protocol": "Call", "version": "1.0.0"})
+            websocket.send_json({"event": "connected", "protocol": "Call", "version": "1.0.0"})
+            websocket.receive_json()
+    finally:
+        app.dependency_overrides.clear()
+    assert disconnect.value.code == 1008
+
+
+def test_media_endpoint_rejects_untokened_start_after_connected() -> None:
+    app.dependency_overrides[get_settings] = _token_settings
+    try:
+        with (
+            pytest.raises(WebSocketDisconnect) as disconnect,
+            TestClient(app).websocket_connect("/twilio/media") as websocket,
+        ):
+            websocket.send_json({"event": "connected", "protocol": "Call", "version": "1.0.0"})
+            websocket.send_json(
+                {
+                    "event": "start",
+                    "start": {
+                        "callSid": "CA123",
+                        "streamSid": "MZ123",
+                        "customParameters": {"scenario": "appointment-scheduling"},
+                    },
+                }
+            )
+            websocket.receive_json()
+    finally:
+        app.dependency_overrides.clear()
+    assert disconnect.value.code == 1008
+
+
+@pytest.mark.asyncio
+async def test_twilio_control_frames_do_not_kill_the_bridge() -> None:
+    """Twilio `mark`/`dtmf` frames are logged, not fatal; a raised error ends the call."""
+    websocket = FakeWebSocket(
+        [
+            {"event": "mark", "mark": {"name": "outbound"}},
+            {"event": "dtmf", "dtmf": {"digit": "1"}},
+            {"event": "media", "sequenceNumber": "4", "media": {"payload": "cGNtdQ=="}},
+            {"event": "stop"},
+        ]
+    )
+    socket = FakeSocket()
+    sessions = SessionStore()
+    await sessions.create("CA123", "MZ123")
+    settings = Settings(media_stream_token=SecretStr("stream-secret"), call_timeout_seconds=30)
+    await _twilio_to_openai(
+        websocket,  # type: ignore[arg-type]
+        RealtimeSession(socket),  # type: ignore[arg-type]
+        "CA123",
+        settings,
+        sessions,
+    )
+    assert {"type": "input_audio_buffer.append", "audio": "cGNtdQ=="} in socket.sent
+
+
+@pytest.mark.asyncio
+async def test_unhandled_openai_events_do_not_kill_the_bridge() -> None:
+    """Realtime lifecycle events log at debug level without aborting the stream."""
+    configure_logging("DEBUG")
+    try:
+        socket = FakeSocket(
+            [
+                {"type": "session.created"},
+                {"type": "response.output_audio.delta", "delta": "cGNtdQ=="},
+                {"type": "response.done"},
+            ]
+        )
+        websocket = FakeWebSocket()
+        task = asyncio.create_task(
+            _openai_to_twilio(
+                websocket,  # type: ignore[arg-type]
+                RealtimeSession(socket),  # type: ignore[arg-type]
+                "CA123",
+                "MZ123",
+                TurnManager(),
+            )
+        )
+        for _ in range(4):
+            await asyncio.sleep(0)
+        assert not task.done()
+        task.cancel()
+        with pytest.raises(asyncio.CancelledError):
+            await task
+    finally:
+        configure_logging("INFO")
+    assert websocket.sent == [
+        {"event": "media", "streamSid": "MZ123", "media": {"payload": "cGNtdQ=="}}
+    ]
