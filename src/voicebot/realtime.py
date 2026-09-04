@@ -15,11 +15,23 @@ class RealtimeSocket(Protocol):
     async def close(self) -> None: ...
 
 
+def _turn_detection(*, create_response: bool) -> dict[str, Any]:
+    return {
+        "type": "server_vad",
+        "threshold": 0.55,
+        "prefix_padding_ms": 300,
+        "silence_duration_ms": 1200,
+        "create_response": create_response,
+        "interrupt_response": False,
+    }
+
+
 class RealtimeSession:
     def __init__(self, socket: RealtimeSocket) -> None:
         self._socket = socket
 
     async def configure(self, scenario: Scenario, voice: str) -> None:
+        """Open with automatic responses OFF so the remote side owns the first turn."""
         await self._send(
             {
                 "type": "session.update",
@@ -30,14 +42,7 @@ class RealtimeSession:
                     "audio": {
                         "input": {
                             "format": {"type": "audio/pcmu"},
-                            "turn_detection": {
-                                "type": "server_vad",
-                                "threshold": 0.55,
-                                "prefix_padding_ms": 300,
-                                "silence_duration_ms": 1200,
-                                "create_response": True,
-                                "interrupt_response": False,
-                            },
+                            "turn_detection": _turn_detection(create_response=False),
                         },
                         "output": {
                             "format": {"type": "audio/pcmu"},
@@ -45,6 +50,19 @@ class RealtimeSession:
                         },
                     },
                     "max_output_tokens": 180,
+                },
+            }
+        )
+
+    async def release_opening_turn(self) -> None:
+        """Speak once, then hand turn-taking back to unchanged server VAD."""
+        await self._send({"type": "response.create"})
+        await self._send(
+            {
+                "type": "session.update",
+                "session": {
+                    "type": "realtime",
+                    "audio": {"input": {"turn_detection": _turn_detection(create_response=True)}},
                 },
             }
         )

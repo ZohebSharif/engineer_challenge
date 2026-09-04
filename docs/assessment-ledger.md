@@ -34,6 +34,7 @@ Consequences:
 | call-004 | CAe9a1271d5423aff3bca543cc8e0d0384 | appointment-scheduling | **Quality Call #0** | Preserved, submission candidate |
 | call-005 | CA2f01743acf60bfa39463a563955ee904 | unusual-edge | **Quality Call #1** | Preserved, submission candidate |
 | call-006 | CA8157745d7e7c219e50ced0b7bf4a368d | medication-refill | **Quality Call #2** | Preserved, submission candidate / **quality pending** (rough opening) |
+| call-007 | CA977137d4640c47f53439b0eda3841029 | rescheduling | evidence only | **VOID for final quality** — materially rough opening (0.85s collision + 5 more through 22s) |
 
 Void calls are harness-debug artifacts and MUST NOT be used as evidence about PGai.
 
@@ -142,7 +143,7 @@ Status: **submission candidate / quality pending** — not counted as a clean ca
 - **OBSERVATION ONLY — evaluator `clarification_failure` (0.86)** asking for explicit
   "submission is not approval" wording. Style preference, not a defect.
 
-## Opening-collision analysis (calls 4-6, measured from stereo channel energy)
+## Opening-collision analysis (calls 4-7, measured from stereo channel energy)
 
 Method: per-channel RMS at 50ms, noise-floor-adaptive threshold. Diarization labels NOT used.
 
@@ -162,16 +163,71 @@ onset by a fixed amount into a race whose other side we do not control, while ta
 mid-call turn. The only lever with a matching mechanism is suppressing first-turn response
 creation until the far-end greeting completes.
 
-DECISION (calls 4-6): no change. Overlaps are <=0.6s, self-correcting, and have contaminated zero
-PGai findings. Re-evaluate after `rescheduling` (4th data point), and decide BEFORE `multi-intent`,
-whose opening carries two intents and is the first scenario a swallowed opening could corrupt.
+DECISION (calls 4-7): **ACTED**. call-007 escalated this from watch item to caller-quality defect
+(0.85s collision, six overlaps, no self-correction until ~22s). Root cause confirmed across four
+calls: our onset is always `recording_notice_end + 1.2s + 0.9-1.4s latency`, because
+`turn_detection.create_response: true` made the OpenAI server VAD treat the IVR recording notice
+as the caller's turn and auto-generate our opening. Raising `silence_duration_ms` was rejected:
+it shifts a fixed offset into a race we do not control (PGai greeting start varied 5.75-8.25s)
+while taxing every good mid-call turn.
 
-## Open watch items (no action taken)
-1. Unprompted identity disclosure by our caller — 2 observations (call-004 63.2s, call-005 44.8s/66.5s).
-   Scenario-design tension: disclosure-timing rule vs. fact-immutability rule. Revisit only with a
-   third observation or a materially contaminated finding.
-2. Opening collision — 2 confirmed of 3 measured (call-005 0.60s, call-006 0.40s; call-004 clean).
-   Structural trigger identified; see "Opening-collision analysis". No action yet.
+Fix shipped: explicit opening gate. `configure()` now opens with `create_response: false`, so the
+remote side owns the first turn. `bridge._openai_to_twilio` arms a release deadline on
+`speech_stopped`, disarms it on `speech_started`, and on expiry sends one `response.create` plus a
+`session.update` restoring `create_response: true`. Mid-call VAD (threshold 0.55,
+silence_duration_ms 1200, interrupt_response false) is byte-identical after release. An absolute
+cap (`opening_hold_seconds * 5`) guarantees release when a silent answer never emits
+`speech_stopped`.
+
+| Call | PGai channel speech | Our onset | Overlap |
+|---|---|---|---|
+| call-004 | ...-5.75s | 7.80s | none |
+| call-005 | 7.45-8.45s | 7.85s | 0.60s |
+| call-006 | 7.45-9.00s | 8.35s | 0.40s |
+| call-007 | 8.25-9.20s | 8.25s | **0.85s** + 5 more to 21.9s |
+
+## Call 7 — call-007 (rescheduling, 3:45) — VOID for final quality
+
+Preserved: `calls/.preserved/call-007-CA977137d4640c47f53439b0eda3841029/`
+(recording md5 1dabea21a7cdac7fa5f9808fe4c776b1)
+Void for submission because of the opening collision. PGai findings below remain valid: every one
+of them occurs after 50s, long past the contaminated opening.
+
+### Caller-side failure (measured)
+Worst opening yet: 0.85s collision at 8.25-9.10s, then five further overlaps at 11.65, 12.00,
+14.80, 18.15, 18.30 and 21.55s — the collision did not self-correct until ~22s. Secondary cause
+visible here: PGai's opening turn has intra-turn pauses longer than our 1200ms VAD window
+("Would you like" 14.7s -> "just to confirm before" 17.6s -> "I can help with scheduling?" 21.0s),
+so we treated its pauses as turn ends. Opening gate addresses the trigger; the long-pause case is
+NOT retuned, because mid-call behaviour after stabilisation has been good in calls 4-6.
+
+### PGai findings
+- **STRENGTHENED — fabricated DOB, now with explicit retention.** "your date of birth is July 4th,
+  2000 for demo purposes" (65.7s). Caller corrects: "My date of birth is June 9th, 1975" (78.1s).
+  PGai replies: **"I have your date of birth as July 4th, 2000. I'll make a note that you stated
+  June 9th, 1975"** (83.1-86.4s). This is the strongest evidence yet: it does not merely fail to
+  reconcile, it explicitly RETAINS the fabricated value and demotes the patient-supplied truth to
+  a note. Third scenario, third reproduction.
+- **NOT A BUG — could not find the October 13 appointment.** Existence in their sandbox is
+  unverified, so unfalsifiable. Same rule as call-005. Note PGai instead surfaced "Tuesday,
+  September 8th at 10 a.m. with Kelly Noble" (108.5s) — the identical slot booked in call-004,
+  i.e. shared demo state across callers, not a per-caller record.
+- **REPRODUCED (sandbox caveat retained) — failed transfer.** "Transferring you now" (209.8s)
+  followed immediately by the test-line greeting and call end, matching call-005. Second
+  observation. Still caveated: the destination may simply be an unstaffed sandbox endpoint, and
+  diarization mislabels the greeting as ours. Not yet reportable.
+
+
+## Open watch items
+1. Unprompted identity disclosure by our caller — 2 observations (call-004 63.2s,
+   call-005 44.8s/66.5s). Scenario-design tension: the disclosure-timing rule
+   ("do not disclose DOB until asked") collides with the fact-immutability rule
+   ("never accept a corrected version of your own facts") whenever the office fabricates an
+   identity fact unprompted. Revisit only with a third observation or a materially contaminated
+   finding. NOTE: call-007's DOB correction at 78.1s was a direct answer to PGai asserting a
+   wrong DOB, so it does not count as a fresh unprompted disclosure.
+2. Opening collision — **RESOLVED IN CODE, pending live confirmation.** 3 confirmed of 4 measured.
+   Verify on the next live call that our onset follows the greeting rather than the notice.
 3. "Demo patient profile" push despite an explicit established-patient claim — **3 observations
    across 3 consecutive scenarios**:
    - call-004 appointment-scheduling: "I'm an established patient already" (27.9s) ->
@@ -189,10 +245,16 @@ whose opening carries two intents and is the first scenario a swallowed opening 
    likely sandbox naming, not a reasoning defect.
 
 ## Findings ready to report
-1. **Fabricates patient demographic state and never reconciles it** — HIGH confidence,
-   cross-scenario, uncontaminated. call-004 (appointment-scheduling, 54.0s) and call-006
-   (medication-refill, 52.6s) both assert "date of birth is July 4, 2000" with no caller input,
-   then continue past an explicit caller correction without acknowledging or updating it.
+1. **Fabricates patient demographic state, then explicitly retains it over the patient's
+   correction** — HIGH confidence, three scenarios, uncontaminated (every occurrence is >50s in,
+   far from any opening collision).
+   - call-004 appointment-scheduling 54.0s: "your date of birth is July 4, 2000"; correction at
+     63.2s never acknowledged; books at 117.5s.
+   - call-006 medication-refill 52.6s: identical fabricated value; correction at 60.7s ignored.
+   - call-007 rescheduling 65.7s: identical value; after the caller supplies June 9 1975 (78.1s),
+     PGai answers "I have your date of birth as July 4th, 2000. I'll make a note that you stated
+     June 9th, 1975" (83.1-86.4s) — explicit retention of fabricated data over patient-supplied
+     truth. Strongest single piece of evidence in the campaign.
 
 ## Protocol
 After every live call: pull Twilio facts + artifacts, attribute each issue to our caller or PGai,

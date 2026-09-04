@@ -91,7 +91,7 @@ async def run_media_bridge(
                 _twilio_to_openai(websocket, realtime, call_sid, settings, sessions)
             ),
             asyncio.create_task(
-                _openai_to_twilio(websocket, realtime, call_sid, stream_sid, turns)
+                _openai_to_twilio(websocket, realtime, call_sid, stream_sid, turns, settings)
             ),
         }
         done, pending = await asyncio.wait(tasks, return_when=asyncio.FIRST_COMPLETED)
@@ -153,10 +153,43 @@ async def _openai_to_twilio(
     call_sid: str,
     stream_sid: str,
     turns: TurnManager,
+    settings: Settings,
 ) -> None:
+    loop = asyncio.get_running_loop()
+    opening_released = False
+    opening_deadline: float | None = None
+    remote_speaking = False
+    # Absolute fallback: a silent answer never emits speech_stopped, so arm a cap at entry.
+    opening_limit: float | None = loop.time() + settings.opening_hold_seconds * 5
     while True:
-        event = await realtime.receive()
+        if opening_released:
+            timeout = None
+        elif opening_deadline is not None:
+            timeout = max(0.0, opening_deadline - loop.time())
+        elif remote_speaking or opening_limit is None:
+            timeout = None
+        else:
+            timeout = max(0.0, opening_limit - loop.time())
+        if timeout is None:
+            event = await realtime.receive()
+        else:
+            try:
+                event = await asyncio.wait_for(realtime.receive(), timeout=timeout)
+            except TimeoutError:
+                await realtime.release_opening_turn()
+                opening_released = True
+                opening_deadline = None
+                opening_limit = None
+                logger.info("opening_turn_released", call_sid=call_sid)
+                continue
         event_type = str(event.get("type", "unknown"))
+        if not opening_released:
+            if event_type == "input_audio_buffer.speech_started":
+                opening_deadline = None
+                remote_speaking = True
+            elif event_type == "input_audio_buffer.speech_stopped":
+                remote_speaking = False
+                opening_deadline = loop.time() + settings.opening_hold_seconds
         if event_type == "response.output_audio.delta":
             delta = event.get("delta")
             if isinstance(delta, str):

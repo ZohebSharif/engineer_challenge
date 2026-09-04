@@ -156,7 +156,9 @@ async def test_output_audio_and_barge_in_clear_twilio_buffer() -> None:
     realtime = RealtimeSession(socket)
     websocket = FakeWebSocket()
     task = asyncio.create_task(
-        _openai_to_twilio(websocket, realtime, "CA123", "MZ123", TurnManager())
+        _openai_to_twilio(
+            websocket, realtime, "CA123", "MZ123", TurnManager(), _hold_settings(0.05)
+        )
     )
     for _ in range(4):
         await asyncio.sleep(0)
@@ -388,6 +390,7 @@ async def test_unhandled_openai_events_do_not_kill_the_bridge() -> None:
                 "CA123",
                 "MZ123",
                 TurnManager(),
+                _hold_settings(0.05),
             )
         )
         for _ in range(4):
@@ -401,3 +404,92 @@ async def test_unhandled_openai_events_do_not_kill_the_bridge() -> None:
     assert websocket.sent == [
         {"event": "media", "streamSid": "MZ123", "media": {"payload": "cGNtdQ=="}}
     ]
+
+
+def _hold_settings(hold: float) -> Settings:
+    return Settings(call_timeout_seconds=30, opening_hold_seconds=hold)
+
+
+@pytest.mark.asyncio
+async def test_opening_turn_waits_for_the_remote_greeting_to_finish() -> None:
+    """Reproduces calls 5-7: IVR notice, then greeting. We must not speak into either."""
+    socket = FakeSocket(
+        [
+            {"type": "input_audio_buffer.speech_started"},  # recording notice
+            {"type": "input_audio_buffer.speech_stopped"},
+            {"type": "input_audio_buffer.speech_started"},  # PGai greeting
+            {"type": "input_audio_buffer.speech_stopped"},
+        ]
+    )
+    task = asyncio.create_task(
+        _openai_to_twilio(
+            FakeWebSocket(),  # type: ignore[arg-type]
+            RealtimeSession(socket),  # type: ignore[arg-type]
+            "CA123",
+            "MZ123",
+            TurnManager(),
+            _hold_settings(0.2),
+        )
+    )
+    await asyncio.sleep(0.1)
+    assert socket.sent == [], "spoke during the greeting"
+    await asyncio.sleep(0.25)
+    assert {"type": "response.create"} in socket.sent
+    update = next(e for e in socket.sent if e.get("type") == "session.update")
+    detection = update["session"]["audio"]["input"]["turn_detection"]
+    assert detection["create_response"] is True
+    assert detection["silence_duration_ms"] == 1200
+    assert detection["interrupt_response"] is False
+    task.cancel()
+    with pytest.raises(asyncio.CancelledError):
+        await task
+
+
+@pytest.mark.asyncio
+async def test_opening_turn_releases_when_the_remote_never_speaks() -> None:
+    """A silent answer emits no speech_stopped; the absolute cap must still release us."""
+    socket = FakeSocket()
+    task = asyncio.create_task(
+        _openai_to_twilio(
+            FakeWebSocket(),  # type: ignore[arg-type]
+            RealtimeSession(socket),  # type: ignore[arg-type]
+            "CA123",
+            "MZ123",
+            TurnManager(),
+            _hold_settings(0.05),
+        )
+    )
+    await asyncio.sleep(0.4)
+    assert {"type": "response.create"} in socket.sent
+    task.cancel()
+    with pytest.raises(asyncio.CancelledError):
+        await task
+
+
+@pytest.mark.asyncio
+async def test_opening_gate_does_not_weaken_barge_in_after_release() -> None:
+    """Post-opening interruption behaviour must be byte-identical to before the gate."""
+    socket = FakeSocket(
+        [
+            {"type": "input_audio_buffer.speech_stopped"},
+            {"type": "response.output_audio.delta", "delta": "patient-audio"},
+            {"type": "input_audio_buffer.speech_started"},
+        ]
+    )
+    websocket = FakeWebSocket()
+    task = asyncio.create_task(
+        _openai_to_twilio(
+            websocket,  # type: ignore[arg-type]
+            RealtimeSession(socket),  # type: ignore[arg-type]
+            "CA123",
+            "MZ123",
+            TurnManager(),
+            _hold_settings(0.05),
+        )
+    )
+    await asyncio.sleep(0.3)
+    assert {"type": "response.cancel"} in socket.sent
+    assert {"event": "clear", "streamSid": "MZ123"} in websocket.sent
+    task.cancel()
+    with pytest.raises(asyncio.CancelledError):
+        await task
