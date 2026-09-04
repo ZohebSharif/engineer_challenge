@@ -2,6 +2,7 @@ from types import SimpleNamespace
 from unittest.mock import Mock
 
 import pytest
+from click.utils import strip_ansi
 from fastapi.testclient import TestClient
 from pydantic import SecretStr
 from twilio.request_validator import RequestValidator
@@ -31,7 +32,9 @@ def test_healthcheck() -> None:
 def test_cli_requires_live_and_has_no_destination_option() -> None:
     result = CliRunner().invoke(cli_app, [])
     assert result.exit_code == 2
-    assert "explicit --live flag" in result.output
+    output = strip_ansi(result.output)
+    assert "Real calls require" in output
+    assert "--live" in output
     help_result = CliRunner().invoke(cli_app, ["--help"])
     assert "--to" not in help_result.output
 
