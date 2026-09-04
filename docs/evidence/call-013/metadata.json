@@ -1,0 +1,12 @@
+{
+  "call_id": "call-013",
+  "call_sid": "CA6ff184469bc179d458793e8b8fd01bbb",
+  "errors": [],
+  "evaluation_status": "complete",
+  "recording_sid": "REb0ff66987453ecadf238c1f7d7823473",
+  "recording_status": "saved",
+  "scenario_id": "ambiguous-date",
+  "started_at": "2026-09-04T17:20:19.716762Z",
+  "transcription_status": "complete",
+  "updated_at": "2026-09-04T17:25:22.812054Z"
+}

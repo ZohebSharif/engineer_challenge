@@ -1,0 +1,50 @@
+[0.0s] A: This call may be recorded for quality and training purposes.
+[7.8s] B: Hi, my annual sure.
+[10.9s] B: I'm looking at next week weekday mornings only.
+[14.4s] B: What options do you have available?
+[17.9s] C: I can help with that.
+[19.2s] C: Before I check the schedule,
+[21.1s] C: would you like to create a demo patient profile?
+[23.8s] C: I just need your first and last name.
+[27.9s] B: Actually,
+[28.9s] B: I'm an established patient already.
+[30.9s] B: My name is Maya Chen.
+[34.3s] C: Thanks for letting me know, Maya.
+[36.1s] C: I don't see a patient profile for you yet.
+[38.7s] C: Would you like to create a demo patient profile now so I can look up appointment options for you?
+[43.6s] C: I just need your first and last name.
+[47.5s] B: My first name is Maya,
+[49.4s] B: and my last name is Chen.
+[54.0s] C: Your patient profile is set up and your date of birth is July 4,
+[57.3s] C: 2000 for demo purposes.
+[59.3s] C: How can I help you today?
+[63.2s] B: Actually,
+[64.1s] B: my date of birth is February 14,
+[66.5s] B: 1988.
+[70.3s] C: Just to confirm,
+[71.3s] C: are you looking to book a general office visit for your annual checkup?
+[76.7s] B: Yes,
+[77.6s] B: I'm looking to book my annual physical next week in the morning.
+[94.5s] C: Next week I have morning openings on Tuesday,
+[97.2s] C: September 8th. Would you prefer to see Dr.
+[100.5s] C: Zbigniew Lukoski or Dr.
+[102.6s] C: Kelly Noble?
+[103.7s] C: I can offer you a 10 a.m. slot with either provider.
+[106.7s] C: Which would you like?
+[110.6s] B: I'd prefer Dr.
+[111.8s] B: Kelly Noble for that 10 a.m. slot.
+[117.5s] C: Your annual physical is booked for Tuesday,
+[120.2s] C: September 8th at 10 a.m.
+[122.0s] C: with Dr.
+[123.3s] C: Kelly Noble at Pivot Point Orthopedics.
+[126.0s] C: Please bring your photo ID,
+[128.3s] C: insurance card,
+[130.0s] C: a list of your current medications, and any imaging discs you have.
+[134.0s] C: Would you like a text confirmation?
+[138.9s] B: Thanks for confirming that.
+[140.6s] B: I'm all set.
+[141.4s] B: No text needed.
+[142.4s] B: Have a great day.
+[145.8s] C: You're all set for your appointment.
+[147.6s] C: Have a great day.
+[151.7s] B: Thanks. Goodbye.

@@ -1,0 +1,125 @@
+{
+  "segments": [
+    {
+      "end": 3.2,
+      "speaker": "A",
+      "start": 0.0,
+      "text": " This call may be recorded for quality and training purposes."
+    },
+    {
+      "end": 5.7,
+      "speaker": "A",
+      "start": 3.45,
+      "text": " Para espanol oprima el dos."
+    },
+    {
+      "end": 9.55,
+      "speaker": "B",
+      "start": 7.3999999999999995,
+      "text": " Thank you for calling Pivot Point Orthopedics."
+    },
+    {
+      "end": 12.05,
+      "speaker": "B",
+      "start": 10.0,
+      "text": " Would you like to create a Devo patient profile?"
+    },
+    {
+      "end": 14.899999999999999,
+      "speaker": "B",
+      "start": 12.75,
+      "text": " I just need your first and last name to get started."
+    },
+    {
+      "end": 19.0,
+      "speaker": "C",
+      "start": 17.25,
+      "text": " Actually I'm an existing patient,"
+    },
+    {
+      "end": 21.25,
+      "speaker": "C",
+      "start": 19.35,
+      "text": " I'm just calling to cancel a specific appointment."
+    },
+    {
+      "end": 24.832,
+      "speaker": "B",
+      "start": 23.732,
+      "text": " I can help with that."
+    },
+    {
+      "end": 28.432,
+      "speaker": "B",
+      "start": 25.232,
+      "text": " To access your records, you'll need a Devo patient profile."
+    },
+    {
+      "end": 31.432,
+      "speaker": "B",
+      "start": 29.082,
+      "text": " Would you like to create one now with your first and last name?"
+    },
+    {
+      "end": 35.332,
+      "speaker": "C",
+      "start": 33.782,
+      "text": " I'm not creating a profile."
+    },
+    {
+      "end": 38.482,
+      "speaker": "C",
+      "start": 35.832,
+      "text": " I'm Robert Kim and I'm canceling my appointment with Dr."
+    },
+    {
+      "end": 39.382000000000005,
+      "speaker": "C",
+      "start": 38.532,
+      "text": " Singh on Monday,"
+    },
+    {
+      "end": 41.33200000000001,
+      "speaker": "C",
+      "start": 39.482,
+      "text": " November 2nd at 1130 a.m."
+    },
+    {
+      "end": 50.078,
+      "speaker": "B",
+      "start": 44.628,
+      "text": " You can scan the QR code at the booth later to create a profile if you change your mind."
+    },
+    {
+      "end": 52.828,
+      "speaker": "B",
+      "start": 50.228,
+      "text": " Since I can't access your records without a profile,"
+    },
+    {
+      "end": 55.328,
+      "speaker": "B",
+      "start": 53.078,
+      "text": " I won't be able to cancel your appointment right now."
+    },
+    {
+      "end": 56.328,
+      "speaker": "B",
+      "start": 55.628,
+      "text": " Have a great day."
+    },
+    {
+      "end": 60.628,
+      "speaker": "C",
+      "start": 58.528000000000006,
+      "text": " I need this exact appointment canceled."
+    },
+    {
+      "end": 61.828,
+      "speaker": "C",
+      "start": 60.828,
+      "text": " Can you get someone to"
+    }
+  ],
+  "text": "This call may be recorded for quality and training purposes. Para espanol oprima el dos. Thank you for calling Pivot Point Orthopedics. Would you like to create a Devo patient profile? I just need your first and last name to get started. Actually I'm an existing patient, I'm just calling to cancel a specific appointment.\nI can help with that. To access your records, you'll need a Devo patient profile. Would you like to create one now with your first and last name? I'm not creating a profile. I'm Robert Kim and I'm canceling my appointment with Dr. Singh on Monday, November 2nd at 1130 a.m.\nYou can scan the QR code at the booth later to create a profile if you change your mind. Since I can't access your records without a profile, I won't be able to cancel your appointment right now. Have a great day. I need this exact appointment canceled. Can you get someone to"
+}

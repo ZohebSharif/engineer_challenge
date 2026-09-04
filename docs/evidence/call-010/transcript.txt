@@ -1,0 +1,32 @@
+[0.0s] A: This call may be recorded for quality and training purposes.
+[7.6s] B: Thank you for calling Pivot Point Orthopedics.
+[10.5s] B: Would you like to create a demo patient profile?
+[12.8s] B: I just need your first and last name to get started.
+[17.7s] C: I'm just trying to confirm if my plan is in network.
+[21.0s] C: Could you help me figure out how to confirm that?
+[26.9s] B: I can help with that.
+[27.9s] B: To check if your plan is in network,
+[30.1s] B: I'll need to create a demo patient profile for you first.
+[33.3s] B: May I have your first and last name?
+[37.4s] C: I'm not ready to give my name yet.
+[39.7s] C: Is there another way to verify the exact plan network?
+[45.6s] B: You can scan the QR code at the booth to create a profile later if you prefer.
+[50.2s] B: For now, without a profile,
+[51.8s] B: I'm unable to check plan details directly.
+[54.5s] B: If you'd like, I can share general information about insurance or guide you on how to contact your insurance provider for network confirmation.
+[61.8s] B: Would you like that information?
+[66.1s] C: I'm looking for a specific verification step for my exact plan.
+[70.6s] C: Blue Shield PPO Silver 70.
+[73.3s] C: How do I confirm that take?
+[77.3s] B: To confirm if your Blue Shield PPO Silver 70 plan is in network,
+[81.7s] B: the most accurate way is to contact your insurance provider directly or check their online provider directory.
+[88.5s] B: You can also call the clinic's front desk with your plan details for a direct check.
+[93.4s] B: If you decide to create a profile later,
+[96.2s] B: I can help verify your plan here as well. Would you like instructions for checking with your insurance provider?
+[105.3s] C: That helps.
+[106.5s] C: I'll go ahead and contact my insurance provider directly.
+[109.5s] C: Thanks. Goodbye.
+[112.6s] B: You're welcome.
+[113.6s] B: Have a great day.
+[117.3s] C: You too.
+[118.4s] C: Goodbye.

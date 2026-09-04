@@ -1,0 +1,71 @@
+[0.0s] A: This call may be recorded for quality and training purposes.
+[3.8s] A: Para espanol o prima el dos.
+[8.7s] B: Thank you for calling Pivot Point Orthopedics.
+[11.6s] B: Would you like to create a demo patient profile?
+[14.1s] B: I just need your first and last name to get started.
+[19.1s] C: I'm actually already an established patient.
+[21.5s] C: I'm Priya Shah.
+[22.6s] C: I'm calling to find a weekend appointment.
+[24.7s] C: Can we go from there?
+[27.9s] B: Thanks, Priya.
+[29.1s] B: I'll need to create a demo patient profile for you before I can check appointments.
+[33.5s] B: Can I confirm your first name is Priya and your last name is Shah?
+[39.8s] C: I get that,
+[41.0s] C: but I'm not a new patient.
+[42.5s] C: I already have a profile.
+[46.0s] B: I understand you're already an established patient.
+[49.3s] B: Right now I don't see your profile in this system, so I'll need to create a demo profile to help with your request.
+[54.9s] B: Can I confirm your first name is Priya and your last name is Shaw?
+[61.1s] C: My first name is Priya and my last name is Shah.
+[64.8s] C: Let's go ahead with that.
+[67.9s] B: One moment while I set up your demo patient profile,
+[70.9s] B: then I'll help you find a weekend appointment.
+[74.1s] B: Your patient profile has been created and your date of birth is set as July 4th, 2000 for demo purposes.
+[81.7s] B: How may I help you today?
+[82.8s] A: This call may be recorded for quality and training purposes.
+[86.9s] A: Para español,
+[87.9s] A: oprima el 2.
+[89.6s] B: Thanks for calling Pivot Point Orthopedics, part of Pretty Good AI.
+[93.1s] B: How may I help you today?
+[97.7s] C: Actually, that's not correct.
+[99.8s] C: My date of birth is August 22,
+[101.8s] C: 1991.
+[102.8s] C: I need a weekend appointment,
+[104.3s] C: please.
+[107.0s] B: Thanks for sharing your date of birth.
+[109.0s] B: August 22,
+[110.7s] B: 1991.
+[111.8s] B: To book your appointment,
+[112.9s] B: can you tell me the reason for your visit?
+[114.7s] B: For example,
+[115.6s] B: is this for a routine checkup, a follow-up, an urgent concern, or something else?
+[124.1s] C: It's just a routine follow-up. I'm looking for a weekend slot,
+[128.0s] C: since I work weekdays.
+[131.9s] B: You already have a follow-up appointment booked for Friday,
+[135.4s] B: September 18th at 2 p.m.
+[137.6s] B: Since only one follow-up appointment can be scheduled at a time,
+[141.3s] B: would you like to reschedule this appointment to a weekend slot instead?
+[147.9s] C: Yes, I'd like to reschedule that to a weekend slot, please.
+[154.5s] B: You have a follow-up appointment on Friday,
+[156.5s] B: September 18th at 2 p.m. with Judy Hauser.
+[159.2s] B: I'll look for weekend openings to move this appointment.
+[162.4s] B: One moment while I check the schedule.
+[165.8s] B: There are no weekend openings between September.
+[168.0s] C: Sure, I'll hold on.
+[171.5s] B: There are no weekend openings.
+[172.6s] C: Got it. Are there any weekend slots further out, or maybe a wait list?
+[177.1s] C: Understood.
+[178.2s] C: Is there a weekend waitlist I can join, or another clinic with weekend availability?
+[185.0s] B: I can't add you to a weekend wait list or check other clinics directly.
+[189.3s] B: Would you like to be transferred to a live support team member now to discuss more options?
+[200.8s] C: Yes,
+[201.6s] C: that sounds good.
+[202.7s] C: Please go ahead and transfer me.
+[204.4s] C: Thanks.
+[205.1s] C: Good bye.
+[209.9s] B: Transfer you now.
+[210.6s] B: Thank you.
+[212.4s] C: Hello.
+[213.2s] C: You reached the pretty good ai test line.
+[215.9s] C: Good bye.
+[220.9s] C: Good bye.

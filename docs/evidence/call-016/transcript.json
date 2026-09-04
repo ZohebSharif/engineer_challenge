@@ -1,0 +1,155 @@
+{
+  "segments": [
+    {
+      "end": 3.05,
+      "speaker": "A",
+      "start": 0.0,
+      "text": " This call may be recorded for quality and training purposes."
+    },
+    {
+      "end": 4.7,
+      "speaker": "A",
+      "start": 3.8,
+      "text": " Para espanol,"
+    },
+    {
+      "end": 5.75,
+      "speaker": "A",
+      "start": 4.9,
+      "text": " oprima el dos."
+    },
+    {
+      "end": 9.7,
+      "speaker": "B",
+      "start": 7.499999999999999,
+      "text": " Thank you for calling Pivot Point Orthopedics."
+    },
+    {
+      "end": 11.999999999999998,
+      "speaker": "B",
+      "start": 10.149999999999999,
+      "text": " Would you like to create a demo patient profile?"
+    },
+    {
+      "end": 14.449999999999998,
+      "speaker": "B",
+      "start": 12.849999999999998,
+      "text": " I'll just need your first and last name to get started."
+    },
+    {
+      "end": 17.099999999999998,
+      "speaker": "C",
+      "start": 16.9,
+      "text": " Oh,"
+    },
+    {
+      "end": 19.849999999999998,
+      "speaker": "C",
+      "start": 17.349999999999998,
+      "text": " I'm just calling to find out your regular office hours."
+    },
+    {
+      "end": 21.499999999999996,
+      "speaker": "C",
+      "start": 20.249999999999996,
+      "text": " Could you share those with me first?"
+    },
+    {
+      "end": 25.706,
+      "speaker": "B",
+      "start": 23.956,
+      "text": " I don't have the office hours handy,"
+    },
+    {
+      "end": 30.206,
+      "speaker": "B",
+      "start": 25.906,
+      "text": " but I can help you with other questions or help you create a demo patient profile if you'd like."
+    },
+    {
+      "end": 31.605999999999998,
+      "speaker": "B",
+      "start": 30.756,
+      "text": " Would you like to continue?"
+    },
+    {
+      "end": 34.706,
+      "speaker": "C",
+      "start": 34.206,
+      "text": " I understand."
+    },
+    {
+      "end": 37.956,
+      "speaker": "C",
+      "start": 35.306,
+      "text": " Could you let me know where I can find your current office hours,"
+    },
+    {
+      "end": 40.206,
+      "speaker": "C",
+      "start": 38.256,
+      "text": " or is there someone who has them available now?"
+    },
+    {
+      "end": 49.506,
+      "speaker": "B",
+      "start": 42.806,
+      "text": " You can find the current office hours by scanning the QR code at the booth or by speaking with a staff member in person."
+    },
+    {
+      "end": 52.954,
+      "speaker": "B",
+      "start": 50.004,
+      "text": " If you need anything else or want to create a demo patient profile,"
+    },
+    {
+      "end": 53.704,
+      "speaker": "B",
+      "start": 53.053999999999995,
+      "text": " just let me know."
+    },
+    {
+      "end": 57.903999999999996,
+      "speaker": "C",
+      "start": 56.604,
+      "text": " Thanks, that helps."
+    },
+    {
+      "end": 59.454,
+      "speaker": "C",
+      "start": 58.304,
+      "text": " I'll check with a staff member."
+    },
+    {
+      "end": 60.104,
+      "speaker": "C",
+      "start": 59.903999999999996,
+      "text": " Goodbye."
+    },
+    {
+      "end": 63.054,
+      "speaker": "B",
+      "start": 62.454,
+      "text": " You're welcome."
+    },
+    {
+      "end": 64.154,
+      "speaker": "B",
+      "start": 63.504,
+      "text": " Have a great day."
+    },
+    {
+      "end": 67.404,
+      "speaker": "C",
+      "start": 66.604,
+      "text": " Take care."
+    },
+    {
+      "end": 67.904,
+      "speaker": "C",
+      "start": 67.604,
+      "text": " Goodbye."
+    }
+  ],
+  "text": "This call may be recorded for quality and training purposes. Para espanol, oprima el dos. Thank you for calling Pivot Point Orthopedics. Would you like to create a demo patient profile? I'll just need your first and last name to get started. Oh, I'm just calling to find out your regular office hours. Could you share those with me first?\nI don't have the office hours handy, but I can help you with other questions or help you create a demo patient profile if you'd like. Would you like to continue? I understand. Could you let me know where I can find your current office hours, or is there someone who has them available now? You can find the current office hours by scanning the QR code at the booth or by speaking with a staff member in person.\nIf you need anything else or want to create a demo patient profile, just let me know. Thanks, that helps. I'll check with a staff member. Goodbye. You're welcome. Have a great day. Take care. Goodbye."
+}

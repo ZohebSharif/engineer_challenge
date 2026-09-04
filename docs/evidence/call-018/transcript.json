@@ -1,0 +1,137 @@
+{
+  "segments": [
+    {
+      "end": 3.0,
+      "speaker": "A",
+      "start": 0.0,
+      "text": " This call may be recorded for quality and training purposes."
+    },
+    {
+      "end": 5.750000000000001,
+      "speaker": "A",
+      "start": 3.9000000000000004,
+      "text": " Para espanol o prima el dos."
+    },
+    {
+      "end": 11.850000000000001,
+      "speaker": "B",
+      "start": 7.1000000000000005,
+      "text": " Thank you for calling PivotPoint Orthopedics. Would you like to create a demo patient profile?"
+    },
+    {
+      "end": 14.450000000000001,
+      "speaker": "B",
+      "start": 12.500000000000002,
+      "text": " I just need your first and last name to get started."
+    },
+    {
+      "end": 19.7,
+      "speaker": "C",
+      "start": 16.95,
+      "text": " I'm just calling about a refill request for my medication."
+    },
+    {
+      "end": 21.65,
+      "speaker": "C",
+      "start": 20.2,
+      "text": " My name is Ayesha Patel."
+    },
+    {
+      "end": 24.195999999999998,
+      "speaker": "B",
+      "start": 23.796,
+      "text": " Thanks,"
+    },
+    {
+      "end": 24.496,
+      "speaker": "B",
+      "start": 24.246,
+      "text": " Aisha."
+    },
+    {
+      "end": 28.046,
+      "speaker": "B",
+      "start": 24.846,
+      "text": " Would you like me to create a demo patient profile for you now?"
+    },
+    {
+      "end": 30.195999999999998,
+      "speaker": "B",
+      "start": 28.496,
+      "text": " I just need your last name to complete it."
+    },
+    {
+      "end": 37.146,
+      "speaker": "C",
+      "start": 32.796,
+      "text": " My last name is Patel. I'm just trying to request a refill for my medication."
+    },
+    {
+      "end": 44.996,
+      "speaker": "B",
+      "start": 40.896,
+      "text": " Your patient profile has been created and your date of birth is set as July 4,"
+    },
+    {
+      "end": 46.546,
+      "speaker": "B",
+      "start": 45.146,
+      "text": " 2000 for demo purposes."
+    },
+    {
+      "end": 48.296,
+      "speaker": "B",
+      "start": 47.096000000000004,
+      "text": " How may I help you today?"
+    },
+    {
+      "end": 53.62,
+      "speaker": "C",
+      "start": 51.37,
+      "text": " Actually, my birth date wasn't part of this."
+    },
+    {
+      "end": 55.57,
+      "speaker": "C",
+      "start": 54.019999999999996,
+      "text": " I need a refill for lisinopril,"
+    },
+    {
+      "end": 56.97,
+      "speaker": "C",
+      "start": 55.72,
+      "text": " 10 milligrams once daily."
+    },
+    {
+      "end": 68.37,
+      "speaker": "B",
+      "start": 64.67,
+      "text": " I don't see any medications on your chart that I can refill right now."
+    },
+    {
+      "end": 72.87,
+      "speaker": "B",
+      "start": 68.72,
+      "text": " If you'd like to speak with someone about this, I can connect you to our patient support team."
+    },
+    {
+      "end": 74.12,
+      "speaker": "B",
+      "start": 73.12,
+      "text": " Would you like to do that?"
+    },
+    {
+      "end": 86.892,
+      "speaker": "B",
+      "start": 83.892,
+      "text": " I don't see any medications on your chart that I can refill right now."
+    },
+    {
+      "end": 89.142,
+      "speaker": "B",
+      "start": 87.192,
+      "text": " If you'd like to speak with someone about this,"
+    }
+  ],
+  "text": "This call may be recorded for quality and training purposes. Para espanol o prima el dos. Thank you for calling PivotPoint Orthopedics. Would you like to create a demo patient profile? I just need your first and last name to get started. I'm just calling about a refill request for my medication. My name is Ayesha Patel.\nThanks, Aisha. Would you like me to create a demo patient profile for you now? I just need your last name to complete it. My last name is Patel. I'm just trying to request a refill for my medication. Your patient profile has been created and your date of birth is set as July 4, 2000 for demo purposes. How may I help you today?\nActually, my birth date wasn't part of this. I need a refill for lisinopril, 10 milligrams once daily. I don't see any medications on your chart that I can refill right now. If you'd like to speak with someone about this, I can connect you to our patient support team. Would you like to do that?\nI don't see any medications on your chart that I can refill right now. If you'd like to speak with someone about this,"
+}

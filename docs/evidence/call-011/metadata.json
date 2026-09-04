@@ -1,0 +1,12 @@
+{
+  "call_id": "call-011",
+  "call_sid": "CA20746e9d9a3258f44406a6e8233e0e6b",
+  "errors": [],
+  "evaluation_status": "complete",
+  "recording_sid": "REe95dbb8e3f79c2ad511d357e839a1b6b",
+  "recording_status": "saved",
+  "scenario_id": "multi-intent",
+  "started_at": "2026-09-04T17:00:26.828504Z",
+  "transcription_status": "complete",
+  "updated_at": "2026-09-04T17:06:52.338418Z"
+}

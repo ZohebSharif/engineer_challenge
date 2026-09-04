@@ -1,0 +1,12 @@
+{
+  "call_id": "call-010",
+  "call_sid": "CA0ac23e28081940a630aad3e58f7e0576",
+  "errors": [],
+  "evaluation_status": "complete",
+  "recording_sid": "REcfc81aa0774606a7b17593eca4ad2a08",
+  "recording_status": "saved",
+  "scenario_id": "insurance",
+  "started_at": "2026-09-04T16:17:42.111160Z",
+  "transcription_status": "complete",
+  "updated_at": "2026-09-04T16:21:02.876637Z"
+}

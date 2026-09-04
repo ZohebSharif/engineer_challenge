@@ -1,0 +1,263 @@
+{
+  "segments": [
+    {
+      "end": 3.0999999999999996,
+      "speaker": "A",
+      "start": 0.0,
+      "text": " This call may be recorded for quality and training purposes."
+    },
+    {
+      "end": 5.85,
+      "speaker": "A",
+      "start": 3.8999999999999995,
+      "text": " Para espanol oprima el dos."
+    },
+    {
+      "end": 10.200000000000001,
+      "speaker": "B",
+      "start": 8.100000000000001,
+      "text": " Thank you for calling Pivot Point Orthopedics."
+    },
+    {
+      "end": 12.850000000000001,
+      "speaker": "B",
+      "start": 10.700000000000001,
+      "text": " Would you like to create a demo patient profile?"
+    },
+    {
+      "end": 15.000000000000004,
+      "speaker": "B",
+      "start": 13.650000000000002,
+      "text": " I just need your first and last name."
+    },
+    {
+      "end": 17.6,
+      "speaker": "C",
+      "start": 17.400000000000002,
+      "text": " Oh,"
+    },
+    {
+      "end": 18.4,
+      "speaker": "C",
+      "start": 18.0,
+      "text": " actually,"
+    },
+    {
+      "end": 20.0,
+      "speaker": "C",
+      "start": 18.65,
+      "text": " I'm already an established patient."
+    },
+    {
+      "end": 25.099999999999998,
+      "speaker": "C",
+      "start": 20.45,
+      "text": " I'm calling to reschedule my Thursday ten a m appointment and get the fax number for medical records."
+    },
+    {
+      "end": 28.497999999999998,
+      "speaker": "B",
+      "start": 27.348,
+      "text": " I can help with both."
+    },
+    {
+      "end": 33.647999999999996,
+      "speaker": "B",
+      "start": 28.698,
+      "text": " To access your records and reschedule, I'll need to create a demo patient profile for you here."
+    },
+    {
+      "end": 35.548,
+      "speaker": "B",
+      "start": 33.897999999999996,
+      "text": " May I have your first and last name?"
+    },
+    {
+      "end": 39.098,
+      "speaker": "C",
+      "start": 38.598,
+      "text": " I'm sorry,"
+    },
+    {
+      "end": 41.598,
+      "speaker": "C",
+      "start": 39.248000000000005,
+      "text": " but I already have a profile as an established patient."
+    },
+    {
+      "end": 44.098,
+      "speaker": "C",
+      "start": 42.098,
+      "text": " Could you check your system for my existing record?"
+    },
+    {
+      "end": 52.098,
+      "speaker": "B",
+      "start": 49.498000000000005,
+      "text": " I don't see an existing profile for you in the system yet."
+    },
+    {
+      "end": 53.809999999999995,
+      "speaker": "B",
+      "start": 52.66,
+      "text": " To help with your request,"
+    },
+    {
+      "end": 55.66,
+      "speaker": "B",
+      "start": 54.01,
+      "text": " I'll need to create a demo patient profile."
+    },
+    {
+      "end": 58.309999999999995,
+      "speaker": "B",
+      "start": 56.16,
+      "text": " Could you please provide your first and last name?"
+    },
+    {
+      "end": 62.709999999999994,
+      "speaker": "C",
+      "start": 60.809999999999995,
+      "text": " I do have an established profile."
+    },
+    {
+      "end": 64.46,
+      "speaker": "C",
+      "start": 63.26,
+      "text": " Could you try searching again,"
+    },
+    {
+      "end": 66.11,
+      "speaker": "C",
+      "start": 64.86,
+      "text": " or maybe verify another way?"
+    },
+    {
+      "end": 72.66,
+      "speaker": "B",
+      "start": 68.81,
+      "text": " Right now, I can only assist if we create a demo patient profile here."
+    },
+    {
+      "end": 76.50999999999999,
+      "speaker": "B",
+      "start": 73.06,
+      "text": " Once that's set up, I can help with rescheduling and provide the fax number."
+    },
+    {
+      "end": 79.044,
+      "speaker": "B",
+      "start": 77.044,
+      "text": " May I have your first and last name to get started?"
+    },
+    {
+      "end": 82.64399999999999,
+      "speaker": "C",
+      "start": 81.794,
+      "text": " I understand,"
+    },
+    {
+      "end": 85.094,
+      "speaker": "C",
+      "start": 83.14399999999999,
+      "text": " but I'm already an established patient."
+    },
+    {
+      "end": 88.494,
+      "speaker": "C",
+      "start": 85.694,
+      "text": " Could you please check another way without creating a new profile?"
+    },
+    {
+      "end": 97.344,
+      "speaker": "B",
+      "start": 93.14399999999999,
+      "text": " I'm only able to assist by creating a demo patient profile in this system."
+    },
+    {
+      "end": 98.744,
+      "speaker": "B",
+      "start": 97.94399999999999,
+      "text": " Once that's done,"
+    },
+    {
+      "end": 100.994,
+      "speaker": "B",
+      "start": 98.844,
+      "text": " I can help with your appointment and fax number."
+    },
+    {
+      "end": 104.256,
+      "speaker": "B",
+      "start": 101.556,
+      "text": " Would you like to continue by providing your first and last name?"
+    },
+    {
+      "end": 108.106,
+      "speaker": "C",
+      "start": 107.256,
+      "text": " I'm sorry,"
+    },
+    {
+      "end": 111.65599999999999,
+      "speaker": "C",
+      "start": 108.456,
+      "text": " but I need to resolve my two requests as an established patient."
+    },
+    {
+      "end": 114.256,
+      "speaker": "C",
+      "start": 112.306,
+      "text": " Could you help find my record or transfer me?"
+    },
+    {
+      "end": 117.756,
+      "speaker": "B",
+      "start": 117.006,
+      "text": " Transferring you now."
+    },
+    {
+      "end": 120.006,
+      "speaker": "C",
+      "start": 119.70599999999999,
+      "text": " Hello,"
+    },
+    {
+      "end": 122.15599999999999,
+      "speaker": "C",
+      "start": 120.40599999999999,
+      "text": " you've reached the pretty good AI text"
+    },
+    {
+      "end": 122.356,
+      "speaker": "B",
+      "start": 122.15599999999999,
+      "text": " Thank you."
+    },
+    {
+      "end": 122.606,
+      "speaker": "C",
+      "start": 122.356,
+      "text": " line."
+    },
+    {
+      "end": 123.106,
+      "speaker": "C",
+      "start": 122.90599999999999,
+      "text": " Goodbye."
+    },
+    {
+      "end": 123.45599999999999,
+      "speaker": "B",
+      "start": 123.106,
+      "text": " Goodbye."
+    },
+    {
+      "end": 127.306,
+      "speaker": "C",
+      "start": 126.806,
+      "text": " Goodbye."
+    }
+  ],
+  "text": "This call may be recorded for quality and training purposes. Para espanol oprima el dos. Thank you for calling Pivot Point Orthopedics. Would you like to create a demo patient profile? I just need your first and last name. Oh, actually, I'm already an established patient. I'm calling to reschedule my Thursday ten a m appointment and get the fax number for medical records.\nI can help with both. To access your records and reschedule, I'll need to create a demo patient profile for you here. May I have your first and last name? I'm sorry, but I already have a profile as an established patient. Could you check your system for my existing record? I don't see an existing profile for you in the system yet.\nTo help with your request, I'll need to create a demo patient profile. Could you please provide your first and last name? I do have an established profile. Could you try searching again, or maybe verify another way? Right now, I can only assist if we create a demo patient profile here. Once that's set up, I can help with rescheduling and provide the fax number.\nMay I have your first and last name to get started? I understand, but I'm already an established patient. Could you please check another way without creating a new profile? I'm only able to assist by creating a demo patient profile in this system. Once that's done, I can help with your appointment and fax number.\nWould you like to continue by providing your first and last name? I'm sorry, but I need to resolve my two requests as an established patient. Could you help find my record or transfer me? Transferring you now. Hello, you've reached the pretty good AI text Thank you. line. Goodbye. Goodbye. Goodbye."
+}

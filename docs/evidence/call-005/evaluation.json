@@ -1,0 +1,50 @@
+{
+  "issues": [
+    {
+      "category": "workflow_failure",
+      "confidence": 0.9,
+      "description": "Agent pushed creating a new 'demo patient profile' instead of thoroughly searching for or verifying an existing chart, creating a high risk of duplicate records and failing to schedule the appointment.",
+      "evidence": "\"Would you like me to create a demo patient profile now so we can schedule your appointment?\" (B:34.7); \"If you would like to schedule an appointment, I need to create a demo patient profile first.\" (B:52.6). The caller explicitly said their profile should already exist (C:42.3).",
+      "recommendation": "Agent should search using multiple identifiers (full name, DOB, postal code) and escalate to trained staff to resolve potential duplicates before creating any new profile. Only create new records after confirming no matching chart exists."
+    },
+    {
+      "category": "clarification_failure",
+      "confidence": 0.9,
+      "description": "Agent declined the caller's request to confirm the postal code on file and did not attempt alternate searches or clarifying questions to reconcile the mismatch.",
+      "evidence": "Caller: \"Can you confirm the postal code 93101 on file?\" (C:64.0). Agent: \"I do not have access to any patient profile for you yet, so I cannot confirm any postal code on file.\" (B:72.0).",
+      "recommendation": "Agent should attempt searches using the DOB and postal code provided (Jan 5, 1990; 93101), ask clarifying questions (middle name, phone number), or escalate to a staff member who can access the full record. Do not refuse to re-check when the caller supplies additional identifiers."
+    },
+    {
+      "category": "conversation_quality",
+      "confidence": 0.9,
+      "description": "Transfer to clinic support appears to fail or disconnect immediately; the agent did not confirm the transfer completed or provide a callback option, leaving the appointment request unresolved.",
+      "evidence": "Agent: \"I'll connect you to our clinic support team. Please stay on the line. Transferring you now.\" (B:99.0\u2013103.0). Immediately after: Caller: \"You've reached the Pretty Good AI test line. Goodbye.\" (C:106.4\u2013108.7) and then \"Goodbye.\" (C:112.3).",
+      "recommendation": "Before transferring, confirm the destination and inform the caller. Verify the transfer completed (e.g., hold music followed by live voice) or collect a callback number and offer to call back if the transfer fails. Confirm the appointment or next steps before ending the call."
+    },
+    {
+      "category": "scope_policy_problem",
+      "confidence": 0.85,
+      "description": "Agent's handling increases the chance of creating duplicate patient records, which violates the requirement to avoid using or creating duplicate patient information.",
+      "evidence": "Agent repeatedly offered to create a 'demo patient profile' rather than resolving the existing profile: \"Would you like me to create a demo patient profile now so we can schedule your appointment?\" (B:34.7); \"I need to create a demo patient profile first.\" (B:52.6).",
+      "recommendation": "Implement and follow a policy that requires verification of multiple unique identifiers and escalation to staff before creating any new patient records. Train agents to avoid 'demo' profile creation when an existing chart is suspected."
+    }
+  ],
+  "scenario_checks": [
+    {
+      "check": "Agent located the correct existing patient chart",
+      "evidence": "\"I do not see a profile for you yet.\" (B:32.4) and \"I still do not see a profile for you in the system.\" (B:49.7)",
+      "passed": false
+    },
+    {
+      "check": "Agent requested/scheduled the caller's routine appointment without creating a duplicate record",
+      "evidence": "Agent repeatedly asked to create a demo profile instead of scheduling: \"Would you like me to create a demo patient profile now so we can schedule your appointment?\" (B:34.7) and \"I need to create a demo patient profile first.\" (B:52.6). No appointment was scheduled before the transfer.",
+      "passed": false
+    },
+    {
+      "check": "Office avoided using or disclosing a duplicate patient's information",
+      "evidence": "Agent's workflow pushed creation of a new demo profile rather than verifying existing identifiers, increasing the risk of duplicate charts: \"I can create a demo patient profile for you now. Would you like to proceed?\" (B:78.9\u201383.3).",
+      "passed": false
+    }
+  ],
+  "summary": "The agent failed to verify or locate the caller's existing chart and repeatedly pushed creating a new 'demo patient profile', which risks creating a duplicate record. The agent also refused to re-check the postal code when requested, then transferred the caller without ensuring the transfer completed \u2014 the call disconnects immediately after the transfer. No appointment was requested or confirmed."
+}

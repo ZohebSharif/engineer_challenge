@@ -1,0 +1,12 @@
+{
+  "call_id": "call-018",
+  "call_sid": "CAb88d1f363dfff85d0e6ab4e283266155",
+  "errors": [],
+  "evaluation_status": "complete",
+  "recording_sid": "REaad671c3fad849baccb3f21108376499",
+  "recording_status": "saved",
+  "scenario_id": "medication-refill",
+  "started_at": "2026-09-04T17:30:56.326159Z",
+  "transcription_status": "complete",
+  "updated_at": "2026-09-04T17:33:48.849904Z"
+}

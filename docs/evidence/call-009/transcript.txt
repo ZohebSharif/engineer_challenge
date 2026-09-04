@@ -1,0 +1,88 @@
+[0.0s] A: This call may be recorded for quality and training purposes.
+[3.8s] A: Para espanol oprima el dos.
+[8.1s] B: Thank you for calling Pivot Point Orthopedics.
+[11.3s] B: Would you like to create a demo patient profile?
+[14.0s] B: I just need your first and last name to get started.
+[18.2s] C: Hi,
+[18.8s] C: I'm already a patient.
+[20.1s] C: I actually have two things today.
+[22.0s] C: I need to reschedule my Thursday ten am appointment.
+[26.8s] B: I can help with that.
+[28.2s] B: Before we continue,
+[29.2s] B: would you like to create a demo patient profile?
+[31.3s] B: I just need your first and last name.
+[33.3s] B: This will let me access your appointments and assist you further.
+[38.8s] C: I'm already an established patient.
+[40.8s] C: I just need to reschedule that Thursday,
+[43.0s] C: 10 a.m. appointment and get the medical records.
+[47.6s] B: Understood.
+[48.5s] B: To help with your requests,
+[50.1s] B: I'll need to create a demo patient profile for you here.
+[52.9s] B: May I have your first and last name?
+[57.0s] C: My name is Sophia Martinez.
+[59.5s] C: Please go ahead with that.
+[62.8s] B: One moment while I set up your profile,
+[64.9s] B: Sophia.
+[65.9s] B: I'll help you with reschedule your appointment and getting your medical records right after.
+[70.9s] B: Your patient profile is set up and your date of birth is July 4,
+[74.5s] B: 2000 for demo purposes.
+[76.3s] B: How may I help you today?
+[80.6s] C: Actually, my birth date isn't part of this.
+[83.5s] C: Let's focus on rescheduling that Thursday 10 a.m. appointment and getting the mail.
+[91.7s] B: Do you have an appointment scheduled for Tuesday,
+[94.0s] B: September 8th at 10 a.m.
+[97.0s] B: with Kelly Noble,
+[98.5s] B: M.D. at Nashville 220 Athens Way?
+[102.2s] B: Is this the appointment you want to reschedule?
+[107.2s] C: No,
+[108.0s] C: my appointment is actually on Thursday at 10 a.m. I need to reschedule that one, and I also need the fax number.
+[116.4s] B: The only upcoming appointment I see on file is for Tuesday,
+[120.9s] B: September 8th at 10 a.m. with Kelly Noble,
+[122.7s] B: M.D.
+[123.4s] B: Would you like to reschedule this appointment?
+[125.7s] B: If you have another appointment,
+[127.1s] B: please let me know any other details you remember so I can help locate it.
+[133.6s] C: The appointment I need to reschedule is on Thursday at 10 a.m.
+[137.2s] C: Let's reschedule that.
+[138.6s] C: And I still need the medical records.
+[143.5s] B: I only see an appointment for Tuesday,
+[145.9s] B: September 8th at 10 a.m. with Kelly Mobile MD.
+[148.4s] B: There are no Thursday appointments on file.
+[151.2s] B: Would you like to reschedule the Tuesday,
+[153.5s] B: September 8th appointment at 10 a.m.? If you have more details about the Thursday appointment,
+[158.6s] B: please share them so I can help.
+[160.6s] B: For medical records,
+[161.6s] B: I can provide the clinic's fax number after we finish with your appointment.
+[165.3s] B: Shall I continue with rescheduling the Tuesday appointment?
+[171.7s] C: I need to reschedule my Thursday 10 a.m. appointment.
+[174.7s] C: Please check again.
+[175.8s] C: And I still need that fax number.
+[179.7s] B: I understand you want to reschedule a Thursday 10 a.m. appointment,
+[183.7s] B: but I only see an appointment for Tuesday,
+[185.8s] B: September 8th at 10 a.m. with Kelly Noble,
+[189.3s] B: M.D.
+[190.1s] B: There are no Thursday appointments listed in your records.
+[193.2s] B: Would you like to reschedule the Tuesday appointment or is it possible the appointment you're thinking of is actually on Tuesday?
+[200.2s] B: Let me know how you'd like to proceed.
+[202.2s] B: Once we finish with your appointment,
+[204.2s] B: I'll provide the clinic's fax number for your medical records request.
+[211.1s] C: I'm sure it's a Thursday 10 a.m. appointment I need to reschedule.
+[215.1s] C: Let's adjust that to Monday afternoon,
+[216.9s] C: and then I'll stay.
+[223.3s] B: There are no Monday afternoon openings between September 7th and October 8th. Would you like to try a different day or time?
+[229.9s] B: If you prefer,
+[230.8s] B: I can also transfer you to live support at the clinic for more help.
+[238.4s] C: I really prefer Monday afternoon.
+[240.5s] C: Could you double-check availability or connect me to someone who can help?
+[244.0s] C: And I still need the fax.
+[250.8s] B: Trace ringing out. Thank you.
+[253.6s] D: Hello,
+[254.3s] D: you've reached the pretty good AI test
+[256.1s] C: Thank
+[256.1s] D: line.
+[256.3s] C: you.
+[256.9s] D: I'll Goodbye.
+[257.0s] C: wait for the next update.
+[261.5s] C: I think we got disconnected.
+[263.2s] C: I'm still here to reschedule my Thursday 10 a m appointment to Monday afternoon,
+[267.3s] C: and get the medical record

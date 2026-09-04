@@ -1,0 +1,64 @@
+[0.0s] A: This call may be recorded for quality and training purposes.
+[3.8s] A: Para espanol oprima el dos.
+[7.4s] B: Thank you for calling Pivot Point Orthopedics.
+[10.1s] B: Would you like to create a demo cation profile?
+[12.7s] B: I just need your first and last name to get started.
+[16.6s] C: Oh,
+[17.2s] C: I'm sorry,
+[18.1s] C: I'm actually already a patient.
+[20.0s] C: I need to reschedule my Thursday ten am appointment,
+[23.0s] C: and I need the fax number for medical records.
+[27.9s] B: No problem.
+[28.9s] B: I can help with rescheduling and getting the fax number.
+[32.2s] B: Before we continue, would you like to create a demo patient profile?
+[35.4s] B: I just need your first and last name.
+[39.9s] C: I'm an established patient already.
+[42.1s] C: Let's go ahead with rescheduling and the fax number,
+[44.6s] C: please.
+[47.4s] B: I understand you're already a patient.
+[49.5s] B: To assist you, I'll need to create a demo patient profile for this system.
+[53.8s] B: May I have your first and last name?
+[57.7s] C: I'm Sophia Martinez,
+[59.6s] C: but remember,
+[60.4s] C: I need to reschedule that Thursday 10 a.m. appointment and get the medical records fax number.
+[68.4s] B: Your patient profile is set up and your date of birth is July 4,
+[72.2s] B: 2000 for demo purposes.
+[74.3s] B: How can I help you today?
+[78.4s] C: Actually, my focus right now is rescheduling that Thursday 10 a.m. appointment and getting the fax number for medical records.
+[93.5s] B: You have an appointment scheduled for Tuesday,
+[95.4s] B: September 8th at 10 a.m. with Kelly Noble,
+[97.6s] B: MD at Nashville 220 Athens Way.
+[100.2s] B: Is this the appointment you want to reschedule?
+[105.5s] C: I'm sorry,
+[106.8s] C: my appointment is actually on Thursday at 10 a.m., not Tuesday.
+[110.4s] C: That's the one I need to reschedule.
+[114.7s] B: The only upcoming appointment I see on file is for Tuesday,
+[118.1s] B: September 8th at 10 a.m. with Kelly Noble,
+[120.8s] B: M.D. Would you like to reschedule this appointment?
+[126.1s] C: I need to be clear.
+[127.5s] C: My appointment is for Thursday at 10 a.m. Could you please help reschedule that one and also give me the fax number for medical records?
+[136.8s] B: The only appointment I have on file is for Tuesday,
+[139.6s] B: September 8th.
+[140.8s] B: at 10 a.m. There isn't a Thursday appointment listed.
+[144.9s] B: Would you like to reschedule the Tuesday appointment or is it possible your appointment is actually on that date?
+[150.5s] B: Let me know how you'd like to proceed and I'll also get the fax number for medical records for you.
+[157.3s] C: My appointment is on Thursday at 10 a.m. and I need to reschedule that.
+[161.9s] C: Let's go ahead and move it to Monday afternoon and I still need that fax number.
+[170.0s] B: There are no Monday afternoon openings between September 7th and October 8th.
+[174.5s] B: Would you like to try a different day or time?
+[176.6s] B: If you prefer,
+[177.5s] B: I can also transfer you to live support at the clinic for more help, and I'll get the fax number for medical records for you as well.
+[187.3s] C: If Monday afternoon isn't available,
+[189.7s] C: could you tell me what the next available afternoon opening is?
+[195.9s] B: There are no afternoon openings available between September 5th and October 6th.
+[200.2s] B: Would you like to try a different time of day or a specific date?
+[203.3s] B: If you'd like, I can also transfer you to live support at the clinic for more help.
+[207.7s] B: I'll provide the fax number for medical records as well.
+[210.8s] B: Would you like to be transferred now?
+[215.8s] C: Yes, transferring me sounds good.
+[218.1s] C: And please go ahead and give me that fax number for medical records before the transfer.
+[221.9s] B: Transferring you now.
+[223.3s] B: Thank you.
+[225.2s] C: Hello,
+[226.0s] C: you've reached the pretty good AI Thanks. tech line. Goodbye. Goodbye.
+[232.8s] C: Goodbye.

@@ -1,0 +1,12 @@
+{
+  "call_id": "call-021",
+  "call_sid": "CA964178fdd8869e578127de5ebe1588e3",
+  "errors": [],
+  "evaluation_status": "complete",
+  "recording_sid": "RE54ad6aa59b74e9183745f31d516f0ffd",
+  "recording_status": "saved",
+  "scenario_id": "unusual-edge",
+  "started_at": "2026-09-04T17:56:55.573215Z",
+  "transcription_status": "complete",
+  "updated_at": "2026-09-04T17:58:20.391687Z"
+}

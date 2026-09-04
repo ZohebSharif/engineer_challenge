@@ -1,0 +1,257 @@
+{
+  "segments": [
+    {
+      "end": 3.0999999999999996,
+      "speaker": "A",
+      "start": 0.0,
+      "text": " This call may be recorded for quality and training purposes."
+    },
+    {
+      "end": 8.35,
+      "speaker": "B",
+      "start": 7.3999999999999995,
+      "text": " Thank you for calling Pivot"
+    },
+    {
+      "end": 8.5,
+      "speaker": "C",
+      "start": 8.35,
+      "text": " Hello,"
+    },
+    {
+      "end": 8.9,
+      "speaker": "B",
+      "start": 8.5,
+      "text": " Point Org."
+    },
+    {
+      "end": 10.05,
+      "speaker": "C",
+      "start": 8.9,
+      "text": " I'll continue in English."
+    },
+    {
+      "end": 13.4,
+      "speaker": "C",
+      "start": 10.450000000000001,
+      "text": " I'm calling to request a refill for my lisinopril ten mg."
+    },
+    {
+      "end": 15.05,
+      "speaker": "C",
+      "start": 14.700000000000001,
+      "text": " Hi,"
+    },
+    {
+      "end": 16.400000000000002,
+      "speaker": "C",
+      "start": 15.3,
+      "text": " this is Aisha Patel."
+    },
+    {
+      "end": 17.85,
+      "speaker": "C",
+      "start": 16.700000000000003,
+      "text": " I'm an established patient."
+    },
+    {
+      "end": 21.150000000000002,
+      "speaker": "C",
+      "start": 18.3,
+      "text": " I'm calling about a routine refill of my lisinopril ten mg."
+    },
+    {
+      "end": 24.928,
+      "speaker": "D",
+      "start": 23.828,
+      "text": " Thanks for letting me know,"
+    },
+    {
+      "end": 25.727999999999998,
+      "speaker": "D",
+      "start": 25.378,
+      "text": " Aisha."
+    },
+    {
+      "end": 27.728,
+      "speaker": "D",
+      "start": 26.278,
+      "text": " Before I can help with your refill,"
+    },
+    {
+      "end": 29.578,
+      "speaker": "D",
+      "start": 27.828,
+      "text": " would you like to create a demo patient profile?"
+    },
+    {
+      "end": 32.228,
+      "speaker": "D",
+      "start": 30.228,
+      "text": " I just need your first and last name to get started."
+    },
+    {
+      "end": 38.928,
+      "speaker": "C",
+      "start": 34.628,
+      "text": " My name is Aisha Patel. That's spelled A-I-S-H-A,"
+    },
+    {
+      "end": 41.128,
+      "speaker": "C",
+      "start": 39.278000000000006,
+      "text": " last name P-A-T-E-L."
+    },
+    {
+      "end": 44.828,
+      "speaker": "D",
+      "start": 43.528000000000006,
+      "text": " Thanks for spelling that out,"
+    },
+    {
+      "end": 45.328,
+      "speaker": "D",
+      "start": 44.928000000000004,
+      "text": " Aisha."
+    },
+    {
+      "end": 48.178,
+      "speaker": "D",
+      "start": 45.728,
+      "text": " Let me finish setting up your demo patient profile,"
+    },
+    {
+      "end": 49.678,
+      "speaker": "D",
+      "start": 48.478,
+      "text": " then I'll help with your refill request."
+    },
+    {
+      "end": 50.828,
+      "speaker": "D",
+      "start": 50.228,
+      "text": " One moment."
+    },
+    {
+      "end": 55.578,
+      "speaker": "D",
+      "start": 52.578,
+      "text": " Your patient profile is set up and your date of birth is July 4,"
+    },
+    {
+      "end": 56.128,
+      "speaker": "D",
+      "start": 55.778,
+      "text": " 2000."
+    },
+    {
+      "end": 57.828,
+      "speaker": "D",
+      "start": 56.728,
+      "text": " How can I help you today?"
+    },
+    {
+      "end": 62.528,
+      "speaker": "C",
+      "start": 60.678,
+      "text": " Actually, that's not my birth date."
+    },
+    {
+      "end": 66.52799999999999,
+      "speaker": "C",
+      "start": 62.828,
+      "text": " I'm just requesting a refill for my lisinopril 10 mg once daily."
+    },
+    {
+      "end": 73.97200000000001,
+      "speaker": "D",
+      "start": 70.772,
+      "text": " I don't see any medications on your chart that I can refill right now."
+    },
+    {
+      "end": 74.97200000000001,
+      "speaker": "D",
+      "start": 74.322,
+      "text": " If you'd like,"
+    },
+    {
+      "end": 77.572,
+      "speaker": "D",
+      "start": 75.022,
+      "text": " I can connect you to our patient support team for more help."
+    },
+    {
+      "end": 79.122,
+      "speaker": "D",
+      "start": 77.92200000000001,
+      "text": " Would you like to speak with someone?"
+    },
+    {
+      "end": 85.022,
+      "speaker": "C",
+      "start": 81.822,
+      "text": " Could you send a message to a clinician about my refill request?"
+    },
+    {
+      "end": 96.57,
+      "speaker": "D",
+      "start": 91.22,
+      "text": " I've sent your refill request for lisinopril ten milligram once daily to our clinic support team."
+    },
+    {
+      "end": 99.32,
+      "speaker": "D",
+      "start": 96.97,
+      "text": " They will review it and get back to you as soon as they can."
+    },
+    {
+      "end": 101.47,
+      "speaker": "D",
+      "start": 99.87,
+      "text": " Is there anything else I can help you with?"
+    },
+    {
+      "end": 105.27,
+      "speaker": "C",
+      "start": 104.12,
+      "text": " Thanks for confirming."
+    },
+    {
+      "end": 107.12,
+      "speaker": "C",
+      "start": 105.72,
+      "text": " I'll check with my pharmacy later."
+    },
+    {
+      "end": 107.77000000000001,
+      "speaker": "C",
+      "start": 107.47,
+      "text": " Goodbye."
+    },
+    {
+      "end": 110.72,
+      "speaker": "D",
+      "start": 109.92,
+      "text": " You're all set."
+    },
+    {
+      "end": 111.82,
+      "speaker": "D",
+      "start": 110.92,
+      "text": " Have a great day."
+    },
+    {
+      "end": 115.92,
+      "speaker": "C",
+      "start": 115.22,
+      "text": " Take care."
+    },
+    {
+      "end": 116.52,
+      "speaker": "C",
+      "start": 116.12,
+      "text": " Goodbye."
+    }
+  ],
+  "text": "This call may be recorded for quality and training purposes. Thank you for calling Pivot Hello, Point Org. I'll continue in English. I'm calling to request a refill for my lisinopril ten mg. Hi, this is Aisha Patel. I'm an established patient. I'm calling about a routine refill of my lisinopril ten mg.\nThanks for letting me know, Aisha. Before I can help with your refill, would you like to create a demo patient profile? I just need your first and last name to get started. My name is Aisha Patel. That's spelled A-I-S-H-A, last name P-A-T-E-L. Thanks for spelling that out, Aisha. Let me finish setting up your demo patient profile, then I'll help with your refill request.\nOne moment. Your patient profile is set up and your date of birth is July 4, 2000. How can I help you today? Actually, that's not my birth date. I'm just requesting a refill for my lisinopril 10 mg once daily.\nI don't see any medications on your chart that I can refill right now. If you'd like, I can connect you to our patient support team for more help. Would you like to speak with someone? Could you send a message to a clinician about my refill request?\nI've sent your refill request for lisinopril ten milligram once daily to our clinic support team. They will review it and get back to you as soon as they can. Is there anything else I can help you with? Thanks for confirming. I'll check with my pharmacy later. Goodbye. You're all set. Have a great day. Take care. Goodbye."
+}
