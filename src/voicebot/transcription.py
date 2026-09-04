@@ -30,7 +30,7 @@ class Transcript(BaseModel):
             joined = " ".join(
                 segment.text.strip() for segment in self.segments if segment.text.strip()
             )
-            object.__setattr__(self, "text", joined)
+            self.text = joined
         return self
 
     def as_text(self) -> str:
