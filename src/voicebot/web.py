@@ -4,6 +4,7 @@ import structlog
 from fastapi import BackgroundTasks, Depends, FastAPI, Form, Query, Response, WebSocket
 from twilio.twiml.voice_response import Connect, Stream, VoiceResponse
 
+from voicebot.artifacts import ArtifactManager
 from voicebot.bridge import run_media_bridge
 from voicebot.config import Settings, get_settings
 from voicebot.logging import configure_logging
@@ -78,6 +79,9 @@ async def recording_complete(
         call_sid=call_sid,
         recording_sid=recording_sid,
         recording_status=recording_status,
+    )
+    await ArtifactManager(config.calls_directory).record_recording_status(
+        call_sid, recording_sid, recording_status
     )
     if recording_status == "completed":
         background_tasks.add_task(build_analysis_pipeline(config).process, call_sid, recording_sid)

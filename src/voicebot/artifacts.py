@@ -82,6 +82,20 @@ class ArtifactManager:
             self.write_json(artifacts.metadata, metadata.model_dump(mode="json"))
             return artifacts, metadata
 
+    async def record_recording_status(
+        self, call_sid: str, recording_sid: str, status: str
+    ) -> CallMetadata:
+        artifacts, metadata = await self.ensure(call_sid)
+        metadata.recording_sid = recording_sid
+        metadata.recording_status = status
+        metadata.updated_at = datetime.now(UTC)
+        if status in {"absent", "failed"}:
+            error = f"recording: Twilio reported terminal status {status}"
+            if error not in metadata.errors:
+                metadata.errors.append(error)
+        self.write_json(artifacts.metadata, metadata.model_dump(mode="json"))
+        return metadata
+
     def find(self, call_sid: str) -> CallArtifacts | None:
         return self._find_unlocked(call_sid)
 
