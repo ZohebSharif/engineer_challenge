@@ -12,7 +12,7 @@ from voicebot.config import Settings
 from voicebot.evaluation import Evaluation, EvaluationIssue, IssueCategory, ScenarioCheck
 from voicebot.recordings import RecordingDownloader
 from voicebot.scenarios import ScenarioRepository
-from voicebot.transcription import Transcript, TranscriptSegment
+from voicebot.transcription import RecordingTranscriber, Transcript, TranscriptSegment
 
 
 class FakeDownloader:
@@ -149,3 +149,51 @@ async def test_recording_download_uses_canonical_url_and_bounded_retry(
     assert len(requests) == 2
     assert url.endswith("/Accounts/ACtest/Recordings/RE123.mp3")
     assert destination.read_bytes() == b"ID3 canonical recording"
+
+
+@pytest.mark.asyncio
+async def test_diarized_payload_without_joined_text_is_usable(tmp_path: Path) -> None:
+    payload = {
+        "task": "transcribe",
+        "duration": 4.2,
+        "segments": [
+            {
+                "type": "transcript.text.segment",
+                "id": "seg_0",
+                "start": 0.0,
+                "end": 1.8,
+                "speaker": "A",
+                "text": "I need an appointment.",
+            },
+            {
+                "type": "transcript.text.segment",
+                "id": "seg_1",
+                "start": 2.0,
+                "end": 4.2,
+                "speaker": "B",
+                "text": "Tuesday at nine works.",
+            },
+        ],
+    }
+    settings = Settings(
+        public_base_url="https://voice.example",
+        twilio_account_sid="ACtest",
+        twilio_auth_token=SecretStr("token"),
+        twilio_from_number="+15555550100",
+        media_stream_token=SecretStr("stream"),
+        openai_api_key=SecretStr("sk-test"),
+    )
+    recording = tmp_path / "recording.mp3"
+    recording.write_bytes(b"ID3 phone recording")
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        return httpx.Response(200, json=payload)
+
+    async with httpx.AsyncClient(transport=httpx.MockTransport(handler)) as client:
+        transcript = await RecordingTranscriber(settings, client).transcribe(recording)
+
+    assert transcript.text == "I need an appointment. Tuesday at nine works."
+    assert [segment.speaker for segment in transcript.segments] == ["A", "B"]
+    assert (
+        transcript.as_text() == "[0.0s] A: I need an appointment.\n[2.0s] B: Tuesday at nine works."
+    )
