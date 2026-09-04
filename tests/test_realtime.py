@@ -119,6 +119,9 @@ async def test_realtime_session_configures_direct_pcmu_audio() -> None:
     assert audio["input"]["turn_detection"]["interrupt_response"] is False
     turn_detection = audio["input"]["turn_detection"]
     assert turn_detection["silence_duration_ms"] >= 1000, "patient must let the office finish"
+    assert turn_detection["create_response"] is False, (
+        "session must open closed so the remote side owns the first turn"
+    )
     assert update["session"]["instructions"] == build_patient_prompt(
         SCENARIOS.load("appointment-scheduling")
     )
@@ -411,13 +414,16 @@ def _hold_settings(hold: float) -> Settings:
 
 
 @pytest.mark.asyncio
-async def test_opening_turn_waits_for_the_remote_greeting_to_finish() -> None:
-    """Reproduces calls 5-7: IVR notice, then greeting. We must not speak into either."""
+async def test_opening_turn_is_released_by_the_remote_side_not_a_timer() -> None:
+    """Reproduces calls 5-7: IVR notice, long gap, then greeting.
+
+    The notice ending must hand turn-taking back to server VAD WITHOUT us speaking, so the
+    greeting is answered by normal VAD at its own turn end. A timer-based release would fire
+    during the 2.55s notice->greeting gap measured in call-007 and collide again.
+    """
     socket = FakeSocket(
         [
             {"type": "input_audio_buffer.speech_started"},  # recording notice
-            {"type": "input_audio_buffer.speech_stopped"},
-            {"type": "input_audio_buffer.speech_started"},  # PGai greeting
             {"type": "input_audio_buffer.speech_stopped"},
         ]
     )
@@ -428,18 +434,52 @@ async def test_opening_turn_waits_for_the_remote_greeting_to_finish() -> None:
             "CA123",
             "MZ123",
             TurnManager(),
-            _hold_settings(0.2),
+            _hold_settings(0.1),
         )
     )
-    await asyncio.sleep(0.1)
-    assert socket.sent == [], "spoke during the greeting"
-    await asyncio.sleep(0.25)
-    assert {"type": "response.create"} in socket.sent
-    update = next(e for e in socket.sent if e.get("type") == "session.update")
-    detection = update["session"]["audio"]["input"]["turn_detection"]
-    assert detection["create_response"] is True
-    assert detection["silence_duration_ms"] == 1200
-    assert detection["interrupt_response"] is False
+    await asyncio.sleep(0.05)
+    assert socket.sent == [
+        {
+            "type": "session.update",
+            "session": {
+                "type": "realtime",
+                "audio": {
+                    "input": {
+                        "turn_detection": {
+                            "type": "server_vad",
+                            "threshold": 0.55,
+                            "prefix_padding_ms": 300,
+                            "silence_duration_ms": 1200,
+                            "create_response": True,
+                            "interrupt_response": False,
+                        }
+                    }
+                },
+            },
+        }
+    ], "release must be a bare session.update, never a response.create"
+    assert {"type": "response.create"} not in socket.sent
+    task.cancel()
+    with pytest.raises(asyncio.CancelledError):
+        await task
+
+
+@pytest.mark.asyncio
+async def test_opening_backstop_never_fires_while_the_remote_is_still_speaking() -> None:
+    """speech_started with no speech_stopped must not time out into talking over them."""
+    socket = FakeSocket([{"type": "input_audio_buffer.speech_started"}])
+    task = asyncio.create_task(
+        _openai_to_twilio(
+            FakeWebSocket(),  # type: ignore[arg-type]
+            RealtimeSession(socket),  # type: ignore[arg-type]
+            "CA123",
+            "MZ123",
+            TurnManager(),
+            _hold_settings(0.05),
+        )
+    )
+    await asyncio.sleep(0.5)
+    assert socket.sent == [], "spoke over an in-progress remote turn"
     task.cancel()
     with pytest.raises(asyncio.CancelledError):
         await task

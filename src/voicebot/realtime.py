@@ -54,9 +54,8 @@ class RealtimeSession:
             }
         )
 
-    async def release_opening_turn(self) -> None:
-        """Speak once, then hand turn-taking back to unchanged server VAD."""
-        await self._send({"type": "response.create"})
+    async def enable_automatic_responses(self) -> None:
+        """Hand turn-taking back to unchanged server VAD once the remote side has spoken."""
         await self._send(
             {
                 "type": "session.update",
@@ -66,6 +65,9 @@ class RealtimeSession:
                 },
             }
         )
+
+    async def create_response(self) -> None:
+        await self._send({"type": "response.create"})
 
     async def send_audio(self, base64_pcmu: str) -> None:
         await self._send({"type": "input_audio_buffer.append", "audio": base64_pcmu})
