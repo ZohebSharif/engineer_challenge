@@ -4,6 +4,7 @@ from unittest.mock import Mock
 import pytest
 from fastapi.testclient import TestClient
 from pydantic import SecretStr
+from twilio.request_validator import RequestValidator
 from typer.testing import CliRunner
 
 from voicebot.cli import app as cli_app
@@ -19,6 +20,7 @@ def live_settings() -> Settings:
         twilio_auth_token=SecretStr("token"),
         twilio_from_number="+15555550100",
         media_stream_token=SecretStr("stream-secret"),
+        validate_twilio_signatures=False,
     )
 
 
@@ -55,3 +57,36 @@ def test_voice_webhook_connects_bidirectional_stream() -> None:
         '<Parameter name="scenario" value="appointment-scheduling" />'
         '<Parameter name="token" value="stream-secret" />' in response.text
     )
+
+
+def test_unsigned_twilio_webhook_is_rejected() -> None:
+    def validating_settings() -> Settings:
+        return live_settings().model_copy(update={"validate_twilio_signatures": True})
+
+    app.dependency_overrides[get_settings] = validating_settings
+    try:
+        response = TestClient(app).post("/twilio/voice")
+    finally:
+        app.dependency_overrides.clear()
+    assert response.status_code == 403
+
+
+def test_valid_twilio_signature_is_accepted() -> None:
+    parameters = {"CallSid": "CA123", "CallStatus": "completed"}
+    signature = RequestValidator("token").compute_signature(
+        "https://voice.example/twilio/status", parameters
+    )
+
+    def validating_settings() -> Settings:
+        return live_settings().model_copy(update={"validate_twilio_signatures": True})
+
+    app.dependency_overrides[get_settings] = validating_settings
+    try:
+        response = TestClient(app).post(
+            "/twilio/status",
+            data=parameters,
+            headers={"X-Twilio-Signature": signature},
+        )
+    finally:
+        app.dependency_overrides.clear()
+    assert response.status_code == 200

@@ -17,6 +17,7 @@ class Settings(BaseSettings):
     twilio_account_sid: str | None = None
     twilio_auth_token: SecretStr | None = None
     twilio_from_number: str | None = None
+    validate_twilio_signatures: bool = True
     media_stream_token: SecretStr | None = None
     openai_api_key: SecretStr | None = None
     openai_realtime_model: str = "gpt-realtime"

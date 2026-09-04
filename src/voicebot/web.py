@@ -8,6 +8,7 @@ from voicebot.bridge import run_media_bridge
 from voicebot.config import Settings, get_settings
 from voicebot.logging import configure_logging
 from voicebot.scenarios import ScenarioRepository
+from voicebot.security import verified_twilio_settings
 from voicebot.sessions import SessionStore
 
 settings = get_settings()
@@ -26,7 +27,7 @@ async def healthz() -> dict[str, str]:
 
 @app.post("/twilio/voice")
 async def voice_webhook(
-    config: Annotated[Settings, Depends(get_settings)],
+    config: Annotated[Settings, Depends(verified_twilio_settings)],
     scenario: Annotated[str, Query()] = "appointment-scheduling",
 ) -> Response:
     if config.public_base_url is None or config.media_stream_token is None:
@@ -55,6 +56,7 @@ async def voice_webhook(
 
 @app.post("/twilio/status")
 async def call_status(
+    _config: Annotated[Settings, Depends(verified_twilio_settings)],
     call_sid: Annotated[str, Form(alias="CallSid")],
     call_status: Annotated[str, Form(alias="CallStatus")],
 ) -> dict[str, bool]:
