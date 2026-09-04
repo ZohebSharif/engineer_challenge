@@ -302,8 +302,11 @@ Measured duration of all 11 of our responses (channel RMS, 0.9s silence = respon
 count against `max_output_tokens`, so 180 truncated our speech at ~6.5s, mid-word.
 
 Audible in the recording, confirmed by re-transcribing our channel alone at higher fidelity:
-- 83.5s "getting the mail" is really `"...and getting the m|"` — audio stops at 87.45s mid-word.
-  Not an ASR hallucination; the diarizer guessed a word from a truncated syllable.
+- 83.5s "getting the mail": our channel truncates after `"...and getting the"` at 87.45s.
+  Verified over an extended 80.0-105.0s extraction (17.5s past the phrase): our channel is silent
+  87.45s -> 107.4s, so NEITHER "mail" nor "medical records" was ever spoken. Two distinct defects
+  stacked here — an audible mid-word truncation, plus the diarizer inventing "mail" from the
+  partial syllable in the 86.85-87.45s fragment.
 - 216.9s "and then I'll stay" is really `"...to Monday afternoon and then I'll|"` — cut at 217.65s.
 - 268.35s "get the medical record" — cut before the plural.
 - **Worst consequence, previously unnoticed:** our FIRST turn (18.25-24.65s) was cut after
@@ -386,7 +389,7 @@ it is downstream of the missing terminal state.
 
 ## Findings ready to report
 1. **Fabricates patient demographic state, then explicitly retains it over the patient's
-   correction** — HIGH confidence, three scenarios, uncontaminated (every occurrence is >50s in,
+   correction** — HIGH confidence, **four scenarios**, uncontaminated (every occurrence is >50s in,
    far from any opening collision).
    - call-004 appointment-scheduling 54.0s: "your date of birth is July 4, 2000"; correction at
      63.2s never acknowledged; books at 117.5s.
