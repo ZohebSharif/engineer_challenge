@@ -216,7 +216,7 @@ def _token_settings() -> Settings:
 
 
 def test_media_endpoint_survives_twilio_connected_then_start_then_media() -> None:
-    """Twilio's real frame order must reach OpenAI; a 1008 here hangs up the call."""
+    """Twilio's real frame order must reach OpenAI; a 1008 or a log crash hangs up the call."""
     realtime_socket = FakeSocket()
     client = FakeRealtimeClient(RealtimeSession(realtime_socket))
     previous_client = app.state.realtime_client
@@ -238,6 +238,7 @@ def test_media_endpoint_survives_twilio_connected_then_start_then_media() -> Non
                     },
                 }
             )
+            websocket.send_json({"event": "mark", "mark": {"name": "outbound"}})
             websocket.send_json(
                 {"event": "media", "sequenceNumber": "3", "media": {"payload": "cGNtdQ=="}}
             )
