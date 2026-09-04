@@ -465,6 +465,44 @@ async def test_opening_turn_is_released_by_the_remote_side_not_a_timer() -> None
 
 
 @pytest.mark.asyncio
+async def test_opening_speaks_when_the_remote_waits_after_the_notice() -> None:
+    """call-004 pattern: notice ends, then the office waits for the caller.
+
+    Event-driven release alone would leave us mute (enabling create_response cannot answer an
+    already-ended turn), so the hold must fire and speak. call-004 measured 12.4s of far-end
+    silence after the notice; without this we regress that call from 7.8s to dead air.
+    """
+    socket = FakeSocket(
+        [
+            {"type": "input_audio_buffer.speech_started"},
+            {"type": "input_audio_buffer.speech_stopped"},
+        ]
+    )
+    task = asyncio.create_task(
+        _openai_to_twilio(
+            FakeWebSocket(),  # type: ignore[arg-type]
+            RealtimeSession(socket),  # type: ignore[arg-type]
+            "CA123",
+            "MZ123",
+            TurnManager(),
+            _hold_settings(0.1),
+        )
+    )
+    await asyncio.sleep(0.05)
+    assert {"type": "response.create"} not in socket.sent, "spoke inside the hold window"
+    await asyncio.sleep(0.2)
+    assert {"type": "response.create"} in socket.sent, "never spoke; remote was waiting for us"
+    task.cancel()
+    with pytest.raises(asyncio.CancelledError):
+        await task
+
+
+def test_default_opening_hold_exceeds_the_largest_observed_greeting_gap() -> None:
+    """Measured notice->greeting gaps: 1.65s (calls 5-6), 2.55s (call-007)."""
+    assert Settings().opening_hold_seconds > 2.55
+
+
+@pytest.mark.asyncio
 async def test_opening_backstop_never_fires_while_the_remote_is_still_speaking() -> None:
     """speech_started with no speech_stopped must not time out into talking over them."""
     socket = FakeSocket([{"type": "input_audio_buffer.speech_started"}])
