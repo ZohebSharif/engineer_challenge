@@ -49,7 +49,10 @@ class RealtimeSession:
                             "voice": voice,
                         },
                     },
-                    "max_output_tokens": 180,
+                    # Audio output tokens are counted here too, so a low cap truncates speech
+                    # mid-word. 180 capped every call-009 response at 5.45-6.75s. Length is
+                    # governed by the prompt ("one or two short spoken sentences"), not this.
+                    "max_output_tokens": 800,
                 },
             }
         )

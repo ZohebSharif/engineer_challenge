@@ -36,6 +36,7 @@ Consequences:
 | call-006 | CA8157745d7e7c219e50ced0b7bf4a368d | medication-refill | **Quality Call #2** | Preserved, submission candidate / **quality pending** (rough opening) |
 | call-007 | CA977137d4640c47f53439b0eda3841029 | rescheduling | evidence only | **VOID for final quality** — materially rough opening (0.85s collision + 5 more through 22s) |
 | call-008 | CA487ad55f374496b7e887560315ffcab7 | insurance | **Quality Call #3** | **CONFIRMED submission-quality** — first clean opening, zero overlap |
+| call-009 | CAf15f306168497ba9b5b514336d9497ce | multi-intent | evidence only | **VOID for final quality** — caller speech truncated mid-word; talked into a closed line |
 
 Calls 1-3 are harness-debug artifacts and MUST NOT be used as evidence about PGai at all.
 call-007 is different: it is void for **submission quality only** (our opening collision makes it
@@ -286,6 +287,72 @@ NOT retuned, because mid-call behaviour after stabilisation has been good in cal
   diarization mislabels the greeting as ours. Not yet reportable.
 
 
+## Call 9 — call-009 (multi-intent, 4:28) — VOID for final quality
+
+Preserved: `calls/.preserved/call-009-CAf15f306168497ba9b5b514336d9497ce/`
+(recording md5 46633b877e78dca33c0a06e2d4aaad98)
+First live exercise of PR #15. **Opening gate held**: zero overlap in the first 25s, our onset
+18.25s behind PGai's full three-part opening. The degradation was later in the call.
+
+### Caller-side root cause — `max_output_tokens: 180` (NOT prompt drift, NOT ASR noise)
+
+Measured duration of all 11 of our responses (channel RMS, 0.9s silence = response boundary):
+`6.40 6.75 3.30 6.65 6.65 6.20 5.45 6.40 6.70 1.95 6.70` — nine of eleven in 5.45-6.75s and
+**none ever above 6.75s**. That is a ceiling, not conversational variation. Audio output tokens
+count against `max_output_tokens`, so 180 truncated our speech at ~6.5s, mid-word.
+
+Audible in the recording, confirmed by re-transcribing our channel alone at higher fidelity:
+- 83.5s "getting the mail" is really `"...and getting the m|"` — audio stops at 87.45s mid-word.
+  Not an ASR hallucination; the diarizer guessed a word from a truncated syllable.
+- 216.9s "and then I'll stay" is really `"...to Monday afternoon and then I'll|"` — cut at 217.65s.
+- 268.35s "get the medical record" — cut before the plural.
+- **Worst consequence, previously unnoticed:** our FIRST turn (18.25-24.65s) was cut after
+  "I need to reschedule my Thursday ten am appointment" and never reached the fax intent, despite
+  the scenario requiring "mentions both requests near the start". The caller contaminated the
+  multi-intent opening itself.
+
+Diagnosis by elimination: not prompt drift (the prompt is static per session and identical to
+calls 4-8), not session-state drift (truncation is uniform from turn 1, not progressive), not
+barge-in (cuts occur with the far end silent — e.g. 87.45s, PGai next speaks 92.05s), not
+transcription-only (the raw audio itself stops mid-word).
+
+### Caller-side secondary — no terminal-state handling
+PGai transferred at 250.8s; the test line said goodbye at 256.9s. Our patient then spoke again at
+261.65-268.35s: "I think we got disconnected. I'm still here to reschedule..." — restating
+requests into a closed line. Nothing in the prompt or bridge treats goodbye/transfer as terminal.
+Overlap also reappeared at 256.2-256.6s and 257.0-257.55s: our in-flight response ran over the
+test-line greeting. That is the intended `interrupt_response: false` design, not a new bug, and
+it is downstream of the missing terminal state.
+
+### Fixes shipped (caller-side only; no PGai-facing scenario or telephony change)
+- `max_output_tokens` 180 -> 800. Length stays governed by the prompt ("one or two short spoken
+  sentences, normally under 35 words" ~= 12s of speech), not by a truncating ceiling.
+- Prompt gains one terminal-state constraint: after a goodbye or announced transfer, say at most a
+  brief goodbye and stay silent; never restate requests into a closed line.
+- Opening gate untouched. Guarded by `test_output_token_cap_allows_a_full_spoken_sentence`,
+  `test_prompt_requires_stopping_after_goodbye_or_transfer`, and
+  `test_twilio_stop_is_terminal_and_later_media_is_never_forwarded`.
+
+### PGai findings
+- **PGai DID track the fax intent — do NOT report "forgot second intent".** It acknowledged the
+  request and deferred it explicitly and repeatedly: "For medical records, I can provide the
+  clinic's fax number after we finish with your appointment" (160.6s), "Once we finish with your
+  appointment, I'll provide the clinic's fax number" (202.2s). Intent tracking PASSED.
+- **BUG CANDIDATE — deferred promise never fulfilled before transfer.** The fax number was
+  promised twice, gated behind completing the reschedule, and then the call was transferred at
+  250.8s with the promise unmet. Independent of the unfindable appointment: PGai chose to
+  sequence a trivially answerable public-info request behind a blocked task, then dropped it.
+  This is the second observation of the public-info gating pattern (call-008 billing number),
+  which promotes that candidate.
+- **REPRODUCED (4th time) — fabricated DOB.** "your date of birth is July 4, 2000 for demo
+  purposes" (70.9s), again immediately on profile creation, again unprompted.
+- **REPRODUCED (3rd time) — transfer dead-end.** "Trace ringing out" (250.8s, garbled
+  "Transferring you now") -> test-line greeting -> goodbye. Matches calls 5 and 7. Sandbox caveat
+  retained: the destination may be an unstaffed endpoint.
+- **NOT A BUG — could not find the Thursday 10:00 AM appointment.** Sandbox existence unverified.
+  Same rule as calls 5 and 7. Note it again surfaced the shared "Tuesday, September 8th at 10 a.m.
+  with Kelly Noble" record seen in calls 4 and 7.
+
 ## Open watch items
 1. Unprompted identity disclosure by our caller — 2 observations (call-004 63.2s,
    call-005 44.8s/66.5s). Scenario-design tension: the disclosure-timing rule
@@ -311,6 +378,11 @@ NOT retuned, because mid-call behaviour after stabilisation has been good in cal
    annual physical there (123.3s); call-006 greeting is "Thank you for calling Pivot Point Org"
    (7.4s), confirming it is their fixture identity rather than a per-call fabrication. Downgraded:
    likely sandbox naming, not a reasoning defect.
+5. Caller output truncation — **FIXED IN CODE (max_output_tokens 180 -> 800), unconfirmed live.**
+   Retroactively suspect in earlier calls: any of our utterances measuring ~6.5s may have been
+   cut. Re-measure response durations on the next call; a spread above 6.75s confirms the fix.
+6. Caller terminal-state handling — **FIXED IN PROMPT, unconfirmed live.** Verify on the next call
+   that a transfer or goodbye is followed by silence, not restated requests.
 
 ## Findings ready to report
 1. **Fabricates patient demographic state, then explicitly retains it over the patient's
@@ -323,6 +395,25 @@ NOT retuned, because mid-call behaviour after stabilisation has been good in cal
      PGai answers "I have your date of birth as July 4th, 2000. I'll make a note that you stated
      June 9th, 1975" (83.1-86.4s) — explicit retention of fabricated data over patient-supplied
      truth. Strongest single piece of evidence in the campaign.
+   - call-009 multi-intent 70.9s: identical value, 4th reproduction, again immediately on profile
+     creation and again unprompted.
+2. **Gates public, non-sensitive information behind patient-profile creation, then abandons it** —
+   MEDIUM-HIGH confidence, two scenarios, uncontaminated.
+   - call-008 insurance 126.2s: "I'm not able to give out the billing office number without a
+     patient profile" (also 99.6s, 121.8s). A billing office number is public contact
+     information, not PHI, and withholding it left a prospective patient with no verification
+     route except calling their insurer.
+   - call-009 multi-intent: the medical-records fax number — also public — was acknowledged and
+     deferred twice ("I can provide the clinic's fax number after we finish with your
+     appointment", 160.6s; "Once we finish with your appointment, I'll provide the clinic's fax
+     number", 202.2s), sequenced behind a task that could not complete, then dropped entirely
+     when the call transferred at 250.8s.
+   Note this is a *disclosure-policy* finding, distinct from the unfalsifiable "should have found
+   my record" class: whether a fax or billing number is public does not depend on their sandbox
+   state. Intent tracking itself PASSED in call-009 and must not be reported as a failure.
+3. **Transfer dead-end** — 3 observations (calls 5, 7, 9), still caveated. "Transferring you now"
+   is followed immediately by the test-line greeting and call end. Not reportable until we can
+   distinguish a broken transfer from an unstaffed sandbox endpoint.
 
 ## Protocol
 After every live call: pull Twilio facts + artifacts, attribute each issue to our caller or PGai,

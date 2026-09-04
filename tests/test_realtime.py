@@ -503,6 +503,51 @@ def test_default_opening_hold_exceeds_the_largest_observed_greeting_gap() -> Non
 
 
 @pytest.mark.asyncio
+async def test_output_token_cap_allows_a_full_spoken_sentence() -> None:
+    """call-009: max_output_tokens 180 truncated every response mid-word at 5.45-6.75s.
+
+    Audio output tokens count against this ceiling, so it must leave room for the prompt's
+    "one or two short spoken sentences, normally under 35 words" (~12s of speech).
+    """
+    socket = FakeSocket()
+    await RealtimeSession(socket).configure(SCENARIOS.load("multi-intent"), "marin")
+    assert socket.sent[0]["session"]["max_output_tokens"] >= 600
+
+
+def test_prompt_requires_stopping_after_goodbye_or_transfer() -> None:
+    """call-009: our patient kept restating requests for 7s after the line had closed."""
+    for scenario in SCENARIOS.list():
+        prompt = build_patient_prompt(scenario)
+        assert "announces a transfer, the call is" in prompt
+        assert "stay silent" in prompt
+        assert "never keep talking after a transfer" in prompt
+
+
+@pytest.mark.asyncio
+async def test_twilio_stop_is_terminal_and_later_media_is_never_forwarded() -> None:
+    """A stop frame ends the leg; anything queued behind it must not reach OpenAI."""
+    websocket = FakeWebSocket(
+        [
+            {"event": "media", "sequenceNumber": "1", "media": {"payload": "before"}},
+            {"event": "stop"},
+            {"event": "media", "sequenceNumber": "2", "media": {"payload": "after"}},
+        ]
+    )
+    socket = FakeSocket()
+    sessions = SessionStore()
+    await sessions.create("CA123", "MZ123")
+    await _twilio_to_openai(
+        websocket,  # type: ignore[arg-type]
+        RealtimeSession(socket),  # type: ignore[arg-type]
+        "CA123",
+        Settings(call_timeout_seconds=30),
+        sessions,
+    )
+    assert socket.sent == [{"type": "input_audio_buffer.append", "audio": "before"}]
+    assert {"type": "input_audio_buffer.append", "audio": "after"} not in socket.sent
+
+
+@pytest.mark.asyncio
 async def test_opening_backstop_never_fires_while_the_remote_is_still_speaking() -> None:
     """speech_started with no speech_stopped must not time out into talking over them."""
     socket = FakeSocket([{"type": "input_audio_buffer.speech_started"}])
