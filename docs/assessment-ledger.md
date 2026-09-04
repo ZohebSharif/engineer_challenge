@@ -35,7 +35,7 @@ Consequences:
 | call-005 | CA2f01743acf60bfa39463a563955ee904 | unusual-edge | **Quality Call #1** | Preserved, submission candidate |
 | call-006 | CA8157745d7e7c219e50ced0b7bf4a368d | medication-refill | **Quality Call #2** | Preserved, submission candidate / **quality pending** (rough opening) |
 | call-007 | CA977137d4640c47f53439b0eda3841029 | rescheduling | evidence only | **VOID for final quality** — materially rough opening (0.85s collision + 5 more through 22s) |
-| call-008 | CA487ad55f374496b7e887560315ffcab7 | insurance | **Quality Call #3** | Preserved, submission candidate — first clean opening |
+| call-008 | CA487ad55f374496b7e887560315ffcab7 | insurance | **Quality Call #3** | **CONFIRMED submission-quality** — first clean opening, zero overlap |
 
 Calls 1-3 are harness-debug artifacts and MUST NOT be used as evidence about PGai at all.
 call-007 is different: it is void for **submission quality only** (our opening collision makes it
@@ -213,7 +213,7 @@ Version attribution — call-008 exercised PR #14 (`b34af44`), NOT the current h
 - Therefore call-008 validates the event-driven release only. The `opening_hold_seconds`
   2.0 -> 3.0 change and the call-004-pattern hold from #15 remain UNCONFIRMED live.
 
-## Quality Call #3 — call-008 (insurance, 3:16)
+## Quality Call #3 — call-008 (insurance, 3:16) — CONFIRMED submission-quality
 
 Preserved: `calls/.preserved/call-008-CA487ad55f374496b7e887560315ffcab7/`
 (recording md5 87801ed0d668410c9c673a3e05c78036)
