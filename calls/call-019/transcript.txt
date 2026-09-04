@@ -1,0 +1,68 @@
+[0.0s] A: This call may be recorded for quality and training purposes.
+[3.9s] A: Para espanol,
+[5.0s] A: oprima el dos.
+[7.5s] B: Thank you for calling Pivot Point Orthopedics.
+[10.2s] B: Would you like to create a demo patient profile?
+[12.9s] B: I just need your first and last name to get started.
+[17.2s] C: I'm actually calling about rescheduling my existing appointment.
+[20.7s] C: Could you help me with that first?
+[24.0s] B: I can help with rescheduling, but I'll need to create a demo patient profile for you first.
+[28.4s] B: Can I get your first and last name?
+[32.4s] C: I already have an appointment set.
+[34.8s] C: It's under Daniel Ortiz.
+[38.6s] B: Thanks for letting me know.
+[39.9s] B: To access your appointment and help with rescheduling,
+[43.8s] B: I still need to create a demo patient profile for you.
+[47.1s] B: Can you please provide your first and last name?
+[52.2s] C: Sure.
+[52.8s] C: It's Daniel Ortiz.
+[57.5s] B: Your patient profile is set up and your date of birth is July 4,
+[60.8s] B: 2000, for demo purposes.
+[62.8s] B: How may I help you today?
+[66.6s] C: Actually,
+[67.3s] C: my date of birth is June 9,
+[69.2s] C: 1975.
+[70.3s] C: I need to reschedule my appointment.
+[80.9s] B: You have two upcoming appointments.
+[82.9s] B: One is on Tuesday,
+[85.3s] B: September 8th at 10 a.m. with Kelly Noble,
+[89.0s] B: MD.
+[89.2s] B: The other is on Friday, September 18th at 2 p.m. with Duty Hauser.
+[94.4s] B: Which appointment would you like to reschedule?
+[99.9s] C: I'm sorry,
+[100.6s] C: that's not correct.
+[102.0s] C: My existing appointment is Tuesday,
+[104.0s] C: October 13th at 2 p.m.
+[108.2s] B: I see two appointments on file Tuesday,
+[111.0s] B: September 8th at 10 a.m. with Kelly Noble,
+[113.6s] B: M.D., and Friday,
+[114.7s] B: September 18th at 2 p.m. with Judy Hauser.
+[117.7s] B: There isn't an appointment listed for October 13th. Would you like to reschedule the September 8th or the September 18th appointment?
+[128.3s] C: My appointment is definitely Tuesday,
+[130.9s] C: October 13th at 2 p.m. That's the one I need to reschedule.
+[136.5s] B: I understand that I only see appointments for September 8th and September 18th in your record.
+[141.7s] B: There is one listed for October 13th. Would you like to reschedule either the September 8th or September 18th appointment,
+[148.9s] B: or do you want to keep those as they are?
+[154.8s] C: I need to reschedule the October 13th appointment at 2 p.m. That's the one I have.
+[161.9s] B: I don't see an appointment for October 13th at 2 p.m. in your record.
+[166.2s] B: Only September 8th and September 18th are listed.
+[169.6s] B: Would you like to reschedule one of those or do you want to speak with someone from the clinic to help sort this out?
+[178.2s] C: I'm sure about my appointment.
+[180.4s] C: Tuesday, October 13th at 2 p.m. Can you double check that?
+[186.9s] B: I've double-checked your record,
+[188.7s] B: and I still only see appointments for Tuesday,
+[191.1s] B: September 8th at 10 a.m. and Friday,
+[193.2s] B: September 18th at 2 p.m. There is nothing listed for October 13th. Would you like to speak with someone from the clinic to help resolve this?
+[201.6s] B: I can transfer you now.
+[206.3s] C: Yes, please transfer me to someone who can sort this out.
+[209.7s] C: Thanks.
+[216.1s] B: Just ringing now,
+[217.7s] B: beep
+[218.8s] C: Hello,
+[219.6s] C: you've reached the pretty good A_I_
+[221.1s] A: Thank
+[221.2s] C: tech
+[221.3s] A: you.
+[221.4s] C: line.
+[221.7s] A: Goodbye.
+[222.1s] C: Goodbye.

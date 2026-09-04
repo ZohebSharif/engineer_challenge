@@ -1,0 +1,281 @@
+{
+  "segments": [
+    {
+      "end": 3.05,
+      "speaker": "A",
+      "start": 0.050000000000000044,
+      "text": " This call may be recorded for quality and training purposes."
+    },
+    {
+      "end": 5.8,
+      "speaker": "A",
+      "start": 3.8499999999999996,
+      "text": " Para espa\u00f1ol oprima el dos."
+    },
+    {
+      "end": 9.65,
+      "speaker": "B",
+      "start": 7.2,
+      "text": " Thank you for calling Pivot Point Orthopedics."
+    },
+    {
+      "end": 12.3,
+      "speaker": "B",
+      "start": 10.200000000000001,
+      "text": " Would you like to create a demo patient profile?"
+    },
+    {
+      "end": 15.200000000000003,
+      "speaker": "B",
+      "start": 12.9,
+      "text": " I just need your first and last name to get started."
+    },
+    {
+      "end": 19.85,
+      "speaker": "C",
+      "start": 17.700000000000003,
+      "text": " I'm actually already an established patient."
+    },
+    {
+      "end": 21.400000000000002,
+      "speaker": "C",
+      "start": 20.3,
+      "text": " My name's Priya Shaw."
+    },
+    {
+      "end": 25.000000000000004,
+      "speaker": "B",
+      "start": 23.750000000000004,
+      "text": " Thanks for letting me know, Priya."
+    },
+    {
+      "end": 27.428,
+      "speaker": "B",
+      "start": 25.428,
+      "text": " I don't see a patient profile for you yet."
+    },
+    {
+      "end": 30.378,
+      "speaker": "B",
+      "start": 27.828000000000003,
+      "text": " Would you like to create a demo patient profile now?"
+    },
+    {
+      "end": 32.328,
+      "speaker": "B",
+      "start": 30.828,
+      "text": " I just need your first and last name."
+    },
+    {
+      "end": 35.728,
+      "speaker": "C",
+      "start": 35.078,
+      "text": " I understand,"
+    },
+    {
+      "end": 38.028000000000006,
+      "speaker": "C",
+      "start": 36.128,
+      "text": " but I'm definitely an established patient."
+    },
+    {
+      "end": 39.978,
+      "speaker": "C",
+      "start": 38.578,
+      "text": " My name is Priya Shah,"
+    },
+    {
+      "end": 43.72800000000001,
+      "speaker": "C",
+      "start": 40.428000000000004,
+      "text": " spelled P-R-I-Y-A-S-H-A-H."
+    },
+    {
+      "end": 55.378,
+      "speaker": "B",
+      "start": 47.828,
+      "text": " Your patient profile has been created and your date of birth is listed as July 4th 2000 for demo purposes."
+    },
+    {
+      "end": 57.128,
+      "speaker": "B",
+      "start": 55.778000000000006,
+      "text": " How may I help you today?"
+    },
+    {
+      "end": 62.478,
+      "speaker": "C",
+      "start": 59.728,
+      "text": " My date of birth is actually August 22,"
+    },
+    {
+      "end": 63.128,
+      "speaker": "C",
+      "start": 62.72800000000001,
+      "text": " 1991."
+    },
+    {
+      "end": 66.078,
+      "speaker": "C",
+      "start": 63.72800000000001,
+      "text": " I need a weekend appointment for a follow-up."
+    },
+    {
+      "end": 70.778,
+      "speaker": "B",
+      "start": 69.778,
+      "text": " Just to confirm,"
+    },
+    {
+      "end": 72.778,
+      "speaker": "B",
+      "start": 70.97800000000001,
+      "text": " you'd like to book a follow-up appointment."
+    },
+    {
+      "end": 77.46,
+      "speaker": "B",
+      "start": 73.46,
+      "text": " Is this for a recent visit or a specific concern you want to check back on?"
+    },
+    {
+      "end": 83.16,
+      "speaker": "C",
+      "start": 80.25999999999999,
+      "text": " It's a routine follow-up. No urgent concern."
+    },
+    {
+      "end": 85.55999999999999,
+      "speaker": "C",
+      "start": 83.61,
+      "text": " I can do Saturdays or Sundays only."
+    },
+    {
+      "end": 91.00999999999999,
+      "speaker": "B",
+      "start": 88.00999999999999,
+      "text": " You already have a follow-up appointment scheduled for Friday,"
+    },
+    {
+      "end": 92.86,
+      "speaker": "B",
+      "start": 91.06,
+      "text": " September 18th at 2 p.m."
+    },
+    {
+      "end": 96.81,
+      "speaker": "B",
+      "start": 93.16,
+      "text": " The clinic is only open Monday through Friday, so we don't have weekend appointments available."
+    },
+    {
+      "end": 101.056,
+      "speaker": "B",
+      "start": 97.556,
+      "text": " Would you like to keep your current appointment or look for another weekday option?"
+    },
+    {
+      "end": 105.706,
+      "speaker": "C",
+      "start": 104.006,
+      "text": " I really can't do weekdays."
+    },
+    {
+      "end": 109.506,
+      "speaker": "C",
+      "start": 106.206,
+      "text": " Do you have a waitlist or maybe an affiliated weekend clinic I could try?"
+    },
+    {
+      "end": 116.456,
+      "speaker": "B",
+      "start": 112.056,
+      "text": " We don't have a weekend waitlist or an affiliated clinic for weekend appointments."
+    },
+    {
+      "end": 119.206,
+      "speaker": "B",
+      "start": 116.956,
+      "text": " All visits are scheduled Monday through Friday."
+    },
+    {
+      "end": 124.106,
+      "speaker": "B",
+      "start": 119.656,
+      "text": " Would you like to look for the next available weekday slot or keep your current appointment?"
+    },
+    {
+      "end": 128.742,
+      "speaker": "C",
+      "start": 127.092,
+      "text": " I can't do weekdays at all."
+    },
+    {
+      "end": 130.59199999999998,
+      "speaker": "C",
+      "start": 129.192,
+      "text": " So if there's no weekend option,"
+    },
+    {
+      "end": 132.392,
+      "speaker": "C",
+      "start": 130.992,
+      "text": " I'll have to figure something else out."
+    },
+    {
+      "end": 133.192,
+      "speaker": "C",
+      "start": 132.942,
+      "text": " Thanks."
+    },
+    {
+      "end": 133.84199999999998,
+      "speaker": "C",
+      "start": 133.642,
+      "text": " Goodbye."
+    },
+    {
+      "end": 136.992,
+      "speaker": "B",
+      "start": 136.392,
+      "text": " Understood."
+    },
+    {
+      "end": 139.892,
+      "speaker": "B",
+      "start": 137.542,
+      "text": " If your schedule changes or you need help in the future,"
+    },
+    {
+      "end": 140.992,
+      "speaker": "B",
+      "start": 139.992,
+      "text": " feel free to call us."
+    },
+    {
+      "end": 141.692,
+      "speaker": "B",
+      "start": 141.142,
+      "text": " Take care."
+    },
+    {
+      "end": 145.992,
+      "speaker": "C",
+      "start": 145.692,
+      "text": " Thanks."
+    },
+    {
+      "end": 146.642,
+      "speaker": "C",
+      "start": 146.192,
+      "text": " Will do."
+    },
+    {
+      "end": 147.392,
+      "speaker": "C",
+      "start": 146.942,
+      "text": " Goodbye."
+    }
+  ],
+  "text": "This call may be recorded for quality and training purposes. Para espa\u00f1ol oprima el dos. Thank you for calling Pivot Point Orthopedics. Would you like to create a demo patient profile? I just need your first and last name to get started. I'm actually already an established patient. My name's Priya Shaw. Thanks for letting me know, Priya.\nI don't see a patient profile for you yet. Would you like to create a demo patient profile now? I just need your first and last name. I understand, but I'm definitely an established patient. My name is Priya Shah, spelled P-R-I-Y-A-S -H-A-H.\nYour patient profile has been created and your date of birth is listed as July 4th 2000 for demo purposes. How may I help you today? My date of birth is actually August 22, 1991. I need a weekend appointment for a follow-up. Just to confirm, you'd like to book a follow-up appointment.\nIs this for a recent visit or a specific concern you want to check back on? It's a routine follow-up. No urgent concern. I can do Saturdays or Sundays only. You already have a follow-up appointment scheduled for Friday, September 18th at 2 p.m. The clinic is only open Monday through Friday, so we don't have weekend appointments available.\nWould you like to keep your current appointment or look for another weekday option? I really can't do weekdays. Do you have a waitlist or maybe an affiliated weekend clinic I could try? We don't have a weekend waitlist or an affiliated clinic for weekend appointments. All visits are scheduled Monday through Friday. Would you like to look for the next available weekday slot or keep your current appointment?\nI can't do weekdays at all. So if there's no weekend option, I'll have to figure something else out. Thanks. Goodbye. Understood. If your schedule changes or you need help in the future, feel free to call us. Take care. Thanks. Will do. Goodbye."
+}

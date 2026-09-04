@@ -1,0 +1,52 @@
+[0.0s] A: This call may be recorded for quality and training purposes.
+[3.8s] A: Para espanol oprima el dos.
+[7.6s] B: for calling Pivot Point Orthopedics.
+[9.9s] B: Would you like to create a demo patient profile?
+[12.3s] B: I just need your first and last name to get started.
+[16.7s] C: Oh,
+[17.1s] C: I'm an existing patient.
+[18.6s] C: My name is Noah Williams.
+[22.0s] B: Thanks for letting me know,
+[23.1s] B: Noah.
+[24.2s] B: I don't see a patient profile for you yet.
+[26.3s] B: Would you like to create a demo patient profile now?
+[28.8s] B: I just need your first and last name.
+[32.9s] C: I'm just calling to set up an appointment for next Friday.
+[38.1s] B: I can help with that.
+[39.2s] B: To schedule your appointment,
+[41.1s] B: I'll need to create a demo patient profile for you first.
+[45.4s] B: Can I confirm your name is Noah Williams?
+[49.7s] C: Yes,
+[50.5s] C: my name is Noah Williams.
+[67.1s] B: Your patient profile has been created and your date of birth is July 4th, 2000 for demo purposes.
+[72.6s] B: How can I help you today?
+[76.4s] C: I need to book an appointment for next Friday afternoon.
+[83.4s] B: What type of appointment do you need next Friday?
+[86.1s] B: For example, is this for a routine visit,
+[89.3s] B: a follow-up, a new patient consultation,
+[91.7s] B: or something else?
+[95.7s] C: It's a follow-up appointment that I need to schedule.
+[102.8s] B: There are several afternoon openings next Friday for a follow-up.
+[107.0s] B: Would you like to see Judy Houser, Carl Mintz, P.T., or Kelly Noble,
+[111.7s] B: M.D., or do you have a preference?
+[116.7s] C: I don't have a preference.
+[118.5s] C: Could you tell me the exact date for next Friday you're looking at?
+[123.4s] B: Next Friday,
+[124.2s] B: September 11th, would you like to book an afternoon slot on that day?
+[131.2s] C: Actually, I mean Friday,
+[132.9s] C: September 18th, 2026.
+[138.0s] B: There are several afternoon openings on Friday, September 18th. Would you like a 1 o'clock, 2 o'clock, or 3 o'clock appointment?
+[148.5s] C: Let's go with the 2 o'clock appointment on September 18,
+[151.8s] C: 2026.
+[158.2s] B: Your follow-up appointment is set for Friday,
+[160.6s] B: September 18th at 2 p.m. with Doothy Hauser at Pivot Point Orthopedics. Please bring your photo ID,
+[167.9s] B: insurance card,
+[169.3s] B: a list of your current medications,
+[171.4s] B: and any imaging discs you have.
+[173.7s] B: Would you like a text confirmation?
+[178.8s] C: Thanks.
+[179.5s] C: That's all I needed.
+[180.6s] C: Goodbye.
+[183.7s] B: You're all set.
+[184.7s] B: Have a great day.
+[185.9s] B: Goodbye.

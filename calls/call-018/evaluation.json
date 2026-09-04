@@ -1,0 +1,52 @@
+{
+  "issues": [
+    {
+      "category": "workflow_failure",
+      "confidence": 0.95,
+      "description": "The refill request was not advanced or submitted; no clear next step or timeline was provided to the patient.",
+      "evidence": "Patient: \"I need a refill for lisinopril, 10 milligrams once daily.\" Agent: \"I don't see any medications on your chart that I can refill right now. If you'd like to speak with someone about this, I can connect you to our patient support team. Would you like to do that?\" (lines 54.0s\u201373.1s).",
+      "recommendation": "Ask clarifying questions needed to process a refill (confirm medication, dosage, pharmacy, how many pills remain), state whether the agent can submit the refill or must transfer to prescription support, and if transferring, explain who will handle it and the expected timeline (e.g., \"I will submit this to your prescriber and you can expect a response within X hours/days\") or immediately transfer with a warm handoff."
+    },
+    {
+      "category": "clarification_failure",
+      "confidence": 0.9,
+      "description": "The agent did not collect essential refill details (pharmacy, how many tablets remain) needed to process the refill.",
+      "evidence": "After the patient provides medication and dose (\"I need a refill for lisinopril, 10 milligrams once daily.\"), the agent replies that they don't see medications on chart and offers to connect to support without asking for pharmacy or pill count (lines 54.0s\u201373.1s).",
+      "recommendation": "Ask for the patient's pharmacy name and phone number and how many pills remain, and verify prescription details before attempting to submit a refill."
+    },
+    {
+      "category": "state_management_error",
+      "confidence": 0.9,
+      "description": "A demo patient profile was created during the call (including a demo date of birth) without clearly confirming or tying it to the caller's actual records; caller's name was also handled inconsistently.",
+      "evidence": "Agent: \"Would you like to create a demo patient profile? I just need your first and last name to get started.\" Later: \"Your patient profile has been created and your date of birth is set as July 4, 2000 for demo purposes.\" The agent also says \"Thanks, Aisha.\" while the caller identified as \"Ayesha Patel.\" (lines 7.1s\u201347.1s and 23.8s\u201324.2s).",
+      "recommendation": "Do not create demo profiles during real patient calls. If creating or editing a record, explicitly confirm that the caller wants this, verify full name and DOB, and confirm which existing patient record (if any) will be used to process clinical requests."
+    },
+    {
+      "category": "conversation_quality",
+      "confidence": 0.85,
+      "description": "Agent mis-stated the caller's name and repeated/abandoned sentences, producing a confusing interaction.",
+      "evidence": "Caller: \"My name is Ayesha Patel.\" Agent: \"Thanks, Aisha.\" (lines 20.2s\u201324.2s). Agent repeats and trails off: \"If you'd like to speak with someone about this,\" (lines 68.7s\u201387.2s).",
+      "recommendation": "Confirm the caller's name by repeating it back for verification. Avoid repeating partial sentences and ensure complete, clear prompts or actions (e.g., confirm transfer before proceeding)."
+    },
+    {
+      "category": "scope_policy_problem",
+      "confidence": 0.8,
+      "description": "The agent offered to create a 'demo patient profile' during what appears to be a real clinical refill request, which is inappropriate and may confuse the patient's expectations about whether a real clinical action will occur.",
+      "evidence": "Agent asks twice about creating a demo profile: \"Would you like to create a demo patient profile?\" and later: \"I just need your last name to complete it.\" Then: \"Your patient profile has been created and your date of birth is set as July 4, 2000 for demo purposes.\" (lines 7.1s\u201332.8s and 40.9s\u201347.1s).",
+      "recommendation": "Separate demo/test workflows from production triage. Do not use demo profiles when handling actual patient refill requests; instead, access the patient's real chart or instruct the patient on proper channels if this call is a demo."
+    }
+  ],
+  "scenario_checks": [
+    {
+      "check": "The office distinguishes a refill request from prescription approval.",
+      "evidence": "After the patient says they need a refill for lisinopril 10 mg once daily, the agent never explains whether they can approve a prescription or only submit a refill request. Instead the agent responds: \"I don't see any medications on your chart that I can refill right now.\" and offers to connect to patient support: \"If you'd like to speak with someone about this, I can connect you to our patient support team.\" (lines 54.0s\u201373.1s)",
+      "passed": false
+    },
+    {
+      "check": "Refill request was submitted or a clear next step (who will do what and expected timeline) was provided.",
+      "evidence": "The agent did not submit the refill or explain the next step; they only offered to connect the caller to patient support: \"If you'd like to speak with someone about this, I can connect you to our patient support team. Would you like to do that?\" (lines 68.7s\u201373.1s). No confirmation of submission or timeline is given.",
+      "passed": false
+    }
+  ],
+  "summary": "The agent did not submit or clearly advance the refill request and failed to distinguish a refill request from prescription approval. The agent created a demo patient profile without clear consent/verification, mis-handled the patient's name, did not collect essential refill information (pharmacy, remaining tablets), and gave only a vague offer to 'connect you to our patient support team' without explaining next steps or timelines."
+}

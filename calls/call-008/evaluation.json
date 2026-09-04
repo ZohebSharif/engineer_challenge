@@ -1,0 +1,43 @@
+{
+  "issues": [
+    {
+      "category": "workflow_failure",
+      "confidence": 0.9,
+      "description": "Agent refused to provide any billing/contact details without a patient profile, blocking the caller from an in-office verification route and forcing the caller to call their insurer even though other publicly-available office contact options may exist.",
+      "evidence": "\"If you want to reach our billing office, you'll need to create a patient profile first so I can provide you with direct contact details or connect you.\" (99.6s-101.6s); \"I'm not able to give out the billing office number without a patient profile.\" (126.2s-130.0s)",
+      "recommendation": "Unless policy prohibits it, provide a public billing phone number, general office billing email, or a website link that lists contact info without requiring a patient profile. At minimum offer to transfer the caller to a general billing line or provide a number/website for them to call independently."
+    },
+    {
+      "category": "clarification_failure",
+      "confidence": 0.8,
+      "description": "Agent stated they \"cannot check your insurance directly in our system\" without a profile and did not attempt to clarify whether a general network check by plan name (without member ID) could be performed, nor did they ask for available plan/member details that might allow a limited check.",
+      "evidence": "\"Since you do not have a patient profile yet, I cannot check your insurance directly in our system.\" (50.9s-56.0s); \"Usually, we verify if a specific insurance plan is in network by checking your details in our system after you create a patient profile.\" (150.5s-158.6s)",
+      "recommendation": "Ask whether the caller can provide relevant plan details (e.g., member ID, group number, full plan name) or whether the caller wants a general check of whether the practice accepts the plan type. If policy prevents checking without a profile, explicitly explain why (e.g., need member ID to confirm benefits) so the caller understands the limitation."
+    },
+    {
+      "category": "workflow_failure",
+      "confidence": 0.85,
+      "description": "Agent advised the caller to call their insurance provider but did not offer guidance or the insurer's contact information or where to find it, adding friction for the caller to verify network status independently.",
+      "evidence": "\"you can also call your insurance provider and ask if Pivot Point Orthopedics is in network for your Blue Shield PPO Silver 70 plan.\" (66.8s-67.9s); caller: \"How do I call or contact your billing office to verify this?\" (86.2s) \u2014 agent did not provide insurer contact or other guidance.",
+      "recommendation": "Provide clear instructions for finding insurer contact details (e.g., insurer's member services phone number on the back of the card, insurer website) or offer to look up the insurer contact while on the call. If allowed, offer to provide a direct line for the practice's billing team or a website page with billing/contact info."
+    }
+  ],
+  "scenario_checks": [
+    {
+      "check": "Explained how to verify whether the exact plan is in network (office check after creating profile OR call insurance provider).",
+      "evidence": "\"Once you have a profile, we can check your specific plan for you.\" (63.6s-64.9s); \"you can also call your insurance provider and ask if Pivot Point Orthopedics is in network for your Blue Shield PPO Silver 70 plan.\" (66.8s-67.9s)",
+      "passed": true
+    },
+    {
+      "check": "Office did not falsely guarantee insurance coverage.",
+      "evidence": "\"This lets us look up your exact plan and confirm coverage with our billing team.\" (158.6s-163.1s) \u2014 agent says they will confirm coverage rather than guarantee it; also advised calling insurer for confirmation (165.8s-176.6s).",
+      "passed": true
+    },
+    {
+      "check": "Office provided an alternative means to verify plan/network other than creating a patient profile (e.g., gave billing office number, general billing contact, or insurer contact details).",
+      "evidence": "\"If you want to reach our billing office, you'll need to create a patient profile first so I can provide you with direct contact details or connect you.\" (99.6s-101.6s); \"I'm not able to give out the billing office number without a patient profile.\" (126.2s-130.0s)",
+      "passed": false
+    }
+  ],
+  "summary": "Agent correctly explained the valid ways to verify whether the exact plan is in network (create a patient profile so the office can check, or call the insurer). The agent did not falsely guarantee coverage. However, the agent refused to provide billing/contact details or offer alternative assistance (e.g., check by plan name or provide insurer contact info) when the caller declined to create a profile, which blocked the caller from practical next steps."
+}

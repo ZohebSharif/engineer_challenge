@@ -1,0 +1,533 @@
+{
+  "segments": [
+    {
+      "end": 3.05,
+      "speaker": "A",
+      "start": 0.0,
+      "text": " This call may be recorded for quality and training purposes."
+    },
+    {
+      "end": 5.75,
+      "speaker": "A",
+      "start": 3.8,
+      "text": " Para espanol oprima el dos."
+    },
+    {
+      "end": 10.75,
+      "speaker": "B",
+      "start": 8.1,
+      "text": " Thank you for calling Pivot Point Orthopedics."
+    },
+    {
+      "end": 13.4,
+      "speaker": "B",
+      "start": 11.3,
+      "text": " Would you like to create a demo patient profile?"
+    },
+    {
+      "end": 15.8,
+      "speaker": "B",
+      "start": 13.950000000000001,
+      "text": " I just need your first and last name to get started."
+    },
+    {
+      "end": 18.5,
+      "speaker": "C",
+      "start": 18.2,
+      "text": " Hi,"
+    },
+    {
+      "end": 19.7,
+      "speaker": "C",
+      "start": 18.75,
+      "text": " I'm already a patient."
+    },
+    {
+      "end": 21.599999999999998,
+      "speaker": "C",
+      "start": 20.099999999999998,
+      "text": " I actually have two things today."
+    },
+    {
+      "end": 24.399999999999995,
+      "speaker": "C",
+      "start": 21.999999999999996,
+      "text": " I need to reschedule my Thursday ten am appointment."
+    },
+    {
+      "end": 27.735999999999997,
+      "speaker": "B",
+      "start": 26.836,
+      "text": " I can help with that."
+    },
+    {
+      "end": 29.086,
+      "speaker": "B",
+      "start": 28.235999999999997,
+      "text": " Before we continue,"
+    },
+    {
+      "end": 30.886,
+      "speaker": "B",
+      "start": 29.186,
+      "text": " would you like to create a demo patient profile?"
+    },
+    {
+      "end": 32.836,
+      "speaker": "B",
+      "start": 31.336,
+      "text": " I just need your first and last name."
+    },
+    {
+      "end": 36.036,
+      "speaker": "B",
+      "start": 33.286,
+      "text": " This will let me access your appointments and assist you further."
+    },
+    {
+      "end": 40.436,
+      "speaker": "C",
+      "start": 38.786,
+      "text": " I'm already an established patient."
+    },
+    {
+      "end": 42.836,
+      "speaker": "C",
+      "start": 40.836,
+      "text": " I just need to reschedule that Thursday,"
+    },
+    {
+      "end": 45.386,
+      "speaker": "C",
+      "start": 43.036,
+      "text": " 10 a.m. appointment and get the medical records."
+    },
+    {
+      "end": 48.136,
+      "speaker": "B",
+      "start": 47.636,
+      "text": " Understood."
+    },
+    {
+      "end": 49.736000000000004,
+      "speaker": "B",
+      "start": 48.486000000000004,
+      "text": " To help with your requests,"
+    },
+    {
+      "end": 52.38600000000001,
+      "speaker": "B",
+      "start": 50.086000000000006,
+      "text": " I'll need to create a demo patient profile for you here."
+    },
+    {
+      "end": 54.516,
+      "speaker": "B",
+      "start": 52.916,
+      "text": " May I have your first and last name?"
+    },
+    {
+      "end": 58.965999999999994,
+      "speaker": "C",
+      "start": 56.965999999999994,
+      "text": " My name is Sophia Martinez."
+    },
+    {
+      "end": 60.516,
+      "speaker": "C",
+      "start": 59.516,
+      "text": " Please go ahead with that."
+    },
+    {
+      "end": 64.76599999999999,
+      "speaker": "B",
+      "start": 62.766,
+      "text": " One moment while I set up your profile,"
+    },
+    {
+      "end": 65.166,
+      "speaker": "B",
+      "start": 64.866,
+      "text": " Sophia."
+    },
+    {
+      "end": 69.616,
+      "speaker": "B",
+      "start": 65.866,
+      "text": " I'll help you with reschedule your appointment and getting your medical records right after."
+    },
+    {
+      "end": 74.216,
+      "speaker": "B",
+      "start": 70.916,
+      "text": " Your patient profile is set up and your date of birth is July 4,"
+    },
+    {
+      "end": 75.666,
+      "speaker": "B",
+      "start": 74.466,
+      "text": " 2000 for demo purposes."
+    },
+    {
+      "end": 77.366,
+      "speaker": "B",
+      "start": 76.26599999999999,
+      "text": " How may I help you today?"
+    },
+    {
+      "end": 83.078,
+      "speaker": "C",
+      "start": 80.628,
+      "text": " Actually, my birth date isn't part of this."
+    },
+    {
+      "end": 87.428,
+      "speaker": "C",
+      "start": 83.528,
+      "text": " Let's focus on rescheduling that Thursday 10 a.m. appointment and getting the mail."
+    },
+    {
+      "end": 93.878,
+      "speaker": "B",
+      "start": 91.678,
+      "text": " Do you have an appointment scheduled for Tuesday,"
+    },
+    {
+      "end": 96.47800000000001,
+      "speaker": "B",
+      "start": 94.028,
+      "text": " September 8th at 10 a.m."
+    },
+    {
+      "end": 98.22800000000001,
+      "speaker": "B",
+      "start": 96.97800000000001,
+      "text": " with Kelly Noble,"
+    },
+    {
+      "end": 101.928,
+      "speaker": "B",
+      "start": 98.47800000000001,
+      "text": " M.D. at Nashville 220 Athens Way?"
+    },
+    {
+      "end": 104.22800000000001,
+      "speaker": "B",
+      "start": 102.178,
+      "text": " Is this the appointment you want to reschedule?"
+    },
+    {
+      "end": 107.58800000000001,
+      "speaker": "C",
+      "start": 107.188,
+      "text": " No,"
+    },
+    {
+      "end": 114.038,
+      "speaker": "C",
+      "start": 107.988,
+      "text": " my appointment is actually on Thursday at 10 a.m. I need to reschedule that one, and I also need the fax number."
+    },
+    {
+      "end": 120.33800000000001,
+      "speaker": "B",
+      "start": 116.438,
+      "text": " The only upcoming appointment I see on file is for Tuesday,"
+    },
+    {
+      "end": 122.688,
+      "speaker": "B",
+      "start": 120.888,
+      "text": " September 8th at 10 a.m. with Kelly Noble,"
+    },
+    {
+      "end": 123.08800000000001,
+      "speaker": "B",
+      "start": 122.738,
+      "text": " M.D."
+    },
+    {
+      "end": 125.08800000000001,
+      "speaker": "B",
+      "start": 123.43800000000002,
+      "text": " Would you like to reschedule this appointment?"
+    },
+    {
+      "end": 126.888,
+      "speaker": "B",
+      "start": 125.68800000000002,
+      "text": " If you have another appointment,"
+    },
+    {
+      "end": 130.138,
+      "speaker": "B",
+      "start": 127.138,
+      "text": " please let me know any other details you remember so I can help locate it."
+    },
+    {
+      "end": 136.906,
+      "speaker": "C",
+      "start": 133.556,
+      "text": " The appointment I need to reschedule is on Thursday at 10 a.m."
+    },
+    {
+      "end": 138.156,
+      "speaker": "C",
+      "start": 137.156,
+      "text": " Let's reschedule that."
+    },
+    {
+      "end": 139.95600000000002,
+      "speaker": "C",
+      "start": 138.556,
+      "text": " And I still need the medical records."
+    },
+    {
+      "end": 145.156,
+      "speaker": "B",
+      "start": 143.45600000000002,
+      "text": " I only see an appointment for Tuesday,"
+    },
+    {
+      "end": 147.906,
+      "speaker": "B",
+      "start": 145.85600000000002,
+      "text": " September 8th at 10 a.m. with Kelly Mobile MD."
+    },
+    {
+      "end": 150.704,
+      "speaker": "B",
+      "start": 148.404,
+      "text": " There are no Thursday appointments on file."
+    },
+    {
+      "end": 153.204,
+      "speaker": "B",
+      "start": 151.154,
+      "text": " Would you like to reschedule the Tuesday,"
+    },
+    {
+      "end": 158.254,
+      "speaker": "B",
+      "start": 153.504,
+      "text": " September 8th appointment at 10 a.m.? If you have more details about the Thursday appointment,"
+    },
+    {
+      "end": 160.10399999999998,
+      "speaker": "B",
+      "start": 158.60399999999998,
+      "text": " please share them so I can help."
+    },
+    {
+      "end": 161.454,
+      "speaker": "B",
+      "start": 160.554,
+      "text": " For medical records,"
+    },
+    {
+      "end": 164.804,
+      "speaker": "B",
+      "start": 161.60399999999998,
+      "text": " I can provide the clinic's fax number after we finish with your appointment."
+    },
+    {
+      "end": 168.154,
+      "speaker": "B",
+      "start": 165.254,
+      "text": " Shall I continue with rescheduling the Tuesday appointment?"
+    },
+    {
+      "end": 174.21800000000002,
+      "speaker": "C",
+      "start": 171.668,
+      "text": " I need to reschedule my Thursday 10 a.m. appointment."
+    },
+    {
+      "end": 175.46800000000002,
+      "speaker": "C",
+      "start": 174.71800000000002,
+      "text": " Please check again."
+    },
+    {
+      "end": 177.168,
+      "speaker": "C",
+      "start": 175.768,
+      "text": " And I still need that fax number."
+    },
+    {
+      "end": 183.068,
+      "speaker": "B",
+      "start": 179.71800000000002,
+      "text": " I understand you want to reschedule a Thursday 10 a.m. appointment,"
+    },
+    {
+      "end": 185.618,
+      "speaker": "B",
+      "start": 183.668,
+      "text": " but I only see an appointment for Tuesday,"
+    },
+    {
+      "end": 189.168,
+      "speaker": "B",
+      "start": 185.818,
+      "text": " September 8th at 10 a.m. with Kelly Noble,"
+    },
+    {
+      "end": 189.71800000000002,
+      "speaker": "B",
+      "start": 189.318,
+      "text": " M.D."
+    },
+    {
+      "end": 192.65,
+      "speaker": "B",
+      "start": 190.1,
+      "text": " There are no Thursday appointments listed in your records."
+    },
+    {
+      "end": 199.54999999999998,
+      "speaker": "B",
+      "start": 193.2,
+      "text": " Would you like to reschedule the Tuesday appointment or is it possible the appointment you're thinking of is actually on Tuesday?"
+    },
+    {
+      "end": 201.6,
+      "speaker": "B",
+      "start": 200.25,
+      "text": " Let me know how you'd like to proceed."
+    },
+    {
+      "end": 203.54999999999998,
+      "speaker": "B",
+      "start": 202.2,
+      "text": " Once we finish with your appointment,"
+    },
+    {
+      "end": 207.04999999999998,
+      "speaker": "B",
+      "start": 204.15,
+      "text": " I'll provide the clinic's fax number for your medical records request."
+    },
+    {
+      "end": 214.61,
+      "speaker": "C",
+      "start": 211.06,
+      "text": " I'm sure it's a Thursday 10 a.m. appointment I need to reschedule."
+    },
+    {
+      "end": 216.66,
+      "speaker": "C",
+      "start": 215.06,
+      "text": " Let's adjust that to Monday afternoon,"
+    },
+    {
+      "end": 217.56,
+      "speaker": "C",
+      "start": 216.86,
+      "text": " and then I'll stay."
+    },
+    {
+      "end": 229.41,
+      "speaker": "B",
+      "start": 223.31,
+      "text": " There are no Monday afternoon openings between September 7th and October 8th. Would you like to try a different day or time?"
+    },
+    {
+      "end": 230.61,
+      "speaker": "B",
+      "start": 229.91,
+      "text": " If you prefer,"
+    },
+    {
+      "end": 234.16,
+      "speaker": "B",
+      "start": 230.76,
+      "text": " I can also transfer you to live support at the clinic for more help."
+    },
+    {
+      "end": 240.17,
+      "speaker": "C",
+      "start": 238.42,
+      "text": " I really prefer Monday afternoon."
+    },
+    {
+      "end": 243.61999999999998,
+      "speaker": "C",
+      "start": 240.51999999999998,
+      "text": " Could you double-check availability or connect me to someone who can help?"
+    },
+    {
+      "end": 245.26999999999998,
+      "speaker": "C",
+      "start": 244.01999999999998,
+      "text": " And I still need the fax."
+    },
+    {
+      "end": 251.87,
+      "speaker": "B",
+      "start": 250.82,
+      "text": " Trace ringing out. Thank you."
+    },
+    {
+      "end": 253.82,
+      "speaker": "D",
+      "start": 253.57,
+      "text": " Hello,"
+    },
+    {
+      "end": 256.07,
+      "speaker": "D",
+      "start": 254.32,
+      "text": " you've reached the pretty good AI test"
+    },
+    {
+      "end": 256.12,
+      "speaker": "C",
+      "start": 256.07,
+      "text": " Thank"
+    },
+    {
+      "end": 256.32,
+      "speaker": "D",
+      "start": 256.12,
+      "text": " line."
+    },
+    {
+      "end": 256.46999999999997,
+      "speaker": "C",
+      "start": 256.32,
+      "text": " you."
+    },
+    {
+      "end": 257.02,
+      "speaker": "D",
+      "start": 256.87,
+      "text": " I'll Goodbye."
+    },
+    {
+      "end": 257.91999999999996,
+      "speaker": "C",
+      "start": 257.02,
+      "text": " wait for the next update."
+    },
+    {
+      "end": 262.674,
+      "speaker": "C",
+      "start": 261.524,
+      "text": " I think we got disconnected."
+    },
+    {
+      "end": 266.824,
+      "speaker": "C",
+      "start": 263.174,
+      "text": " I'm still here to reschedule my Thursday 10 a m appointment to Monday afternoon,"
+    },
+    {
+      "end": 268.274,
+      "speaker": "C",
+      "start": 267.324,
+      "text": " and get the medical record"
+    }
+  ],
+  "text": "This call may be recorded for quality and training purposes. Para espanol oprima el dos. Thank you for calling Pivot Point Orthopedics. Would you like to create a demo patient profile? I just need your first and last name to get started. Hi, I'm already a patient. I actually have two things today. I need to reschedule my Thursday ten am appointment.\nI can help with that. Before we continue, would you like to create a demo patient profile? I just need your first and last name. This will let me access your appointments and assist you further. I'm already an established patient. I just need to reschedule that Thursday, 10 a.m. appointment and get the medical records. Understood. To help with your requests, I'll need to create a demo patient profile for you here.\nMay I have your first and last name? My name is Sophia Martinez. Please go ahead with that. One moment while I set up your profile, Sophia. I'll help you with reschedule your appointment and getting your medical records right after. Your patient profile is set up and your date of birth is July 4, 2000 for demo purposes. How may I help you today?\nActually, my birth date isn't part of this. Let's focus on rescheduling that Thursday 10 a.m. appointment and getting the mail. Do you have an appointment scheduled for Tuesday, September 8th at 10 a.m. with Kelly Noble, M.D. at Nashville 220 Athens Way? Is this the appointment you want to reschedule?\nNo, my appointment is actually on Thursday at 10 a.m. I need to reschedule that one, and I also need the fax number. The only upcoming appointment I see on file is for Tuesday, September 8th at 10 a.m. with Kelly Noble, M.D. Would you like to reschedule this appointment? If you have another appointment, please let me know any other details you remember so I can help locate it.\nThe appointment I need to reschedule is on Thursday at 10 a.m. Let's reschedule that. And I still need the medical records. I only see an appointment for Tuesday, September 8th at 10 a.m. with Kelly Mobile MD.\nThere are no Thursday appointments on file. Would you like to reschedule the Tuesday, September 8th appointment at 10 a.m.? If you have more details about the Thursday appointment, please share them so I can help. For medical records, I can provide the clinic's fax number after we finish with your appointment. Shall I continue with rescheduling the Tuesday appointment?\nI need to reschedule my Thursday 10 a.m. appointment. Please check again. And I still need that fax number. I understand you want to reschedule a Thursday 10 a.m. appointment, but I only see an appointment for Tuesday, September 8th at 10 a .m. with Kelly Noble, M.D.\nThere are no Thursday appointments listed in your records. Would you like to reschedule the Tuesday appointment or is it possible the appointment you're thinking of is actually on Tuesday? Let me know how you'd like to proceed. Once we finish with your appointment, I'll provide the clinic's fax number for your medical records request.\nI'm sure it's a Thursday 10 a.m. appointment I need to reschedule. Let's adjust that to Monday afternoon, and then I'll stay. There are no Monday afternoon openings between September 7th and October 8th. Would you like to try a different day or time? If you prefer, I can also transfer you to live support at the clinic for more help.\nI really prefer Monday afternoon. Could you double-check availability or connect me to someone who can help? And I still need the fax. Trace ringing out. Thank you. Hello, you've reached the pretty good AI test Thank line. you. I'll Goodbye. wait for the next update.\nI think we got disconnected. I'm still here to reschedule my Thursday 10 a m appointment to Monday afternoon, and get the medical record"
+}

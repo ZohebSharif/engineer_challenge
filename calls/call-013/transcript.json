@@ -1,0 +1,317 @@
+{
+  "segments": [
+    {
+      "end": 3.0,
+      "speaker": "A",
+      "start": 0.0,
+      "text": " This call may be recorded for quality and training purposes."
+    },
+    {
+      "end": 5.8,
+      "speaker": "A",
+      "start": 3.8499999999999996,
+      "text": " Para espanol oprima el dos."
+    },
+    {
+      "end": 9.35,
+      "speaker": "B",
+      "start": 7.6499999999999995,
+      "text": " for calling Pivot Point Orthopedics."
+    },
+    {
+      "end": 11.799999999999999,
+      "speaker": "B",
+      "start": 9.95,
+      "text": " Would you like to create a demo patient profile?"
+    },
+    {
+      "end": 14.25,
+      "speaker": "B",
+      "start": 12.35,
+      "text": " I just need your first and last name to get started."
+    },
+    {
+      "end": 16.9,
+      "speaker": "C",
+      "start": 16.7,
+      "text": " Oh,"
+    },
+    {
+      "end": 18.2,
+      "speaker": "C",
+      "start": 17.099999999999998,
+      "text": " I'm an existing patient."
+    },
+    {
+      "end": 19.650000000000002,
+      "speaker": "C",
+      "start": 18.55,
+      "text": " My name is Noah Williams."
+    },
+    {
+      "end": 23.000000000000004,
+      "speaker": "B",
+      "start": 21.950000000000003,
+      "text": " Thanks for letting me know,"
+    },
+    {
+      "end": 23.250000000000004,
+      "speaker": "B",
+      "start": 23.100000000000005,
+      "text": " Noah."
+    },
+    {
+      "end": 25.8,
+      "speaker": "B",
+      "start": 24.150000000000002,
+      "text": " I don't see a patient profile for you yet."
+    },
+    {
+      "end": 28.592000000000002,
+      "speaker": "B",
+      "start": 26.292,
+      "text": " Would you like to create a demo patient profile now?"
+    },
+    {
+      "end": 30.692,
+      "speaker": "B",
+      "start": 28.842000000000002,
+      "text": " I just need your first and last name."
+    },
+    {
+      "end": 35.842,
+      "speaker": "C",
+      "start": 32.892,
+      "text": " I'm just calling to set up an appointment for next Friday."
+    },
+    {
+      "end": 38.992000000000004,
+      "speaker": "B",
+      "start": 38.092,
+      "text": " I can help with that."
+    },
+    {
+      "end": 40.542,
+      "speaker": "B",
+      "start": 39.192,
+      "text": " To schedule your appointment,"
+    },
+    {
+      "end": 44.842,
+      "speaker": "B",
+      "start": 41.092,
+      "text": " I'll need to create a demo patient profile for you first."
+    },
+    {
+      "end": 47.19200000000001,
+      "speaker": "B",
+      "start": 45.44200000000001,
+      "text": " Can I confirm your name is Noah Williams?"
+    },
+    {
+      "end": 50.44200000000001,
+      "speaker": "C",
+      "start": 49.742000000000004,
+      "text": " Yes,"
+    },
+    {
+      "end": 51.992000000000004,
+      "speaker": "C",
+      "start": 50.492000000000004,
+      "text": " my name is Noah Williams."
+    },
+    {
+      "end": 71.96000000000001,
+      "speaker": "B",
+      "start": 67.06,
+      "text": " Your patient profile has been created and your date of birth is July 4th, 2000 for demo purposes."
+    },
+    {
+      "end": 73.51,
+      "speaker": "B",
+      "start": 72.56,
+      "text": " How can I help you today?"
+    },
+    {
+      "end": 79.26,
+      "speaker": "C",
+      "start": 76.36,
+      "text": " I need to book an appointment for next Friday afternoon."
+    },
+    {
+      "end": 85.66,
+      "speaker": "B",
+      "start": 83.36,
+      "text": " What type of appointment do you need next Friday?"
+    },
+    {
+      "end": 88.71000000000001,
+      "speaker": "B",
+      "start": 86.11,
+      "text": " For example, is this for a routine visit,"
+    },
+    {
+      "end": 91.51,
+      "speaker": "B",
+      "start": 89.26,
+      "text": " a follow-up, a new patient consultation,"
+    },
+    {
+      "end": 92.46000000000001,
+      "speaker": "B",
+      "start": 91.66,
+      "text": " or something else?"
+    },
+    {
+      "end": 98.182,
+      "speaker": "C",
+      "start": 95.732,
+      "text": " It's a follow-up appointment that I need to schedule."
+    },
+    {
+      "end": 106.682,
+      "speaker": "B",
+      "start": 102.782,
+      "text": " There are several afternoon openings next Friday for a follow-up."
+    },
+    {
+      "end": 111.482,
+      "speaker": "B",
+      "start": 106.982,
+      "text": " Would you like to see Judy Houser, Carl Mintz, P.T., or Kelly Noble,"
+    },
+    {
+      "end": 113.332,
+      "speaker": "B",
+      "start": 111.682,
+      "text": " M.D., or do you have a preference?"
+    },
+    {
+      "end": 117.982,
+      "speaker": "C",
+      "start": 116.732,
+      "text": " I don't have a preference."
+    },
+    {
+      "end": 121.132,
+      "speaker": "C",
+      "start": 118.482,
+      "text": " Could you tell me the exact date for next Friday you're looking at?"
+    },
+    {
+      "end": 124.09400000000001,
+      "speaker": "B",
+      "start": 123.444,
+      "text": " Next Friday,"
+    },
+    {
+      "end": 127.544,
+      "speaker": "B",
+      "start": 124.194,
+      "text": " September 11th, would you like to book an afternoon slot on that day?"
+    },
+    {
+      "end": 132.69400000000002,
+      "speaker": "C",
+      "start": 131.19400000000002,
+      "text": " Actually, I mean Friday,"
+    },
+    {
+      "end": 134.69400000000002,
+      "speaker": "C",
+      "start": 132.894,
+      "text": " September 18th, 2026."
+    },
+    {
+      "end": 144.994,
+      "speaker": "B",
+      "start": 137.994,
+      "text": " There are several afternoon openings on Friday, September 18th. Would you like a 1 o'clock, 2 o'clock, or 3 o'clock appointment?"
+    },
+    {
+      "end": 151.5,
+      "speaker": "C",
+      "start": 148.5,
+      "text": " Let's go with the 2 o'clock appointment on September 18,"
+    },
+    {
+      "end": 152.5,
+      "speaker": "C",
+      "start": 151.85,
+      "text": " 2026."
+    },
+    {
+      "end": 160.4,
+      "speaker": "B",
+      "start": 158.2,
+      "text": " Your follow-up appointment is set for Friday,"
+    },
+    {
+      "end": 167.65,
+      "speaker": "B",
+      "start": 160.6,
+      "text": " September 18th at 2 p.m. with Doothy Hauser at Pivot Point Orthopedics. Please bring your photo ID,"
+    },
+    {
+      "end": 168.7,
+      "speaker": "B",
+      "start": 167.95,
+      "text": " insurance card,"
+    },
+    {
+      "end": 170.75,
+      "speaker": "B",
+      "start": 169.3,
+      "text": " a list of your current medications,"
+    },
+    {
+      "end": 173.25,
+      "speaker": "B",
+      "start": 171.45,
+      "text": " and any imaging discs you have."
+    },
+    {
+      "end": 174.902,
+      "speaker": "B",
+      "start": 173.652,
+      "text": " Would you like a text confirmation?"
+    },
+    {
+      "end": 179.402,
+      "speaker": "C",
+      "start": 178.802,
+      "text": " Thanks."
+    },
+    {
+      "end": 180.35199999999998,
+      "speaker": "C",
+      "start": 179.452,
+      "text": " That's all I needed."
+    },
+    {
+      "end": 181.00199999999998,
+      "speaker": "C",
+      "start": 180.552,
+      "text": " Goodbye."
+    },
+    {
+      "end": 184.35199999999998,
+      "speaker": "B",
+      "start": 183.652,
+      "text": " You're all set."
+    },
+    {
+      "end": 185.60199999999998,
+      "speaker": "B",
+      "start": 184.702,
+      "text": " Have a great day."
+    },
+    {
+      "end": 186.25199999999998,
+      "speaker": "B",
+      "start": 185.85199999999998,
+      "text": " Goodbye."
+    }
+  ],
+  "text": "This call may be recorded for quality and training purposes. Para espanol oprima el dos. for calling Pivot Point Orthopedics. Would you like to create a demo patient profile? I just need your first and last name to get started. Oh, I'm an existing patient. My name is Noah Williams. Thanks for letting me know, Noah. I don't see a patient profile for you yet.\nWould you like to create a demo patient profile now? I just need your first and last name. I'm just calling to set up an appointment for next Friday. I can help with that. To schedule your appointment, I'll need to create a demo patient profile for you first. Can I confirm your name is Noah Williams? Yes, my name is Noah Williams.\nYour patient profile has been created and your date of birth is July 4th, 2000 for demo purposes. How can I help you today? I need to book an appointment for next Friday afternoon. What type of appointment do you need next Friday? For example, is this for a routine visit, a follow-up, a new patient consultation, or something else?\nIt's a follow -up appointment that I need to schedule. There are several afternoon openings next Friday for a follow-up. Would you like to see Judy Houser, Carl Mintz, P.T., or Kelly Noble, M.D., or do you have a preference? I don't have a preference. Could you tell me the exact date for next Friday you're looking at?\nNext Friday, September 11th, would you like to book an afternoon slot on that day? Actually, I mean Friday, September 18th, 2026. There are several afternoon openings on Friday, September 18th. Would you like a 1 o'clock, 2 o'clock, or 3 o'clock appointment?\nLet's go with the 2 o'clock appointment on September 18, 2026. Your follow-up appointment is set for Friday, September 18th at 2 p.m. with Doothy Hauser at Pivot Point Orthopedics. Please bring your photo ID, insurance card, a list of your current medications, and any imaging discs you have.\nWould you like a text confirmation? Thanks. That's all I needed. Goodbye. You're all set. Have a great day. Goodbye."
+}

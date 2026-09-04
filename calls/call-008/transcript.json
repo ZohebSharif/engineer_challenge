@@ -1,0 +1,323 @@
+{
+  "segments": [
+    {
+      "end": 3.0999999999999996,
+      "speaker": "A",
+      "start": 0.0,
+      "text": " This call may be recorded for quality and training purposes."
+    },
+    {
+      "end": 5.85,
+      "speaker": "A",
+      "start": 3.8,
+      "text": " Para espanol o prima el dos."
+    },
+    {
+      "end": 9.700000000000001,
+      "speaker": "B",
+      "start": 7.3,
+      "text": " Thank you for calling Pivot Point Orthopedics."
+    },
+    {
+      "end": 12.200000000000001,
+      "speaker": "B",
+      "start": 9.8,
+      "text": " Would you like to create a demo patient profile?"
+    },
+    {
+      "end": 14.900000000000002,
+      "speaker": "B",
+      "start": 12.9,
+      "text": " I just need your first and last name to get started."
+    },
+    {
+      "end": 17.8,
+      "speaker": "C",
+      "start": 17.3,
+      "text": " No,"
+    },
+    {
+      "end": 19.05,
+      "speaker": "C",
+      "start": 18.1,
+      "text": " I'm not ready for that."
+    },
+    {
+      "end": 22.45,
+      "speaker": "C",
+      "start": 19.5,
+      "text": " I'm just trying to find out if my exact plan is in network."
+    },
+    {
+      "end": 24.099999999999998,
+      "speaker": "C",
+      "start": 22.95,
+      "text": " Could we focus on the insurance?"
+    },
+    {
+      "end": 27.639999999999997,
+      "speaker": "B",
+      "start": 26.74,
+      "text": " No problem."
+    },
+    {
+      "end": 33.19,
+      "speaker": "B",
+      "start": 27.939999999999998,
+      "text": " You can scan the QR code at the booth later to create a profile if you decide to."
+    },
+    {
+      "end": 34.49,
+      "speaker": "B",
+      "start": 33.589999999999996,
+      "text": " About your insurance,"
+    },
+    {
+      "end": 37.59,
+      "speaker": "B",
+      "start": 34.74,
+      "text": " can you tell me the name of your insurance plan?"
+    },
+    {
+      "end": 42.69,
+      "speaker": "C",
+      "start": 37.59,
+      "text": " I need to know how to confirm if my Blue Shield PPO Silver 70 plan is in network."
+    },
+    {
+      "end": 44.74,
+      "speaker": "C",
+      "start": 43.290000000000006,
+      "text": " What's the next step to verify? Sure."
+    },
+    {
+      "end": 47.59,
+      "speaker": "C",
+      "start": 45.09,
+      "text": " It's Blue Shield PPO Silver 70."
+    },
+    {
+      "end": 52.949999999999996,
+      "speaker": "B",
+      "start": 50.9,
+      "text": " Since you do not have a patient profile yet,"
+    },
+    {
+      "end": 55.65,
+      "speaker": "B",
+      "start": 53.05,
+      "text": " I cannot check your insurance directly in our system."
+    },
+    {
+      "end": 63.199999999999996,
+      "speaker": "B",
+      "start": 56.0,
+      "text": " The best next step is to either create a demo patient profile now or scan the QR code at the booth later to set one up."
+    },
+    {
+      "end": 64.72200000000001,
+      "speaker": "B",
+      "start": 63.572,
+      "text": " Once you have a profile,"
+    },
+    {
+      "end": 66.672,
+      "speaker": "B",
+      "start": 64.872,
+      "text": " we can check your specific plan for you."
+    },
+    {
+      "end": 67.822,
+      "speaker": "B",
+      "start": 66.822,
+      "text": " If you prefer,"
+    },
+    {
+      "end": 75.922,
+      "speaker": "B",
+      "start": 67.872,
+      "text": " you can also call your insurance provider directly and ask if Pivot Point Orthopedics is in network for your Blue Shield PPO Silver 70 plan."
+    },
+    {
+      "end": 80.872,
+      "speaker": "B",
+      "start": 76.272,
+      "text": " Would you like to create a demo patient profile now so I can help you check your insurance?"
+    },
+    {
+      "end": 85.622,
+      "speaker": "C",
+      "start": 83.872,
+      "text": " I'm not ready to create a profile."
+    },
+    {
+      "end": 89.072,
+      "speaker": "C",
+      "start": 86.172,
+      "text": " How do I call or contact your billing office to verify this?"
+    },
+    {
+      "end": 99.36399999999999,
+      "speaker": "B",
+      "start": 91.764,
+      "text": " You can contact your insurance provider directly to ask if Pivot Point Orthopedics is in network for your Blue Shield PPO Silver 70 plan."
+    },
+    {
+      "end": 101.41399999999999,
+      "speaker": "B",
+      "start": 99.564,
+      "text": " If you want to reach our billing office,"
+    },
+    {
+      "end": 107.41399999999999,
+      "speaker": "B",
+      "start": 101.564,
+      "text": " you'll need to create a patient profile first so I can provide you with direct contact details or connect you."
+    },
+    {
+      "end": 109.014,
+      "speaker": "B",
+      "start": 107.61399999999999,
+      "text": " If you have any other questions,"
+    },
+    {
+      "end": 110.11399999999999,
+      "speaker": "B",
+      "start": 109.16399999999999,
+      "text": " feel free to ask."
+    },
+    {
+      "end": 114.214,
+      "speaker": "B",
+      "start": 110.16399999999999,
+      "text": " You can always scan the QR code at the booth later to set up your profile."
+    },
+    {
+      "end": 118.854,
+      "speaker": "C",
+      "start": 118.004,
+      "text": " I understand,"
+    },
+    {
+      "end": 121.20400000000001,
+      "speaker": "C",
+      "start": 119.20400000000001,
+      "text": " but I'm not creating a profile right now."
+    },
+    {
+      "end": 123.70400000000001,
+      "speaker": "C",
+      "start": 121.754,
+      "text": " Is there another way to get the billing office number?"
+    },
+    {
+      "end": 129.554,
+      "speaker": "B",
+      "start": 126.20400000000001,
+      "text": " I'm not able to give out the billing office number without a patient profile."
+    },
+    {
+      "end": 135.054,
+      "speaker": "B",
+      "start": 129.954,
+      "text": " You can always scan the QR code at the booth later to set up your profile and get more details."
+    },
+    {
+      "end": 137.454,
+      "speaker": "B",
+      "start": 135.454,
+      "text": " Let me know if there's anything else I can help with."
+    },
+    {
+      "end": 141.854,
+      "speaker": "C",
+      "start": 141.054,
+      "text": " I get that."
+    },
+    {
+      "end": 144.406,
+      "speaker": "C",
+      "start": 142.356,
+      "text": " So if I can't get the billing office number,"
+    },
+    {
+      "end": 148.05599999999998,
+      "speaker": "C",
+      "start": 144.956,
+      "text": " can you tell me how you usually verify a specific plan's network?"
+    },
+    {
+      "end": 158.348,
+      "speaker": "B",
+      "start": 150.548,
+      "text": " Usually, we verify if a specific insurance plan is in network by checking your details in our system after you create a patient profile."
+    },
+    {
+      "end": 162.998,
+      "speaker": "B",
+      "start": 158.648,
+      "text": " This lets us look up your exact plan and confirm coverage with our billing team."
+    },
+    {
+      "end": 165.548,
+      "speaker": "B",
+      "start": 163.098,
+      "text": " If you do not want to create a profile now,"
+    },
+    {
+      "end": 173.848,
+      "speaker": "B",
+      "start": 165.798,
+      "text": " you can also call your insurance provider and ask if PivotPoint Orthopedics is in network for your Blue Shield PPO Silver 70 plan."
+    },
+    {
+      "end": 176.198,
+      "speaker": "B",
+      "start": 174.098,
+      "text": " That's the best way to confirm without."
+    },
+    {
+      "end": 177.246,
+      "speaker": "B",
+      "start": 176.596,
+      "text": " profile."
+    },
+    {
+      "end": 184.346,
+      "speaker": "C",
+      "start": 180.64600000000002,
+      "text": " All right, I'll call my insurance provider directly to confirm."
+    },
+    {
+      "end": 185.596,
+      "speaker": "C",
+      "start": 184.596,
+      "text": " Thanks for your time."
+    },
+    {
+      "end": 188.446,
+      "speaker": "B",
+      "start": 187.696,
+      "text": " You're welcome."
+    },
+    {
+      "end": 190.746,
+      "speaker": "B",
+      "start": 188.746,
+      "text": " If you need anything else just let me know."
+    },
+    {
+      "end": 191.796,
+      "speaker": "B",
+      "start": 190.796,
+      "text": " Have a great day."
+    },
+    {
+      "end": 195.746,
+      "speaker": "C",
+      "start": 195.246,
+      "text": " Goodbye."
+    }
+  ],
+  "text": "This call may be recorded for quality and training purposes. Para espanol o prima el dos. Thank you for calling Pivot Point Orthopedics. Would you like to create a demo patient profile? I just need your first and last name to get started. No, I'm not ready for that. I'm just trying to find out if my exact plan is in network. Could we focus on the insurance?\nNo problem. You can scan the QR code at the booth later to create a profile if you decide to. About your insurance, can you tell me the name of your insurance plan? I need to know how to confirm if my Blue Shield PPO Silver 70 plan is in network. What's the next step to verify? Sure. It's Blue Shield PPO Silver 70.\nSince you do not have a patient profile yet, I cannot check your insurance directly in our system. The best next step is to either create a demo patient profile now or scan the QR code at the booth later to set one up.\nOnce you have a profile, we can check your specific plan for you. If you prefer, you can also call your insurance provider directly and ask if Pivot Point Orthopedics is in network for your Blue Shield PPO Silver 70 plan. Would you like to create a demo patient profile now so I can help you check your insurance? I'm not ready to create a profile. How do I call or contact your billing office to verify this?\nYou can contact your insurance provider directly to ask if Pivot Point Orthopedics is in network for your Blue Shield PPO Silver 70 plan. If you want to reach our billing office, you'll need to create a patient profile first so I can provide you with direct contact details or connect you. If you have any other questions, feel free to ask. You can always scan the QR code at the booth later to set up your profile.\nI understand, but I'm not creating a profile right now. Is there another way to get the billing office number? I'm not able to give out the billing office number without a patient profile. You can always scan the QR code at the booth later to set up your profile and get more details. Let me know if there's anything else I can help with. I get that.\nSo if I can't get the billing office number, can you tell me how you usually verify a specific plan's network?\nUsually, we verify if a specific insurance plan is in network by checking your details in our system after you create a patient profile. This lets us look up your exact plan and confirm coverage with our billing team. If you do not want to create a profile now, you can also call your insurance provider and ask if PivotPoint Orthopedics is in network for your Blue Shield PPO Silver 70 plan. That's the best way to confirm without.\nprofile. All right, I'll call my insurance provider directly to confirm. Thanks for your time. You're welcome. If you need anything else just let me know. Have a great day. Goodbye."
+}

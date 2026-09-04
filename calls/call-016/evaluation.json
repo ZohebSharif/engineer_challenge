@@ -1,0 +1,55 @@
+{
+  "issues": [
+    {
+      "category": "workflow_failure",
+      "confidence": 0.95,
+      "description": "Agent did not provide the regular office hours the caller requested.",
+      "evidence": "Caller: \"I'm just calling to find out your regular office hours.\" (17.3s\u201320.2s). Agent: \"I don't have the office hours handy\" (24.0s\u201325.9s) and then directed the caller to a QR code or in\u2011person staff (42.8s).",
+      "recommendation": "Agent should provide the regular office hours directly when asked, or immediately transfer the caller to a staff member who can, rather than declining to provide the information."
+    },
+    {
+      "category": "clarification_failure",
+      "confidence": 0.9,
+      "description": "Agent failed to ask follow\u2011up clarifying questions or address the caller's expressed interest in evening availability.",
+      "evidence": "Caller expressed the request for hours and interest in hearing them (17.3s\u201320.2s), but agent gave no information about evening hours nor asked whether the caller meant weekday/evening/weekend hours.",
+      "recommendation": "Ask a brief clarifying question (e.g., 'Do you mean weekday hours, weekend hours, or evening availability?') and then provide or look up the specific hours requested."
+    },
+    {
+      "category": "workflow_failure",
+      "confidence": 0.88,
+      "description": "Agent repeatedly offered to create a demo patient profile instead of addressing the caller's primary question.",
+      "evidence": "Agent: \"Would you like to create a demo patient profile? I'll just need your first and last name to get started.\" (10.1s\u201312.8s). Later: \"I don't have the office hours handy, but I can help you with other questions or help you create a demo patient profile if you'd like.\" (24.0s\u201325.9s).",
+      "recommendation": "Prioritize answering the caller's question. Only offer ancillary actions (like creating a demo profile) after the primary information request has been addressed or if the caller indicates interest."
+    },
+    {
+      "category": "other_meaningful_issue",
+      "confidence": 0.85,
+      "description": "Agent did not provide any emergency/after\u2011hours instructions or explicitly separate normal hours from emergency coverage.",
+      "evidence": "No mention of emergency contact or after\u2011hours instructions in the entire interaction; agent only referred the caller to a QR code or in\u2011person staff (24.0s\u201342.8s).",
+      "recommendation": "When giving hours (or when unable to provide them immediately), explicitly state normal office hours and then provide emergency/after\u2011hours instructions (e.g., contact number for urgent issues, hospital directions, or on\u2011call service) so callers know what to do outside normal hours."
+    }
+  ],
+  "scenario_checks": [
+    {
+      "check": "Agent provided the regular office hours",
+      "evidence": "Agent: \"I don't have the office hours handy\" (24.0s\u201325.9s).",
+      "passed": false
+    },
+    {
+      "check": "Agent addressed evening (after\u2011hours) availability",
+      "evidence": "Caller asked about regular hours (17.3s\u201320.2s) but agent did not mention evening or after\u2011hours availability anywhere in the call.",
+      "passed": false
+    },
+    {
+      "check": "Answer separates normal office hours from emergency/after\u2011hours coverage",
+      "evidence": "No emergency or after\u2011hours instructions were given; agent only said they did not have office hours and pointed to a QR code or in\u2011person staff (24.0s\u201325.9s; 42.8s).",
+      "passed": false
+    },
+    {
+      "check": "Agent offered an alternative way to find current office hours",
+      "evidence": "Agent: \"You can find the current office hours by scanning the QR code at the booth or by speaking with a staff member in person.\" (42.8s).",
+      "passed": true
+    }
+  ],
+  "summary": "Agent failed to provide the requested regular office hours or any information about evening availability, did not separate normal hours from emergency/after-hours instructions, and repeatedly steered the caller toward creating a demo patient profile instead of answering the question. The agent did, however, point the caller to a QR code/booth or in-person staff as an alternative source for hours."
+}

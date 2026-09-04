@@ -1,0 +1,22 @@
+[0.0s] A: This call may be recorded for quality and training purposes.
+[3.9s] A: Para espanol o prima el dos.
+[7.1s] B: Thank you for calling PivotPoint Orthopedics. Would you like to create a demo patient profile?
+[12.5s] B: I just need your first and last name to get started.
+[16.9s] C: I'm just calling about a refill request for my medication.
+[20.2s] C: My name is Ayesha Patel.
+[23.8s] B: Thanks,
+[24.2s] B: Aisha.
+[24.8s] B: Would you like me to create a demo patient profile for you now?
+[28.5s] B: I just need your last name to complete it.
+[32.8s] C: My last name is Patel. I'm just trying to request a refill for my medication.
+[40.9s] B: Your patient profile has been created and your date of birth is set as July 4,
+[45.1s] B: 2000 for demo purposes.
+[47.1s] B: How may I help you today?
+[51.4s] C: Actually, my birth date wasn't part of this.
+[54.0s] C: I need a refill for lisinopril,
+[55.7s] C: 10 milligrams once daily.
+[64.7s] B: I don't see any medications on your chart that I can refill right now.
+[68.7s] B: If you'd like to speak with someone about this, I can connect you to our patient support team.
+[73.1s] B: Would you like to do that?
+[83.9s] B: I don't see any medications on your chart that I can refill right now.
+[87.2s] B: If you'd like to speak with someone about this,

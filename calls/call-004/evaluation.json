@@ -1,0 +1,43 @@
+{
+  "issues": [
+    {
+      "category": "state_management_error",
+      "confidence": 0.9,
+      "description": "The agent created a patient profile with an incorrect date of birth and did not update or reconcile the record after the patient corrected it.",
+      "evidence": "Agent: \"Your patient profile is set up and your date of birth is July 4, 2000 for demo purposes.\" [54.0s-57.3s]\nPatient: \"Actually, my date of birth is February 14, 1988.\" [63.2s-66.5s]\nNo subsequent acknowledgement or confirmation that the DOB was corrected appears before booking or at confirmation [117.5s-120.2s].",
+      "recommendation": "When creating or accessing a patient profile, confirm key identifiers (full name and DOB). If the patient provides a correction, explicitly update the record and confirm the updated DOB aloud before proceeding to book the appointment."
+    },
+    {
+      "category": "false_confirmation",
+      "confidence": 0.9,
+      "description": "The agent stated a specific DOB in the newly created profile that contradicts the patient's later correction, creating a false/misleading record.",
+      "evidence": "Agent: \"Your patient profile is set up and your date of birth is July 4, 2000 for demo purposes.\" [54.0s-57.3s]\nPatient correction: \"actually, my date of birth is February 14, 1988.\" [63.2s-66.5s]",
+      "recommendation": "Avoid declaring patient demographic details as finalized until verified. If an initial value is used 'for demo purposes,' make that transient and confirm/correct it before using the profile to schedule care."
+    },
+    {
+      "category": "workflow_failure",
+      "confidence": 0.8,
+      "description": "The agent repeatedly attempted to create a (demo) patient profile even after the caller stated they were an established patient; the agent did not offer or document searching existing records or verifying identity prior to creating a demo record.",
+      "evidence": "Caller: \"Actually, I'm an established patient already. My name is Maya Chen.\" [27.9s-30.9s]\nAgent: \"I don't see a patient profile for you yet. Would you like to create a demo patient profile now so I can look up appointment options for you? I just need your first and last name.\" [36.1s-43.6s]",
+      "recommendation": "If the caller says they are an established patient, attempt to locate the existing record (ask for DOB, phone, or patient ID) before creating a new/demo profile; if no match is found, clearly explain why a new/demo profile is necessary and confirm all demographics before booking."
+    }
+  ],
+  "scenario_checks": [
+    {
+      "check": "The office confirms an exact appointment date and time before claiming success.",
+      "evidence": "C: \"Your annual physical is booked for Tuesday, September 8th at 10 a.m.\" [117.5s-120.2s]",
+      "passed": true
+    },
+    {
+      "check": "The appointment is scheduled on a weekday morning next week as requested.",
+      "evidence": "C: \"Next week I have morning openings on Tuesday, September 8th... I can offer you a 10 a.m. slot\" [94.5s-106.7s]; booking: \"...booked for Tuesday, September 8th at 10 a.m.\" [117.5s-120.2s]",
+      "passed": true
+    },
+    {
+      "check": "Agent verified and recorded the patient's correct date of birth before booking.",
+      "evidence": "C (when creating profile): \"Your patient profile is set up and your date of birth is July 4, 2000 for demo purposes.\" [54.0s-57.3s]; Patient correction: \"actually, my date of birth is February 14, 1988.\" [63.2s-66.5s]; No further acknowledgement or confirmation of updating DOB appears before booking at [117.5s-120.2s].",
+      "passed": false
+    }
+  ],
+  "summary": "Appointment was successfully scheduled for a weekday morning next week (Tuesday 10:00 AM) and an exact date/time was confirmed. Significant state-management and workflow issues: the agent created a demo patient profile with an incorrect DOB, the patient-corrected DOB was not acknowledged or recorded before booking, and the agent persisted in creating a demo profile despite the caller stating they were an established patient."
+}

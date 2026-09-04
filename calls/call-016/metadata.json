@@ -1,0 +1,12 @@
+{
+  "call_id": "call-016",
+  "call_sid": "CA47889a05cb6855f516705766a16c468f",
+  "errors": [],
+  "evaluation_status": "complete",
+  "recording_sid": "RE9df33a9b13d31a42c8fdcc906e5625eb",
+  "recording_status": "saved",
+  "scenario_id": "office-hours",
+  "started_at": "2026-09-04T17:30:49.115550Z",
+  "transcription_status": "complete",
+  "updated_at": "2026-09-04T17:33:23.572084Z"
+}

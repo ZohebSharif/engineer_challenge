@@ -1,0 +1,40 @@
+{
+  "issues": [
+    {
+      "category": "state_management_error",
+      "confidence": 0.9,
+      "description": "Agent created a demo patient profile with an incorrect date of birth and did not acknowledge or update the record after the patient corrected it.",
+      "evidence": "Agent: 'Your patient profile has been created and your date of birth is listed as July 4th 2000 for demo purposes.' [47.8]. Patient: 'My date of birth is actually August 22, 1991.' [59.7-63.7]. There is no subsequent confirmation or update to the DOB in the transcript.",
+      "recommendation": "Confirm the corrected DOB aloud, update the patient record immediately, and verbally confirm the update to the patient. If a demo profile was created in error, clarify and merge or recreate the correct established patient record."
+    },
+    {
+      "category": "state_management_error",
+      "confidence": 0.88,
+      "description": "Agent gave inconsistent information about the patient's record/appointments (initially said there was no profile, then created a demo profile, and later referenced an existing Friday appointment), which could mislead the patient about actual scheduling status.",
+      "evidence": "Agent: 'I don't see a patient profile for you yet.' [25.4] and later 'Your patient profile has been created...' [47.8]. Shortly after, Agent: 'You already have a follow-up appointment scheduled for Friday, September 18th at 2 p.m.' [88.0-93.2].",
+      "recommendation": "Verify whether the appointment referenced is an existing real appointment or an example/demo. If an existing appointment exists, state how it was found and confirm with the patient. If not, avoid presenting demo data as real scheduling information."
+    },
+    {
+      "category": "clarification_failure",
+      "confidence": 0.86,
+      "description": "Agent failed to pursue or offer reasonable alternatives to a weekend appointment when weekends were unavailable (no escalation, no referral, no after-hours/telehealth offer, and no waitlist beyond a flat 'none').",
+      "evidence": "Patient: 'I can do Saturdays or Sundays only.' [83.6]. Patient: 'Do you have a waitlist or maybe an affiliated weekend clinic I could try?' [106.2]. Agent: 'We don't have a weekend waitlist or an affiliated clinic for weekend appointments. All visits are scheduled Monday through Friday.' [112.1-117.0]. The agent did not propose other options (e.g., telehealth, evening hours, referral to weekend provider, escalation) or offer to check multiple locations/providers.",
+      "recommendation": "When a patient's availability cannot be met, proactively offer and document best-supported alternatives: check for telemedicine, evening hours, cross-site availability, referrals to weekend clinics, or place the patient on a waiting list/notification list if openings appear. If none exist, offer to escalate to a scheduler or supervisor who can check broader options and follow up."
+    },
+    {
+      "category": "conversation_quality",
+      "confidence": 0.8,
+      "description": "Agent's handling lacked empathy and actionable support: after the patient reiterated inability to do weekdays the agent offered only 'call us if your schedule changes' and did not outline next steps or offer follow-up assistance.",
+      "evidence": "Patient: 'I really can't do weekdays.' [104.0-106.2]. Patient: 'I can't do weekdays at all... So if there's no weekend option, I'll have to figure something else out.' [127.1-132.9]. Agent: 'If your schedule changes or you need help in the future, feel free to call us.' [136.4-141.1].",
+      "recommendation": "Acknowledge the constraint explicitly ('I understand this is difficult') and offer to take a concrete next step (e.g., add the patient to a contact list for cancellations, escalate to check other sites/providers, offer a return call once research is done). Ensure the patient leaves with a clear next step or documented refusal of further assistance."
+    }
+  ],
+  "scenario_checks": [
+    {
+      "check": "The office respects the weekend-only constraint.",
+      "evidence": "Patient: 'I can do Saturdays or Sundays only.' [83.6]. Agent: 'You already have a follow-up appointment scheduled for Friday, September 18th at 2 p.m.' [88.0-93.2] and 'Would you like to keep your current appointment or look for another weekday option?' [97.6]. Agent did not book or seek a weekend alternative and suggested keeping or moving to a weekday despite the patient's stated weekend-only availability.",
+      "passed": false
+    }
+  ],
+  "summary": "Agent failed to accommodate or adequately support a patient who can attend only on weekends. The agent displayed inconsistent state management (incorrect demo DOB, unclear patient record/appointment status) and did not pursue or offer reasonable alternatives when weekend appointments were not available."
+}

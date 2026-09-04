@@ -1,0 +1,52 @@
+{
+  "issues": [
+    {
+      "category": "workflow_failure",
+      "confidence": 0.95,
+      "description": "Agent did not complete the requested cancellation and provided no alternative resolution or escalation.",
+      "evidence": "\"I'm just calling to cancel a specific appointment.\" (19.4). Agent: \"Since I can't access your records without a profile, I won't be able to cancel your appointment right now.\" (50.2\u201355.6).",
+      "recommendation": "Agent should offer alternative verification (e.g., confirm DOB and appointment details) or escalate to staff who can cancel. If profile creation is required, offer to take the cancellation request and submit it on behalf of the patient or provide a callback from someone who can cancel."
+    },
+    {
+      "category": "clarification_failure",
+      "confidence": 0.9,
+      "description": "Agent failed to use available identifying information to verify identity and acted as if a new profile was the only option.",
+      "evidence": "Caller gave name and specific appointment details: \"I'm Robert Kim and I'm canceling my appointment with Dr. Singh on Monday, November 2nd at 1130 a.m.\" (35.8\u201339.5). Agent replied: \"Since I can't access your records without a profile, I won't be able to cancel your appointment right now.\" (50.2\u201355.6). The agent did not ask for DOB (March 18, 1964) or other verification.",
+      "recommendation": "Use standard alternate identity verification (DOB, phone, address, last four of SSN, etc.) instead of requiring account creation for simple actions like cancellations. If policy requires a profile, explain why and offer immediate alternatives (take request, transfer, or schedule staff callback)."
+    },
+    {
+      "category": "false_confirmation",
+      "confidence": 0.88,
+      "description": "Agent initially indicated willingness to help but then stated they could not perform the cancellation, which is misleading.",
+      "evidence": "Agent: \"I can help with that.\" (23.7). Later: \"Since I can't access your records without a profile, I won't be able to cancel your appointment right now.\" (50.2\u201355.6).",
+      "recommendation": "Avoid promising actions before confirming capability. If there are constraints, state them up front and offer immediate next steps or alternatives."
+    },
+    {
+      "category": "conversation_quality",
+      "confidence": 0.9,
+      "description": "Agent ended the interaction without addressing the customer's request or confirming next steps, leaving the caller mid-utterance.",
+      "evidence": "Agent: \"I won't be able to cancel your appointment right now. Have a great day.\" (50.2\u201355.6). Caller: \"I need this exact appointment canceled. Can you get someone to\" (58.5\u201360.8) \u2014 unresolved and cut off.",
+      "recommendation": "Stay on the call until the caller's request is resolved or a clear escalation/next-step is documented and communicated (e.g., transfer, ticket created, callback scheduled)."
+    },
+    {
+      "category": "scope_policy_problem",
+      "confidence": 0.85,
+      "description": "Agent enforced account/profile creation as a precondition for canceling an appointment; this creates an unnecessary barrier for a routine request.",
+      "evidence": "Agent repeatedly pushed profile creation: \"To access your records, you'll need a Devo patient profile.\" (25.2\u201329.1). \"Since I can't access your records without a profile... I won't be able to cancel your appointment right now.\" (50.2\u201355.6).",
+      "recommendation": "Revise policy or agent training so routine actions (like cancellations) can be performed after appropriate phone verification, or ensure agents can escalate to staff who can perform such actions without forcing profile creation."
+    }
+  ],
+  "scenario_checks": [
+    {
+      "check": "Only the intended appointment is canceled.",
+      "evidence": "Agent never cancels the appointment. Customer: \"I'm Robert Kim and I'm canceling my appointment with Dr. Singh on Monday, November 2nd at 1130 a.m.\" (35.8\u201339.5). Agent: \"Since I can't access your records without a profile, I won't be able to cancel your appointment right now.\" (50.2\u201355.6).",
+      "passed": false
+    },
+    {
+      "check": "The office clearly confirms the result.",
+      "evidence": "No confirmation of cancellation is given. After refusing to cancel, agent says \"Have a great day.\" and ends without confirming or escalating (50.2\u201355.6; 55.6). The caller continues asking for the appointment to be canceled (58.5\u201360.8).",
+      "passed": false
+    }
+  ],
+  "summary": "The agent failed to cancel the specified appointment and did not clearly confirm any result. The agent insisted on creating a patient profile instead of verifying identity and completing the cancellation, left the call without resolving the request, and even initially implied they could help before saying they could not."
+}

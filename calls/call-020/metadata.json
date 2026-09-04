@@ -1,0 +1,12 @@
+{
+  "call_id": "call-020",
+  "call_sid": "CAba4667e71289f9e8809630ad641f3f57",
+  "errors": [],
+  "evaluation_status": "complete",
+  "recording_sid": "REb2bb4db2ecad6e7ab0dd0740bbe2817f",
+  "recording_status": "saved",
+  "scenario_id": "weekend-scheduling",
+  "started_at": "2026-09-04T17:56:51.009382Z",
+  "transcription_status": "complete",
+  "updated_at": "2026-09-04T18:02:57.605849Z"
+}

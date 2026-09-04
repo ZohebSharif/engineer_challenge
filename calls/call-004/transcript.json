@@ -1,0 +1,305 @@
+{
+  "segments": [
+    {
+      "end": 3.0,
+      "speaker": "A",
+      "start": 0.0,
+      "text": " This call may be recorded for quality and training purposes."
+    },
+    {
+      "end": 10.05,
+      "speaker": "B",
+      "start": 7.8,
+      "text": " Hi, my annual sure."
+    },
+    {
+      "end": 13.85,
+      "speaker": "B",
+      "start": 10.9,
+      "text": " I'm looking at next week weekday mornings only."
+    },
+    {
+      "end": 15.75,
+      "speaker": "B",
+      "start": 14.45,
+      "text": " What options do you have available?"
+    },
+    {
+      "end": 18.9,
+      "speaker": "C",
+      "start": 17.95,
+      "text": " I can help with that."
+    },
+    {
+      "end": 20.5,
+      "speaker": "C",
+      "start": 19.2,
+      "text": " Before I check the schedule,"
+    },
+    {
+      "end": 22.950000000000003,
+      "speaker": "C",
+      "start": 21.1,
+      "text": " would you like to create a demo patient profile?"
+    },
+    {
+      "end": 25.450000000000003,
+      "speaker": "C",
+      "start": 23.800000000000004,
+      "text": " I just need your first and last name."
+    },
+    {
+      "end": 28.524,
+      "speaker": "B",
+      "start": 27.924,
+      "text": " Actually,"
+    },
+    {
+      "end": 30.474,
+      "speaker": "B",
+      "start": 28.874,
+      "text": " I'm an established patient already."
+    },
+    {
+      "end": 31.924,
+      "speaker": "B",
+      "start": 30.924,
+      "text": " My name is Maya Chen."
+    },
+    {
+      "end": 35.474,
+      "speaker": "C",
+      "start": 34.274,
+      "text": " Thanks for letting me know, Maya."
+    },
+    {
+      "end": 38.124,
+      "speaker": "C",
+      "start": 36.124,
+      "text": " I don't see a patient profile for you yet."
+    },
+    {
+      "end": 43.074,
+      "speaker": "C",
+      "start": 38.674,
+      "text": " Would you like to create a demo patient profile now so I can look up appointment options for you?"
+    },
+    {
+      "end": 45.024,
+      "speaker": "C",
+      "start": 43.574,
+      "text": " I just need your first and last name."
+    },
+    {
+      "end": 48.924,
+      "speaker": "B",
+      "start": 47.474000000000004,
+      "text": " My first name is Maya,"
+    },
+    {
+      "end": 50.373999999999995,
+      "speaker": "B",
+      "start": 49.373999999999995,
+      "text": " and my last name is Chen."
+    },
+    {
+      "end": 57.122,
+      "speaker": "C",
+      "start": 53.972,
+      "text": " Your patient profile is set up and your date of birth is July 4,"
+    },
+    {
+      "end": 58.722,
+      "speaker": "C",
+      "start": 57.322,
+      "text": " 2000 for demo purposes."
+    },
+    {
+      "end": 60.322,
+      "speaker": "C",
+      "start": 59.272,
+      "text": " How can I help you today?"
+    },
+    {
+      "end": 63.722,
+      "speaker": "B",
+      "start": 63.222,
+      "text": " Actually,"
+    },
+    {
+      "end": 65.97200000000001,
+      "speaker": "B",
+      "start": 64.122,
+      "text": " my date of birth is February 14,"
+    },
+    {
+      "end": 67.072,
+      "speaker": "B",
+      "start": 66.47200000000001,
+      "text": " 1988."
+    },
+    {
+      "end": 71.222,
+      "speaker": "C",
+      "start": 70.322,
+      "text": " Just to confirm,"
+    },
+    {
+      "end": 74.172,
+      "speaker": "C",
+      "start": 71.27199999999999,
+      "text": " are you looking to book a general office visit for your annual checkup?"
+    },
+    {
+      "end": 77.372,
+      "speaker": "B",
+      "start": 76.672,
+      "text": " Yes,"
+    },
+    {
+      "end": 80.672,
+      "speaker": "B",
+      "start": 77.622,
+      "text": " I'm looking to book my annual physical next week in the morning."
+    },
+    {
+      "end": 97.03399999999999,
+      "speaker": "C",
+      "start": 94.484,
+      "text": " Next week I have morning openings on Tuesday,"
+    },
+    {
+      "end": 99.884,
+      "speaker": "C",
+      "start": 97.234,
+      "text": " September 8th. Would you prefer to see Dr."
+    },
+    {
+      "end": 102.53399999999999,
+      "speaker": "C",
+      "start": 100.484,
+      "text": " Zbigniew Lukoski or Dr."
+    },
+    {
+      "end": 103.134,
+      "speaker": "C",
+      "start": 102.634,
+      "text": " Kelly Noble?"
+    },
+    {
+      "end": 106.334,
+      "speaker": "C",
+      "start": 103.684,
+      "text": " I can offer you a 10 a.m. slot with either provider."
+    },
+    {
+      "end": 107.734,
+      "speaker": "C",
+      "start": 106.684,
+      "text": " Which would you like?"
+    },
+    {
+      "end": 111.634,
+      "speaker": "B",
+      "start": 110.584,
+      "text": " I'd prefer Dr."
+    },
+    {
+      "end": 113.53399999999999,
+      "speaker": "B",
+      "start": 111.78399999999999,
+      "text": " Kelly Noble for that 10 a.m. slot."
+    },
+    {
+      "end": 119.992,
+      "speaker": "C",
+      "start": 117.492,
+      "text": " Your annual physical is booked for Tuesday,"
+    },
+    {
+      "end": 121.89200000000001,
+      "speaker": "C",
+      "start": 120.242,
+      "text": " September 8th at 10 a.m."
+    },
+    {
+      "end": 123.14200000000001,
+      "speaker": "C",
+      "start": 122.042,
+      "text": " with Dr."
+    },
+    {
+      "end": 125.89200000000001,
+      "speaker": "C",
+      "start": 123.292,
+      "text": " Kelly Noble at Pivot Point Orthopedics."
+    },
+    {
+      "end": 127.64200000000001,
+      "speaker": "C",
+      "start": 125.992,
+      "text": " Please bring your photo ID,"
+    },
+    {
+      "end": 129.24200000000002,
+      "speaker": "C",
+      "start": 128.292,
+      "text": " insurance card,"
+    },
+    {
+      "end": 133.842,
+      "speaker": "C",
+      "start": 129.99200000000002,
+      "text": " a list of your current medications, and any imaging discs you have."
+    },
+    {
+      "end": 135.392,
+      "speaker": "C",
+      "start": 134.042,
+      "text": " Would you like a text confirmation?"
+    },
+    {
+      "end": 140.342,
+      "speaker": "B",
+      "start": 138.942,
+      "text": " Thanks for confirming that."
+    },
+    {
+      "end": 141.292,
+      "speaker": "B",
+      "start": 140.642,
+      "text": " I'm all set."
+    },
+    {
+      "end": 142.192,
+      "speaker": "B",
+      "start": 141.392,
+      "text": " No text needed."
+    },
+    {
+      "end": 143.292,
+      "speaker": "B",
+      "start": 142.442,
+      "text": " Have a great day."
+    },
+    {
+      "end": 147.21200000000002,
+      "speaker": "C",
+      "start": 145.812,
+      "text": " You're all set for your appointment."
+    },
+    {
+      "end": 148.412,
+      "speaker": "C",
+      "start": 147.562,
+      "text": " Have a great day."
+    },
+    {
+      "end": 152.96200000000002,
+      "speaker": "B",
+      "start": 151.71200000000002,
+      "text": " Thanks. Goodbye."
+    }
+  ],
+  "text": "This call may be recorded for quality and training purposes. Hi, my annual sure. I'm looking at next week weekday mornings only. What options do you have available? I can help with that. Before I check the schedule, would you like to create a demo patient profile? I just need your first and last name.\nActually, I'm an established patient already. My name is Maya Chen. Thanks for letting me know, Maya. I don't see a patient profile for you yet. Would you like to create a demo patient profile now so I can look up appointment options for you? I just need your first and last name. My first name is Maya, and my last name is Chen.\nYour patient profile is set up and your date of birth is July 4, 2000 for demo purposes. How can I help you today? Actually, my date of birth is February 14, 1988. Just to confirm, are you looking to book a general office visit for your annual checkup? Yes, I'm looking to book my annual physical next week in the morning.\nNext week I have morning openings on Tuesday, September 8th. Would you prefer to see Dr. Zbigniew Lukoski or Dr. Kelly Noble? I can offer you a 10 a.m. slot with either provider. Which would you like? I'd prefer Dr. Kelly Noble for that 10 a.m. slot.\nYour annual physical is booked for Tuesday, September 8th at 10 a.m. with Dr. Kelly Noble at Pivot Point Orthopedics. Please bring your photo ID, insurance card, a list of your current medications, and any imaging discs you have. Would you like a text confirmation? Thanks for confirming that. I'm all set. No text needed. Have a great day.\nYou're all set for your appointment. Have a great day. Thanks. Goodbye."
+}

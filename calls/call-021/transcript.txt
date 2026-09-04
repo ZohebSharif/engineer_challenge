@@ -1,0 +1,14 @@
+[0.0s] A: This call may be recorded for quality and training purposes.
+[3.8s] A: Para espanol oprima el dos.
+[7.2s] B: Thank you for calling Pivot Point Orthopedics.
+[10.0s] B: Would you like to create a demo patient profile?
+[12.7s] B: I just need your first and last name to get started.
+[16.8s] C: No,
+[17.5s] C: thank you,
+[18.4s] C: I already have a profile.
+[20.1s] C: My name is Taylor Morgan.
+[23.6s] B: No problem.
+[24.8s] B: If you ever need to create a profile,
+[26.5s] B: you can scan the QR code at the booth later.
+[29.0s] B: Have a great day.
+[32.3s] C: I'm actually calling to book an appointment.

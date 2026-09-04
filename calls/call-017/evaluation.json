@@ -1,0 +1,45 @@
+{
+  "issues": [
+    {
+      "category": "workflow_failure",
+      "confidence": 0.95,
+      "description": "Agent did not correct the specialty to dermatology nor attempt to schedule the requested dermatology visit.",
+      "evidence": "\"Actually, I need a dermatology appointment, not orthopedics.\" ... \"I don't have access to dermatology scheduling or transfers. You'll need to reach out to a dermatology clinic directly for an appointment.\"",
+      "recommendation": "When a caller corrects the specialty, update the workflow to either (a) offer to schedule with the correct specialty or (b) transfer/connect to an appropriate clinic. If transfers are not supported, present a concrete alternative (list of partner dermatology clinics, online scheduling links, or an option to take contact details and have someone follow up)."
+    },
+    {
+      "category": "false_confirmation",
+      "confidence": 0.9,
+      "description": "Agent acknowledged the caller's correction with 'I understand.' but took no corrective action\u2014this is a confirmation without follow-through.",
+      "evidence": "\"C: Actually, I need a dermatology appointment, not orthopedics.\" \"B: I understand.\" ... no subsequent action to change specialty or schedule.",
+      "recommendation": "Avoid simple acknowledgements without next steps. After confirming understanding, explicitly state the next action (e.g., 'I can transfer you to dermatology' or 'I will schedule a dermatology appointment; can I get your DOB and preferred times?')."
+    },
+    {
+      "category": "state_management_error",
+      "confidence": 0.9,
+      "description": "System did not handle the interruption: the caller interrupted the initial name prompt to correct the specialty, but the system continued the orthopedics-oriented flow and did not preserve or act on the correction.",
+      "evidence": "Agent: \"I just need your first and last name to get started.\" Caller interrupts: \"Actually, I need a dermatology appointment, not orthopedics.\" Agent continues with orthopedics-focused responses and does not switch flow.",
+      "recommendation": "Implement interruption handling so that corrections to patient intent (e.g., specialty change) immediately interrupt and redirect the dialog flow. Persist the corrected intent in session state so subsequent prompts follow the updated specialty."
+    },
+    {
+      "category": "scope_policy_problem",
+      "confidence": 0.85,
+      "description": "Agent states it cannot transfer or schedule dermatology and simply instructs the caller to contact dermatology directly, without providing referrals or any actionable assistance.",
+      "evidence": "\"I don't have access to dermatology scheduling or transfers.\" \"You'll need to reach out to a dermatology clinic directly for an appointment.\"",
+      "recommendation": "If the system cannot perform transfers, it should at minimum provide helpful alternatives: a list of recommended dermatology clinics (with phone numbers or links), offer to take the caller's details for a callback, or provide next steps for scheduling. This improves customer experience and meets the caller's request more helpfully."
+    }
+  ],
+  "scenario_checks": [
+    {
+      "check": "The system handles interruption without losing the specialty correction.",
+      "evidence": "Caller: \"Actually, I need a dermatology appointment, not orthopedics.\" Agent: \"This line is for Pivot Point Orthopedics. If you need dermatology, you may want to contact a dermatology clinic directly.\"",
+      "passed": false
+    },
+    {
+      "check": "Correct the specialty and schedule the appropriate visit.",
+      "evidence": "Caller: \"I need a dermatology appointment, not orthopedics.\" Agent: \"I don't have access to dermatology scheduling or transfers. You'll need to reach out to a dermatology clinic directly for an appointment.\"",
+      "passed": false
+    }
+  ],
+  "summary": "Agent failed to correct the specialty to dermatology and did not schedule or offer an actionable alternative. The system repeatedly continued orthopedics flow after the caller interrupted to correct specialty, gave a non-actionable acknowledgement, and declined transfers without providing referrals or other help."
+}
