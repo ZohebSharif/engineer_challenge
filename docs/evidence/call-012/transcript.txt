@@ -1,0 +1,72 @@
+[0.0s] A: This call may be recorded for quality and training purposes.
+[3.8s] A: Para espanol oprima el dos.
+[7.4s] B: Thank you for calling Pivot Point Orthopedics.
+[10.0s] B: Would you like to create a demo patient profile?
+[12.6s] B: I just need your first and last name to get started.
+[16.9s] C: Oh,
+[17.4s] C: I'm sorry,
+[18.1s] C: I think there's some confusion.
+[19.8s] C: I'm actually an established patient and I'm calling to correct the reason for my upcoming appointment.
+[26.7s] B: No problem.
+[27.6s] B: I can help update the reason for your upcoming appointment.
+[31.1s] B: May I have your first and last name to look up your record?
+[35.9s] C: Sure, it's Grace Lee.
+[40.5s] B: Thanks, Grace.
+[41.6s] B: Let me check your record so I could update your appointment reason.
+[46.3s] B: Your patient profile is set up and your date of birth is July 4th, 2000 for demo purposes.
+[51.8s] B: What would you like to update about your appointment?
+[56.4s] C: Actually, that's not correct.
+[58.7s] C: I need a follow-up for blood pressure management,
+[61.0s] C: not an annual physical.
+[67.2s] B: Grace,
+[67.8s] B: I see you have an appointment scheduled for Tuesday,
+[70.2s] B: September 8th at 10 a.m. with Kelly Noble,
+[73.2s] B: MD at Nashville 220 Athens Way.
+[76.6s] B: Would you like me to update the reason for this appointment to a follow-up for blood pressure management?
+[83.4s] C: Yes, please.
+[84.7s] C: And also I need it to be with Dr.
+[86.4s] C: Ahmed,
+[87.0s] C: not Kelly Noble.
+[89.5s] B: I can help with that.
+[91.2s] B: To switch your appointment to Dr.
+[92.6s] B: Ahmed,
+[93.0s] B: we'll need to reschedule.
+[94.5s] B: Would you like to keep the same date and time,
+[97.0s] B: or are you open to other options?
+[101.7s] C: I'd prefer to keep the same date and time, if possible,
+[105.1s] C: with Dr.
+[105.4s] C: Ahmed.
+[110.7s] B: There are openings on Tuesday,
+[112.7s] B: September 8th, but only with Kelly Noble,
+[115.7s] B: M.D., not with Dr.
+[117.5s] B: Ahmed.
+[118.2s] B: Would you like to look for other dates or times with Dr.
+[121.0s] B: Ahmed or keep your current appointment with Kelly Noble?
+[126.8s] C: I need it with Dr.
+[128.2s] C: Ahmed.
+[128.7s] C: Could we check other dates or times for that follow-up?
+[134.4s] B: I checked.
+[135.3s] B: But the only available openings are still with Kelly Noble,
+[139.1s] B: MD.
+[140.0s] B: Would you like to try searching for a different week or a specific day or time with Dr.
+[143.7s] B: Ahmed?
+[147.2s] C: Yes, let's look for a different week with Dr.
+[150.1s] C: Ahmed.
+[154.6s] B: I still only see openings with Kelly Noble,
+[157.3s] B: M.D., not Dr.
+[158.2s] B: Almond,
+[158.4s] B: for the next several weeks.
+[160.0s] B: Would you like to try a different day of the week, a different time of day, or would you like help from the clinic team to find a slot with Dr.
+[167.6s] B: Almond?
+[171.6s] C: I'd appreciate help from the clinic team to find a slot with Dr.
+[174.7s] C: Ahmed.
+[185.7s] B: I've let the clinic team know you need a follow-up appointment with Dr.
+[189.1s] B: Ahmed for blood pressure management.
+[191.3s] B: They'll reach out as soon as they find an opening that works for you.
+[194.5s] B: Is there anything else I can help with today?
+[200.3s] C: Thanks,
+[201.1s] C: that covers it for now.
+[202.4s] C: Goodbye.
+[204.5s] B: Take care,
+[205.3s] B: Grace.
+[206.0s] B: Goodbye.

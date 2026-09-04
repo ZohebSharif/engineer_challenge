@@ -1,0 +1,12 @@
+{
+  "call_id": "call-015",
+  "call_sid": "CAae6081b28869fb6861f4c665f1e0f20c",
+  "errors": [],
+  "evaluation_status": "complete",
+  "recording_sid": "RE761bb6702a67b7dee6624cb615dd4e2e",
+  "recording_status": "saved",
+  "scenario_id": "weekend-scheduling",
+  "started_at": "2026-09-04T17:21:31.738079Z",
+  "transcription_status": "complete",
+  "updated_at": "2026-09-04T17:25:44.683738Z"
+}

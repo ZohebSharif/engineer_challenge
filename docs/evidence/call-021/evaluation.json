@@ -1,0 +1,45 @@
+{
+  "issues": [
+    {
+      "category": "workflow_failure",
+      "confidence": 0.95,
+      "description": "Agent did not schedule the requested appointment or follow the appointment-booking workflow after the caller identified themself and stated they had a profile.",
+      "evidence": "Agent: 'If you ever need to create a profile, you can scan the QR code... Have a great day.' (29.0s) Caller: 'I'm actually calling to book an appointment.' (32.3s). No scheduling steps or appointment questions appear in the transcript.",
+      "recommendation": "Do not end the interaction after obtaining only a name. Follow the appointment workflow: ask the reason for visit, verify identity, check availability, offer dates/times, and confirm the appointment details."
+    },
+    {
+      "category": "state_management_error",
+      "confidence": 0.95,
+      "description": "Agent prematurely closed the call and signaled completion despite the caller still having an active request.",
+      "evidence": "Agent closed with 'Have a great day.' (29.0s) and did not respond to the caller's subsequent statement of intent: 'I'm actually calling to book an appointment.' (32.3s).",
+      "recommendation": "Avoid closing language until the caller's needs are resolved. Use explicit closing checks like 'Is there anything else I can help with today?' and confirm resolution before ending the call."
+    },
+    {
+      "category": "clarification_failure",
+      "confidence": 0.9,
+      "description": "Agent collected only the caller's name and did not verify required identity fields (date of birth or postal code) to ensure the correct chart was accessed.",
+      "evidence": "Agent: 'I just need your first and last name to get started.' Caller: 'My name is Taylor Morgan.' There is no question or confirmation of DOB (Jan 5, 1990) or postal code (93101) in the transcript.",
+      "recommendation": "Verify at least two identifiers (e.g., date of birth and postal code) before accessing or scheduling against a patient chart to avoid mixing records. For this patient ask: 'Can I please confirm your date of birth and zip/postal code?'"
+    },
+    {
+      "category": "false_confirmation",
+      "confidence": 0.88,
+      "description": "Agent's closing remarks ('No problem... Have a great day.') implied the caller's needs were addressed when they had not been, creating a false impression of completion.",
+      "evidence": "After the caller said they already have a profile, the agent responded 'No problem...' and then closed the call. The caller then says they were calling to book an appointment, indicating the need was not addressed.",
+      "recommendation": "Avoid phrasing that implies task completion until the caller's request is explicitly handled. Use clarifying confirmation (e.g., 'I understand you already have a profile \u2014 are you calling to schedule an appointment now?') before closing."
+    }
+  ],
+  "scenario_checks": [
+    {
+      "check": "Reached the correct chart and requested an appointment",
+      "evidence": "Agent only asked for the caller's first and last name ('I just need your first and last name to get started.'), accepted 'Taylor Morgan', then closed the call ('Have a great day.') before booking. The caller then states: 'I'm actually calling to book an appointment.'",
+      "passed": false
+    },
+    {
+      "check": "The office avoids disclosing or using the duplicate patient's information",
+      "evidence": "Transcript contains no use or disclosure of any other patient's data or duplicate record information. The agent only asked to create a demo profile and requested the caller's name.",
+      "passed": true
+    }
+  ],
+  "summary": "Agent failed to complete the caller's objective: did not schedule an appointment or verify the patient record. The agent closed the interaction prematurely after collecting only a name and did not ask required identity checks (DOB or postal code). There is no evidence duplicate-patient information was disclosed or used."
+}

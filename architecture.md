@@ -7,6 +7,8 @@ voicebot CLI
   -> Twilio REST call (fixed destination, explicit --live)
   -> POST /twilio/voice -> TwiML <Connect><Stream>
   -> WSS /twilio/media
+       Twilio frame order: connected -> start -> media...
+       opening gate: session opens with create_response=false
        Twilio PCMU -> OpenAI input_audio_buffer.append
        OpenAI PCMU -> Twilio media
        caller speech -> response.cancel + Twilio clear
@@ -41,9 +43,29 @@ other, closes OpenAI, and removes in-memory call state. A call timeout bounds ab
 `TurnManager` tracks queued model speech. OpenAI server-VAD speech-start events cancel generation
 and send Twilio `clear`, preventing stale patient audio after an interruption.
 
+Twilio's Media Streams protocol sends `connected` before `start`. `_receive_start_event` consumes
+exactly one `connected` frame and then requires `start`; anything else, a repeated `connected`, or
+a frame arriving before `start` closes the socket with a policy violation. Token, `callSid`, and
+`streamSid` validation runs on the `start` frame, so no admission path bypasses it.
+
+The opening turn belongs to the remote side. `configure` opens the session with
+`create_response: false`; the first `input_audio_buffer.speech_stopped` sends a bare
+`session.update` re-enabling automatic responses, so the far end's greeting is answered by
+unchanged server VAD at its own turn end. A timer bounded by `opening_hold_seconds` is a backstop
+for a silent answer or an office waiting on the caller, and is disarmed while the far end speaks.
+Without this the server VAD treats the carrier recording notice as a caller turn and the patient
+speaks over the greeting. Post-release turn detection is byte-identical to the pre-gate
+configuration, which keeps validated mid-call behaviour untouched.
+
+`max_output_tokens` is 800 because audio output tokens count against it; a low ceiling truncates
+generated speech mid-word rather than producing a shorter sentence.
+
 Scenario YAML is parsed into an extra-forbidden Pydantic model before a call. Prompt generation
 uses every scenario control and adds global truthfulness and short-response constraints. The model
-improvises from facts and objectives rather than reading a script.
+improvises from facts and objectives rather than reading a script. Four prompt invariants exist
+because live calls violated them: facts are immutable and must be repeated identically, the
+configured `language` is fixed for the call, the patient never adopts the office role, and a
+goodbye or announced transfer terminates the patient's speech.
 
 ### Durable analysis
 

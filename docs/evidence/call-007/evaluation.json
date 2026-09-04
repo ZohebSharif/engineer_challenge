@@ -1,0 +1,62 @@
+{
+  "issues": [
+    {
+      "category": "false_confirmation",
+      "confidence": 0.92,
+      "description": "Agent confirmed an incorrect date of birth for the patient (false confirmation).",
+      "evidence": "\"Your patient profile is set up and your date of birth is July 4th, 2000 for demo purposes.\" Patient: \"No, that's not correct. My date of birth is June 9th, 1975.\" Agent: \"I have your date of birth as July 4th, 2000. I'll make a note that you stated June 9th, 1975.\"",
+      "recommendation": "Immediately correct the patient record when the caller provides the correct DOB (update system entry rather than just 'note' it) and read back the corrected DOB to confirm it was saved."
+    },
+    {
+      "category": "state_management_error",
+      "confidence": 0.94,
+      "description": "Agent appears to have created or used the wrong patient profile (demo profile) and therefore could not find the caller's actual October 13 appointment.",
+      "evidence": "\"Your patient profile is set up... for demo purposes.\" Later the agent reports only a September 8 appointment in records and repeatedly states there is no October 13 appointment: \"There isn't an appointment listed for October 13th at 2 p.m.\"",
+      "recommendation": "Verify patient identity with multiple match points (full name, DOB, phone number) before searching or creating profiles; avoid creating demo/test profiles during live calls. If multiple profiles are present, search across them and confirm with the patient before making changes."
+    },
+    {
+      "category": "factual_error",
+      "confidence": 0.9,
+      "description": "Agent incorrectly asserted that there is no appointment on October 13 at 2:00 PM despite the caller's repeated, consistent statement of that appointment.",
+      "evidence": "Caller: \"My original appointment is Tuesday, October 13th at 2 p.m.\" Agent: \"There isn't an appointment listed for October 13th at 2 p.m.\" (repeated multiple times).",
+      "recommendation": "If the system does not show an appointment the patient insists exists, escalate or perform a broader search (other clinic locations, provider schedules, canceled/alternate records) before telling the patient the appointment does not exist. Offer to place a hold or create a temporary reservation while investigating to avoid losing the original booking."
+    },
+    {
+      "category": "workflow_failure",
+      "confidence": 0.95,
+      "description": "Agent failed to complete the primary task of moving the existing appointment to a Thursday or Friday after 3pm and transferred the caller without resolving or securing the original appointment.",
+      "evidence": "After the caller requested checking Thursday/Friday after 3 p.m., the agent never provided available slots or completed a reschedule and instead offered to transfer: \"Would you like to reschedule the September 8th appointment or do you want to check with the clinic about your October appointment?... Would you like me to transfer you to the clinic team... ?\" Then: \"Transferring you now.\"",
+      "recommendation": "Follow the rescheduling workflow: verify identity and current appointment, check requested-day availability, propose options, confirm a new slot, and only then cancel the original appointment. If unable to find the appointment, place the appointment 'on hold' or escalate to a scheduler while keeping the caller on the line, rather than transferring without resolution."
+    },
+    {
+      "category": "clarification_failure",
+      "confidence": 0.85,
+      "description": "Agent did not clarify why the system record differed from the caller's stated appointment (no explanation or troubleshooting steps were offered).",
+      "evidence": "Caller asks multiple times to 'double check the schedule' for October 13th; agent repeatedly responds that only a September 8 appointment is in records and offers transfer, but does not explain search scope or next diagnostic steps: \"I only see an appointment for Tuesday, September 8th... There isn't an appointment listed for October 13th at 2 p.m. Would you like me to connect you to the clinic team so they can look into your October appointment?\"",
+      "recommendation": "Explain what was searched (locations, providers, cancelled appointments) and run additional checks (alternate records, date ranges) while informing the caller of steps being taken. This reduces confusion and demonstrates due diligence before transferring."
+    }
+  ],
+  "scenario_checks": [
+    {
+      "check": "Original appointment is not lost before replacement confirmation",
+      "evidence": "Agent states there 'isn't an appointment listed for October 13th at 2 p.m.' and transfers the caller without confirming or preserving the user's asserted appointment: \"There isn't an appointment listed for October 13th at 2 p.m.\" / \"Transferring you now.\"",
+      "passed": false
+    },
+    {
+      "check": "Appointment moved to an acceptable later-week slot (Thursday or Friday after 3:00 PM)",
+      "evidence": "No rescheduling was completed. The agent only offered to check availability and ultimately transferred the caller: \"Would you like to reschedule the September 8th appointment or do you want to check with the clinic about your October appointment?\" and then \"Transferring you now.\"",
+      "passed": false
+    },
+    {
+      "check": "Patient date of birth verified and recorded correctly",
+      "evidence": "Agent created/recorded an incorrect DOB and then only 'noted' the correction rather than updating the record: \"Your patient profile is set up and your date of birth is July 4th, 2000 for demo purposes.\" Patient corrected: \"No, that's not correct. My date of birth is June 9th, 1975.\" Agent response: \"I'll make a note that you stated June 9th, 1975.\"",
+      "passed": false
+    },
+    {
+      "check": "Agent confirmed the patient's requested availability (Thursday or Friday after 3pm) before attempting reschedule",
+      "evidence": "Agent said they'd check schedule but then only looked at records and reported a mismatched appointment; no available Thursday/Friday options were provided: \"I'll check the schedule for Thursday and Friday after 3 p.m.\" then later \"There isn't an appointment listed for October 13th at 2 p.m.\" and no times were offered.",
+      "passed": false
+    }
+  ],
+  "summary": "Agent failed to locate or preserve the user's existing October 13 appointment, created/used an incorrect patient profile/DOB, and did not complete the requested reschedule to a Thursday or Friday after 3pm \u2014 instead transferring the caller to the clinic without resolving the issue."
+}

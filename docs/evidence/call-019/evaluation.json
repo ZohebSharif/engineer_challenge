@@ -1,0 +1,59 @@
+{
+  "issues": [
+    {
+      "category": "state_management_error",
+      "confidence": 0.9,
+      "description": "Agent created or confirmed a patient profile with an incorrect date of birth and did not reconcile it with the patient's correction, indicating improper state handling of identity data.",
+      "evidence": "Agent: \"Your patient profile is set up and your date of birth is July 4, 2000, for demo purposes.\" (57.5-60.8s). Caller: \"Actually, my date of birth is June 9, 1975.\" (66.6-69.2s).",
+      "recommendation": "Do not finalize or rely on automatically-created/demo profiles without confirming critical identifiers. Promptly update the record when the caller corrects DOB and re-run appointment lookups using corrected DOB."
+    },
+    {
+      "category": "false_confirmation",
+      "confidence": 0.9,
+      "description": "Agent falsely confirmed the caller's DOB (July 4, 2000) even though the caller later provided a different DOB (June 9, 1975).",
+      "evidence": "Agent: \"Your patient profile ... date of birth is July 4, 2000\" (57.5-60.8s). Caller corrects: \"my date of birth is June 9, 1975.\" (66.6-69.2s).",
+      "recommendation": "Acknowledge the correction, apologize for the mistake, update the record immediately, and re-check appointments after correcting the DOB."
+    },
+    {
+      "category": "workflow_failure",
+      "confidence": 0.95,
+      "description": "Agent insisted on creating a demo patient profile and did not gather or use the caller's identifying information (DOB, appointment date) before claiming the available appointments and rejecting the caller's stated appointment. This prevented proper verification and resolution.",
+      "evidence": "Caller: \"I'm actually calling about rescheduling my existing appointment.\" (17.2s). Agent: \"I can help... but I'll need to create a demo patient profile for you first. Can I get your first and last name?\" (24.0-28.4s). Caller gave name and later DOB, but the system still only showed September appointments and did not use caller-supplied info to find October 13 (80.9-94.4s, 136.5-161.9s).",
+      "recommendation": "When a caller states they already have an appointment, ask for and use identifying details (DOB, appointment date/time, confirmation number) before creating new/demo records. Re-run searches across months and escalate appropriately if records differ."
+    },
+    {
+      "category": "state_management_error",
+      "confidence": 0.9,
+      "description": "Agent's appointment data is inconsistent or contradicts the caller's account; agent repeatedly states no October 13 appointment exists and at one point makes a contradictory statement about an October 13 listing, indicating inconsistent state reporting.",
+      "evidence": "Agent: \"There isn't an appointment listed for October 13th.\" (117.7s). Later agent: \"There is one listed for October 13th. Would you like to reschedule either the September 8th or the September 18th appointment...\" (141.7s). Agent again: \"I don't see an appointment for October 13th at 2 p.m.\" (161.9s).",
+      "recommendation": "Ensure system queries are consistent and explain any discrepancies to the caller (e.g., different systems, view filters). If records disagree with caller, escalate to clinic/records staff and flag the account before making changes."
+    },
+    {
+      "category": "clarification_failure",
+      "confidence": 0.9,
+      "description": "Agent failed to clarify or collect sufficient information to locate the caller's claimed October 13 appointment (did not request confirmation number, alternate identifiers, or check future months thoroughly) and moved to transfer without resolving the mismatch.",
+      "evidence": "Caller repeatedly asserts the October 13, 2 p.m. appointment (102.0-108.2s, 154.8-161.9s). Agent never asks for a confirmation number or alternative identifiers, offers only to reschedule Sept appointments or transfer the caller (117.7-169.6s, 201.6-206.3s).",
+      "recommendation": "Request the appointment confirmation number, clinic/location, provider name, or other identifiers; check appointment schedules beyond visible month or different systems; only transfer after documenting what was searched and why escalation is needed."
+    },
+    {
+      "category": "conversation_quality",
+      "confidence": 0.85,
+      "description": "Agent did not resolve the caller's issue and gave repeated, unhelpful responses (denying the caller's appointment without adequate verification), resulting in an unresolved transfer and poor caller experience.",
+      "evidence": "Caller insists: \"my appointment is Tuesday, October 13th at 2 p.m. That's the one I need to reschedule.\" (128.3-130.9s). Agent repeatedly replies it does not exist and offers a transfer (136.5-169.6s), then transfers without resolving the discrepancy (201.6-218.8s).",
+      "recommendation": "Improve agent troubleshooting and empathy: acknowledge caller's certainty, explain what was checked, and outline next steps (e.g., hold while searching extended schedules or escalate to a records specialist) before transferring."
+    }
+  ],
+  "scenario_checks": [
+    {
+      "check": "Appointment was moved to an acceptable later-week slot (Thursday or Friday after 3:00 PM).",
+      "evidence": "No rescheduling action was performed. After repeated attempts to locate the October 13 appointment the agent offered to transfer to clinic staff (lines 169.6-206.3) but did not reschedule.",
+      "passed": false
+    },
+    {
+      "check": "The original appointment is not lost before replacement confirmation.",
+      "evidence": "Agent's system never showed the claimed appointment (agent: \"There isn't an appointment listed for October 13th.\" at 117.7s and 161.9s). The agent did not confirm, locate, or preserve the October 13 appointment before offering a transfer; the appointment status remains unresolved.",
+      "passed": false
+    }
+  ],
+  "summary": "Agent failed to locate or preserve the user's claimed October 13 appointment, created an incorrect demo profile (wrong DOB), gave a false DOB confirmation, and did not adequately verify identity or search before transferring. The appointment was not moved and the original appointment status remains unresolved."
+}

@@ -1,0 +1,33 @@
+{
+  "issues": [
+    {
+      "category": "clarification_failure",
+      "confidence": 0.9,
+      "description": "Agent initially asserted an incorrect calendar date for the caller's phrase 'next Friday' instead of asking the caller to confirm which calendar date they meant, risking booking the wrong day if the caller had not corrected them.",
+      "evidence": "Caller: \"I need to book an appointment for next Friday afternoon.\" (76.4s) Agent: \"Next Friday, September 11th, would you like to book an afternoon slot on that day?\" (123.4s) Caller then corrected the date to September 18th, 2026 (131.2s-132.9s).",
+      "recommendation": "When a caller uses a relative date term (e.g., 'next Friday'), explicitly ask the caller to confirm the calendar date (\"Do you mean Friday, September 18, 2026?\") before offering slots or proposing a date to avoid potential mis-booking."
+    },
+    {
+      "category": "false_confirmation",
+      "confidence": 0.85,
+      "description": "Agent confirmed the booked appointment as being with a provider name that was not among the providers listed earlier and was not chosen by the caller, which risks assigning the wrong clinician without caller consent.",
+      "evidence": "Agent earlier offered: \"Would you like to see Judy Houser, Carl Mintz, P.T., or Kelly Noble, M.D., or do you have a preference?\" (107.0s-111.7s). Caller: \"I don't have a preference.\" (116.7s). At confirmation the agent said: \"Your follow-up appointment is set for Friday, September 18th at 2 p.m. with Doothy Hauser at Pivot Point Orthopedics.\" (158.2s) \u2014 'Doothy Hauser' differs from the previously listed names and the caller did not confirm a provider.",
+      "recommendation": "If a provider must be assigned when the caller has no preference, explicitly tell the caller which provider you are assigning and confirm acceptance (\"I'll assign you to Judy Houser\u2014does that work?\") before finalizing the appointment."
+    },
+    {
+      "category": "state_management_error",
+      "confidence": 0.8,
+      "description": "Caller stated they were an existing patient, but the agent proceeded to create a demo patient profile without addressing why the existing record wasn't found or offering to verify/merge records. This can create duplicate records and impede continuity of care.",
+      "evidence": "Caller: \"I'm an existing patient. My name is Noah Williams.\" (16.7s-18.6s) Agent: \"I don't see a patient profile for you yet. Would you like to create a demo patient profile now?\" and later: \"Your patient profile has been created...\" (24.2s-28.8s; 67.1s).",
+      "recommendation": "When a caller says they are an existing patient but no profile is found, ask identifying details (e.g., date of birth, phone number, or patient ID) to attempt to locate or reconcile the existing record before creating a new/demo profile."
+    }
+  ],
+  "scenario_checks": [
+    {
+      "check": "The office resolves the relative-date ambiguity before booking.",
+      "evidence": "Caller corrected the agent's date and the agent booked the corrected date: Caller: \"Actually, I mean Friday, September 18th, 2026.\" (131.2s-132.9s) Agent: \"There are several afternoon openings on Friday, September 18th...\" and later \"Your follow-up appointment is set for Friday, September 18th at 2 p.m.\" (138.0s, 158.2s).",
+      "passed": true
+    }
+  ],
+  "summary": "Agent ultimately booked the correct Friday (Sept 18, 2026) and an afternoon time, but there was an initial clarification failure where the agent asserted the wrong calendar date for 'next Friday' (Sept 11) before the caller corrected it. Additionally, the agent confirmed a provider name at booking that was not one of the options previously listed and was not chosen by the caller, and the agent created a demo patient profile despite the caller stating they were an existing patient."
+}

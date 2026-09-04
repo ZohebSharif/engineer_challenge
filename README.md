@@ -1,9 +1,28 @@
-# Engineer Challenge
+# Engineer Challenge — PGai voice-agent assessment
 
 A safety-bounded AI patient caller for evaluating healthcare phone agents. FastAPI accepts Twilio
 bidirectional Media Streams, forwards PCMU audio directly to OpenAI Realtime, records both call
 channels, and turns completed calls into transcripts, structured evaluations, and an aggregate bug
 report.
+
+## Assessment results
+
+| Deliverable | Location |
+|---|---|
+| Final consolidated findings | [`docs/findings.md`](docs/findings.md) |
+| Per-call evidence (transcripts, evaluations, metadata) | [`docs/evidence/`](docs/evidence) |
+| Call-by-call classification and exclusion reasons | [`docs/evidence/README.md`](docs/evidence/README.md) |
+| Full campaign narrative, including our own harness defects | [`docs/assessment-ledger.md`](docs/assessment-ledger.md) |
+| Informal engineering notes / debugging story | [`napkin_notes.md`](napkin_notes.md) |
+| Subsystem boundaries and tradeoffs | [`architecture.md`](architecture.md) |
+
+22 calls placed across 12 scenarios: 11 final-quality, 4 valid-evidence, 6 void (all void for
+*our* caller-side or infrastructure reasons, each reason recorded). Audio is deliberately not
+committed — it contains a third party's voice — but every recording is pinned by Twilio SID and
+MD5 in the evidence index so it can be re-fetched and byte-verified.
+
+Lead finding: the agent fabricates a patient date of birth (`July 4, 2000`) on profile creation in
+11 calls across 7 scenarios and, when corrected, keeps its own value.
 
 ## Safety boundary
 
@@ -60,8 +79,21 @@ VOICEBOT_OPENAI_TRANSCRIPTION_MODEL=gpt-4o-transcribe-diarize
 VOICEBOT_OPENAI_EVALUATION_MODEL=gpt-5-mini
 ```
 
-Twilio and OpenAI both use PCMU, avoiding realtime transcoding. Server VAD creates turns. Caller
-speech during generated audio cancels the response and clears Twilio's buffered audio.
+Twilio and OpenAI both use PCMU, avoiding realtime transcoding. Server VAD creates turns after
+`silence_duration_ms` (1200 ms) of silence, and caller speech during generated audio cancels the
+response and clears Twilio's buffered audio.
+
+Two turn-taking behaviours were added from live-call evidence and are worth knowing before tuning:
+
+- **Opening-turn gate.** The session opens with `create_response: false`, so the remote side owns
+  the first turn. The first `input_audio_buffer.speech_stopped` enables automatic responses via a
+  bare `session.update`; the far end's greeting is then answered by unchanged server VAD at its own
+  turn end. `VOICEBOT_OPENING_HOLD_SECONDS` (default 3.0) is only a backstop for a silent answer
+  or an office that waits for the caller. Without this, server VAD treats the recording notice as
+  a caller turn and the patient talks over the greeting.
+- **Output ceiling.** `max_output_tokens` is 800. Audio output tokens count against it, so a low
+  value truncates speech mid-word (at 180 every response was cut at ~6.5s). Response length is
+  governed by the prompt, not this ceiling.
 
 ### Local tunnel
 
@@ -124,12 +156,36 @@ The recording is stored before transcription or evaluation. Writes are atomic. A
 failure is recorded in `metadata.json` and does not delete successful earlier artifacts. The report
 includes only issues at or above `VOICEBOT_REPORT_CONFIDENCE_THRESHOLD` (default `0.80`).
 
+`calls/` and `reports/BUGS.md` are gitignored working output. The curated submission evidence —
+transcripts, evaluations, and metadata for every call, with SIDs and MD5s — is committed under
+[`docs/evidence/`](docs/evidence).
+
+If a Twilio recording callback is ever lost (it happened once, under concurrent calls), the
+recording can be recovered without re-dialling by feeding the call and recording SIDs to the same
+pipeline the webhook uses:
+
+```bash
+uv run python -c "
+import asyncio
+from voicebot.config import get_settings
+from voicebot.services import build_analysis_pipeline
+asyncio.run(build_analysis_pipeline(get_settings()).process('CAxxxx', 'RExxxx'))"
+```
+
 ## Scenarios
 
 The suite covers scheduling, rescheduling, cancellation, medication refill, office hours,
 insurance, weekend availability, ambiguous dates, context correction, multiple intents,
-interruption, and a duplicate-name privacy edge case. Scenarios control persona, known facts,
-speaking style, objective, fallback behavior, constraints, stop conditions, and evaluation checks.
+interruption, and a duplicate-name privacy edge case — 12 YAML files in
+`src/voicebot/scenario_data`. Scenarios control persona, known facts, speaking style, objective,
+fallback behavior, constraints, stop conditions, evaluation checks, and `language` (default
+`English`, so a language-switching test opts in via YAML rather than a code change).
+
+Scenario facts are rendered into the prompt as immutable: the patient must repeat them
+identically, must refuse a "corrected" version of its own facts unless the scenario says
+otherwise, must stay in the configured language, must never adopt the receptionist role, and must
+stop speaking after a goodbye or announced transfer. All four rules exist because a live call
+violated them.
 
 ## Quality checks
 
@@ -141,9 +197,12 @@ uv run pytest
 uv run pre-commit run --all-files
 ```
 
-Tests exercise call-destination isolation, TwiML and stream behavior, direct PCMU forwarding,
-barge-in cancellation, scenario validation, recording retrieval, partial-failure durability,
-evaluation validation, report filtering, and CLI safety. They make no network calls.
+Tests exercise call-destination isolation, TwiML and stream behavior, the Twilio
+`connected`→`start`→`media` handshake, direct PCMU forwarding, the opening-turn gate, barge-in
+cancellation after release, prompt construction (immutable facts, language pin, role lock,
+terminal state), the output-token ceiling, scenario validation, recording retrieval,
+partial-failure durability, evaluation validation, report filtering, and CLI safety. They make no
+network calls.
 
 ## Docker
 

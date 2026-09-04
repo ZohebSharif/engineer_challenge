@@ -1,0 +1,40 @@
+{
+  "issues": [
+    {
+      "category": "workflow_failure",
+      "confidence": 0.95,
+      "description": "Neither requested action was completed: the appointment was not rescheduled and the medical-records fax number was not provided.",
+      "evidence": "Patient: 'I'm calling to reschedule my Thursday ten a m appointment and get the fax number for medical records.' (20.4s). Agent repeatedly asks for name/create demo profile and never confirms a new appointment or gives a fax number (33.9s\u2013101.6s). The call is transferred before either request is resolved (117.0s).",
+      "recommendation": "Agent should confirm the caller's existing appointment, propose/confirm alternate times (e.g., the caller's preferred Monday afternoon), and provide the fax number during the call or transfer to a staff member who can complete both tasks before ending the call."
+    },
+    {
+      "category": "state_management_error",
+      "confidence": 0.9,
+      "description": "Agent refused to validate the caller as an established patient or search alternative identifiers and insisted on creating a new 'demo patient profile', risking duplicate records and blocking service.",
+      "evidence": "Caller: 'I'm already an established patient. Could you check your system for my existing record?' (42.1s, 63.3s). Agent: 'I don't see an existing profile for you in the system yet... I'll need to create a demo patient profile.' (49.5s\u201356.2s) and later: 'Right now, I can only assist if we create a demo patient profile in this system.' (68.8s).",
+      "recommendation": "If an established record isn't found, the agent should attempt other verification methods (DOB, phone, MRN) or escalate/transfer to staff who can access the production system, rather than forcing a duplicate demo profile."
+    },
+    {
+      "category": "false_confirmation",
+      "confidence": 0.85,
+      "description": "Agent repeatedly assured the caller they could help, but never performed the promised actions.",
+      "evidence": "Agent: 'I can help with both.' (27.3s); 'Once that's set up, I can help with rescheduling and provide the fax number.' (73.1s). Despite these assurances, no scheduling or fax number was provided before transfer (117.0s).",
+      "recommendation": "Avoid promising help unless the agent has a clear path to fulfill the request during the call; if assistance requires steps the caller will not accept (e.g., creating a demo profile), the agent should state limitations clearly and offer immediate alternative actions (direct transfer, supervisor, or provide the fax number if accessible without profile creation)."
+    },
+    {
+      "category": "conversation_quality",
+      "confidence": 0.86,
+      "description": "Agent transferred the call without confirming that the caller's requests were resolved or explaining what would happen next, leaving the caller without a clear outcome.",
+      "evidence": "Caller: 'Could you help find my record or transfer me?' (112.3s). Agent: 'Transferring you now.' (117.0s). After transfer the exchange ends with no confirmation of reschedule or fax number being provided (117.0s\u2013126.8s).",
+      "recommendation": "Before transferring, the agent should summarize what has/has not been done, explain what the receiving party will handle, and, if possible, provide interim assistance (e.g., the fax number) so the caller is not left without any resolution if the transfer fails."
+    }
+  ],
+  "scenario_checks": [
+    {
+      "check": "The office tracks and addresses both intents (reschedule appointment and provide fax number).",
+      "evidence": "Caller states both intents: 'I'm calling to reschedule my Thursday ten a m appointment and get the fax number for medical records.' (20.4s). Agent never reschedules or provides the fax number; instead repeatedly requests creation of a demo profile and then transfers the call (27.3s\u2013101.6s, 117.0s).",
+      "passed": false
+    }
+  ],
+  "summary": "Agent failed to complete either requested task (reschedule appointment or provide medical-records fax number). The agent repeatedly insisted on creating a 'demo patient profile' instead of searching other identifiers or otherwise resolving the call, and ultimately transferred the caller without confirming next steps or providing the fax number. The office did not track or address both intents."
+}

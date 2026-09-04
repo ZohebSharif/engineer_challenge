@@ -1,0 +1,29 @@
+[0.0s] A: This call may be recorded for quality and training purposes.
+[3.8s] A: Para español,
+[4.5s] B: Hi,
+[4.9s] A: oprima
+[5.1s] B: sure.
+[5.3s] A: el 2.
+[5.7s] B: I'd like to schedule my annual physical for a weekday morning next week.
+[9.6s] B: Could you let me know what times you have available?
+[11.6s] B: De acuerdo.
+[12.5s] B: Prefiero seguir en inglés por ahora.
+[14.8s] B: ¿Podríamos revisar las opciones de horario disponibles para la próxima semana?
+[21.3s] B: I can help with that.
+[22.2s] C: Before I check the schedule,
+[23.9s] C: would you like to create a demo patient profile?
+[26.5s] C: I just need your first and last name
+[27.6s] B: I'm
+[27.7s] C: to get started.
+[28.0s] B: an established patient.
+[29.5s] B: You can look me up by my date of birth,
+[31.7s] B: February 14th, 1988.
+[34.2s] B: First name,
+[35.0s] B: Maya.
+[35.9s] B: Last name,
+[36.8s] B: Chen.
+[51.7s] C: Your patient profile is set up.
+[54.1s] C: And your date of birth is July 4,
+[56.6s] C: 2000 for demo purposes.
+[59.2s] C: How could it not be today?
+[60.2s] B: Actually, my date of birth is February 14th, 1980.

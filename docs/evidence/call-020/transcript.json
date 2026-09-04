@@ -1,0 +1,431 @@
+{
+  "segments": [
+    {
+      "end": 3.0999999999999996,
+      "speaker": "A",
+      "start": 0.0,
+      "text": " This call may be recorded for quality and training purposes."
+    },
+    {
+      "end": 5.8,
+      "speaker": "A",
+      "start": 3.8499999999999996,
+      "text": " Para espanol o prima el dos."
+    },
+    {
+      "end": 11.05,
+      "speaker": "B",
+      "start": 8.65,
+      "text": " Thank you for calling Pivot Point Orthopedics."
+    },
+    {
+      "end": 13.5,
+      "speaker": "B",
+      "start": 11.55,
+      "text": " Would you like to create a demo patient profile?"
+    },
+    {
+      "end": 16.2,
+      "speaker": "B",
+      "start": 14.1,
+      "text": " I just need your first and last name to get started."
+    },
+    {
+      "end": 21.15,
+      "speaker": "C",
+      "start": 19.099999999999998,
+      "text": " I'm actually already an established patient."
+    },
+    {
+      "end": 22.199999999999996,
+      "speaker": "C",
+      "start": 21.549999999999997,
+      "text": " I'm Priya Shah."
+    },
+    {
+      "end": 24.249999999999996,
+      "speaker": "C",
+      "start": 22.649999999999995,
+      "text": " I'm calling to find a weekend appointment."
+    },
+    {
+      "end": 25.449999999999996,
+      "speaker": "C",
+      "start": 24.699999999999996,
+      "text": " Can we go from there?"
+    },
+    {
+      "end": 28.823999999999998,
+      "speaker": "B",
+      "start": 27.924,
+      "text": " Thanks, Priya."
+    },
+    {
+      "end": 33.124,
+      "speaker": "B",
+      "start": 29.124,
+      "text": " I'll need to create a demo patient profile for you before I can check appointments."
+    },
+    {
+      "end": 37.324,
+      "speaker": "B",
+      "start": 33.524,
+      "text": " Can I confirm your first name is Priya and your last name is Shah?"
+    },
+    {
+      "end": 40.824,
+      "speaker": "C",
+      "start": 39.824,
+      "text": " I get that,"
+    },
+    {
+      "end": 42.024,
+      "speaker": "C",
+      "start": 40.974000000000004,
+      "text": " but I'm not a new patient."
+    },
+    {
+      "end": 43.67400000000001,
+      "speaker": "C",
+      "start": 42.474000000000004,
+      "text": " I already have a profile."
+    },
+    {
+      "end": 48.92400000000001,
+      "speaker": "B",
+      "start": 46.024,
+      "text": " I understand you're already an established patient."
+    },
+    {
+      "end": 54.324,
+      "speaker": "B",
+      "start": 49.324,
+      "text": " Right now I don't see your profile in this system, so I'll need to create a demo profile to help with your request."
+    },
+    {
+      "end": 58.168,
+      "speaker": "B",
+      "start": 54.868,
+      "text": " Can I confirm your first name is Priya and your last name is Shaw?"
+    },
+    {
+      "end": 64.268,
+      "speaker": "C",
+      "start": 61.068000000000005,
+      "text": " My first name is Priya and my last name is Shah."
+    },
+    {
+      "end": 65.668,
+      "speaker": "C",
+      "start": 64.768,
+      "text": " Let's go ahead with that."
+    },
+    {
+      "end": 70.168,
+      "speaker": "B",
+      "start": 67.918,
+      "text": " One moment while I set up your demo patient profile,"
+    },
+    {
+      "end": 72.368,
+      "speaker": "B",
+      "start": 70.868,
+      "text": " then I'll help you find a weekend appointment."
+    },
+    {
+      "end": 80.518,
+      "speaker": "B",
+      "start": 74.118,
+      "text": " Your patient profile has been created and your date of birth is set as July 4th, 2000 for demo purposes."
+    },
+    {
+      "end": 82.716,
+      "speaker": "B",
+      "start": 81.716,
+      "text": " How may I help you today?"
+    },
+    {
+      "end": 86.06599999999999,
+      "speaker": "A",
+      "start": 82.81599999999999,
+      "text": " This call may be recorded for quality and training purposes."
+    },
+    {
+      "end": 87.56599999999999,
+      "speaker": "A",
+      "start": 86.866,
+      "text": " Para espa\u00f1ol,"
+    },
+    {
+      "end": 88.716,
+      "speaker": "A",
+      "start": 87.916,
+      "text": " oprima el 2."
+    },
+    {
+      "end": 92.716,
+      "speaker": "B",
+      "start": 89.56599999999999,
+      "text": " Thanks for calling Pivot Point Orthopedics, part of Pretty Good AI."
+    },
+    {
+      "end": 94.416,
+      "speaker": "B",
+      "start": 93.116,
+      "text": " How may I help you today?"
+    },
+    {
+      "end": 99.36599999999999,
+      "speaker": "C",
+      "start": 97.716,
+      "text": " Actually, that's not correct."
+    },
+    {
+      "end": 101.31599999999999,
+      "speaker": "C",
+      "start": 99.76599999999999,
+      "text": " My date of birth is August 22,"
+    },
+    {
+      "end": 102.36599999999999,
+      "speaker": "C",
+      "start": 101.81599999999999,
+      "text": " 1991."
+    },
+    {
+      "end": 104.216,
+      "speaker": "C",
+      "start": 102.81599999999999,
+      "text": " I need a weekend appointment,"
+    },
+    {
+      "end": 104.466,
+      "speaker": "C",
+      "start": 104.26599999999999,
+      "text": " please."
+    },
+    {
+      "end": 108.51599999999999,
+      "speaker": "B",
+      "start": 106.966,
+      "text": " Thanks for sharing your date of birth."
+    },
+    {
+      "end": 109.912,
+      "speaker": "B",
+      "start": 109.012,
+      "text": " August 22,"
+    },
+    {
+      "end": 111.162,
+      "speaker": "B",
+      "start": 110.662,
+      "text": " 1991."
+    },
+    {
+      "end": 112.862,
+      "speaker": "B",
+      "start": 111.812,
+      "text": " To book your appointment,"
+    },
+    {
+      "end": 114.362,
+      "speaker": "B",
+      "start": 112.912,
+      "text": " can you tell me the reason for your visit?"
+    },
+    {
+      "end": 115.462,
+      "speaker": "B",
+      "start": 114.712,
+      "text": " For example,"
+    },
+    {
+      "end": 120.762,
+      "speaker": "B",
+      "start": 115.562,
+      "text": " is this for a routine checkup, a follow-up, an urgent concern, or something else?"
+    },
+    {
+      "end": 127.762,
+      "speaker": "C",
+      "start": 124.062,
+      "text": " It's just a routine follow-up. I'm looking for a weekend slot,"
+    },
+    {
+      "end": 128.912,
+      "speaker": "C",
+      "start": 127.962,
+      "text": " since I work weekdays."
+    },
+    {
+      "end": 134.91000000000003,
+      "speaker": "B",
+      "start": 131.86,
+      "text": " You already have a follow-up appointment booked for Friday,"
+    },
+    {
+      "end": 137.46,
+      "speaker": "B",
+      "start": 135.36,
+      "text": " September 18th at 2 p.m."
+    },
+    {
+      "end": 140.81,
+      "speaker": "B",
+      "start": 137.56,
+      "text": " Since only one follow-up appointment can be scheduled at a time,"
+    },
+    {
+      "end": 144.56,
+      "speaker": "B",
+      "start": 141.26000000000002,
+      "text": " would you like to reschedule this appointment to a weekend slot instead?"
+    },
+    {
+      "end": 151.26000000000002,
+      "speaker": "C",
+      "start": 147.91000000000003,
+      "text": " Yes, I'd like to reschedule that to a weekend slot, please."
+    },
+    {
+      "end": 156.38400000000001,
+      "speaker": "B",
+      "start": 154.484,
+      "text": " You have a follow-up appointment on Friday,"
+    },
+    {
+      "end": 158.88400000000001,
+      "speaker": "B",
+      "start": 156.53400000000002,
+      "text": " September 18th at 2 p.m. with Judy Hauser."
+    },
+    {
+      "end": 161.984,
+      "speaker": "B",
+      "start": 159.184,
+      "text": " I'll look for weekend openings to move this appointment."
+    },
+    {
+      "end": 164.13400000000001,
+      "speaker": "B",
+      "start": 162.434,
+      "text": " One moment while I check the schedule."
+    },
+    {
+      "end": 168.03400000000002,
+      "speaker": "B",
+      "start": 165.78400000000002,
+      "text": " There are no weekend openings between September."
+    },
+    {
+      "end": 169.13400000000001,
+      "speaker": "C",
+      "start": 168.03400000000002,
+      "text": " Sure, I'll hold on."
+    },
+    {
+      "end": 172.584,
+      "speaker": "B",
+      "start": 171.484,
+      "text": " There are no weekend openings."
+    },
+    {
+      "end": 176.43400000000003,
+      "speaker": "C",
+      "start": 172.584,
+      "text": " Got it. Are there any weekend slots further out, or maybe a wait list?"
+    },
+    {
+      "end": 177.79,
+      "speaker": "C",
+      "start": 177.14,
+      "text": " Understood."
+    },
+    {
+      "end": 182.14,
+      "speaker": "C",
+      "start": 178.23999999999998,
+      "text": " Is there a weekend waitlist I can join, or another clinic with weekend availability?"
+    },
+    {
+      "end": 188.94,
+      "speaker": "B",
+      "start": 185.04,
+      "text": " I can't add you to a weekend wait list or check other clinics directly."
+    },
+    {
+      "end": 193.73999999999998,
+      "speaker": "B",
+      "start": 189.33999999999997,
+      "text": " Would you like to be transferred to a live support team member now to discuss more options?"
+    },
+    {
+      "end": 201.33800000000002,
+      "speaker": "C",
+      "start": 200.788,
+      "text": " Yes,"
+    },
+    {
+      "end": 202.33800000000002,
+      "speaker": "C",
+      "start": 201.638,
+      "text": " that sounds good."
+    },
+    {
+      "end": 203.988,
+      "speaker": "C",
+      "start": 202.738,
+      "text": " Please go ahead and transfer me."
+    },
+    {
+      "end": 204.738,
+      "speaker": "C",
+      "start": 204.43800000000002,
+      "text": " Thanks."
+    },
+    {
+      "end": 205.388,
+      "speaker": "C",
+      "start": 205.08800000000002,
+      "text": " Good bye."
+    },
+    {
+      "end": 210.43800000000002,
+      "speaker": "B",
+      "start": 209.888,
+      "text": " Transfer you now."
+    },
+    {
+      "end": 210.93800000000002,
+      "speaker": "B",
+      "start": 210.638,
+      "text": " Thank you."
+    },
+    {
+      "end": 212.738,
+      "speaker": "C",
+      "start": 212.43800000000002,
+      "text": " Hello."
+    },
+    {
+      "end": 215.43800000000002,
+      "speaker": "C",
+      "start": 213.18800000000002,
+      "text": " You reached the pretty good ai test line."
+    },
+    {
+      "end": 216.288,
+      "speaker": "C",
+      "start": 215.888,
+      "text": " Good bye."
+    },
+    {
+      "end": 221.538,
+      "speaker": "C",
+      "start": 220.93800000000002,
+      "text": " Good bye."
+    }
+  ],
+  "text": "This call may be recorded for quality and training purposes. Para espanol o prima el dos. Thank you for calling Pivot Point Orthopedics. Would you like to create a demo patient profile? I just need your first and last name to get started. I'm actually already an established patient. I'm Priya Shah. I'm calling to find a weekend appointment. Can we go from there?\nThanks, Priya. I'll need to create a demo patient profile for you before I can check appointments. Can I confirm your first name is Priya and your last name is Shah? I get that, but I'm not a new patient. I already have a profile. I understand you're already an established patient. Right now I don't see your profile in this system, so I'll need to create a demo profile to help with your request.\nCan I confirm your first name is Priya and your last name is Shaw? My first name is Priya and my last name is Shah. Let's go ahead with that. One moment while I set up your demo patient profile, then I'll help you find a weekend appointment. Your patient profile has been created and your date of birth is set as July 4th, 2000 for demo purposes.\nHow may I help you today? This call may be recorded for quality and training purposes. Para espa\u00f1ol, oprima el 2. Thanks for calling Pivot Point Orthopedics, part of Pretty Good AI. How may I help you today? Actually, that's not correct. My date of birth is August 22, 1991. I need a weekend appointment, please. Thanks for sharing your date of birth.\nAugust 22, 1991. To book your appointment, can you tell me the reason for your visit? For example, is this for a routine checkup, a follow-up, an urgent concern, or something else? It's just a routine follow-up. I'm looking for a weekend slot, since I work weekdays.\nYou already have a follow-up appointment booked for Friday, September 18th at 2 p.m. Since only one follow-up appointment can be scheduled at a time, would you like to reschedule this appointment to a weekend slot instead? Yes, I'd like to reschedule that to a weekend slot, please.\nYou have a follow -up appointment on Friday, September 18th at 2 p.m. with Judy Hauser. I'll look for weekend openings to move this appointment. One moment while I check the schedule. There are no weekend openings between September. Sure, I'll hold on. There are no weekend openings. Got it. Are there any weekend slots further out, or maybe a wait list?\nUnderstood. Is there a weekend waitlist I can join, or another clinic with weekend availability? I can't add you to a weekend wait list or check other clinics directly. Would you like to be transferred to a live support team member now to discuss more options?\nYes, that sounds good. Please go ahead and transfer me. Thanks. Good bye. Transfer you now. Thank you. Hello. You reached the pretty good ai test line. Good bye. Good bye."
+}

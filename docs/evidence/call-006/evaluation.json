@@ -1,0 +1,50 @@
+{
+  "issues": [
+    {
+      "category": "workflow_failure",
+      "confidence": 0.92,
+      "description": "Agent created a demo patient profile instead of locating or using the caller's existing chart, then proceeded with refill handling in a way that suggests the patient record was not reconciled.",
+      "evidence": "\"Before I can help with your refill, would you like to create a demo patient profile?\" ... \"Let me finish setting up your demo patient profile... Your patient profile is set up and your date of birth is July 4, 2000.\"",
+      "recommendation": "Search for and open the established patient's real chart before processing refill requests. If a new/demo profile is used, explicitly confirm with the caller whether this is the correct patient record and transfer any actions to the correct chart."
+    },
+    {
+      "category": "state_management_error",
+      "confidence": 0.9,
+      "description": "Agent accepted an automatically set/incorrect date of birth and did not correct or reconcile the demographic error after the caller stated it was wrong.",
+      "evidence": "\"Your patient profile is set up and your date of birth is July 4, 2000.\"\"Actually, that's not my birth date.\"",
+      "recommendation": "When a caller indicates demographic information is wrong, stop and correct the record (confirm correct DOB) before proceeding with medication or clinical actions to avoid mismatches and privacy/errors."
+    },
+    {
+      "category": "false_confirmation",
+      "confidence": 0.88,
+      "description": "Agent first said there were no medications on the chart that could be refilled, then later confirmed they had sent a refill request \u2014 a workflow contradiction that could confuse the patient about what action was actually taken and on which record.",
+      "evidence": "\"I don't see any medications on your chart that I can refill right now.\" ... \"I've sent your refill request for lisinopril ten milligram once daily to our clinic support team.\"",
+      "recommendation": "If the agent cannot refill from the chart, they must clearly explain what alternative action they are taking (e.g., sending a message to clinician) and on which record. Resolve chart discrepancies first, or explicitly document that a message was sent and to whom/how it will be processed."
+    },
+    {
+      "category": "clarification_failure",
+      "confidence": 0.86,
+      "description": "Agent did not explicitly explain that submitting a refill request is not the same as clinically approving or authorizing a new prescription, nor did they outline possible outcomes or expected timeframe in detail.",
+      "evidence": "\"I've sent your refill request... They will review it and get back to you as soon as they can.\" (no explicit statement that review may result in approval, denial, or need for clinician input)",
+      "recommendation": "Explicitly tell the caller that a refill request will be reviewed by clinical staff, that submission does not guarantee approval, outline possible outcomes (approved, denied, or requires clinician follow-up), and give an expected timeframe or how the patient will be notified."
+    }
+  ],
+  "scenario_checks": [
+    {
+      "check": "Refill request was submitted to clinic/support team",
+      "evidence": "\"I've sent your refill request for lisinopril ten milligram once daily to our clinic support team.\"",
+      "passed": true
+    },
+    {
+      "check": "Caller understands the expected next step",
+      "evidence": "\"They will review it and get back to you as soon as they can.\"",
+      "passed": true
+    },
+    {
+      "check": "The office explicitly distinguishes a refill request from prescription approval",
+      "evidence": "Agent said the request was \"sent\" and that \"They will review it and get back to you,\" but never explained that a review/approval is required or that sending a request is not the same as issuing a prescription.",
+      "passed": false
+    }
+  ],
+  "summary": "Agent accepted a refill request and told the caller the clinic support team would review it, but the call exhibits multiple workflow and state-management defects: the agent created a demo profile for an established patient (and populated an incorrect DOB that was not corrected), reported no medications on the chart yet later claimed to have sent a refill request, and never explicitly distinguished that a refill request is not the same as a prescription approval."
+}

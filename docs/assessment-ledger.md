@@ -1,8 +1,20 @@
 # PGai Assessment Ledger
 
-Tracked in git. Recordings, transcripts, and evaluations stay untracked under `calls/`
-(gitignored); preserved copies live in `calls/.preserved/<call>-<SID>/` and are pinned by
-recording MD5. This file carries no audio and no real patient data — every persona is synthetic.
+Tracked in git. Audio stays untracked under `calls/` (gitignored); preserved copies live in
+`calls/.preserved/<call>-<SID>/` pinned by recording MD5. Committed text evidence for every call
+is in [`evidence/`](evidence), and the consolidated report is [`findings.md`](findings.md).
+This file carries no audio and no real patient data — every persona is synthetic.
+
+**Final audit (end of campaign): 22 calls placed — 11 FINAL QUALITY, 4 VALID EVIDENCE, 6 VOID,
+1 in flight at audit time.** Per-call classification with exclusion reasons:
+[`evidence/README.md`](evidence/README.md). This file keeps the chronological narrative; the
+classification table there is authoritative where the two differ, because it was produced last.
+
+Scenario coverage gap to be honest about: **unusual-edge** and **medication-refill** have no
+FINAL QUALITY call. Their best carriers (call-005 / call-021 and call-006 / call-008) are
+VALID EVIDENCE, excluded for a 0.55s opening collision, an unprompted post-hangup utterance, a
+0.35s collision, and a token truncation respectively. Closing that gap needs two more live calls,
+which is a deliberate non-action rather than a lowered bar.
 
 ## Evidence caveat — transcript speaker labels are unstable
 

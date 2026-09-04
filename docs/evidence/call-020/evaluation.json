@@ -1,0 +1,47 @@
+{
+  "issues": [
+    {
+      "category": "state_management_error",
+      "confidence": 0.95,
+      "description": "Agent created a demo patient profile with an incorrect date of birth and failed to use the patient's provided DOB when creating the profile.",
+      "evidence": "Agent: 'Your patient profile has been created and your date of birth is set as July 4th, 2000 for demo purposes.' [74.1s]. User then corrected: 'My date of birth is August 22, 1991.' [99.8s\u2013102.8s].",
+      "recommendation": "Do not finalize or rely on auto-filled demo data for an established patient. When a record is not found, confirm key identifiers (DOB, full name, MRN, phone or email) with the patient before creating or saving a demo profile. Update or delete any incorrect demo record and re-check the actual patient record."
+    },
+    {
+      "category": "false_confirmation",
+      "confidence": 0.8,
+      "description": "Agent incorrectly confirmed the patient's last name ('Shaw') instead of the user's stated 'Shah', producing a false confirmation that could lead to mis-identification.",
+      "evidence": "Agent: 'Can I confirm your first name is Priya and your last name is Shaw?' [54.9s]. User corrected: 'My first name is Priya and my last name is Shah.' [61.1s].",
+      "recommendation": "Read back and ask the patient to spell uncommon or easily-misheard names, and explicitly confirm any corrections before creating or modifying records."
+    },
+    {
+      "category": "workflow_failure",
+      "confidence": 0.9,
+      "description": "Agent could not add the patient to a weekend waitlist or check other clinics and did not offer a clear, supported alternative other than transferring to live support.",
+      "evidence": "User asked: 'Is there a weekend waitlist I can join, or another clinic with weekend availability?' [178.2s]. Agent: 'I can't add you to a weekend wait list or check other clinics directly.' [185.0s] and offered transfer to live support at [189.3s].",
+      "recommendation": "When automated tools lack functionality, agent should offer concrete alternatives: collect contact info to notify if a weekend opening appears or to escalate a formal request, offer to place the patient on a cancellation list if available, provide estimated timeframes for next weekend availability, or query other clinics via escalation so the patient leaves with a clear next step rather than only a transfer option."
+    },
+    {
+      "category": "clarification_failure",
+      "confidence": 0.85,
+      "description": "Agent's schedule-search statement is ambiguous/truncated and does not clearly communicate the date range searched for weekend openings.",
+      "evidence": "Agent: 'There are no weekend openings between September.' [165.8s] followed moments later by 'There are no weekend openings.' [171.5s]. The phrasing is unclear about the search window (e.g., 'between September'\u2014between what dates?).",
+      "recommendation": "State clearly which date range and locations were searched (e.g., 'I searched weekends from Sept 1 through Nov 30 and found no openings at this clinic'). If the search is limited, offer to expand the search or specify next available weekend dates."
+    },
+    {
+      "category": "conversation_quality",
+      "confidence": 0.7,
+      "description": "Agent created a demo profile for a patient who stated they were established without explaining why the record could not be found or offering to check alternate identifiers.",
+      "evidence": "User: 'I'm actually already an established patient.' [19.1s]. Agent: 'Right now I don't see your profile in this system, so I'll need to create a demo profile to help with your request.' [49.3s].",
+      "recommendation": "When an established patient is not found, explain why (e.g., different system, incomplete migration), ask for alternate identifiers (MRN, phone, email), and offer to escalate to records or reconcile the record rather than immediately creating a demo profile."
+    }
+  ],
+  "scenario_checks": [
+    {
+      "check": "The office respects the weekend-only constraint.",
+      "evidence": "User requested a weekend appointment at [22.6s]; agent searched for weekend openings and did not reschedule the existing Friday appointment to another weekday, reporting 'There are no weekend openings' at [165.8s] and [171.5s].",
+      "passed": true
+    }
+  ],
+  "summary": "Agent attempted to find a weekend appointment and did not schedule a weekday, but there are multiple state-management and workflow problems: incorrect demo patient data was created, the agent confirmed the wrong last-name spelling, the schedule-search result was ambiguous, and the agent refused/was unable to offer waitlist/clinic alternatives without collecting an escalation/contact or giving clearer next steps."
+}

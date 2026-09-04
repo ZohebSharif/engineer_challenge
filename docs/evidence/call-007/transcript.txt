@@ -1,0 +1,65 @@
+[0.0s] A: This call may be recorded for quality and training purposes.
+[3.8s] A: Para español,
+[4.8s] A: oprima el dos.
+[8.0s] B: Thank
+[8.2s] A: Oh,
+[8.4s] B: you for
+[8.6s] A: English
+[8.6s] B: calling.
+[8.9s] A: for...
+[11.2s] A: Hi,
+[11.6s] B: No problem.
+[12.0s] A: Tuesday, October... I need
+[14.7s] B: Would you like
+[14.9s] A: the after... Please.
+[17.6s] B: just to confirm before
+[21.0s] B: I can help with scheduling?
+[21.9s] A: Sure. My original appointment is Tuesday,
+[24.1s] A: October 13th at 2 p.m.
+[27.6s] C: My
+[27.9s] B: Great.
+[27.9s] C: date of birth is June 9,
+[29.6s] C: 1975.
+[31.4s] C: Could you let me know what slots you've got on Thursday or Friday after 3 p.m.?
+[37.1s] B: I'll check the schedule for Thursday and Friday after 3 p.m.
+[40.5s] B: First, I'll need your first and last name to create your demo patient profile.
+[44.8s] B: Could you please provide them?
+[49.3s] C: My name is Daniel Ortiz.
+[65.7s] B: Your patient profile is set up and your date of birth is July 4th, 2000 for demo purposes.
+[71.9s] B: How can I help you today?
+[76.3s] C: No, that's not correct.
+[78.1s] C: My date of birth is June 9th, 1975.
+[83.1s] B: I have your date of birth as July 4th, 2000.
+[86.4s] B: I'll make a note that you stated June 9th, 1975.
+[90.6s] B: And let the clinic team know if needed.
+[93.0s] B: Would you like to continue with rescheduling your appointment for Thursday or Friday after 3 p.m.?
+[101.5s] C: Yes. Let's go ahead and check those available times, please.
+[108.5s] B: You have an appointment scheduled for Tuesday,
+[110.8s] B: September 8th at 10 a.m. with Kelly Noble,
+[113.4s] B: MD at Nashville 220 Athens Way.
+[116.7s] B: Is this the appointment you want to reschedule?
+[122.3s] C: No, that's not my appointment.
+[124.5s] C: My appointment is Tuesday,
+[126.0s] C: October 13th at 2 p.m.
+[129.5s] B: The only appointment I see on file is for Tuesday,
+[132.6s] B: September 8th at 10 a.m. with Kelly Noble,
+[136.1s] B: MD at Nashville 220 Athens Way.
+[139.3s] B: There isn't an appointment listed for October 13th at 2 p.m.
+[143.2s] B: Would you like to reschedule the September 8th appointment or do you want to check with the clinic about your October appointment?
+[152.9s] C: I'm sure my appointment is Tuesday,
+[154.8s] C: October 13th at 2 p.m. Could you double check the schedule for that?
+[160.5s] B: I only see an appointment for Tuesday,
+[162.5s] B: September 8th at 10 a.m. in your records.
+[166.1s] B: There's nothing listed for October 13th at 2 p.m.
+[169.5s] B: Would you like me to connect you to the clinic team so they can look into your October appointment?
+[177.7s] C: I'm certain my appointment is on October 13th at 2 p.m. Could you please check again for that date and time?
+[185.7s] B: I understand you're certain about your October 13th appointment,
+[188.7s] B: but I only see a September 8th appointment in your records.
+[192.4s] B: Would you like me to transfer you to the clinic team now so they can help confirm or locate your October appointment?
+[201.6s] C: Yes, that would help.
+[203.2s] C: Please go ahead and connect me so we can confirm that October 13th appointment.
+[209.8s] B: Transferring you now. Thank you.
+[213.0s] C: Hello, you've reached the pretty good AI test line.
+[215.6s] C: Thank you. Goodbye. I'll hold.
+[220.5s] C: Goodbye.
+[221.4s] C: Take care.

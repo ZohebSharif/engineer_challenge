@@ -1,0 +1,25 @@
+[0.0s] A: This call may be recorded for quality and training purposes.
+[3.8s] A: Para espanol,
+[4.9s] A: oprima el dos.
+[7.5s] B: Thank you for calling Pivot Point Orthopedics.
+[10.1s] B: Would you like to create a demo patient profile?
+[12.8s] B: I'll just need your first and last name to get started.
+[16.9s] C: Oh,
+[17.3s] C: I'm just calling to find out your regular office hours.
+[20.2s] C: Could you share those with me first?
+[24.0s] B: I don't have the office hours handy,
+[25.9s] B: but I can help you with other questions or help you create a demo patient profile if you'd like.
+[30.8s] B: Would you like to continue?
+[34.2s] C: I understand.
+[35.3s] C: Could you let me know where I can find your current office hours,
+[38.3s] C: or is there someone who has them available now?
+[42.8s] B: You can find the current office hours by scanning the QR code at the booth or by speaking with a staff member in person.
+[50.0s] B: If you need anything else or want to create a demo patient profile,
+[53.1s] B: just let me know.
+[56.6s] C: Thanks, that helps.
+[58.3s] C: I'll check with a staff member.
+[59.9s] C: Goodbye.
+[62.5s] B: You're welcome.
+[63.5s] B: Have a great day.
+[66.6s] C: Take care.
+[67.6s] C: Goodbye.

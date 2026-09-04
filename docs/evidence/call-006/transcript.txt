@@ -1,0 +1,42 @@
+[0.0s] A: This call may be recorded for quality and training purposes.
+[7.4s] B: Thank you for calling Pivot
+[8.3s] C: Hello,
+[8.5s] B: Point Org.
+[8.9s] C: I'll continue in English.
+[10.5s] C: I'm calling to request a refill for my lisinopril ten mg.
+[14.7s] C: Hi,
+[15.3s] C: this is Aisha Patel.
+[16.7s] C: I'm an established patient.
+[18.3s] C: I'm calling about a routine refill of my lisinopril ten mg.
+[23.8s] D: Thanks for letting me know,
+[25.4s] D: Aisha.
+[26.3s] D: Before I can help with your refill,
+[27.8s] D: would you like to create a demo patient profile?
+[30.2s] D: I just need your first and last name to get started.
+[34.6s] C: My name is Aisha Patel. That's spelled A-I-S-H-A,
+[39.3s] C: last name P-A-T-E-L.
+[43.5s] D: Thanks for spelling that out,
+[44.9s] D: Aisha.
+[45.7s] D: Let me finish setting up your demo patient profile,
+[48.5s] D: then I'll help with your refill request.
+[50.2s] D: One moment.
+[52.6s] D: Your patient profile is set up and your date of birth is July 4,
+[55.8s] D: 2000.
+[56.7s] D: How can I help you today?
+[60.7s] C: Actually, that's not my birth date.
+[62.8s] C: I'm just requesting a refill for my lisinopril 10 mg once daily.
+[70.8s] D: I don't see any medications on your chart that I can refill right now.
+[74.3s] D: If you'd like,
+[75.0s] D: I can connect you to our patient support team for more help.
+[77.9s] D: Would you like to speak with someone?
+[81.8s] C: Could you send a message to a clinician about my refill request?
+[91.2s] D: I've sent your refill request for lisinopril ten milligram once daily to our clinic support team.
+[97.0s] D: They will review it and get back to you as soon as they can.
+[99.9s] D: Is there anything else I can help you with?
+[104.1s] C: Thanks for confirming.
+[105.7s] C: I'll check with my pharmacy later.
+[107.5s] C: Goodbye.
+[109.9s] D: You're all set.
+[110.9s] D: Have a great day.
+[115.2s] C: Take care.
+[116.1s] C: Goodbye.

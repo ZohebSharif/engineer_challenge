@@ -1,0 +1,251 @@
+{
+  "segments": [
+    {
+      "end": 3.05,
+      "speaker": "A",
+      "start": 0.0,
+      "text": " This call may be recorded for quality and training purposes."
+    },
+    {
+      "end": 4.5,
+      "speaker": "A",
+      "start": 3.8,
+      "text": " Para espa\u00f1ol,"
+    },
+    {
+      "end": 5.65,
+      "speaker": "A",
+      "start": 4.9,
+      "text": " oprima el 2."
+    },
+    {
+      "end": 7.7,
+      "speaker": "B",
+      "start": 7.05,
+      "text": " Thank you for"
+    },
+    {
+      "end": 7.8,
+      "speaker": "C",
+      "start": 7.7,
+      "text": " I'm"
+    },
+    {
+      "end": 7.999999999999999,
+      "speaker": "B",
+      "start": 7.8,
+      "text": " calling."
+    },
+    {
+      "end": 10.4,
+      "speaker": "C",
+      "start": 7.999999999999999,
+      "text": " actually only able to speak English for this call."
+    },
+    {
+      "end": 11.8,
+      "speaker": "C",
+      "start": 10.5,
+      "text": " Could you help me in English,"
+    },
+    {
+      "end": 12.1,
+      "speaker": "C",
+      "start": 11.9,
+      "text": " please?"
+    },
+    {
+      "end": 14.299999999999999,
+      "speaker": "C",
+      "start": 13.049999999999999,
+      "text": " Hello, I'm Taylor Morgan."
+    },
+    {
+      "end": 16.2,
+      "speaker": "C",
+      "start": 14.7,
+      "text": " I'd like to schedule a routine appointment."
+    },
+    {
+      "end": 18.9,
+      "speaker": "B",
+      "start": 18.45,
+      "text": " Hi Taylor,"
+    },
+    {
+      "end": 21.9,
+      "speaker": "B",
+      "start": 19.0,
+      "text": " would you like to create a demo patient profile first?"
+    },
+    {
+      "end": 24.349999999999998,
+      "speaker": "B",
+      "start": 22.15,
+      "text": " I just need your first and last name to get started."
+    },
+    {
+      "end": 28.602,
+      "speaker": "C",
+      "start": 27.252,
+      "text": " I already have a profile."
+    },
+    {
+      "end": 30.151999999999997,
+      "speaker": "C",
+      "start": 29.052,
+      "text": " My name is Taylor Morgan."
+    },
+    {
+      "end": 34.402,
+      "speaker": "B",
+      "start": 32.402,
+      "text": " I do not see a profile for you yet."
+    },
+    {
+      "end": 39.102000000000004,
+      "speaker": "B",
+      "start": 34.702,
+      "text": " Would you like me to create a demo patient profile now so we can schedule your appointment?"
+    },
+    {
+      "end": 44.452,
+      "speaker": "C",
+      "start": 42.251999999999995,
+      "text": " No, my profile should already be there."
+    },
+    {
+      "end": 47.352000000000004,
+      "speaker": "C",
+      "start": 44.802,
+      "text": " My date of birth is January 5th, 1990."
+    },
+    {
+      "end": 52.202,
+      "speaker": "B",
+      "start": 49.652,
+      "text": " I still do not see a profile for you in the system."
+    },
+    {
+      "end": 54.302,
+      "speaker": "B",
+      "start": 52.552,
+      "text": " If you would like to schedule an appointment,"
+    },
+    {
+      "end": 57.902,
+      "speaker": "B",
+      "start": 54.902,
+      "text": " I need to create a demo patient profile first."
+    },
+    {
+      "end": 59.552,
+      "speaker": "B",
+      "start": 58.252,
+      "text": " Would you like to do that now?"
+    },
+    {
+      "end": 61.352000000000004,
+      "speaker": "B",
+      "start": 60.052,
+      "text": " I just need your first and last name."
+    },
+    {
+      "end": 65.852,
+      "speaker": "C",
+      "start": 63.952,
+      "text": " I need to be sure you've checked properly."
+    },
+    {
+      "end": 69.652,
+      "speaker": "C",
+      "start": 66.452,
+      "text": " Can you confirm the postal code 93101 on file?"
+    },
+    {
+      "end": 78.556,
+      "speaker": "B",
+      "start": 71.956,
+      "text": " I do not have access to any patient profile for you yet, so I cannot confirm any postal code on file."
+    },
+    {
+      "end": 80.256,
+      "speaker": "B",
+      "start": 78.85600000000001,
+      "text": " If you would like to continue,"
+    },
+    {
+      "end": 83.006,
+      "speaker": "B",
+      "start": 80.456,
+      "text": " I can create a demo patient profile for you now."
+    },
+    {
+      "end": 84.35600000000001,
+      "speaker": "B",
+      "start": 83.256,
+      "text": " Would you like to proceed?"
+    },
+    {
+      "end": 88.706,
+      "speaker": "C",
+      "start": 87.156,
+      "text": " I can't proceed that way."
+    },
+    {
+      "end": 92.506,
+      "speaker": "C",
+      "start": 88.956,
+      "text": " Could you check again or have a trained staff member help confirm my identity?"
+    },
+    {
+      "end": 98.426,
+      "speaker": "B",
+      "start": 95.476,
+      "text": " I understand you want a staff member to help confirm your identity."
+    },
+    {
+      "end": 101.026,
+      "speaker": "B",
+      "start": 99.026,
+      "text": " I'll connect you to our clinic support team."
+    },
+    {
+      "end": 102.276,
+      "speaker": "B",
+      "start": 101.326,
+      "text": " Please stay on the line."
+    },
+    {
+      "end": 104.326,
+      "speaker": "B",
+      "start": 103.026,
+      "text": " Transferring you now. Thank you."
+    },
+    {
+      "end": 106.026,
+      "speaker": "C",
+      "start": 105.826,
+      "text": " Hello."
+    },
+    {
+      "end": 108.626,
+      "speaker": "C",
+      "start": 106.426,
+      "text": " You've reached the Pretty Good AI test line."
+    },
+    {
+      "end": 109.076,
+      "speaker": "C",
+      "start": 108.726,
+      "text": " Goodbye."
+    },
+    {
+      "end": 112.626,
+      "speaker": "C",
+      "start": 112.326,
+      "text": " Goodbye."
+    }
+  ],
+  "text": "This call may be recorded for quality and training purposes. Para espa\u00f1ol, oprima el 2. Thank you for I'm calling. actually only able to speak English for this call. Could you help me in English, please? Hello, I'm Taylor Morgan. I'd like to schedule a routine appointment. Hi Taylor, would you like to create a demo patient profile first? I just need your first and last name to get started.\nI already have a profile. My name is Taylor Morgan. I do not see a profile for you yet. Would you like me to create a demo patient profile now so we can schedule your appointment? No, my profile should already be there. My date of birth is January 5th, 1990.\nI still do not see a profile for you in the system. If you would like to schedule an appointment, I need to create a demo patient profile first. Would you like to do that now? I just need your first and last name. I need to be sure you've checked properly. Can you confirm the postal code 93101 on file?\nI do not have access to any patient profile for you yet, so I cannot confirm any postal code on file. If you would like to continue, I can create a demo patient profile for you now. Would you like to proceed? I can't proceed that way. Could you check again or have a trained staff member help confirm my identity?\nI understand you want a staff member to help confirm your identity. I'll connect you to our clinic support team. Please stay on the line. Transferring you now. Thank you. Hello. You've reached the Pretty Good AI test line. Goodbye. Goodbye."
+}
