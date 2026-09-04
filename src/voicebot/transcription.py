@@ -2,7 +2,7 @@ from pathlib import Path
 from typing import Any, cast
 
 import httpx
-from pydantic import BaseModel, ConfigDict
+from pydantic import BaseModel, ConfigDict, model_validator
 
 from voicebot.config import Settings
 
@@ -17,10 +17,21 @@ class TranscriptSegment(BaseModel):
 
 
 class Transcript(BaseModel):
+    """Tolerates diarized payloads that carry only segments and no joined text."""
+
     model_config = ConfigDict(extra="ignore")
 
-    text: str
+    text: str = ""
     segments: list[TranscriptSegment] = []
+
+    @model_validator(mode="after")
+    def _derive_text(self) -> "Transcript":
+        if not self.text.strip() and self.segments:
+            joined = " ".join(
+                segment.text.strip() for segment in self.segments if segment.text.strip()
+            )
+            object.__setattr__(self, "text", joined)
+        return self
 
     def as_text(self) -> str:
         if not self.segments:

@@ -1,8 +1,12 @@
 from dataclasses import dataclass
 from pathlib import Path
 
+import structlog
+
 from voicebot.artifacts import CallMetadata
 from voicebot.evaluation import Evaluation, EvaluationIssue
+
+logger = structlog.get_logger()
 
 
 @dataclass(frozen=True, slots=True)
@@ -21,7 +25,12 @@ def collect_issues(calls_directory: Path, minimum_confidence: float) -> list[Rep
                 evaluation_path.with_name("metadata.json").read_text(encoding="utf-8")
             )
             scenario_id = metadata.scenario_id
-        except (OSError, ValueError):
+        except (OSError, ValueError) as exc:
+            logger.warning(
+                "evaluation_artifact_unreadable",
+                path=str(evaluation_path),
+                error=str(exc),
+            )
             continue
         issues.extend(
             ReportedIssue(evaluation_path.parent.name, scenario_id, issue)
