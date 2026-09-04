@@ -65,7 +65,7 @@ SCENARIOS = ScenarioRepository(Path(__file__).parents[1] / "src/voicebot/scenari
 
 def test_scenarios_are_valid_and_prompt_constrains_behavior() -> None:
     scenarios = SCENARIOS.list()
-    assert len(scenarios) == 3
+    assert len(scenarios) == 12
     prompt = build_patient_prompt(scenarios[0])
     assert scenarios[0].persona in prompt
     assert scenarios[0].objective in prompt

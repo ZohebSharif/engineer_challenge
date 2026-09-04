@@ -99,6 +99,15 @@ class ArtifactManager:
     def find(self, call_sid: str) -> CallArtifacts | None:
         return self._find_unlocked(call_sid)
 
+    def by_call_id(self, call_id: str) -> CallArtifacts:
+        suffix = call_id.removeprefix("call-")
+        if not (call_id.startswith("call-") and len(suffix) == 3 and suffix.isdigit()):
+            raise ValueError(f"Invalid call id: {call_id!r}")
+        artifacts = CallArtifacts(self.root / call_id)
+        if not artifacts.metadata.is_file():
+            raise ValueError(f"Unknown call: {call_id}")
+        return artifacts
+
     def _find_unlocked(self, call_sid: str) -> CallArtifacts | None:
         if not self.root.exists():
             return None

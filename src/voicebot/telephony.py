@@ -19,7 +19,12 @@ class CallResult(Protocol):
     status: str
 
 
+class CallContext(Protocol):
+    def fetch(self) -> CallResult: ...
+
+
 class CallsResource(Protocol):
+    def __call__(self, sid: str) -> CallContext: ...
     def create(
         self,
         *,
@@ -79,3 +84,14 @@ class TwilioGateway:
             recording_status_callback_method="POST",
         )
         return CreatedCall(sid=str(call.sid), status=str(call.status))
+
+    async def wait_until_complete(self, call_sid: str) -> str:
+        """Poll one call to a terminal state so suites never overlap calls."""
+        terminal = {"completed", "busy", "failed", "no-answer", "canceled"}
+        async with asyncio.timeout(self._settings.call_timeout_seconds):
+            while True:
+                call = await asyncio.to_thread(self._calls_resource()(call_sid).fetch)
+                status = str(call.status)
+                if status in terminal:
+                    return status
+                await asyncio.sleep(self._settings.suite_poll_seconds)

@@ -32,12 +32,12 @@ def test_healthcheck() -> None:
 
 
 def test_cli_requires_live_and_has_no_destination_option() -> None:
-    result = CliRunner().invoke(cli_app, [])
+    result = CliRunner().invoke(cli_app, ["call"])
     assert result.exit_code == 2
     output = strip_ansi(result.output)
     assert "Real calls require" in output
     assert "--live" in output
-    help_result = CliRunner().invoke(cli_app, ["--help"])
+    help_result = CliRunner().invoke(cli_app, ["call", "--help"])
     assert "--to" not in help_result.output
 
 

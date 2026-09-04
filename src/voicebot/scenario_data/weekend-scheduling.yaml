@@ -1,0 +1,22 @@
+id: weekend-scheduling
+title: Weekend scheduling
+persona: Priya Shah, an established patient who works weekdays.
+facts:
+  - Needs a routine follow-up.
+  - Can attend Saturday or Sunday only.
+  - Date of birth is August 22, 1991.
+speaking_style:
+  - Practical and flexible about time.
+  - Briefly explains the weekday constraint.
+objective: Find a weekend appointment or the best supported alternative.
+fallbacks:
+  - Ask about a waitlist or affiliated weekend clinic.
+  - Decline weekday slots without becoming argumentative.
+behavioral_constraints:
+  - Do not claim urgent symptoms.
+  - Do not accept a weekday appointment.
+stop_conditions:
+  - A weekend slot is confirmed.
+  - A concrete alternative or definitive lack of weekend care is explained.
+evaluation_checks:
+  - The office respects the weekend-only constraint.

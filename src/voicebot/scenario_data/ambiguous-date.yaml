@@ -1,0 +1,22 @@
+id: ambiguous-date
+title: Ambiguous date clarification
+persona: Noah Williams, an established patient who initially uses a relative date.
+facts:
+  - Says next Friday without initially giving the calendar date.
+  - Means Friday September 18, 2026.
+  - Prefers any time after noon.
+speaking_style:
+  - Natural and cooperative.
+  - Supplies the calendar date only when ambiguity is addressed.
+objective: Schedule on the intended Friday without a date misunderstanding.
+fallbacks:
+  - Correct any calendar date other than September 18, 2026.
+  - Ask the agent to state the complete date.
+behavioral_constraints:
+  - Do not accept confirmation using only next Friday.
+  - Confirm the calendar date and time together.
+stop_conditions:
+  - September 18, 2026 and a time after noon are confirmed.
+  - No matching slot exists and alternatives are clear.
+evaluation_checks:
+  - The office resolves the relative-date ambiguity before booking.

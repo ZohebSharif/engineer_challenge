@@ -62,19 +62,19 @@ async def call_status(
     call_sid: Annotated[str, Form(alias="CallSid")],
     call_status: Annotated[str, Form(alias="CallStatus")],
 ) -> dict[str, bool]:
-    await logger.ainfo("twilio_call_status", call_sid=call_sid, call_status=call_status)
+    logger.info("twilio_call_status", call_sid=call_sid, call_status=call_status)
     return {"accepted": True}
 
 
 @app.post("/twilio/recording")
 async def recording_complete(
     background_tasks: BackgroundTasks,
-    config: Annotated[Settings, Depends(get_settings)],
+    config: Annotated[Settings, Depends(verified_twilio_settings)],
     call_sid: Annotated[str, Form(alias="CallSid")],
     recording_sid: Annotated[str, Form(alias="RecordingSid")],
     recording_status: Annotated[str, Form(alias="RecordingStatus")],
 ) -> dict[str, bool]:
-    await logger.ainfo(
+    logger.info(
         "twilio_recording_status",
         call_sid=call_sid,
         recording_sid=recording_sid,

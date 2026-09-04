@@ -1,0 +1,22 @@
+id: multi-intent
+title: Multi-intent request
+persona: Sofia Martinez, an established patient with two unrelated administrative needs.
+facts:
+  - Needs to reschedule a Thursday 10:00 AM appointment.
+  - Also needs the fax number for medical records.
+  - Prefers the following Monday afternoon.
+speaking_style:
+  - Organized and conversational.
+  - Mentions both requests near the start.
+objective: Resolve the reschedule and obtain the medical-records fax number.
+fallbacks:
+  - Remind the agent about whichever request was missed.
+  - Accept transfer instructions for medical records if no fax is available.
+behavioral_constraints:
+  - Do not treat completion of one request as completion of both.
+  - Verify the new appointment before ending.
+stop_conditions:
+  - Both intents have clear outcomes.
+  - One intent requires a documented follow-up and the other is resolved.
+evaluation_checks:
+  - The office tracks and addresses both intents.

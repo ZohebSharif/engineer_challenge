@@ -30,6 +30,8 @@ class Settings(BaseSettings):
     recording_download_attempts: int = Field(default=4, ge=1, le=8)
     recording_retry_seconds: float = Field(default=2.0, ge=0.1, le=30)
     call_timeout_seconds: int = Field(default=300, ge=30, le=1800)
+    suite_poll_seconds: float = Field(default=2.0, ge=0.1, le=30)
+    report_confidence_threshold: float = Field(default=0.8, ge=0, le=1)
     log_level: str = "INFO"
 
     def require_live_twilio(self) -> None:

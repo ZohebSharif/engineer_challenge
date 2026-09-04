@@ -3,7 +3,7 @@ from pathlib import Path
 
 import structlog
 
-from voicebot.artifacts import ArtifactManager, CallMetadata
+from voicebot.artifacts import ArtifactManager, CallArtifacts, CallMetadata
 from voicebot.evaluation import ConversationEvaluator
 from voicebot.recordings import RecordingDownloader
 from voicebot.scenarios import ScenarioRepository
@@ -42,6 +42,16 @@ class AnalysisPipeline:
             await self._fail(files.metadata, metadata, "recording", exc)
             return
 
+        await self._analyze_saved(files, metadata)
+
+    async def reanalyze(self, call_id: str) -> None:
+        files = self._artifacts.by_call_id(call_id)
+        if not files.recording.is_file():
+            raise ValueError(f"{call_id} has no recording.mp3")
+        metadata = self._artifacts.read_metadata(files)
+        await self._analyze_saved(files, metadata)
+
+    async def _analyze_saved(self, files: CallArtifacts, metadata: CallMetadata) -> None:
         transcript: Transcript
         try:
             transcript = await self._transcriber.transcribe(files.recording)
@@ -68,7 +78,7 @@ class AnalysisPipeline:
         setattr(metadata, f"{stage}_status", "failed")
         metadata.errors.append(f"{stage}: {type(exc).__name__}: {exc}")
         self._save_metadata(metadata_path, metadata)
-        await logger.aexception("call_analysis_failed", stage=stage, call_sid=metadata.call_sid)
+        logger.exception("call_analysis_failed", stage=stage, call_sid=metadata.call_sid)
 
     def _save_metadata(self, path: Path, metadata: CallMetadata) -> None:
         metadata.updated_at = datetime.now(UTC)
