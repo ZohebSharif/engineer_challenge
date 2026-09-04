@@ -8,7 +8,7 @@ from fastapi import WebSocket, WebSocketDisconnect, status
 
 from voicebot.config import Settings
 from voicebot.realtime import OpenAIRealtimeClient, RealtimeSession
-from voicebot.scenarios import ScenarioRepository
+from voicebot.scenarios import Scenario, ScenarioRepository
 from voicebot.sessions import SessionStore
 from voicebot.turns import TurnManager
 
@@ -16,23 +16,17 @@ logger = structlog.get_logger()
 
 
 class RealtimeClient(Protocol):
-    async def open(self, scenario: object) -> RealtimeSession: ...
+    async def open(self, scenario: Scenario) -> RealtimeSession: ...
 
 
 async def run_media_bridge(
     websocket: WebSocket,
     settings: Settings,
     sessions: SessionStore,
-    realtime_client: OpenAIRealtimeClient | None = None,
+    realtime_client: RealtimeClient | None = None,
     scenarios: ScenarioRepository | None = None,
 ) -> None:
     """Bridge Twilio PCMU frames to OpenAI and return generated PCMU unchanged."""
-    expected = (
-        settings.media_stream_token.get_secret_value() if settings.media_stream_token else None
-    )
-    if expected is None or websocket.query_params.get("token") != expected:
-        await websocket.close(code=status.WS_1008_POLICY_VIOLATION)
-        return
     await websocket.accept()
     call_sid: str | None = None
     realtime: RealtimeSession | None = None
@@ -48,8 +42,17 @@ async def run_media_bridge(
         call_sid = str(start.get("callSid", ""))
         stream_sid = str(start.get("streamSid", ""))
         custom = _mapping(start.get("customParameters"))
+        provided_token = custom.get("token")
+        expected_token = (
+            settings.media_stream_token.get_secret_value() if settings.media_stream_token else None
+        )
         scenario_id = str(custom.get("scenario", settings.default_scenario))
-        if not call_sid or not stream_sid:
+        if (
+            not call_sid
+            or not stream_sid
+            or expected_token is None
+            or provided_token != expected_token
+        ):
             await websocket.close(code=status.WS_1008_POLICY_VIOLATION)
             return
 
@@ -149,9 +152,11 @@ async def _openai_to_twilio(
         elif event_type in {"response.done", "response.output_audio.done"}:
             turns.output_finished()
         elif event_type == "error":
-            await logger.aerror(
-                "openai_realtime_error", call_sid=call_sid, error=event.get("error")
-            )
+            error = _mapping(event.get("error"))
+            if error.get("code") == "response_cancel_not_active":
+                logger.debug("openai_cancel_already_complete", call_sid=call_sid)
+                continue
+            await logger.aerror("openai_realtime_error", call_sid=call_sid, error=error)
             raise RuntimeError("OpenAI Realtime returned an error")
         else:
             await logger.adebug("openai_realtime_event", call_sid=call_sid, event=event_type)

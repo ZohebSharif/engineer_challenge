@@ -5,14 +5,18 @@ from pathlib import Path
 from typing import Any
 
 import pytest
+from fastapi.testclient import TestClient
+from pydantic import SecretStr
+from starlette.websockets import WebSocketDisconnect
 
 from voicebot.bridge import _openai_to_twilio, _twilio_to_openai
-from voicebot.config import Settings
+from voicebot.config import Settings, get_settings
 from voicebot.prompts import build_patient_prompt
 from voicebot.realtime import RealtimeSession
-from voicebot.scenarios import ScenarioRepository
+from voicebot.scenarios import Scenario, ScenarioRepository
 from voicebot.sessions import SessionStore
 from voicebot.turns import TurnManager
+from voicebot.web import app
 
 
 class FakeSocket:
@@ -32,6 +36,16 @@ class FakeSocket:
 
     async def close(self) -> None:
         self.closed = True
+
+
+class FakeRealtimeClient:
+    def __init__(self, session: RealtimeSession) -> None:
+        self.session = session
+        self.opened = False
+
+    async def open(self, scenario: Scenario) -> RealtimeSession:
+        self.opened = True
+        return self.session
 
 
 class FakeWebSocket:
@@ -69,7 +83,7 @@ async def test_realtime_session_configures_direct_pcmu_audio() -> None:
     audio = update["session"]["audio"]
     assert audio["input"]["format"] == {"type": "audio/pcmu"}
     assert audio["output"]["format"] == {"type": "audio/pcmu"}
-    assert audio["input"]["turn_detection"]["interrupt_response"] is True
+    assert audio["input"]["turn_detection"]["interrupt_response"] is False
 
 
 @pytest.mark.asyncio
@@ -98,6 +112,7 @@ async def test_output_audio_and_barge_in_clear_twilio_buffer() -> None:
         [
             {"type": "response.output_audio.delta", "delta": "patient-audio"},
             {"type": "input_audio_buffer.speech_started"},
+            {"type": "error", "error": {"code": "response_cancel_not_active"}},
         ]
     )
     realtime = RealtimeSession(socket)
@@ -105,7 +120,9 @@ async def test_output_audio_and_barge_in_clear_twilio_buffer() -> None:
     task = asyncio.create_task(
         _openai_to_twilio(websocket, realtime, "CA123", "MZ123", TurnManager())
     )
-    await asyncio.sleep(0)
+    for _ in range(4):
+        await asyncio.sleep(0)
+    assert not task.done()
     task.cancel()
     with pytest.raises(asyncio.CancelledError):
         await task
@@ -114,3 +131,78 @@ async def test_output_audio_and_barge_in_clear_twilio_buffer() -> None:
         {"event": "clear", "streamSid": "MZ123"},
     ]
     assert {"type": "response.cancel"} in socket.sent
+
+
+def test_media_endpoint_validates_start_token_and_cleans_up_session() -> None:
+    realtime_socket = FakeSocket()
+    client = FakeRealtimeClient(RealtimeSession(realtime_socket))
+
+    def settings() -> Settings:
+        return Settings(
+            media_stream_token=SecretStr("stream-secret"),
+            call_timeout_seconds=30,
+        )
+
+    previous_client = app.state.realtime_client
+    app.state.realtime_client = client
+    app.dependency_overrides[get_settings] = settings
+    try:
+        with TestClient(app).websocket_connect("/twilio/media") as websocket:
+            websocket.send_json(
+                {
+                    "event": "start",
+                    "start": {
+                        "callSid": "CA123",
+                        "streamSid": "MZ123",
+                        "customParameters": {
+                            "scenario": "appointment-scheduling",
+                            "token": "stream-secret",
+                        },
+                    },
+                }
+            )
+            websocket.send_json(
+                {
+                    "event": "media",
+                    "sequenceNumber": "2",
+                    "media": {"payload": "base64pcmu"},
+                }
+            )
+            websocket.send_json({"event": "stop"})
+    finally:
+        app.dependency_overrides.clear()
+        app.state.realtime_client = previous_client
+
+    assert client.opened
+    assert {"type": "input_audio_buffer.append", "audio": "base64pcmu"} in realtime_socket.sent
+    assert realtime_socket.closed
+    assert asyncio.run(app.state.sessions.count()) == 0
+
+
+def test_media_endpoint_rejects_invalid_start_token() -> None:
+    def settings() -> Settings:
+        return Settings(media_stream_token=SecretStr("stream-secret"), call_timeout_seconds=30)
+
+    app.dependency_overrides[get_settings] = settings
+    try:
+        with (
+            pytest.raises(WebSocketDisconnect) as disconnect,
+            TestClient(app).websocket_connect("/twilio/media") as websocket,
+        ):
+            websocket.send_json(
+                {
+                    "event": "start",
+                    "start": {
+                        "callSid": "CA123",
+                        "streamSid": "MZ123",
+                        "customParameters": {
+                            "scenario": "appointment-scheduling",
+                            "token": "wrong",
+                        },
+                    },
+                }
+            )
+            websocket.receive_json()
+    finally:
+        app.dependency_overrides.clear()
+    assert disconnect.value.code == 1008

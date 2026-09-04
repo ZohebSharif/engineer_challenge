@@ -4,7 +4,6 @@ from unittest.mock import Mock
 import pytest
 from fastapi.testclient import TestClient
 from pydantic import SecretStr
-from starlette.websockets import WebSocketDisconnect
 from typer.testing import CliRunner
 
 from voicebot.cli import app as cli_app
@@ -52,18 +51,7 @@ def test_voice_webhook_connects_bidirectional_stream() -> None:
         app.dependency_overrides.clear()
     assert response.status_code == 200
     assert (
-        '<Connect><Stream url="wss://voice.example/twilio/media?token=stream-secret"'
-        in response.text
+        '<Connect><Stream url="wss://voice.example/twilio/media">'
+        '<Parameter name="scenario" value="appointment-scheduling" />'
+        '<Parameter name="token" value="stream-secret" />' in response.text
     )
-
-
-def test_media_stream_rejects_wrong_token() -> None:
-    app.dependency_overrides[get_settings] = live_settings
-    try:
-        with (
-            pytest.raises(WebSocketDisconnect),
-            TestClient(app).websocket_connect("/twilio/media?token=wrong"),
-        ):
-            pass
-    finally:
-        app.dependency_overrides.clear()

@@ -15,6 +15,8 @@ configure_logging(settings.log_level)
 logger = structlog.get_logger()
 app = FastAPI(title="Voicebot", version="0.2.0")
 app.state.sessions = SessionStore()
+app.state.realtime_client = None
+app.state.scenarios = ScenarioRepository()
 
 
 @app.get("/healthz")
@@ -30,7 +32,7 @@ async def voice_webhook(
     if config.public_base_url is None or config.media_stream_token is None:
         return Response("Live stream configuration is incomplete", status_code=503)
     try:
-        selected = ScenarioRepository().load(scenario)
+        selected = app.state.scenarios.load(scenario)
     except ValueError as exc:
         return Response(str(exc), status_code=400)
     base = (
@@ -43,11 +45,10 @@ async def voice_webhook(
     connect = Connect()
     stream = cast(
         Stream,
-        connect.stream(
-            url=f"{base}/twilio/media?token={config.media_stream_token.get_secret_value()}"
-        ),
+        connect.stream(url=f"{base}/twilio/media"),
     )
     stream.parameter(name="scenario", value=selected.id)
+    stream.parameter(name="token", value=config.media_stream_token.get_secret_value())
     response.append(connect)
     return Response(content=str(response), media_type="application/xml")
 
@@ -65,4 +66,10 @@ async def call_status(
 async def media_stream(
     websocket: WebSocket, config: Annotated[Settings, Depends(get_settings)]
 ) -> None:
-    await run_media_bridge(websocket, config, app.state.sessions)
+    await run_media_bridge(
+        websocket,
+        config,
+        app.state.sessions,
+        realtime_client=app.state.realtime_client,
+        scenarios=app.state.scenarios,
+    )
