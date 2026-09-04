@@ -35,7 +35,7 @@ Consequences:
 | call-005 | CA2f01743acf60bfa39463a563955ee904 | unusual-edge | **Quality Call #1** | Preserved, submission candidate |
 | call-006 | CA8157745d7e7c219e50ced0b7bf4a368d | medication-refill | **Quality Call #2** | Preserved, submission candidate / **quality pending** (rough opening) |
 | call-007 | CA977137d4640c47f53439b0eda3841029 | rescheduling | evidence only | **VOID for final quality** — materially rough opening (0.85s collision + 5 more through 22s) |
-| call-008 | CA487ad55f374496b7e887560315ffcab7 | insurance | **Quality Call #3** | **CONFIRMED submission-quality** — first clean opening, zero overlap |
+| call-008 | CA487ad55f374496b7e887560315ffcab7 | insurance | evidence only | **SUSPECT** — clean opening, but one caller utterance truncated mid-word at 24.15s ("...the insur\|") |
 | call-009 | CAf15f306168497ba9b5b514336d9497ce | multi-intent | evidence only | **VOID for final quality** — caller speech truncated mid-word; talked into a closed line |
 
 Calls 1-3 are harness-debug artifacts and MUST NOT be used as evidence about PGai at all.
@@ -214,7 +214,7 @@ Version attribution — call-008 exercised PR #14 (`b34af44`), NOT the current h
 - Therefore call-008 validates the event-driven release only. The `opening_hold_seconds`
   2.0 -> 3.0 change and the call-004-pattern hold from #15 remain UNCONFIRMED live.
 
-## Quality Call #3 — call-008 (insurance, 3:16) — CONFIRMED submission-quality
+## Quality Call #3 — call-008 (insurance, 3:16) — DEMOTED to SUSPECT (see retro-audit)
 
 Preserved: `calls/.preserved/call-008-CA487ad55f374496b7e887560315ffcab7/`
 (recording md5 87801ed0d668410c9c673a3e05c78036)
@@ -356,6 +356,36 @@ it is downstream of the missing terminal state.
   Same rule as calls 5 and 7. Note it again surfaced the shared "Tuesday, September 8th at 10 a.m.
   with Kelly Noble" record seen in calls 4 and 7.
 
+
+## Token-ceiling retro-audit (calls 4, 5, 6, 8) — audio evidence only
+
+Question: did `max_output_tokens: 180` truncate caller speech in the quality set?
+
+Method: our channel (ch1) only, per-utterance spans at 50ms RMS with a 0.45s silence boundary,
+then an abruptness metric — mean RMS over the final 100ms before each utterance end. Calibrated
+against call-009's known truncations (2065 / 2498 / 2819) versus known natural endings
+(222 / 393). Threshold 1200. Every flagged end was re-transcribed from our channel alone over a
+window extending 11s past the cut. Diarization was not used for any classification.
+
+| Call | Longest caller utterance | Utterances >=6.0s | Ending quality | Verdict |
+|---|---|---|---|---|
+| call-004 | 4.30s | 0 | all natural decay; flagged 9.15s end is an internal pause, speech resumes 10.8s | **CLEAN** |
+| call-005 | 5.30s | 0 | complete text at every end ("...postal code 93101 on file?", "Goodbye.") | **CLEAN** |
+| call-006 | 6.45s | 3 (6.00 / 6.40 / 6.45s) | tails decay (773 / 638 / 259) and text is complete | **CLEAN (ceiling-adjacent)** |
+| call-008 | 5.65s | 0 (but 17.5-24.15s merges to 6.65s) | **truncated**: "...Could we focus on the insur\|" at 24.15s, last100=3569, silence to 37.6s | **SUSPECT** |
+| call-009 | 6.75s | 6 | 5 abrupt cuts | **VOID** (already) |
+
+Findings:
+- call-004 and call-005 never approached the ceiling. Unaffected.
+- call-006 sat at 6.00-6.45s three times yet every ending decays naturally with complete text, so
+  it came close without being cut. Keep, with the caveat recorded.
+- call-008 IS affected. The diarized transcript reads "Could we focus on the insurance?" but our
+  channel stops mid-word after "insur". Meaning survived (PGai answered "About your insurance...")
+  and the finding at 126.2s is 100s away and unaffected, so call-008 remains valid EVIDENCE — but
+  it is no longer presentation-clean.
+- The ceiling was active for the whole campaign; the reason calls 4-6 escaped is utterance length,
+  not luck of timing.
+
 ## Open watch items
 1. Unprompted identity disclosure by our caller — 2 observations (call-004 63.2s,
    call-005 44.8s/66.5s). Scenario-design tension: the disclosure-timing rule
@@ -382,8 +412,8 @@ it is downstream of the missing terminal state.
    (7.4s), confirming it is their fixture identity rather than a per-call fabrication. Downgraded:
    likely sandbox naming, not a reasoning defect.
 5. Caller output truncation — **FIXED IN CODE (max_output_tokens 180 -> 800), unconfirmed live.**
-   Retroactively suspect in earlier calls: any of our utterances measuring ~6.5s may have been
-   cut. Re-measure response durations on the next call; a spread above 6.75s confirms the fix.
+   Retro-audit of the quality set completed; see "Token-ceiling retro-audit". Re-measure response
+   durations on the next live call: a spread above 6.75s confirms the fix.
 6. Caller terminal-state handling — **FIXED IN PROMPT, unconfirmed live.** Verify on the next call
    that a transfer or goodbye is followed by silence, not restated requests.
 
