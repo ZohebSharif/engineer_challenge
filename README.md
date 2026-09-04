@@ -16,7 +16,7 @@ report.
 | Informal engineering notes / debugging story | [`napkin_notes.md`](napkin_notes.md) |
 | Subsystem boundaries and tradeoffs | [`architecture.md`](architecture.md) |
 
-22 calls placed across 12 scenarios: 11 final-quality, 4 valid-evidence, 6 void (all void for
+22 calls placed across 12 scenarios: 12 final-quality, 4 valid-evidence, 6 void (all void for
 *our* caller-side or infrastructure reasons, each reason recorded). Audio is deliberately not
 committed — it contains a third party's voice — but every recording is pinned by Twilio SID and
 MD5 in the evidence index so it can be re-fetched and byte-verified.

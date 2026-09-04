@@ -58,7 +58,7 @@ Uncontaminated: every fabrication precedes any DOB from our caller, and all occu
 call, far from any opening-collision window.
 
 ### F2 — Gates public, non-sensitive information behind profile creation, then abandons it
-**Severity: medium-high. Reproduced in 4 calls across 3 scenarios.**
+**Severity: medium-high. Reproduced in 5 calls across 3 scenarios.**
 
 - call-008, insurance, 126.2s: *"I'm not able to give out the billing office number without a
   patient profile."* (also 99.6s, 121.8s) A billing office number is public contact information,
@@ -70,14 +70,18 @@ call, far from any opening-collision window.
 - call-011, multi-intent: same pattern, four promises (28.9s, 150.5s, 177.5s, 207.7s) and an
   explicit request at 218.1s (*"please go ahead and give me that fax number before the
   transfer"*), then transfer at 221.9s with the number never given.
+- call-022, multi-intent: the fax number is promised twice more (73.1s, 98.8s: *"Once that's set
+  up, I can help with rescheduling and provide the fax number"*), always conditioned on creating a
+  profile, then the call transfers at 117.0s with neither request resolved. Third independent
+  reproduction in this scenario.
 - call-016, office-hours, 24.0s: *"I don't have the office hours handy."* Office hours are the most
   basic public fact a clinic line should know; the caller was redirected to a QR code at the booth.
 
 Why this is falsifiable while "can't find my record" is not: whether a fax number, billing number,
 or opening hours is public information does not depend on the contents of their sandbox database.
 
-**Explicitly not claimed:** that PGai forgot the second intent. In call-009 and call-011 it tracked
-the fax request faithfully across many turns. The defect is non-fulfilment, not memory.
+**Explicitly not claimed:** that PGai forgot the second intent. In calls 009, 011, and 022 it
+tracked the fax request faithfully across many turns. The defect is non-fulfilment, not memory.
 
 ### F3 — Ends the call while the caller's request is unresolved
 **Severity: high. Reproduced in 2 calls across 2 scenarios.**
@@ -129,13 +133,14 @@ response to dead air. Reported only as an observation for this reason.
 
 ## 3. Weak / unverified candidates (not reported as bugs)
 
-- **Transfer dead-end** (calls 5, 7, 9, 11, 19, 20): "Transferring you now" is followed
-  immediately by "You've reached the Pretty Good AI test line. Goodbye" and the call ends. Six
+- **Transfer dead-end** (calls 5, 7, 9, 11, 19, 20, 22): "Transferring you now" is followed
+  immediately by "You've reached the Pretty Good AI test line. Goodbye" and the call ends. Seven
   observations, yet still unreportable: the destination is plausibly an unstaffed sandbox endpoint,
   and we cannot distinguish that from a broken transfer without knowing their intended routing.
 - **Demo-profile push despite an established-patient claim** (calls 4, 5, 6, 9, 11, 13, 15, 19,
-  20): highly consistent, but rests on the premise that a record exists — see attribution rule 3.
-  Excluded on principle despite nine observations.
+  20, 22): highly consistent, but rests on the premise that a record exists — see attribution
+  rule 3. Excluded on principle despite ten observations. call-022 is the purest instance: five
+  consecutive refusals to search, ending in a transfer with both requests unresolved.
 - **Facility/specialty mismatch:** "Pivot Point Orthopedics" booking an annual physical (call-004)
   looked wrong until call-006's greeting confirmed Pivot Point is their fixture identity.
   Downgraded to sandbox naming.

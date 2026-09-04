@@ -27,7 +27,7 @@ SID, and the recording MD5 so any recording can be re-fetched and byte-verified.
 | call-019 | rescheduling | FINAL QUALITY | 223.0s | `CA3ea752055fac2af800586862fd25301f` | `RE794d2b9c89968edd0a958e450557e36c` | `c94c56719f8e8b2f470e1b5f7a5096dd` |
 | call-020 | weekend-scheduling | FINAL QUALITY | 221.7s | `CAba4667e71289f9e8809630ad641f3f57` | `REb2bb4db2ecad6e7ab0dd0740bbe2817f` | `734cf9aa7f4d79141f63e2953a0d2a69` |
 | call-021 | unusual-edge | VALID EVIDENCE | 34.7s | `CA964178fdd8869e578127de5ebe1588e3` | `RE54ad6aa59b74e9183745f31d516f0ffd` | `83160ecbcf6f0465e045860d9a4c5691` |
-| call-022 | multi-intent | EXCLUDED | 127.7s | `CAbccd2fb58de0472a2490e35f901767c1` | `-` | `2b9189717a12059343a44dc2a1a0dc5a` |
+| call-022 | multi-intent | FINAL QUALITY | 127.7s | `CAbccd2fb58de0472a2490e35f901767c1` | `REf351c2080e80126401d6b0d6df8fd233` | `2b9189717a12059343a44dc2a1a0dc5a` |
 
 ## Exclusion reasons
 
@@ -41,7 +41,6 @@ SID, and the recording MD5 so any recording can be re-fetched and byte-verified.
 - **call-009 — VOID**: token truncation removed the second intent from the caller's first turn; also spoke into a closed line
 - **call-018 — VOID**: caller stalled from 55.7s and never answered; call died at 89.2s
 - **call-021 — VALID EVIDENCE**: PGai ended the call at 29.0s (finding F3); our caller then spoke into the closed line
-- **call-022 — EXCLUDED**: still in progress at audit time; no artifacts
 
 ## Final-quality selection
 
@@ -56,3 +55,4 @@ SID, and the recording MD5 so any recording can be re-fetched and byte-verified.
 - **call-017** (interruption): post-fix; recording callback was lost and recovered from Twilio by SID; caveat: caller never actually barged in
 - **call-019** (rescheduling): post-fix: zero overlap, longest 5.95s
 - **call-020** (weekend-scheduling): post-fix: zero overlap; PGai restarted its own session mid-call (finding F5)
+- **call-022** (multi-intent): post-fix: zero overlap, onset 17.45s, longest 7.65s verified complete; both intents stated in the opening turn, so the scenario premise was satisfied
