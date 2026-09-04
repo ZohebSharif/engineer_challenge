@@ -1,0 +1,70 @@
+import asyncio
+from dataclasses import dataclass
+from typing import Protocol, cast
+
+from twilio.rest import Client
+
+from voicebot.config import AUTHORIZED_DESTINATION, Settings
+
+
+@dataclass(frozen=True, slots=True)
+class CreatedCall:
+    sid: str
+    status: str
+
+
+class CallResult(Protocol):
+    sid: str
+    status: str
+
+
+class CallsResource(Protocol):
+    def create(
+        self,
+        *,
+        to: str,
+        from_: str,
+        url: str,
+        method: str,
+        status_callback: str,
+        status_callback_event: list[str],
+    ) -> CallResult: ...
+
+
+class TwilioGateway:
+    """The sole boundary allowed to create billable phone calls."""
+
+    def __init__(self, settings: Settings, calls: CallsResource | None = None) -> None:
+        self._settings = settings
+        self._calls = calls
+
+    def _calls_resource(self) -> CallsResource:
+        if self._calls is not None:
+            return self._calls
+        self._settings.require_live_twilio()
+        assert self._settings.twilio_account_sid is not None
+        assert self._settings.twilio_auth_token is not None
+        return cast(
+            CallsResource,
+            Client(
+                self._settings.twilio_account_sid,
+                self._settings.twilio_auth_token.get_secret_value(),
+            ).calls,
+        )
+
+    async def create_authorized_call(self) -> CreatedCall:
+        """Call only the compile-time authorized destination."""
+        self._settings.require_live_twilio()
+        assert self._settings.public_base_url is not None
+        assert self._settings.twilio_from_number is not None
+        base = str(self._settings.public_base_url).rstrip("/")
+        call = await asyncio.to_thread(
+            self._calls_resource().create,
+            to=AUTHORIZED_DESTINATION,
+            from_=self._settings.twilio_from_number,
+            url=f"{base}/twilio/voice",
+            method="POST",
+            status_callback=f"{base}/twilio/status",
+            status_callback_event=["initiated", "ringing", "answered", "completed"],
+        )
+        return CreatedCall(sid=str(call.sid), status=str(call.status))
