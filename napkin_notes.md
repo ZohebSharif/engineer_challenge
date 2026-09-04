@@ -1,156 +1,215 @@
 # napkin notes
 
-Running notes from the campaign. Not documentation — this is the debugging story in order.
-Polished version: `README.md`, `docs/findings.md`, `docs/assessment-ledger.md`.
+Running notes from the live-call campaign, in order. Not polished documentation — this is the
+debugging story as it happened. Polished versions: [`README.md`](README.md),
+[`docs/findings.md`](docs/findings.md), [`docs/assessment-ledger.md`](docs/assessment-ledger.md).
 
 ---
 
-## build order
+## Call 1 — Protocol failure
 
-- PR1 foundation → Twilio gateway, `--live` gate, one hard-coded destination, no `--to` flag ever
-- PR2 realtime patient → bridge, PCMU straight through, no transcode
-- PR3 analysis → recording → diarized transcript → structured eval
-- PR4 polish → 12 scenarios, aggregate report, architecture doc
+- Protocol failure
+- → found incorrect Twilio handshake assumption
+- → minimal protocol fix
+- → preserved authentication
+- → regression tests
 
----
+## Call 2 — VOID
 
-## call 1 — protocol failure
+- VOID — misclick
 
-- call answered → hung up in **0 seconds**. duration=0, price=0, recording 835 bytes / 0.1s
-- transcript = one line, the *other* agent saying "Thank you"
-- assumed our audio path was broken → wrong
-- Twilio alert **31921** on the call SID: *"your server closed the WebSocket"*
-- `<Connect><Stream>` is terminal → closing the stream ends the call
-- root cause: bridge required `start` as first frame. Twilio actually sends
-  `{"event":"connected"}` **first**, then `start`. We 1008'd their handshake.
-- fix = consume exactly one `connected`, then require `start`. auth untouched.
-- 3 rejection tests kept passing → proved auth wasn't weakened
-- our tests had been sending `start` first → the suite encoded the bug
-- bonus find while writing tests: `logger.info("x", event=...)` → structlog reserves `event`.
-  Any Twilio `mark`/`dtmf` frame would have crashed the bridge mid-call. 3 sites renamed.
+## Call 3 — Behavioral drift
 
-## call 3 — voice works, caller doesn't
+- Voice pipeline works
+- → new problem: behavioral drift
+- → correctly leave telephony alone
+- → inspect prompt + Realtime config
+- → identify weak invariants + aggressive VAD
+- → minimal prompt/config changes
+- → regression tests
 
-- audio flows both ways. pipeline end to end. 
-- but: DOB drifted **1988 → 1980**, switched to **Spanish**, said **"I can help with that"**
-- telephony untouched — zero evidence it was involved
-- prompt said "Facts you may state" = permission, not immutability. no language pin. role named
-  once and never defended against an assistant-trained base model
-- fixes: immutable-facts block, `Scenario.language` (default English), explicit "never the
-  receptionist", "let the other party finish"
-- VAD `silence_duration_ms` 550 → 1200 (was answering into their pauses)
+## Call 4 — Behavioral fixes validated
 
-## call 4 — first real conversation
+- → behavioral fixes validated
+- → DOB/language/role stayed consistent
+- → turn-taking improved
+- → full scheduling flow completed
+- → PGAI used conflicting demo DOB, never reconciled correction
+- → caller now reliable → move to diverse scenarios
 
-- full scheduling flow, booking confirmed, clean close, 2:33
-- caller held DOB, language, role. "I can help with that" now comes from **their** side
-- and the actual finding lands: **"your date of birth is July 4, 2000 for demo purposes"**
-  — we never gave a DOB
-- caller corrects → they ignore it → book anyway
+## Call 5 — Unusual edge — **QUALITY CALL #1**
 
-## call 5 — unusual-edge
+- → identity/privacy stress test
+- → caller held facts + refused duplicate profile
+- → PGAI couldn't locate claimed existing profile
+- → correctly escalated to staff
+- → transfer appears to terminate at test line
+- → opening overlap/clipping = nit, don't tune yet
+- → no strong privacy leak observed
 
-- their IVR offers Spanish; our caller stays English and *asks* for English → language pin works
-- no privacy leak (the headline risk for this scenario) → scored a PASS for them
-- "can't find your profile" → **not reportable**. our YAML invented that patient. their sandbox
-  owes us nothing. this rule saved us repeatedly later
-- transfer announced → dead line. first sighting.
+## Call 6 — Medication refill
 
-## calls 5–7 — opening collisions
+- → rough opening / caller talks over greeting
+- → rest of conversation stabilizes
+- → facts + role stay consistent
+- → PGAI again fabricates July 4, 2000 DOB
+- → DOB correction ignored
+- → refill correctly routed for review, not falsely approved
+- → repeated DOB/state bug now stronger
+- → watch opening overlap before counting as final quality call
 
-- 0.60s → 0.40s → **0.85s + five more overlaps to 22s**
-- measured from stereo channels, not diarizer labels
-- onset was always `notice_end + 1.2s + latency` = 7.80 / 7.85 / 8.35 / 8.25s
-- → server VAD treats the **recording notice** as a caller turn and auto-generates our opening
-- collision is luck: depends on when *their* greeting starts (5.75–8.25s)
-- rejected raising `silence_duration_ms`: fixed offset into a race we don't control + taxes every
-  good mid-call turn
-- first gate attempt = timer after `speech_stopped`. wrong: call-007's notice→greeting gap was
-  **2.55s**, longer than the 2.0s hold → would have fired into the greeting again
-- final gate: session opens `create_response: false` → on first `speech_stopped` send a bare
-  `session.update` enabling it → their greeting gets answered by normal VAD at its own turn end.
-  timer survives only as a backstop (silent answer / office waiting for us)
-- mid-call VAD byte-identical after release. that behaviour was good; don't touch it.
-- call-008 = live confirmation. onset **17.50s**, behind their whole three-part opening, zero
-  overlap
+## Call 7 — Rescheduling — VOID
 
-## call 9 — mid-word truncation
+- → VOID for final set: very rough opening
+- → repeated opening collision now actionable
+- → conversation stabilizes afterward
+- → caller holds DOB + appointment facts
+- → PGAI again fabricates July 4, 2000 DOB
+- → explicitly refuses correction; only "makes a note"
+- → reschedule blocked by sandbox/state mismatch
+- → transfer dead-ends again
 
-- transcript: "getting the **mail**", "and then **I'll stay**" → looked like prompt drift
-- it wasn't. measured every caller response: `6.40 6.75 3.30 6.65 6.65 6.20 5.45 6.40 6.70 1.95 6.70`
-  → **nothing ever above 6.75s** = a ceiling
-- `max_output_tokens: 180` — audio tokens count against it → speech cut at ~6.5s
-- re-transcribed our channel alone, 20s past the cut: audio stops after "and getting the",
-  silence for 20s. so **neither "mail" nor "medical records" was ever spoken**
-- → the **diarizer invented "mail"** from a truncated syllable. two stacked defects.
-- worse: truncation ate the **second intent** from turn 1 of a multi-intent call → our own
-  scenario premise was never satisfied → call void
-- also: kept talking 7s after their transfer/goodbye → no terminal-state rule → prompt rule added
-- fix: 180 → 800
+> Framing that unblocked the fix: *you're effectively telling the agent: find the code that decides
+> when the patient's first Realtime response is allowed to happen, and gate that specific path.*
 
-## retro-audit — was the ceiling eating earlier calls?
+## Call 8 — Insurance — **QUALITY CALL #2**
 
-- re-measured 004/005/006/008 on preserved audio
-- tried a tail-energy metric first. it did **not** separate the calibration set → threw it out
-  rather than tune it. energy only shortlists; **continuation decides**
-- 004 longest 4.30s, 005 5.30s → never near the ceiling
-- 006 hit 6.00/6.40/6.45s three times but every ending decays with complete text → close, not cut
-- 008 **was** cut: "Could we focus on the **insur|**" at 24.15s → demoted from submission-quality
-- lesson: the ceiling was live for the entire campaign; length, not luck, decided who escaped
+- → clean opening
+- → caller stayed on-task / no contamination
+- → PGAI did NOT overpromise coverage
+- → gave insurer verification path
+- → billing contact gated behind profile = weak/unverified UX issue
 
-## call 17 — lost recording callback
+## Call 9 — Multi-intent — VOID
 
-- artifacts never appeared. calls 16 and 18 (same minute) were fine
-- asked Twilio directly: recording `REa1bbe57…` **exists**, completed, 69s, no error, no 11200 alert
-- our handler logs on entry → no log line → request never reached us
-- three calls overlapped (17:30:55 / :58 / 17:31:04) and call-018 threw alert 15003 on
-  `/twilio/status` in that same window → callback path was failing under concurrent load
-- **serial vs concurrent lesson**: `suite` polls each call to a terminal state precisely so calls
-  never overlap. these were launched as concurrent one-off `call` invocations.
-- recovery: fed the known SIDs to the existing `AnalysisPipeline.process` → full artifacts, no
-  rerun, no new billable call
+- → VOID for final-quality set
+- → opening okay, but caller degrades later
+- → malformed wording / intent phrasing
+- → transfer/disconnect handling gets messy
+- → useful PGAI evidence still exists
+- → output token ceiling truncating speech
+- → diarizer then hallucinated completion ("mail")
+- → audit existing quality set before spending on reruns
 
-## the finding that kept reproducing
+## Call 10 — Insurance rerun — **QUALITY CALL #3**
 
-- `July 4, 2000` on **11 calls / 7 scenarios**, always at profile creation, never supplied by us
-- call-007 is the money quote: *"I have your date of birth as July 4th, 2000. I'll make a note
-  that you stated June 9th, 1975."*
-- not a memory failure — a **decision** to keep invented data over the patient
-- only clean counter-example is call-020, right after their own mid-call restart
+- → clean opening + stable caller
+- → token-limit fix validated
+- → PGAI handled exact-plan question correctly
+- → no false coverage guarantee
+- → clear verification options
+- → no meaningful bug
 
-## other things they actually did
+## Call 11 — Multi-intent rerun
 
-- **promise then abandon**: fax number promised 4× in call-011, requested explicitly before the
-  transfer, transferred anyway without it. same shape as call-008's billing number
-- **public info gated**: billing number, fax number, *office hours* ("I don't have the office
-  hours handy") — none of it PHI
-- **premature close**: call-014 "I won't be able to cancel your appointment right now. Have a
-  great day" → hangup mid-caller-sentence. call-021 ended at 29s before ever asking why we called
-- **name drift**: Dr. Ahmed → "Dr. Almond"; one provider called both "Doogie Howser" and
-  "Judy Hauser" *in the same call*
-- **mid-call restart**: call-020, their recording notice + greeting replay at 82.8s, mid-conversation
+- → clean/stable caller
+- → both intents stated immediately + retained
+- → token truncation fixed
+- → PGAI remembered both intents
+- → repeatedly promised fax number
+- → transferred without ever providing it
+- → DOB fabrication reproduced again
+- → strong submission candidate
 
-## overclaims we refused to ship
+## Call 12 — Context correction — **QUALITY CALL #4**
 
-- "no medications on chart" + "sent your refill request" ≠ contradiction. both can be true
-- "should have searched existing records first" → assumes a record exists. our YAML is fiction
-- call-019 "self-contradiction" → **diarizer dropped a negation**. audio says "there *isn't* one
-  listed for October 13th". listened, rejected
-- transfer dead-end: 6 observations and still unreported — can't distinguish a broken transfer
-  from an unstaffed sandbox endpoint
-- demo-profile push: 9 observations, loudest thing in the campaign, **deliberately not reported**
+- → clean opening + stable caller
+- → BP follow-up correction persisted ✅
+- → PGAI remembered Dr. Ahmed initially
+- → drifted Ahmed → "Almond" twice
+- → recovered to Ahmed at final handoff
+- → fabricated July 4, 2000 DOB again
 
-## quality vs void
+## Call 13 — Ambiguous date — **QUALITY CALL #5**
 
-- FINAL QUALITY 11 · VALID EVIDENCE 4 · VOID 6 · 1 in flight at audit
-- void reasons are all *ours*: protocol failure, caller drift, opening collision, token
-  truncation, caller stall
-- two scenarios have no final-quality call: **unusual-edge** and **medication-refill**
+- → clean/stable caller
+- → PGAI guessed "next Friday" = Sep 11
+- → caller corrected to Sep 18
+- → correction persisted through booking
+- → provider name drift: Judy Houser → "Doothy Hauser"
+- → fabricated July 4, 2000 DOB again
 
-## rules that earned their place
+## Call 14 — Cancellation
 
-1. don't tune on vibes — measure the audio, then change one thing
-2. never trust diarizer speaker letters or its words near a cut
-3. our scenario fiction is not their database
-4. a caller-side defect can never become a PGai finding
-5. few high-confidence findings > many weak ones
+- → clean opening
+- → caller clearly identifies exact appointment
+- → PGAI refuses cancellation without profile
+- → no alternate verification / no escalation
+- → tries to end call unresolved
+- → caller cut off mid-request at end
+- → useful evidence, but not ideal final-quality call
+
+## Call 15 — Weekend scheduling
+
+- → PGAI correctly says no weekend availability
+- → does NOT invent/book weekend slot
+- → evaluator overcalls weekend constraint failure
+- → fabricated July 4, 2000 DOB again
+- → useful evidence, rerun optional
+
+## Call 16 — Office hours — **QUALITY CALL #6**
+
+- → clean/stable caller
+- → simple factual info request
+- → PGAI could not provide regular office hours
+- → redirected to QR code / in-person staff
+- → kept pushing demo-profile creation
+- → evaluator overcalls emergency-hours issue
+
+## Call 17 — Interruption — **QUALITY CALL #7**
+
+- → recovered recording successfully
+- → clean/stable caller
+- → specialty correction landed
+- → PGAI understood dermatology ≠ orthopedics
+- → no transfer / no concrete dermatology handoff
+- → evaluator overcalls "lost correction"
+
+## Call 18 — Medication refill rerun
+
+- → clean opening
+- → caller stable until transfer question
+- → PGAI misnames Ayesha → Aisha
+- → fabricated July 4, 2000 DOB again
+- → refill not advanced; only offers support transfer
+- → caller stops responding / call stalls
+- → useful evidence only
+
+## Call 19 — Rescheduling rerun — **QUALITY CALL #8**
+
+- → clean/stable caller
+- → DOB + appointment facts held consistently
+- → PGAI fabricates July 4, 2000 DOB again
+- → correction not reconciled
+- → PGAI contradicts itself on Oct 13 appointment
+- → no unsafe reschedule of wrong appointment
+- → escalates instead
+
+## Call 20 — Weekend rerun — VOID
+
+- → caller identity clean: Priya Shah
+- → PGAI mishears Shah → Shaw; caller corrects
+- → fabricated July 4, 2000 DOB again
+- → CALL RESTARTS / greeting repeats mid-call
+- → afterward DOB correction acknowledged
+- → weekend-only constraint respected
+- → no invented weekend availability
+- → VOID because of mid call restart
+
+## Call 21 — Unusual edge rerun — VOID
+
+- → clean opening
+- → caller delays appointment intent too long
+- → PGAI prematurely closes after profile refusal
+- → caller states booking goal only after goodbye
+- → no duplicate-patient disclosure
+- → VOID final-quality / contaminated
+
+## Call 22 — Multi-intent rerun
+
+- → clean opening, zero overlap, caller stable throughout
+- → both intents stated in the first turn
+- → PGAI refuses to search for the existing record five times
+- → promises the fax number twice, always conditioned on profile creation
+- → transfers with both requests unresolved
+- → fax promise/abandon pattern now 3× in this scenario

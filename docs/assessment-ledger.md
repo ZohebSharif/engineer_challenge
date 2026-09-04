@@ -5,8 +5,8 @@ Tracked in git. Audio stays untracked under `calls/` (gitignored); preserved cop
 is in [`evidence/`](evidence), and the consolidated report is [`findings.md`](findings.md).
 This file carries no audio and no real patient data — every persona is synthetic.
 
-**Final audit (end of campaign): 22 calls placed — 11 FINAL QUALITY, 4 VALID EVIDENCE, 6 VOID,
-1 in flight at audit time.** Per-call classification with exclusion reasons:
+**Final audit (end of campaign): 22 calls placed — 12 FINAL QUALITY, 4 VALID EVIDENCE,
+6 VOID.** Per-call classification with exclusion reasons:
 [`evidence/README.md`](evidence/README.md). This file keeps the chronological narrative; the
 classification table there is authoritative where the two differ, because it was produced last.
 
